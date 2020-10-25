@@ -1,0 +1,45 @@
+version: '3'
+volumes:
+  db:
+    driver:
+      local
+services:
+  auth:
+    container_name: auth
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/app
+    ports:
+      - ${SERVER_PORT}:3000
+    env_file:
+      - .env
+    networks:
+      - groceryshop
+    depends_on:
+      - redis
+      - mysql
+  redis:
+    container_name: redis
+    image: redis:5
+    networks:
+      - groceryshop
+  mysql:
+    container_name: mysql
+    image: mysql
+    networks:
+      - groceryshop
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_DB: ${DB_DATABASE_NAME}
+    ports:
+      - 3306:3306
+    volumes:
+      - "./data:/docker-entrypoint-initdb.d"
+      - "db:/var/lib/mysql"
+networks:
+  groceryshop:
+    external: true
