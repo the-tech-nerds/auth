@@ -7,6 +7,7 @@ export class AppController {
 
   @Get()
   getHello(): string {
+    // Added comment
     return this.appService.getHello();
   }
 }
