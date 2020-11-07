@@ -1,4 +1,7 @@
 version: '3'
+networks:
+  groceryshop:
+    driver: bridge
 volumes:
   db:
     driver:
@@ -19,27 +22,27 @@ services:
       - groceryshop
     depends_on:
       - redis
-      - mysql
+      - authdb
+
   redis:
     container_name: redis
     image: redis:5
     networks:
       - groceryshop
-  mysql:
-    container_name: mysql
-    image: mysql
+  authdb:
+    image: mysql:5.7
+    container_name: authdb
     networks:
       - groceryshop
-    environment:
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-      MYSQL_USER: ${DB_USERNAME}
-      MYSQL_DB: ${DB_DATABASE_NAME}
     ports:
-      - 3306:3306
+      - "3306:3306"
     volumes:
       - "./data:/docker-entrypoint-initdb.d"
       - "db:/var/lib/mysql"
-networks:
-  groceryshop:
-    external: true
+    restart: unless-stopped
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE_NAME}
