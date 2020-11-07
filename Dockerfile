@@ -4,6 +4,7 @@ WORKDIR /app
 ADD . /app
 
 EXPOSE 8080
+EXPOSE 3306
 
 RUN rm -f .npmrc
 
