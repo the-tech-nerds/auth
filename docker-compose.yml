@@ -35,7 +35,7 @@ services:
     networks:
       - groceryshop
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - "./data:/docker-entrypoint-initdb.d"
       - "db:/var/lib/mysql"
