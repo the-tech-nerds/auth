@@ -1,2 +1,86 @@
+import BaseEntity from "src/share/entities/base-entity";
+import { User } from "src/user/user.entity";
+import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+
 // add role & permission related entities
-export class AuthorizationEntity {}
+
+@Entity()
+export class PermissionCategories extends BaseEntity {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column()
+  categoryName: string;
+
+  @Column({nullable: true})
+  categoryDescription: string;
+
+  @OneToMany(()=>Permissions, permission => permission)
+  permissions: Permissions[]
+
+}
+
+@Entity()
+export class Permissions extends BaseEntity {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column({length: 50})
+  permissionName: string;
+
+  @Column({nullable: true})
+  permissionDetails: string;
+
+  @Column()
+  permissionCategoryId: number;
+
+  @OneToOne( ()=> PermissionCategories, perCategory => perCategory)
+  permissionCatagories: PermissionCategories
+
+}
+
+@Entity()
+export class Roles extends BaseEntity {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column()
+  name: string;
+}
+
+
+@Entity()
+export class RoleHasPermissions extends BaseEntity {
+  @PrimaryGeneratedColumn()
+  id: number;
+  
+  @Column()
+  roleId: number;
+
+  @Column()
+  permissionId: number
+
+  @OneToOne( ()=> Permissions, permission => permission)
+  permission: Permissions
+
+  @OneToOne( ()=> Roles, role => role)
+  role: Roles
+}
+
+@Entity()
+export class UserHasRoles extends BaseEntity {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column()
+  userId: number;
+
+  @Column()
+  roleId: number;
+
+  @OneToOne( ()=> User, user => user)
+  user: User
+
+  @OneToOne( ()=> Roles, role => role)
+  role: Roles
+}
