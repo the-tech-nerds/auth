@@ -17,6 +17,7 @@ import { DeletePermissionService } from './services/permission/delete-permission
 import { PermissionCategoryController } from './controllers/permission-category.controller';
 import { RoleController } from './controllers/role.controller';
 import { PermissionController } from './controllers/permission.controller';
+import { ApiResponseService } from '../share/services/api-response/response/api-response.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([
@@ -42,6 +43,7 @@ import { PermissionController } from './controllers/permission.controller';
     ListPermissionService,
     UpdatePermissionService,
     DeletePermissionService,
+    ApiResponseService,
   ],
   controllers: [
     AuthorizationController,

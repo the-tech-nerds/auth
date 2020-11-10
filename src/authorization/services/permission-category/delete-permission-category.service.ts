@@ -14,6 +14,6 @@ export class DeletePermissionCategoryService extends AuthorizationService {
   }
 
   async delete(id: number) {
-    await this.permissionCategoryRepository.softDelete(id);
+    return await this.permissionCategoryRepository.softDelete(id);
   }
 }
