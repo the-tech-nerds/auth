@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, UpdateResult } from 'typeorm';
+import { Repository } from 'typeorm';
 import { PermissionCategories } from 'src/authorization/authorization.entity';
 import { PermissionCategoryModel } from 'src/authorization/authorization';
 import { LocalDateToUtc } from 'src/share/date-time-conversion/date-time-conversion';
@@ -14,9 +14,12 @@ export class UpdatePermissionCategoryService {
   ) {
   }
 
- async update(id:number,permissionCategoryModel:PermissionCategoryModel ) : Promise<UpdateResult> {
-     permissionCategoryModel.updatedAt = LocalDateToUtc(new Date());
-     permissionCategoryModel.updatedBy = 1;
-     return await this.permissionCategoryRepository.update(id,permissionCategoryModel);
+ async update(id:number,permissionCategoryModel:PermissionCategoryModel ) : Promise<PermissionCategoryModel> {
+     await this.permissionCategoryRepository.update(id,
+      {...permissionCategoryModel,
+        updatedBy: 1,
+        updatedAt : LocalDateToUtc(new Date())
+      });
+     return permissionCategoryModel;
 }
 }

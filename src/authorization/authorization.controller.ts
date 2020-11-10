@@ -15,7 +15,6 @@ export class AuthorizationController {
 
   @Post('/permission/category')
   createPermissionCategory(@Body() permissionCategoryModel: PermissionCategoryModel): Promise<PermissionCategories> {
-    console.log(permissionCategoryModel);
     return this.createPermissionCategoryService.create(permissionCategoryModel);
   }
 
@@ -24,8 +23,8 @@ export class AuthorizationController {
     return this.listPermissionCategoryService.getAll();
   }
   @Put('/permission/category/:id')
-  updatePermissionCategory(@Param('id') id : number, @Body() permissionCategoryModel: PermissionCategoryModel) {
-     this.updatePermissionCategoryService.update(id, permissionCategoryModel);
-     return 'updated';
+  updatePermissionCategory(@Param('id') id : number, @Body() permissionCategoryModel: PermissionCategoryModel) : Promise<PermissionCategoryModel>  {
+     const res = this.updatePermissionCategoryService.update(id, permissionCategoryModel);
+     return res;
   }
 }
