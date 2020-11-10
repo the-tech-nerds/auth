@@ -1,16 +1,19 @@
-import { Column } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, UpdateDateColumn } from 'typeorm';
 
-export default  class BaseEntity {
-    @Column()
-    createdBy: number;
+export default class BaseEntity {
+  @Column()
+  createdBy: number;
 
-    @Column({nullable: true})
-    updatedBy: number;
+  @Column({ nullable: true })
+  updatedBy: number;
 
-    @Column()
-    createdAt: Date;
+  @CreateDateColumn()
+  createdAt: Date;
 
-    @Column({nullable: true})
-    updatedAt: Date;
+  @UpdateDateColumn()
+  updatedAt: Date;
+
+  @DeleteDateColumn()
+  deleteAt: Date;
 
 }

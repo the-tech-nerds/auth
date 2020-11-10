@@ -6,7 +6,7 @@ import { PermissionsModel } from 'src/authorization/authorization';
 import { AuthorizationService } from '../authorization.service';
 
 @Injectable()
-export class CreatePermissionService extends AuthorizationService {
+export class CreateRoleService extends AuthorizationService {
   constructor(
     @InjectRepository(Permissions)
     private permissionRepository: Repository<Permissions>,

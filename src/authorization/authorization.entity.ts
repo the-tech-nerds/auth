@@ -1,6 +1,8 @@
-import BaseEntity from "src/share/entities/base-entity";
-import { User } from "src/user/user.entity";
-import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import BaseEntity from 'src/share/entities/base-entity';
+import { User } from 'src/user/user.entity';
+import {
+  Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn,
+} from 'typeorm';
 
 // add role & permission related entities
 
@@ -12,15 +14,14 @@ export class PermissionCategories extends BaseEntity {
   @Column()
   name: string;
 
-  @Column({nullable: true})
+  @Column({ nullable: true })
   description: string;
 
-  @Column()
+  @Column({ default: true })
   isActive: boolean;
 
-  @OneToMany(()=>Permissions, permission => permission)
-  permissions: Permissions[]
-
+  @OneToMany(() => Permissions, (permission) => permission)
+  permissions: Permissions[];
 }
 
 @Entity()
@@ -28,21 +29,20 @@ export class Permissions extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({length: 50})
+  @Column({ length: 50 })
   name: string;
 
-  @Column({nullable: true})
+  @Column({ nullable: true })
   description: string;
 
   @Column()
   permissionCategoryId: number;
-  
+
   @Column()
   isActive: boolean;
 
-  @OneToOne( ()=> PermissionCategories, perCategory => perCategory)
-  permissionCatagories: PermissionCategories
-
+  @OneToOne(() => PermissionCategories, (perCategory) => perCategory)
+  permissionCatagories: PermissionCategories;
 }
 
 @Entity()
@@ -54,23 +54,22 @@ export class Roles extends BaseEntity {
   name: string;
 }
 
-
 @Entity()
 export class RoleHasPermissions extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
-  
+
   @Column()
   roleId: number;
 
   @Column()
-  permissionId: number
+  permissionId: number;
 
-  @OneToOne( ()=> Permissions, permission => permission)
-  permission: Permissions
+  @OneToOne(() => Permissions, (permission) => permission)
+  permission: Permissions;
 
-  @OneToOne( ()=> Roles, role => role)
-  role: Roles
+  @OneToOne(() => Roles, (role) => role)
+  role: Roles;
 }
 
 @Entity()
@@ -84,9 +83,9 @@ export class UserHasRoles extends BaseEntity {
   @Column()
   roleId: number;
 
-  @OneToOne( ()=> User, user => user)
-  user: User
+  @OneToOne(() => User, (user) => user)
+  user: User;
 
-  @OneToOne( ()=> Roles, role => role)
-  role: Roles
+  @OneToOne(() => Roles, (role) => role)
+  role: Roles;
 }
