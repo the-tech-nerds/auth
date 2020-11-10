@@ -15,7 +15,7 @@ export class CreatePermissionCategoryService {
 
  async create(permissionCategoryModel:PermissionCategoryModel ):Promise<PermissionCategories> {
    
-    return await this.permissionCategoryRepository.save({
+    return this.permissionCategoryRepository.save({
       ...permissionCategoryModel,
       createdAt:LocalDateToUtc(new Date()),
       createdBy: 1

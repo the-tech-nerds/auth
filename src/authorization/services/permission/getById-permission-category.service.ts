@@ -4,16 +4,14 @@ import { Repository } from 'typeorm';
 import { PermissionCategories } from 'src/authorization/authorization.entity';
 
 @Injectable()
-export class ListPermissionCategoryService {
+export class GetByIdPermissionCategoryService {
   constructor(
     @InjectRepository(PermissionCategories)
     private permissionCategoryRepository: Repository<PermissionCategories>,
   ) {
   }
 
- async getAll():Promise<PermissionCategories[]> {
-    return  this.permissionCategoryRepository.find({
-        isActive: true
-    });
+ async getById(id: number): Promise<PermissionCategories | undefined> {
+    return  this.permissionCategoryRepository.findOne(id);
 }
 }

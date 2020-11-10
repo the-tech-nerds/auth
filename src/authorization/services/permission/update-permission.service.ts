@@ -5,19 +5,21 @@ import { Permissions } from 'src/authorization/authorization.entity';
 import { PermissionsModel } from 'src/authorization/authorization';
 import { LocalDateToUtc } from 'src/share/date-time-conversion/date-time-conversion';
 
+
 @Injectable()
-export class CreatePermissionService {
+export class UpdatePermissionService {
   constructor(
     @InjectRepository(Permissions)
     private permissionRepository: Repository<Permissions>,
   ) {
   }
 
- async create(permissionModel: PermissionsModel):Promise<Permissions> {
-    return  this.permissionRepository.save({
-     ...permissionModel,
-     createdBy: 1,
-     createdAt: LocalDateToUtc(new Date())
-    });
+ async update(id:number,permissionModel:PermissionsModel ) : Promise<PermissionsModel> {
+     await this.permissionRepository.update(id,
+      {...permissionModel,
+        updatedBy: 1,
+        updatedAt : LocalDateToUtc(new Date())
+      });
+     return permissionModel;
 }
 }

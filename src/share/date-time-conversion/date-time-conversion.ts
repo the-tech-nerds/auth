@@ -6,6 +6,5 @@ export function LocalDateToUtc(date: Date){
 }
 
 export function UtcDateToLocal(date: Date){
-  const local_date= moment.utc(date).local().format('YYYY-MM-DD HH:mm:ss');
-  return local_date;
+  return moment.utc(date).local().format('YYYY-MM-DD HH:mm:ss');
 }

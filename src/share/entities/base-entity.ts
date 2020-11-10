@@ -2,15 +2,15 @@ import { Column } from "typeorm";
 
 export default  class BaseEntity {
     @Column()
-    createdBy: number;
+    createdBy?: number;
 
     @Column({nullable: true})
-    updatedBy: number;
+    updatedBy?: number;
 
     @Column()
-    createdAt: Date;
+    createdAt?: Date;
 
     @Column({nullable: true})
-    updatedAt: Date;
+    updatedAt?: Date;
 
 }
