@@ -1,6 +1,6 @@
-import BaseEntity from "src/share/entities/base-entity";
+import BaseEntity from 'src/share/entities/base-entity';
 
-interface PermissionsModel extends BaseEntity{
+interface PermissionModel extends BaseEntity{
     id: number;
     name: string;
     description: string;
@@ -8,9 +8,8 @@ interface PermissionsModel extends BaseEntity{
     isActive: boolean;
   }
 
-  interface PermissionCategoryModel extends BaseEntity {
-      id: number;
-      name: string;
-      description: string;
-  }
-  
+interface PermissionCategoryModel extends BaseEntity {
+  id: number;
+  name: string;
+  description: string;
+}

@@ -2,16 +2,18 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { PermissionCategories } from 'src/authorization/authorization.entity';
+import { AuthorizationService } from '../authorization.service';
 
 @Injectable()
-export class GetByIdPermissionCategoryService {
+export class DeletePermissionCategoryService extends AuthorizationService {
   constructor(
     @InjectRepository(PermissionCategories)
     private permissionCategoryRepository: Repository<PermissionCategories>,
   ) {
+    super();
   }
 
- async getById(id: number): Promise<PermissionCategories | undefined> {
-    return  this.permissionCategoryRepository.findOne(id);
-}
+  async delete(id: number) {
+    return await this.permissionCategoryRepository.softDelete(id);
+  }
 }
