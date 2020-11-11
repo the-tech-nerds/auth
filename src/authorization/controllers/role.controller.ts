@@ -1,5 +1,5 @@
 import { Controller } from '@nestjs/common';
 
 @Controller()
-export class AuthorizationController {
+export class RoleController  {
 }

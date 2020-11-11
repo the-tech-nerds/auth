@@ -4,22 +4,22 @@ import { Repository } from 'typeorm';
 import { PermissionCategories } from 'src/authorization/authorization.entity';
 import { PermissionCategoryModel } from 'src/authorization/authorization';
 import { LocalDateToUtc } from 'src/share/date-time-conversion/date-time-conversion';
-
+import { AuthorizationService } from '../authorization.service';
 
 @Injectable()
-export class UpdatePermissionCategoryService {
+export class CreatePermissionCategoryService extends AuthorizationService {
   constructor(
     @InjectRepository(PermissionCategories)
     private permissionCategoryRepository: Repository<PermissionCategories>,
   ) {
+    super();
   }
 
- async update(id:number,permissionCategoryModel:PermissionCategoryModel ) : Promise<PermissionCategoryModel> {
-     await this.permissionCategoryRepository.update(id,
-      {...permissionCategoryModel,
-        updatedBy: 1,
-        updatedAt : LocalDateToUtc(new Date())
-      });
-     return permissionCategoryModel;
-}
+  async create(permissionCategoryModel: PermissionCategoryModel): Promise<PermissionCategories> {
+    return await this.permissionCategoryRepository.save({
+      ...permissionCategoryModel,
+      createdAt: LocalDateToUtc(new Date()),
+      createdBy: 1,
+    });
+  }
 }
