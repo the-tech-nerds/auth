@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
+import BaseEntity from "src/share/entities/base-entity";
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 export type userType = "admin" | "user"
 
@@ -34,12 +35,15 @@ export class User extends BaseEntity{
   @Column({nullable:true})
   imageUrl: string;
 
-  @Column({
-    type: "enum",
-    enum: ["admin", "user"],
-    default: "user"
-})
-role: userType
+//   @Column({
+//     type: "enum",
+//     enum: ["admin", "user"],
+//     default: "user"
+// })
+// type: userType;
+
+  @Column({ default:'user' })
+  type: string;
 
   @Column({ default: true })
   isActive: boolean;
