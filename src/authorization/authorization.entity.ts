@@ -10,10 +10,13 @@ export class PermissionCategories extends BaseEntity {
   id: number;
 
   @Column()
-  categoryName: string;
+  name: string;
 
   @Column({nullable: true})
-  categoryDescription: string;
+  description: string;
+
+  @Column()
+  isActive: boolean;
 
   @OneToMany(()=>Permissions, permission => permission)
   permissions: Permissions[]
@@ -26,13 +29,16 @@ export class Permissions extends BaseEntity {
   id: number;
 
   @Column({length: 50})
-  permissionName: string;
+  name: string;
 
   @Column({nullable: true})
-  permissionDetails: string;
+  description: string;
 
   @Column()
   permissionCategoryId: number;
+  
+  @Column()
+  isActive: boolean;
 
   @OneToOne( ()=> PermissionCategories, perCategory => perCategory)
   permissionCatagories: PermissionCategories
