@@ -13,10 +13,12 @@ export class ListPermissionCategoryService extends AuthorizationService {
     super();
   }
 
-  async getAll(): Promise<PermissionCategories[]> {
-    // eslint-disable-next-line no-return-await
-    return await this.permissionCategoryRepository.find({
-      isActive: true,
+ async getAll():Promise<PermissionCategories[]> {
+    return  this.permissionCategoryRepository.find({
+        where: { 
+          isActive: true,
+          deleteAt: null
+        }
     });
   }
 }

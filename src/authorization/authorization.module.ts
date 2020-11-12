@@ -18,6 +18,7 @@ import { PermissionCategoryController } from './controllers/permission-category.
 import { RoleController } from './controllers/role.controller';
 import { PermissionController } from './controllers/permission.controller';
 import { ApiResponseService } from '../share/services/api-response/response/api-response.service';
+import { GetByIdPermissionService } from './services/permission/getById-permission.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([
@@ -44,6 +45,7 @@ import { ApiResponseService } from '../share/services/api-response/response/api-
     UpdatePermissionService,
     DeletePermissionService,
     ApiResponseService,
+    GetByIdPermissionService
   ],
   controllers: [
     AuthorizationController,

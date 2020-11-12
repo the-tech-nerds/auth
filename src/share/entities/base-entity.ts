@@ -7,13 +7,13 @@ export default class BaseEntity {
   @Column({ nullable: true })
   updatedBy: number;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ nullable: true})
   createdAt: Date;
 
-  @UpdateDateColumn()
+  @UpdateDateColumn({nullable: true})
   updatedAt: Date;
 
-  @DeleteDateColumn()
+  @DeleteDateColumn({ nullable: true})
   deleteAt: Date;
 
 }

@@ -1,8 +1,6 @@
-import BaseEntity from 'src/share/entities/base-entity';
-import { User } from 'src/user/user.entity';
-import {
-  Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn,
-} from 'typeorm';
+import BaseEntity from "src/share/entities/base-entity";
+import { User } from "src/user/user.entity";
+import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 // add role & permission related entities
 
@@ -38,11 +36,13 @@ export class Permissions extends BaseEntity {
   @Column()
   permissionCategoryId: number;
 
-  @Column()
+  @Column({ default: true})
   isActive: boolean;
 
-  @OneToOne(() => PermissionCategories, (perCategory) => perCategory)
-  permissionCatagories: PermissionCategories;
+  @OneToOne( ()=> PermissionCategories, perCategory => perCategory)
+  @JoinColumn({name: 'permissionCategoryId'})
+  permissionCatagories: PermissionCategories
+
 }
 
 @Entity()

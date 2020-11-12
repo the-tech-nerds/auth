@@ -14,8 +14,9 @@ export class UpdatePermissionCategoryService extends AuthorizationService {
     super();
   }
 
-  async update(id: number, permissionCategoryModel: PermissionCategoryModel): Promise<PermissionCategoryModel> {
-    await this.permissionCategoryRepository.update(id, { ...permissionCategoryModel });
-    return permissionCategoryModel;
+  async update(id: number, permissionCategoryModel: PermissionCategoryModel): Promise<PermissionCategories | undefined> {
+    await this.permissionCategoryRepository.update(id, {...permissionCategoryModel,
+    updatedBy: 1});
+    return this.permissionCategoryRepository.findOne(id);
   }
 }

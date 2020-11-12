@@ -24,7 +24,7 @@ export class PermissionCategoryController {
   async createPermissionCategory(@Body() permissionCategoryModel: PermissionCategoryModel, @Res() res: Response): Promise<Response<ResponseModel>> {
     try {
       const data = await this.createPermissionCategoryService.create(permissionCategoryModel);
-      return this.apiResponseService.successResponse(['Permission category store successfully'], data as PermissionCategories, res);
+      return this.apiResponseService.successResponse(['Permission store successfully'], data as PermissionCategories, res);
     } catch (e) {
       return this.apiResponseService.internalServerError(['Something went wrong! please try again later'], res);
     }
@@ -34,7 +34,7 @@ export class PermissionCategoryController {
   async getAllPermissionsCategory(@Res() res: Response): Promise<Response<ResponseModel>> {
     try {
       const data = await this.listPermissionCategoryService.getAll();
-      return this.apiResponseService.successResponse(['Permission category retrieved successfully'], data as PermissionCategories[], res);
+      return this.apiResponseService.successResponse(['Permission retrieved successfully'], data as PermissionCategories[], res);
     } catch (e) {
       return this.apiResponseService.internalServerError(['Something went wrong! please try again later'], res);
     }
@@ -44,8 +44,7 @@ export class PermissionCategoryController {
   async updatePermissionCategory(@Param('id') id: number, @Body() permissionCategoryModel: PermissionCategoryModel, @Res() res: Response): Promise<Response<ResponseModel>> {
     try {
       const data = await this.updatePermissionCategoryService.update(id, permissionCategoryModel);
-      permissionCategoryModel.updatedBy = 1;
-      return this.apiResponseService.successResponse(['Permission category update successfully'], data as PermissionCategoryModel, res);
+      return this.apiResponseService.successResponse(['Permission update successfully'], data as PermissionCategories, res);
     } catch (e) {
       return this.apiResponseService.internalServerError(['Something went wrong! please try again later'], res);
     }
@@ -55,7 +54,7 @@ export class PermissionCategoryController {
   async deletePermissionCategory(@Param('id') id: number, @Res() res: Response): Promise<Response<ResponseModel>> {
     try {
       await this.deletePermissionCategoryService.delete(id);
-      return this.apiResponseService.successResponse(['Permission category delete successfully'], null, res);
+      return this.apiResponseService.successResponse(['Permission delete successfully'], null, res);
     } catch (e) {
       return this.apiResponseService.internalServerError(['Something went wrong! please try again later'], res);
     }
