@@ -21,6 +21,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@technerds/common-services": "the-tech-nerds/common-services",
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
@@ -34,7 +35,7 @@
     "typeorm": "^0.2.29"
   },
   "devDependencies": {
-    "@technerds/eslint-config": "git@github.com:the-tech-nerds/eslint-config.git",
+    "@technerds/eslint-config": "the-tech-nerds/eslint-config",
     "@nestjs/cli": "^7.0.0",
     "@nestjs/schematics": "^7.0.0",
     "@nestjs/testing": "^7.0.0",
