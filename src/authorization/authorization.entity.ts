@@ -1,3 +1,4 @@
+// eslint-disable-next-line max-classes-per-file
 import BaseEntity from 'src/share/entities/base-entity';
 import { User } from 'src/user/user.entity';
 import {
@@ -26,6 +27,7 @@ export class PermissionCategories extends BaseEntity {
   isActive: boolean;
 
   @OneToMany(
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     () => Permissions,
     (permission) => permission,
   )
