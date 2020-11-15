@@ -1,1 +1,1 @@
-export class ListRoleService{}
+export class ListRoleService {}

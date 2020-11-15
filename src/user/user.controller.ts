@@ -3,7 +3,8 @@ import {
 } from '@nestjs/common';
 import { ListUsersService } from './list-users.service';
 import { User } from './user.entity';
-import {UserInput} from './user';
+// eslint-disable-next-line import/extensions
+import { UserInput } from './user';
 import { CreateUserService } from './create-user.service';
 import { UpdateUsersService } from './update-user.service';
 
@@ -26,8 +27,11 @@ export class UserController {
   }
 
   @Put('/user/:id')
-  updateUser(@Param('id') id : number, @Body() userInput: UserInput) : Promise<UserInput>  {
-     const res = this.updateUsersService.execute(id, userInput);
-     return res;
+  updateUser(
+    @Param('id') id: number,
+      @Body() userInput: UserInput,
+  ): Promise<UserInput> {
+    const res = this.updateUsersService.execute(id, userInput);
+    return res;
   }
 }

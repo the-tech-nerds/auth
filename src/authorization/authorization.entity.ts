@@ -1,6 +1,13 @@
-import BaseEntity from "src/share/entities/base-entity";
-import { User } from "src/user/user.entity";
-import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import BaseEntity from 'src/share/entities/base-entity';
+import { User } from 'src/user/user.entity';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 // add role & permission related entities
 
@@ -18,7 +25,10 @@ export class PermissionCategories extends BaseEntity {
   @Column({ default: true })
   isActive: boolean;
 
-  @OneToMany(() => Permissions, (permission) => permission)
+  @OneToMany(
+    () => Permissions,
+    (permission) => permission,
+  )
   permissions: Permissions[];
 }
 
@@ -36,13 +46,15 @@ export class Permissions extends BaseEntity {
   @Column()
   permissionCategoryId: number;
 
-  @Column({ default: true})
+  @Column({ default: true })
   isActive: boolean;
 
-  @OneToOne( ()=> PermissionCategories, perCategory => perCategory)
-  @JoinColumn({name: 'permissionCategoryId'})
-  permissionCatagories: PermissionCategories
-
+  @OneToOne(
+    () => PermissionCategories,
+    (perCategory) => perCategory,
+  )
+  @JoinColumn({ name: 'permissionCategoryId' })
+  permissionCatagories: PermissionCategories;
 }
 
 @Entity()
@@ -65,10 +77,16 @@ export class RoleHasPermissions extends BaseEntity {
   @Column()
   permissionId: number;
 
-  @OneToOne(() => Permissions, (permission) => permission)
+  @OneToOne(
+    () => Permissions,
+    (permission) => permission,
+  )
   permission: Permissions;
 
-  @OneToOne(() => Roles, (role) => role)
+  @OneToOne(
+    () => Roles,
+    (role) => role,
+  )
   role: Roles;
 }
 
@@ -83,9 +101,15 @@ export class UserHasRoles extends BaseEntity {
   @Column()
   roleId: number;
 
-  @OneToOne(() => User, (user) => user)
+  @OneToOne(
+    () => User,
+    (user) => user,
+  )
   user: User;
 
-  @OneToOne(() => Roles, (role) => role)
+  @OneToOne(
+    () => Roles,
+    (role) => role,
+  )
   role: Roles;
 }
