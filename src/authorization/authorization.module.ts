@@ -1,7 +1,13 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthorizationController } from './authorization.controller';
-import { PermissionCategories, Permissions, RoleHasPermissions, Roles, UserHasRoles } from './authorization.entity';
+import {
+  PermissionCategories,
+  Permissions,
+  RoleHasPermissions,
+  Roles,
+  UserHasRoles,
+} from './authorization.entity';
 import { CreatePermissionCategoryService } from './services/permission-category/create-permision-category.service';
 import { ListPermissionCategoryService } from './services/permission-category/list-permission-category.service';
 import { UpdatePermissionCategoryService } from './services/permission-category/update-permission-category.service';
@@ -21,13 +27,14 @@ import { ApiResponseService } from '../share/services/api-response/response/api-
 import { GetByIdPermissionService } from './services/permission/getById-permission.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([
-    PermissionCategories,
-    Permissions,
-    Roles,
-    RoleHasPermissions,
-    UserHasRoles,
-  ]),
+  imports: [
+    TypeOrmModule.forFeature([
+      PermissionCategories,
+      Permissions,
+      Roles,
+      RoleHasPermissions,
+      UserHasRoles,
+    ]),
   ],
   providers: [
     CreatePermissionCategoryService,
@@ -45,15 +52,13 @@ import { GetByIdPermissionService } from './services/permission/getById-permissi
     UpdatePermissionService,
     DeletePermissionService,
     ApiResponseService,
-    GetByIdPermissionService
+    GetByIdPermissionService,
   ],
   controllers: [
     AuthorizationController,
     PermissionCategoryController,
     RoleController,
     PermissionController,
-
   ],
 })
-export class AuthorizationModule {
-}
+export class AuthorizationModule {}

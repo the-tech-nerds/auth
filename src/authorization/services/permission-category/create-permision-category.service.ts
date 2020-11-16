@@ -14,8 +14,9 @@ export class CreatePermissionCategoryService extends AuthorizationService {
     super();
   }
 
- async create(permissionCategoryModel:PermissionCategoryModel ):Promise<PermissionCategories> {
-   
+  async create(
+    permissionCategoryModel: PermissionCategoryModel,
+  ): Promise<PermissionCategories> {
     return this.permissionCategoryRepository.save({
       ...permissionCategoryModel,
       createdBy: 1,

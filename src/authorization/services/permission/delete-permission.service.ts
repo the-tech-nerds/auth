@@ -7,11 +7,10 @@ import { Permissions } from 'src/authorization/authorization.entity';
 export class DeletePermissionService {
   constructor(
     @InjectRepository(Permissions)
-    private permissionRepository: Repository<Permissions>
-  ) {
-  }
+    private permissionRepository: Repository<Permissions>,
+  ) {}
 
- async delete(id: number): Promise<UpdateResult> {
-    return  this.permissionRepository.softDelete(id);
-}
+  async delete(id: number): Promise<UpdateResult> {
+    return this.permissionRepository.softDelete(id);
+  }
 }
