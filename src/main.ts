@@ -6,6 +6,6 @@ async function bootstrap(): Promise<void> {
   app.setGlobalPrefix('api/v1');
   await app.listen(3000);
 }
-
+console.log('arif');
 // eslint-disable-next-line @typescript-eslint/no-use-before-define,no-void
 void bootstrap();
