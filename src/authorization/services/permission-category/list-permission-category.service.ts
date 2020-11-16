@@ -13,12 +13,12 @@ export class ListPermissionCategoryService extends AuthorizationService {
     super();
   }
 
- async getAll():Promise<PermissionCategories[]> {
-    return  this.permissionCategoryRepository.find({
-        where: { 
-          isActive: true,
-          deleteAt: null
-        }
+  async getAll(): Promise<PermissionCategories[]> {
+    return this.permissionCategoryRepository.find({
+      where: {
+        isActive: true,
+        deleteAt: null,
+      },
     });
   }
 }

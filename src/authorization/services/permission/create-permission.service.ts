@@ -17,7 +17,7 @@ export class CreatePermissionService extends AuthorizationService {
   async create(permissionModel: PermissionModel): Promise<Permissions> {
     return this.permissionRepository.save({
       ...permissionModel,
-      createdBy: 1
+      createdBy: 1,
     });
   }
 }

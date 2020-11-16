@@ -8,15 +8,14 @@ export class ListPermissionService {
   constructor(
     @InjectRepository(Permissions)
     private permissionRepository: Repository<Permissions>,
-  ) {
-  }
+  ) {}
 
- async getAll():Promise<Permissions[]> {
-    return await this.permissionRepository.find({
-       where: { 
-         isActive: true,
-         deleteAt: null
-       }
+  async getAll(): Promise<Permissions[]> {
+    return this.permissionRepository.find({
+      where: {
+        isActive: true,
+        deleteAt: null,
+      },
     });
-}
+  }
 }

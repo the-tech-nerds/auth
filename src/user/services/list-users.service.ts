@@ -8,10 +8,9 @@ export class ListUsersService {
   constructor(
     @InjectRepository(User)
     private usersRepository: Repository<User>,
-  ) {
-  }
+  ) {}
 
-  async execute():Promise<User[]> {
-    return await this.usersRepository.find();
-}
+  async execute(): Promise<User[]> {
+    return this.usersRepository.find();
+  }
 }
