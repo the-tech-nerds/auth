@@ -8,10 +8,9 @@ export class DeleteUserService {
   constructor(
     @InjectRepository(User)
     private usersRepository: Repository<User>,
-  ) {
-  }
+  ) {}
 
-async execute(id: number): Promise<UpdateResult> {
-  return  this.usersRepository.softDelete(id);
-}
+  async execute(id: number): Promise<UpdateResult> {
+    return this.usersRepository.softDelete(id);
+  }
 }

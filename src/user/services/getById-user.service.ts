@@ -8,10 +8,9 @@ export class GetByIdUserService {
   constructor(
     @InjectRepository(User)
     private usersRepository: Repository<User>,
-  ) {
-  }
+  ) {}
 
-async execute(id: number): Promise<User | undefined> {
-  return  this.usersRepository.findOne(id);
-}
+  async execute(id: number): Promise<User | undefined> {
+    return this.usersRepository.findOne(id);
+  }
 }

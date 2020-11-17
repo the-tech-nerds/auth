@@ -11,7 +11,13 @@ import { DeleteUserService } from './services/delete-user.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User])],
-  providers: [ListUsersService, CreateUserService, UpdateUsersService, GetByIdUserService, DeleteUserService],
+  providers: [
+    ListUsersService,
+    CreateUserService,
+    UpdateUsersService,
+    GetByIdUserService,
+    DeleteUserService,
+  ],
   controllers: [UserController],
 })
 export class UserModule {}
