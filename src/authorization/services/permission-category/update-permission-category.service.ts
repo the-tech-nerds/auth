@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { PermissionCategoryModel } from 'src/authorization/authorization';
 import { PermissionCategories } from 'src/authorization/entities/permission-category.entity';
+import { PermissionCategoryRequest } from 'src/authorization/requests/permission-category.request';
 import { Repository } from 'typeorm';
 import { AuthorizationService } from '../authorization.service';
 
@@ -16,10 +16,10 @@ export class UpdatePermissionCategoryService extends AuthorizationService {
 
   async update(
     id: number,
-    permissionCategoryModel: PermissionCategoryModel,
+    permissionCategoryRequest: PermissionCategoryRequest,
   ): Promise<PermissionCategories | undefined> {
     await this.permissionCategoryRepository.update(id, {
-      ...permissionCategoryModel, // \n
+      ...permissionCategoryRequest,
       updatedBy: 1,
     });
     return this.permissionCategoryRepository.findOne(id);

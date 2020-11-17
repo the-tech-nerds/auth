@@ -28,7 +28,7 @@
     "@nestjs/platform-express": "^7.0.0",
     "@nestjs/typeorm": "^7.1.4",
     "helmet": "^4.2.0",
-    "@technerds/common-services": "git@github.com:the-tech-nerds/common-services.git#fb257c9",
+    "@technerds/common-services": "git@github.com:the-tech-nerds/common-services.git#d590616",
     "@types/bcryptjs": "^2.4.2",
     "bcryptjs": "^2.4.3",
     "cache-manager": "^3.4.0",

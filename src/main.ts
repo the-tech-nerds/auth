@@ -2,13 +2,14 @@ import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import * as session from 'express-session';
 import { ValidationPipe } from '@nestjs/common';
+import { setBootstrap } from '@technerds/common-services';
 import { AppModule } from './app.module';
 import { ErrorFilter } from './filters/error.filter';
 import { ApiResponseService } from './utils/services/api-response/response/api-response.service';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  app.setGlobalPrefix('api/v1');
+  await setBootstrap(app);
   app.use(
     session({
       secret: 'nest cats',
@@ -20,6 +21,5 @@ async function bootstrap(): Promise<void> {
   app.useGlobalPipes(new ValidationPipe());
   await app.listen(3000);
 }
-console.log('arif');
 // eslint-disable-next-line @typescript-eslint/no-use-before-define,no-void
 void bootstrap();
