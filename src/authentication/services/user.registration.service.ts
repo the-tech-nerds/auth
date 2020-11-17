@@ -8,13 +8,10 @@ export class UserRegistrationService {
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
-  ) {
-  }
+  ) {}
 
   async register(userData: UserRegistrationRequest) {
-    const {
-      password = '',
-    } = userData;
+    const { password = '' } = userData;
     return this.userRepository.save({
       ...userData,
       password: await hash(password, 10),

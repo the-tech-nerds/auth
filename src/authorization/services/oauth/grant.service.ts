@@ -20,21 +20,29 @@ export class GrantService extends AuthorizationService {
 
   async execute(server: any) {
     const that = this;
-    server.grant(oauth2orize.grant.code(
-      async (client: Client, redirectUri: string, user: User, ares: any, callback: any) => {
-        const code = {
-          value: uid(16),
-          client_id: client.id,
-          user_id: user.id,
-        } as AccessCode;
+    server.grant(
+      oauth2orize.grant.code(
+        async (
+          client: Client,
+          redirectUri: string,
+          user: User,
+          ares: any,
+          callback: any,
+        ) => {
+          const code = {
+            value: uid(16),
+            client_id: client.id,
+            user_id: user.id,
+          } as AccessCode;
 
-        try {
-          await that.accessCodeRepository.save(code);
-          return callback(null, code.value);
-        } catch (e) {
-          return callback(e);
-        }
-      },
-    ));
+          try {
+            await that.accessCodeRepository.save(code);
+            return callback(null, code.value);
+          } catch (e) {
+            return callback(e);
+          }
+        },
+      ),
+    );
   }
 }

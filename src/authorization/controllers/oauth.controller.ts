@@ -20,8 +20,10 @@ export class OauthController {
   ) {}
 
   @Post('/client')
-  async createClient(@Body() clientRequest: ClientRequest, @Res() res: Response):
-  Promise<Response<ResponseModel>> {
+  async createClient(
+    @Body() clientRequest: ClientRequest,
+      @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
     try {
       const client = await this.createClientService.create(clientRequest);
       return this.apiResponseService.successResponse(
@@ -54,10 +56,7 @@ export class OauthController {
     @Next() next: any,
   ) {
     const tokenHandler = await this.tokenService.execute();
-    const {
-      client_id: id,
-      secret,
-    } = tokenRequest;
+    const { client_id: id, secret } = tokenRequest;
     req.client = {
       id,
       secret,

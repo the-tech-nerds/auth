@@ -1,6 +1,6 @@
 import BaseEntity from 'src/utils/entities/base-entity';
 
-interface PermissionModel extends BaseEntity{
+interface PermissionModel extends BaseEntity {
   id: number;
   name: string;
   description: string;

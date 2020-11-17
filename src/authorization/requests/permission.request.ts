@@ -1,6 +1,4 @@
-import {
-  IsNotEmpty, IsBoolean, IsNumber,
-} from 'class-validator';
+import { IsNotEmpty, IsBoolean, IsNumber } from 'class-validator';
 
 export class PermissionRequest {
   @IsNotEmpty({ message: 'Permission Name is required.' })

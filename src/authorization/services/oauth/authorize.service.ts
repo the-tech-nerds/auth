@@ -27,7 +27,8 @@ export class AuthorizeService extends AuthorizationService {
         } catch (e) {
           return callback(e);
         }
-      }, (req: any, res: any) => res(null, req, res),
+      },
+      (req: any, res: any) => res(null, req, res),
     );
   }
 }

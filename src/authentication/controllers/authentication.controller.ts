@@ -8,17 +8,18 @@ import { ApiResponseService } from '../../utils/services/api-response/response/a
 @Controller()
 export class AuthenticationController {
   constructor(
-    private readonly userRegistrationService :UserRegistrationService,
+    private readonly userRegistrationService: UserRegistrationService,
     private readonly apiResponseService: ApiResponseService,
-  ) {
-  }
+  ) {}
 
   @Post('/register')
   async register(
   @Body() userRegistrationRequest: UserRegistrationRequest,
     @Res() res: any,
   ) {
-    const user = await this.userRegistrationService.register(userRegistrationRequest);
+    const user = await this.userRegistrationService.register(
+      userRegistrationRequest,
+    );
     return this.apiResponseService.successResponse(
       ['Registered successfully'],
       user,

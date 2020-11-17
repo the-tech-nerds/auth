@@ -1,28 +1,26 @@
 import {
-  ExceptionFilter, Catch, ArgumentsHost, HttpStatus, HttpException,
+  ExceptionFilter,
+  Catch,
+  ArgumentsHost,
+  HttpStatus,
+  HttpException,
 } from '@nestjs/common';
 import { ApiResponseService } from '../utils/services/api-response/response/api-response.service';
 
 @Catch()
 export class ErrorFilter implements ExceptionFilter {
-  constructor(
-    private readonly apiResponseService: ApiResponseService,
-  ) {
-
-  }
+  constructor(private readonly apiResponseService: ApiResponseService) {}
 
   catch(error: Error, host: ArgumentsHost) {
     const response = host.switchToHttp().getResponse();
-    const status = (error instanceof HttpException)
-      ? error.getStatus() : HttpStatus.INTERNAL_SERVER_ERROR;
+    const status = error instanceof HttpException
+      ? error.getStatus()
+      : HttpStatus.INTERNAL_SERVER_ERROR;
 
     if (status === HttpStatus.BAD_REQUEST) {
-      const res: ResponseModel = ((error as HttpException).getResponse()) as ResponseModel;
+      const res: ResponseModel = (error as HttpException).getResponse() as ResponseModel;
       const { message } = res;
-      return this.apiResponseService.badRequestError(
-        message,
-        response,
-      );
+      return this.apiResponseService.badRequestError(message, response);
     }
 
     if (status === HttpStatus.UNAUTHORIZED) {
@@ -32,10 +30,7 @@ export class ErrorFilter implements ExceptionFilter {
       );
     }
     if (status === HttpStatus.NOT_FOUND) {
-      return this.apiResponseService.notFoundError(
-        [error.message],
-        response,
-      );
+      return this.apiResponseService.notFoundError([error.message], response);
     }
 
     return this.apiResponseService.internalServerError(

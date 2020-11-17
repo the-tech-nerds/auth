@@ -30,7 +30,6 @@ export class PermissionController {
   ) {}
 
   @Post('/permission')
-
   async createPermission(
     @Body() permissionRequest: PermissionRequest,
       @Res() res: Response,
@@ -48,7 +47,6 @@ export class PermissionController {
   }
 
   @Get('/permissions')
-
   async getAllPermissions(
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {

@@ -14,7 +14,10 @@ export class UpdateUsersService {
     private fetchUserByIdService: FetchUserByIdService,
   ) {}
 
-  async execute(id: number, userRequest: UserRequest): Promise<User | undefined> {
+  async execute(
+    id: number,
+    userRequest: UserRequest,
+  ): Promise<User | undefined> {
     await this.usersRepository.update(id, {
       ...userRequest,
       updatedBy: 1,

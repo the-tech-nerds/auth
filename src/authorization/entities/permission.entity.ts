@@ -1,5 +1,9 @@
 import {
-  Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn,
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
 import BaseEntity from '../../utils/entities/base-entity';
 import { PermissionCategories } from './permission-category.entity';

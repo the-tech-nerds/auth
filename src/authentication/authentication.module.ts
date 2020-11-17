@@ -31,12 +31,7 @@ import { AccessToken } from '../authorization/entities/access-token.entity';
     CacheModule,
     UserModule,
   ],
-  providers: [
-    UserRegistrationService,
-    ApiResponseService,
-  ],
-  controllers: [
-    AuthenticationController,
-  ],
+  providers: [UserRegistrationService, ApiResponseService],
+  controllers: [AuthenticationController],
 })
 export class AuthenticationModule {}
