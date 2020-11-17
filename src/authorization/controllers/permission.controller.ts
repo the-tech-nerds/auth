@@ -58,7 +58,6 @@ export class PermissionController {
         res,
       );
     } catch (e) {
-      console.log(e);
       return this.apiResponseService.internalServerError(
         ['Something went wrong! please try again later'],
         res,
