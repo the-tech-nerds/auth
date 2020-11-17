@@ -1,4 +1,6 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Res } from '@nestjs/common';
+import {
+  Body, Controller, Delete, Get, Param, Post, Put, Res,
+} from '@nestjs/common';
 import { Response } from 'express';
 import { CreatePermissionCategoryService } from '../services/permission-category/create-permision-category.service';
 import { ListPermissionCategoryService } from '../services/permission-category/list-permission-category.service';
@@ -6,8 +8,7 @@ import { UpdatePermissionCategoryService } from '../services/permission-category
 import { DeletePermissionCategoryService } from '../services/permission-category/delete-permission-category.service';
 import { PermissionCategoryModel } from '../authorization';
 import { PermissionCategories } from '../authorization.entity';
-import { ApiResponseService } from '../../share/services/api-response/response/api-response.service';
-
+import { ApiResponseService } from '../../utils/services/api-response/response/api-response.service';
 
 @Controller()
 export class PermissionCategoryController {

@@ -1,8 +1,10 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { CacheModule } from '@technerds/common-services/src/cache/cache.module';
+import { CacheModule } from '@technerds/common-services';
 import { AuthorizationController } from './authorization.controller';
 import {
+  AccessCode, AccessToken,
+  Client,
   PermissionCategories, Permissions, RoleHasPermissions, Roles, UserHasRoles,
 } from './authorization.entity';
 import { CreatePermissionCategoryService } from './services/permission-category/create-permision-category.service';
@@ -20,8 +22,17 @@ import { DeletePermissionService } from './services/permission/delete-permission
 import { PermissionCategoryController } from './controllers/permission-category.controller';
 import { RoleController } from './controllers/role.controller';
 import { PermissionController } from './controllers/permission.controller';
-import { ApiResponseService } from '../share/services/api-response/response/api-response.service';
+import { ApiResponseService } from '../utils/services/api-response/response/api-response.service';
 import { GetByIdPermissionService } from './services/permission/getById-permission.service';
+import { OauthController } from './controllers/oauth.controller';
+import { CreateClientService } from './services/oauth/create-client.service';
+import { SerializeClientService } from './services/oauth/serialize-client.service';
+import { DeserializeClientService } from './services/oauth/deserialize-client.service';
+import { GrantService } from './services/oauth/grant.service';
+import { ExchangeService } from './services/oauth/exchange.service';
+import { AuthorizeService } from './services/oauth/authorize.service';
+import { InitializeOauthServerService } from './services/oauth/initialize-oauth-server.service';
+import { TokenService } from './services/oauth/token.service';
 
 @Module({
   imports: [
@@ -31,6 +42,9 @@ import { GetByIdPermissionService } from './services/permission/getById-permissi
       Roles,
       RoleHasPermissions,
       UserHasRoles,
+      Client,
+      AccessCode,
+      AccessToken,
     ]),
     CacheModule,
   ],
@@ -51,13 +65,22 @@ import { GetByIdPermissionService } from './services/permission/getById-permissi
     DeletePermissionService,
     ApiResponseService,
     GetByIdPermissionService,
+
+    CreateClientService,
+    SerializeClientService,
+    DeserializeClientService,
+    GrantService,
+    ExchangeService,
+    AuthorizeService,
+    TokenService,
+    InitializeOauthServerService,
   ],
   controllers: [
     AuthorizationController,
     PermissionCategoryController,
     RoleController,
     PermissionController,
-
+    OauthController,
   ],
 })
 export class AuthorizationModule {

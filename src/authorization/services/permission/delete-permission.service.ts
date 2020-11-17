@@ -1,9 +1,7 @@
-import { Injectable, Module, CacheModule } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, UpdateResult } from 'typeorm';
-import * as redisStore from 'cache-manager-redis-store';
 import { Permissions } from 'src/authorization/authorization.entity';
-import { RedisCacheService } from './redisCache.service';
 
 @Injectable()
 export class DeletePermissionService {

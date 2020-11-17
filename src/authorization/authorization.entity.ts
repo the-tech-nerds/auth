@@ -1,6 +1,8 @@
-import BaseEntity from "src/share/entities/base-entity";
-import { User } from "src/user/user.entity";
-import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import BaseEntity from 'src/utils/entities/base-entity';
+import { User } from 'src/user/user.entity';
+import {
+  Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn,
+} from 'typeorm';
 
 // add role & permission related entities
 
@@ -36,13 +38,12 @@ export class Permissions extends BaseEntity {
   @Column()
   permissionCategoryId: number;
 
-  @Column({ default: true})
+  @Column({ default: true })
   isActive: boolean;
 
-  @OneToOne( ()=> PermissionCategories, perCategory => perCategory)
-  @JoinColumn({name: 'permissionCategoryId'})
-  permissionCatagories: PermissionCategories
-
+  @OneToOne(() => PermissionCategories, (perCategory) => perCategory)
+  @JoinColumn({ name: 'permissionCategoryId' })
+  permissionCatagories: PermissionCategories;
 }
 
 @Entity()
@@ -88,4 +89,46 @@ export class UserHasRoles extends BaseEntity {
 
   @OneToOne(() => Roles, (role) => role)
   role: Roles;
+}
+
+@Entity()
+export class Client extends BaseEntity {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column()
+  name: string;
+
+  @Column()
+  secret: string;
+}
+
+@Entity()
+export class AccessCode {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column()
+  value: string;
+
+  @Column()
+  userId: number;
+
+  @Column()
+  clientId: string;
+}
+
+@Entity()
+export class AccessToken extends BaseEntity {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column()
+  value: string;
+
+  @Column()
+  userId: number;
+
+  @Column()
+  clientId: string;
 }
