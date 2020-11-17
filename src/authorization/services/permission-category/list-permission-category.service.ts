@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { PermissionCategories } from 'src/authorization/authorization.entity';
 import { AuthorizationService } from '../authorization.service';
+import { PermissionCategories } from '../../entities/permission-category.entity';
 
 @Injectable()
 export class ListPermissionCategoryService extends AuthorizationService {

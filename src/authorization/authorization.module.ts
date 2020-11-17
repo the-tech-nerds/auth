@@ -1,13 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { CacheModule } from '@technerds/common-services';
 import { AuthorizationController } from './authorization.controller';
-import {
-  PermissionCategories,
-  Permissions,
-  RoleHasPermissions,
-  Roles,
-  UserHasRoles,
-} from './authorization.entity';
 import { CreatePermissionCategoryService } from './services/permission-category/create-permision-category.service';
 import { ListPermissionCategoryService } from './services/permission-category/list-permission-category.service';
 import { UpdatePermissionCategoryService } from './services/permission-category/update-permission-category.service';
@@ -23,8 +17,25 @@ import { DeletePermissionService } from './services/permission/delete-permission
 import { PermissionCategoryController } from './controllers/permission-category.controller';
 import { RoleController } from './controllers/role.controller';
 import { PermissionController } from './controllers/permission.controller';
-import { ApiResponseService } from '../share/services/api-response/response/api-response.service';
+import { ApiResponseService } from '../utils/services/api-response/response/api-response.service';
 import { GetByIdPermissionService } from './services/permission/getById-permission.service';
+import { OauthController } from './controllers/oauth.controller';
+import { CreateClientService } from './services/oauth/create-client.service';
+import { SerializeClientService } from './services/oauth/serialize-client.service';
+import { DeserializeClientService } from './services/oauth/deserialize-client.service';
+import { GrantService } from './services/oauth/grant.service';
+import { ExchangeService } from './services/oauth/exchange.service';
+import { AuthorizeService } from './services/oauth/authorize.service';
+import { InitializeOauthServerService } from './services/oauth/initialize-oauth-server.service';
+import { TokenService } from './services/oauth/token.service';
+import { PermissionCategories } from './entities/permission-category.entity';
+import { Permissions } from './entities/permission.entity';
+import { Roles } from './entities/role.entity';
+import { RoleHasPermissions } from './entities/role-has-permission.entity';
+import { UserHasRoles } from './entities/user-has-role.entity';
+import { Client } from './entities/client.entity';
+import { AccessCode } from './entities/access-code.entity';
+import { AccessToken } from './entities/access-token.entity';
 
 @Module({
   imports: [
@@ -34,7 +45,11 @@ import { GetByIdPermissionService } from './services/permission/getById-permissi
       Roles,
       RoleHasPermissions,
       UserHasRoles,
+      Client,
+      AccessCode,
+      AccessToken,
     ]),
+    CacheModule,
   ],
   providers: [
     CreatePermissionCategoryService,
@@ -53,12 +68,22 @@ import { GetByIdPermissionService } from './services/permission/getById-permissi
     DeletePermissionService,
     ApiResponseService,
     GetByIdPermissionService,
+
+    CreateClientService,
+    SerializeClientService,
+    DeserializeClientService,
+    GrantService,
+    ExchangeService,
+    AuthorizeService,
+    TokenService,
+    InitializeOauthServerService,
   ],
   controllers: [
     AuthorizationController,
     PermissionCategoryController,
     RoleController,
     PermissionController,
+    OauthController,
   ],
 })
 export class AuthorizationModule {}

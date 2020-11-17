@@ -13,10 +13,9 @@ import { CreatePermissionCategoryService } from '../services/permission-category
 import { ListPermissionCategoryService } from '../services/permission-category/list-permission-category.service';
 import { UpdatePermissionCategoryService } from '../services/permission-category/update-permission-category.service';
 import { DeletePermissionCategoryService } from '../services/permission-category/delete-permission-category.service';
-// eslint-disable-next-line import/extensions
-import { PermissionCategoryModel } from '../authorization';
-import { PermissionCategories } from '../authorization.entity';
-import { ApiResponseService } from '../../share/services/api-response/response/api-response.service';
+import { PermissionCategories } from '../entities/permission-category.entity';
+import { ApiResponseService } from '../../utils/services/api-response/response/api-response.service';
+import { PermissionCategoryRequest } from '../requests/permission-category.request';
 
 @Controller()
 export class PermissionCategoryController {
@@ -30,12 +29,12 @@ export class PermissionCategoryController {
 
   @Post('/permission/category')
   async createPermissionCategory(
-    @Body() permissionCategoryModel: PermissionCategoryModel,
+    @Body() permissionCategoryRequest: PermissionCategoryRequest,
       @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.createPermissionCategoryService.create(
-        permissionCategoryModel,
+        permissionCategoryRequest,
       );
       return this.apiResponseService.successResponse(
         ['Permission store successfully'],
@@ -72,13 +71,13 @@ export class PermissionCategoryController {
   @Put('/permission/category/:id')
   async updatePermissionCategory(
     @Param('id') id: number,
-      @Body() permissionCategoryModel: PermissionCategoryModel,
+      @Body() permissionCategoryRequest: PermissionCategoryRequest,
       @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.updatePermissionCategoryService.update(
         id,
-        permissionCategoryModel,
+        permissionCategoryRequest,
       );
       return this.apiResponseService.successResponse(
         ['Permission update successfully'],

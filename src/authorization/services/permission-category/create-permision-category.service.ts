@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { PermissionCategories } from 'src/authorization/authorization.entity';
-import { PermissionCategoryModel } from 'src/authorization/authorization';
 import { AuthorizationService } from '../authorization.service';
+import { PermissionCategories } from '../../entities/permission-category.entity';
+import { PermissionCategoryRequest } from '../../requests/permission-category.request';
 
 @Injectable()
 export class CreatePermissionCategoryService extends AuthorizationService {
@@ -15,10 +15,10 @@ export class CreatePermissionCategoryService extends AuthorizationService {
   }
 
   async create(
-    permissionCategoryModel: PermissionCategoryModel,
+    permissionCategoryRequest: PermissionCategoryRequest,
   ): Promise<PermissionCategories> {
     return this.permissionCategoryRepository.save({
-      ...permissionCategoryModel,
+      ...permissionCategoryRequest,
       createdBy: 1,
     });
   }

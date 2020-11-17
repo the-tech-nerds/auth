@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { AuthorizationModule } from './authorization/authorization.module';
 import { routes } from './route';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { routes } from './route';
     RouterModule.forRoutes(routes),
     UserModule,
     AuthorizationModule,
+    AuthenticationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
