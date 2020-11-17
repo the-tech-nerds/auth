@@ -73,7 +73,7 @@ export class PermissionController {
     try {
       const data = await this.getByIdPermissionService.getById(id);
       return this.apiResponseService.successResponse(
-        ['Permission category store successfully'],
+        ['Get permission successfully'],
         data as Permissions,
         res,
       );
