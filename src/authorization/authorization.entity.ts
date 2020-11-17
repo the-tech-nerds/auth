@@ -56,7 +56,7 @@ export class Permissions extends BaseEntity {
     (perCategory) => perCategory,
   )
   @JoinColumn({ name: 'permissionCategoryId' })
-  permissionCatagories: PermissionCategories;
+  permissionCategories: PermissionCategories;
 }
 
 @Entity()
