@@ -2,11 +2,6 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CacheModule } from '@technerds/common-services';
 import { AuthorizationController } from './authorization.controller';
-import {
-  AccessCode, AccessToken,
-  Client,
-  PermissionCategories, Permissions, RoleHasPermissions, Roles, UserHasRoles,
-} from './authorization.entity';
 import { CreatePermissionCategoryService } from './services/permission-category/create-permision-category.service';
 import { ListPermissionCategoryService } from './services/permission-category/list-permission-category.service';
 import { UpdatePermissionCategoryService } from './services/permission-category/update-permission-category.service';
@@ -33,6 +28,14 @@ import { ExchangeService } from './services/oauth/exchange.service';
 import { AuthorizeService } from './services/oauth/authorize.service';
 import { InitializeOauthServerService } from './services/oauth/initialize-oauth-server.service';
 import { TokenService } from './services/oauth/token.service';
+import { PermissionCategories } from './entities/permission-category.entity';
+import { Permissions } from './entities/permission.entity';
+import { Roles } from './entities/role.entity';
+import { RoleHasPermissions } from './entities/role-has-permission.entity';
+import { UserHasRoles } from './entities/user-has-role.entity';
+import { Client } from './entities/client.entity';
+import { AccessCode } from './entities/access-code.entity';
+import { AccessToken } from './entities/access-token.entity';
 
 @Module({
   imports: [
@@ -83,5 +86,4 @@ import { TokenService } from './services/oauth/token.service';
     OauthController,
   ],
 })
-export class AuthorizationModule {
-}
+export class AuthorizationModule {}

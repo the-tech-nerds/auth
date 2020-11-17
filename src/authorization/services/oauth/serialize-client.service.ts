@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { AuthorizationService } from '../authorization.service';
-import { Client } from '../../authorization.entity';
+import { Client } from '../../entities/client.entity';
 
 @Injectable()
 export class SerializeClientService extends AuthorizationService {

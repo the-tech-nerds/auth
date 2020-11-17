@@ -2,8 +2,9 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
 import { AuthorizationService } from '../authorization.service';
-import { AccessCode, Client } from '../../authorization.entity';
-import { User } from '../../../user/user.entity';
+import { AccessCode } from '../../entities/access-code.entity';
+import { Client } from '../../entities/client.entity';
+import { User } from '../../../user/entities/user.entity';
 import { uid } from '../../../utils/utils';
 
 const oauth2orize = require('oauth2orize');
@@ -23,8 +24,8 @@ export class GrantService extends AuthorizationService {
       async (client: Client, redirectUri: string, user: User, ares: any, callback: any) => {
         const code = {
           value: uid(16),
-          clientId: client.id,
-          userId: user.id,
+          client_id: client.id,
+          user_id: user.id,
         } as AccessCode;
 
         try {

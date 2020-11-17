@@ -4,21 +4,11 @@ import {
 import { ApiResponseService } from 'src/utils/services/api-response/response/api-response.service';
 import { response, Response } from 'express';
 import { CreateClientService } from '../services/oauth/create-client.service';
-import { Client } from '../authorization.entity';
+import { Client } from '../entities/client.entity';
 import { AuthorizeService } from '../services/oauth/authorize.service';
 import { TokenService } from '../services/oauth/token.service';
-
-interface ClientRequest {
-  name: string;
-}
-
-interface TokenRequest {
-  client_id: string,
-  secret: string,
-  code: string,
-  grant_type: string,
-  redirect_uri: string
-}
+import { ClientRequest } from '../../authentication/requests/client.request';
+import { TokenRequest } from '../../authentication/requests/token.request';
 
 @Controller()
 export class OauthController {
@@ -33,7 +23,7 @@ export class OauthController {
   async createClient(@Body() clientRequest: ClientRequest, @Res() res: Response):
   Promise<Response<ResponseModel>> {
     try {
-      const client = await this.createClientService.create(clientRequest.name);
+      const client = await this.createClientService.create(clientRequest);
       return this.apiResponseService.successResponse(
         ['Client created successfully'],
         client as Client,

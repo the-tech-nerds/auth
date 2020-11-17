@@ -1,20 +1,20 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Permissions } from 'src/authorization/authorization.entity';
-import { PermissionModel } from 'src/authorization/authorization';
 import { AuthorizationService } from '../authorization.service';
+import { Roles } from '../../entities/role.entity';
+import { RoleRequest } from '../../../authentication/requests/role.request';
 
 @Injectable()
 export class CreateRoleService extends AuthorizationService {
   constructor(
-    @InjectRepository(Permissions)
-    private permissionRepository: Repository<Permissions>,
+    @InjectRepository(Roles)
+    private rolesRepository: Repository<Roles>,
   ) {
     super();
   }
 
-  async create(permissionModel: PermissionModel): Promise<Permissions> {
-    return await this.permissionRepository.save(permissionModel);
+  async create(roleRequest: RoleRequest): Promise<Roles> {
+    return this.rolesRepository.save(roleRequest);
   }
 }

@@ -1,7 +1,9 @@
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
-import { AccessCode, AccessToken, Client } from '../../authorization.entity';
+import { AccessCode } from '../../entities/access-code.entity';
+import { AccessToken } from '../../entities/access-token.entity';
+import { Client } from '../../entities/client.entity';
 import { AuthorizationService } from '../authorization.service';
 import { uid } from '../../../utils/utils';
 
@@ -28,7 +30,7 @@ export class ExchangeService extends AuthorizationService {
             return callback(null, false);
           }
 
-          if (client.id.toString() !== authCode.clientId) {
+          if (client.id.toString() !== authCode.client_id) {
             return callback(null, false);
           }
 
@@ -40,9 +42,9 @@ export class ExchangeService extends AuthorizationService {
 
           const token = {
             value: uid(64),
-            clientId: authCode.clientId,
-            userId: authCode.userId,
-            createdBy: authCode.userId,
+            client_id: authCode.client_id,
+            user_id: authCode.user_id,
+            createdBy: authCode.user_id,
           } as AccessToken;
 
           try {

@@ -1,15 +1,22 @@
 import {
-  Body, Controller, Delete, Get, Param, Post, Put, Res,
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  Res,
 } from '@nestjs/common';
-import { Permissions } from 'src/authorization/authorization.entity';
 import { ApiResponseService } from 'src/utils/services/api-response/response/api-response.service';
 import { Response } from 'express';
-import { PermissionModel } from '../authorization';
+import { Permissions } from '../entities/permission.entity';
 import { CreatePermissionService } from '../services/permission/create-permission.service';
 import { DeletePermissionService } from '../services/permission/delete-permission.service';
-import { GetByIdPermissionService } from '../services/permission/getById-permission.service';
 import { ListPermissionService } from '../services/permission/list-permission.service';
 import { UpdatePermissionService } from '../services/permission/update-permission.service';
+import { GetByIdPermissionService } from '../services/permission/getById-permission.service';
+import { PermissionRequest } from '../requests/permission.request';
 
 @Controller()
 export class PermissionController {
@@ -23,52 +30,104 @@ export class PermissionController {
   ) {}
 
   @Post('/permission')
-  async createPermission(@Body() permissionModel: PermissionModel, @Res() res: Response): Promise<Response<ResponseModel>> {
+
+  async createPermission(
+    @Body() permissionRequest: PermissionRequest,
+      @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
     try {
-      const data = await this.createPermissionService.create(permissionModel);
-      return this.apiResponseService.successResponse(['Permission category store successfully'], data as Permissions, res);
+      const data = await this.createPermissionService.create(permissionRequest);
+      return this.apiResponseService.successResponse(
+        ['Permission category store successfully'],
+        data as Permissions,
+        res,
+      );
     } catch (e) {
       return this.apiResponseService.internalServerError([e.toString()], res);
     }
   }
 
   @Get('/permissions')
-  async getAllPermissions(@Res() res: Response): Promise<Response<ResponseModel>> {
+
+  async getAllPermissions(
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.listPermissionService.getAll();
-      return this.apiResponseService.successResponse(['Permission category store successfully'], data as Permissions[], res);
+      return this.apiResponseService.successResponse(
+        ['Permission category store successfully'],
+        data as Permissions[],
+        res,
+      );
     } catch (e) {
-      return this.apiResponseService.internalServerError(['Something went wrong! please try again later'], res);
+      return this.apiResponseService.internalServerError(
+        ['Something went wrong! please try again later'],
+        res,
+      );
     }
   }
 
   @Get('/permission/:id')
-  async getPermissionsById(@Param('id') id : number, @Res() res: Response): Promise<Response<ResponseModel>> {
+  async getPermissionsById(
+    @Param('id') id: number,
+      @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.getByIdPermissionService.getById(id);
-      return this.apiResponseService.successResponse(['Permission category store successfully'], data as Permissions, res);
+      return this.apiResponseService.successResponse(
+        ['Permission category store successfully'],
+        data as Permissions,
+        res,
+      );
     } catch (e) {
-      return this.apiResponseService.internalServerError(['Something went wrong! please try again later'], res);
+      return this.apiResponseService.internalServerError(
+        ['Something went wrong! please try again later'],
+        res,
+      );
     }
   }
 
   @Put('/permission/:id')
-  async updatePermission(@Param('id') id : number, @Body() permissionModel: PermissionModel, @Res() res: Response) : Promise<Response<ResponseModel>> {
+  async updatePermission(
+    @Param('id') id: number,
+      @Body() permissionRequest: PermissionRequest,
+      @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
     try {
-      const data = await this.updatePermissionService.update(id, permissionModel);
-      return this.apiResponseService.successResponse(['Permission category store successfully'], data as Permissions, res);
+      const data = await this.updatePermissionService.update(
+        id,
+        permissionRequest,
+      );
+      return this.apiResponseService.successResponse(
+        ['Permission category store successfully'],
+        data as Permissions,
+        res,
+      );
     } catch (e) {
-      return this.apiResponseService.internalServerError(['Something went wrong! please try again later'], res);
+      return this.apiResponseService.internalServerError(
+        ['Something went wrong! please try again later'],
+        res,
+      );
     }
   }
 
   @Delete('/permission/:id')
-  async DeletePermissions(@Param('id') id : number, @Res() res: Response): Promise<Response<ResponseModel>> {
+  async DeletePermissions(
+    @Param('id') id: number,
+      @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.deletePermissionService.delete(id);
-      return this.apiResponseService.successResponse(['Permission category store successfully'], data, res);
+      return this.apiResponseService.successResponse(
+        ['Permission category store successfully'],
+        data,
+        res,
+      );
     } catch (e) {
-      return this.apiResponseService.internalServerError(['Something went wrong! please try again later'], res);
+      return this.apiResponseService.internalServerError(
+        ['Something went wrong! please try again later'],
+        res,
+      );
     }
   }
 }

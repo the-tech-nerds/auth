@@ -21,4 +21,5 @@ async function bootstrap(): Promise<void> {
   await app.listen(3000);
 }
 
-bootstrap();
+// eslint-disable-next-line @typescript-eslint/no-use-before-define,no-void
+void bootstrap();

@@ -1,0 +1,47 @@
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import BaseEntity from '../../utils/entities/base-entity';
+
+export type UserType = 'admin' | 'user';
+
+@Entity()
+export class User extends BaseEntity {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column()
+  first_name: string;
+
+  @Column()
+  last_name: string;
+
+  @Column({
+    length: 100,
+    unique: true,
+  })
+  email: string;
+
+  @Column()
+  password: string;
+
+  @Column({ nullable: true })
+  facebookAuth: string;
+
+  @Column({ nullable: true })
+  googleAuth: string;
+
+  @Column({ nullable: true })
+  imageUrl: string;
+
+  //   @Column({
+  //     type: "enum",
+  //     enum: ["admin", "user"],
+  //     default: "user"
+  // })
+  // type: userType;
+
+  @Column({ default: 'user' })
+  type: string;
+
+  @Column({ default: true })
+  is_active: boolean;
+}

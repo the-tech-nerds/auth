@@ -2,7 +2,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { UnauthorizedException } from '@nestjs/common';
 import { AuthorizationService } from '../authorization.service';
-import { Client } from '../../authorization.entity';
+import { Client } from '../../entities/client.entity';
 import { InitializeOauthServerService } from './initialize-oauth-server.service';
 
 export class AuthorizeService extends AuthorizationService {

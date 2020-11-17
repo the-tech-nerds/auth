@@ -1,7 +1,7 @@
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { hash } from 'bcryptjs';
-import { User } from '../../user/user.entity';
+import { User } from '../../user/entities/user.entity';
 import { UserRegistrationRequest } from '../requests/user.registration.request';
 
 export class UserRegistrationService {
