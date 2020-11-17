@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CacheModule } from '@technerds/common-services';
+import { JwtModule } from '@nestjs/jwt';
+import { PassportModule } from '@nestjs/passport';
 import { AuthenticationController } from './controllers/authentication.controller';
 import { UserRegistrationService } from './services/user.registration.service';
 import { UserModule } from '../user/user.module';
@@ -14,6 +16,11 @@ import { UserHasRoles } from '../authorization/entities/user-has-role.entity';
 import { Client } from '../authorization/entities/client.entity';
 import { AccessCode } from '../authorization/entities/access-code.entity';
 import { AccessToken } from '../authorization/entities/access-token.entity';
+import { jwtConstants } from './constants';
+import { JwtStrategy } from './strategies/jwt.strategy';
+import { UserLoginService } from './services/user.login.service';
+import { LocalStrategy } from './strategies/local.strategy';
+import { UserValidationService } from './services/user.validation.service';
 
 @Module({
   imports: [
@@ -30,8 +37,20 @@ import { AccessToken } from '../authorization/entities/access-token.entity';
     ]),
     CacheModule,
     UserModule,
+    PassportModule,
+    JwtModule.register({
+      secret: jwtConstants.secret,
+      signOptions: { expiresIn: '3600s' },
+    }),
   ],
-  providers: [UserRegistrationService, ApiResponseService],
+  providers: [
+    ApiResponseService,
+    UserRegistrationService,
+    UserLoginService,
+    UserValidationService,
+    LocalStrategy,
+    JwtStrategy,
+  ],
   controllers: [AuthenticationController],
 })
 export class AuthenticationModule {}

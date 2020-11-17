@@ -53,11 +53,12 @@ export class PermissionController {
     try {
       const data = await this.listPermissionService.getAll();
       return this.apiResponseService.successResponse(
-        ['Permission category store successfully'],
+        ['List of permission'],
         data as Permissions[],
         res,
       );
     } catch (e) {
+      console.log(e);
       return this.apiResponseService.internalServerError(
         ['Something went wrong! please try again later'],
         res,
@@ -73,7 +74,7 @@ export class PermissionController {
     try {
       const data = await this.getByIdPermissionService.getById(id);
       return this.apiResponseService.successResponse(
-        ['Permission category store successfully'],
+        ['Permission Details'],
         data as Permissions,
         res,
       );
@@ -97,7 +98,7 @@ export class PermissionController {
         permissionRequest,
       );
       return this.apiResponseService.successResponse(
-        ['Permission category store successfully'],
+        ['Permission category updated successfully'],
         data as Permissions,
         res,
       );
@@ -117,7 +118,7 @@ export class PermissionController {
     try {
       const data = await this.deletePermissionService.delete(id);
       return this.apiResponseService.successResponse(
-        ['Permission category store successfully'],
+        ['Permission category deleted successfully'],
         data,
         res,
       );

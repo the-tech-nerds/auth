@@ -20,8 +20,8 @@ export class UpdateUsersService {
   ): Promise<User | undefined> {
     await this.usersRepository.update(id, {
       ...userRequest,
-      updatedBy: 1,
-      updatedAt: LocalDateToUtc(new Date()),
+      updated_by: 1,
+      updated_at: LocalDateToUtc(new Date()),
     });
     return this.fetchUserByIdService.execute(id);
   }

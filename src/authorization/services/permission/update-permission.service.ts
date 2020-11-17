@@ -17,7 +17,7 @@ export class UpdatePermissionService {
   ): Promise<Permissions | undefined> {
     await this.permissionRepository.update(id, {
       ...permissionRequest,
-      updatedBy: 1,
+      updated_by: 1,
     });
     return this.permissionRepository.findOne(id);
   }

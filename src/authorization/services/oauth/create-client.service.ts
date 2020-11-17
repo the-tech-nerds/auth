@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { Client } from '../../entities/client.entity';
 import { AuthorizationService } from '../authorization.service';
 import { uid } from '../../../utils/utils';
-import { ClientRequest } from '../../../authentication/requests/client.request';
+import { ClientRequest } from '../../requests/client.request';
 
 @Injectable()
 export class CreateClientService extends AuthorizationService {
@@ -20,7 +20,7 @@ export class CreateClientService extends AuthorizationService {
     return this.clientRepository.save({
       name,
       secret: uid(64),
-      createdBy: 1,
+      created_by: 1,
     });
   }
 }

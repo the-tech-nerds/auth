@@ -52,7 +52,7 @@ export class ExchangeService extends AuthorizationService {
               value: uid(64),
               client_id: authCode.client_id,
               user_id: authCode.user_id,
-              createdBy: authCode.user_id,
+              created_by: authCode.user_id,
             } as AccessToken;
 
             try {

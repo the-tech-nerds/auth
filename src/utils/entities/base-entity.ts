@@ -7,17 +7,17 @@ import {
 
 export default class BaseEntity {
   @Column()
-  createdBy: number;
+  created_by: number;
 
   @Column({ nullable: true })
-  updatedBy: number;
+  updated_by: number;
 
   @CreateDateColumn({ nullable: true })
-  createdAt: Date;
+  created_at: Date;
 
   @UpdateDateColumn({ nullable: true })
-  updatedAt: Date;
+  updated_at: Date;
 
   @DeleteDateColumn({ nullable: true })
-  deleteAt: Date;
+  deleted_at: Date;
 }

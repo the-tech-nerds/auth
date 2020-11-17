@@ -13,8 +13,8 @@ export class ListPermissionService {
   async getAll(): Promise<Permissions[]> {
     return this.permissionRepository.find({
       where: {
-        isActive: true,
-        deleteAt: null,
+        is_active: true,
+        deleted_at: null,
       },
     });
   }
