@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { PermissionCategories } from 'src/authorization/entities/permission-category.entity';
 import { Repository } from 'typeorm';
-import { PermissionCategories } from 'src/authorization/authorization.entity';
 import { AuthorizationService } from '../authorization.service';
 
 @Injectable()
