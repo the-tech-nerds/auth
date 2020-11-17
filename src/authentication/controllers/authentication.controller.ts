@@ -1,5 +1,12 @@
 import {
-  Body, Controller, Get, Post, Req, Request, Res, UseGuards,
+  Body,
+  Controller,
+  Get,
+  Post,
+  Req,
+  Request,
+  Res,
+  UseGuards,
 } from '@nestjs/common';
 import { UserRegistrationService } from '../services/user.registration.service';
 import { UserRegistrationRequest } from '../requests/user.registration.request';
@@ -18,9 +25,7 @@ export class AuthenticationController {
 
   @UseGuards(LocalGuard)
   @Post('/login')
-  async login(
-  @Req() req: any,
-  ) {
+  async login(@Req() req: any) {
     return this.userLoginService.login(req.user);
   }
 

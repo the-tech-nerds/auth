@@ -4,10 +4,7 @@ import { User } from '../../user/entities/user.entity';
 
 @Injectable()
 export class UserLoginService {
-  constructor(
-    private readonly jwtService: JwtService,
-  ) {
-  }
+  constructor(private readonly jwtService: JwtService) {}
 
   async login(user: Partial<User>) {
     const { email, id } = user;

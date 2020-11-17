@@ -5,9 +5,7 @@ import { UserValidationService } from '../services/user.validation.service';
 
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {
-  constructor(
-    private readonly userValidationService : UserValidationService,
-  ) {
+  constructor(private readonly userValidationService: UserValidationService) {
     super();
   }
 
