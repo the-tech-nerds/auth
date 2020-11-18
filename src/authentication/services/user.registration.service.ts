@@ -12,10 +12,23 @@ export class UserRegistrationService {
 
   async register(userData: UserRegistrationRequest) {
     const { password = '' } = userData;
-    return this.userRepository.save({
+    const {
+      first_name: firstName,
+      last_name: lastName,
+      email,
+      image_url: imageUrl,
+      id,
+    } = await this.userRepository.save({
       ...userData,
       password: await hash(password, 10),
       created_by: 1,
     });
+    return {
+      first_name: firstName,
+      last_name: lastName,
+      email,
+      image_url: imageUrl,
+      id,
+    };
   }
 }
