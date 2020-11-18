@@ -9,7 +9,7 @@ import { getCustomRepository } from 'typeorm';
 import { PermissionCategoryRepository } from '../repositories/permission-category.repository';
 
 @ValidatorConstraint({ async: true })
-export class IsPermissionCategoryNotExistConstraint
+export class IsPermissionCategoryExistConstraint
 implements ValidatorConstraintInterface {
   validate(permission_category_id: number, args: ValidationArguments) {
     const permissionCategoryRepository = getCustomRepository(
@@ -17,11 +17,14 @@ implements ValidatorConstraintInterface {
     );
     return permissionCategoryRepository
       .findOne(permission_category_id)
-      .then((permissionCategories) => !!permissionCategories);
+      .then((permissionCategories) => (args.constraints[0]
+        ? !permissionCategories
+        : !!permissionCategories));
   }
 }
 
-export function IsPermissionCategoryNotExist(
+export function IsPermissionCategoryExist(
+  exist: boolean = false,
   validationOptions?: ValidationOptions,
 ) {
   return function (object: Object, propertyName: string) {
@@ -29,8 +32,8 @@ export function IsPermissionCategoryNotExist(
       target: object.constructor,
       propertyName,
       options: validationOptions,
-      constraints: [],
-      validator: IsPermissionCategoryNotExistConstraint,
+      constraints: [exist],
+      validator: IsPermissionCategoryExistConstraint,
     });
   };
 }

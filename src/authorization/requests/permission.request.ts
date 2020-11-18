@@ -1,5 +1,5 @@
 import { IsNotEmpty, IsBoolean, IsNumber } from 'class-validator';
-import { IsPermissionCategoryNotExist } from '../validators/persmission-category-already-exist.validator';
+import { IsPermissionCategoryExist } from '../validators/permission-category-exist.validator';
 
 export class PermissionRequest {
   @IsNotEmpty({ message: 'Permission Name is required.' })
@@ -9,7 +9,7 @@ export class PermissionRequest {
 
   @IsNotEmpty({ message: 'Permission category id is required.' })
   @IsNumber()
-  @IsPermissionCategoryNotExist({
+  @IsPermissionCategoryExist(false, {
     message: 'Permission category does not exist',
   })
   permission_category_id: number;
