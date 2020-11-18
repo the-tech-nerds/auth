@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Permissions } from 'src/authorization/authorization.entity';
+import { Permissions } from '../../entities/permission.entity';
 
 @Injectable()
 export class ListPermissionService {
@@ -13,8 +13,8 @@ export class ListPermissionService {
   async getAll(): Promise<Permissions[]> {
     return this.permissionRepository.find({
       where: {
-        isActive: true,
-        deleteAt: null,
+        is_active: true,
+        deleted_at: null,
       },
     });
   }

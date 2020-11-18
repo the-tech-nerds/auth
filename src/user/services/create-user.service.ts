@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-import { User } from '../user.entity';
+import { User } from '../entities/user.entity';
 // eslint-disable-next-line import/extensions
-import { UserInput } from '../user';
+import { UserRequest } from '../requests/user.request';
 
 @Injectable()
 export class CreateUserService {
@@ -13,7 +13,7 @@ export class CreateUserService {
     private usersRepository: Repository<User>,
   ) {}
 
-  async execute(userInput: UserInput): Promise<User> {
-    return this.usersRepository.save(userInput);
+  async execute(userRequest: UserRequest): Promise<User> {
+    return this.usersRepository.save(userRequest);
   }
 }

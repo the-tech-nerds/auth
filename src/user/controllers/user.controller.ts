@@ -8,15 +8,15 @@ import {
   Put,
   Res,
 } from '@nestjs/common';
-import { ApiResponseService } from 'src/share/services/api-response/response/api-response.service';
+import { ApiResponseService } from 'src/utils/services/api-response/response/api-response.service';
 import { Response } from 'express';
-import { User } from '../user.entity';
+import { User } from '../entities/user.entity';
 // eslint-disable-next-line import/extensions
-import { UserInput } from '../user';
+import { UserRequest } from '../requests/user.request';
 import { ListUsersService } from '../services/list-users.service';
 import { CreateUserService } from '../services/create-user.service';
 import { UpdateUsersService } from '../services/update-user.service';
-import { GetByIdUserService } from '../services/getById-user.service';
+import { FetchUserByIdService } from '../services/fetch-user-by-id.service';
 import { DeleteUserService } from '../services/delete-user.service';
 
 @Controller()
@@ -25,7 +25,7 @@ export class UserController {
     private readonly listUsersService: ListUsersService,
     private readonly createUserService: CreateUserService,
     private readonly updateUsersService: UpdateUsersService,
-    private readonly getByIdUserService: GetByIdUserService,
+    private readonly fetchUserByIdService: FetchUserByIdService,
     private readonly deleteUserService: DeleteUserService,
 
     private readonly apiResponseService: ApiResponseService,
@@ -47,11 +47,11 @@ export class UserController {
 
   @Post('/user')
   async createUser(
-    @Body() userInput: UserInput,
+    @Body() userRequest: UserRequest,
       @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
-      const data = await this.createUserService.execute(userInput);
+      const data = await this.createUserService.execute(userRequest);
       return this.apiResponseService.successResponse(
         ['User created successfully'],
         data as User,
@@ -65,11 +65,11 @@ export class UserController {
   @Put('/user/:id')
   async updateUser(
     @Param('id') id: number,
-      @Body() userInput: UserInput,
+      @Body() userRequest: UserRequest,
       @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
-      const data = await this.updateUsersService.execute(id, userInput);
+      const data = await this.updateUsersService.execute(id, userRequest);
       return this.apiResponseService.successResponse(
         ['User has been updated successfully'],
         data as User,
@@ -86,7 +86,7 @@ export class UserController {
       @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
-      const data = await this.getByIdUserService.execute(id);
+      const data = await this.fetchUserByIdService.execute(id);
       return this.apiResponseService.successResponse(
         ['User fetched successfully'],
         data as User,

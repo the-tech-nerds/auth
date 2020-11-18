@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { PermissionCategories } from 'src/authorization/entities/permission-category.entity';
 import { Repository } from 'typeorm';
-import { PermissionCategories } from 'src/authorization/authorization.entity';
 import { AuthorizationService } from '../authorization.service';
 
 @Injectable()
@@ -16,7 +16,7 @@ export class ListPermissionCategoryService extends AuthorizationService {
   async getAll(): Promise<PermissionCategories[]> {
     return this.permissionCategoryRepository.find({
       where: {
-        isActive: true,
+        is_active: true,
         deleteAt: null,
       },
     });

@@ -1,4 +1,4 @@
-import BaseEntity from 'src/share/entities/base-entity';
+import BaseEntity from 'src/utils/entities/base-entity';
 
 interface PermissionModel extends BaseEntity {
   id: number;

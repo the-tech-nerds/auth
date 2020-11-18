@@ -8,16 +8,15 @@ import {
   Put,
   Res,
 } from '@nestjs/common';
-import { Permissions } from 'src/authorization/authorization.entity';
-import { ApiResponseService } from 'src/share/services/api-response/response/api-response.service';
+import { ApiResponseService } from 'src/utils/services/api-response/response/api-response.service';
 import { Response } from 'express';
-// eslint-disable-next-line import/extensions
-import { PermissionModel } from '../authorization';
+import { Permissions } from '../entities/permission.entity';
 import { CreatePermissionService } from '../services/permission/create-permission.service';
 import { DeletePermissionService } from '../services/permission/delete-permission.service';
 import { ListPermissionService } from '../services/permission/list-permission.service';
 import { UpdatePermissionService } from '../services/permission/update-permission.service';
 import { GetByIdPermissionService } from '../services/permission/getById-permission.service';
+import { PermissionRequest } from '../requests/permission.request';
 
 @Controller()
 export class PermissionController {
@@ -32,11 +31,11 @@ export class PermissionController {
 
   @Post('/permission')
   async createPermission(
-    @Body() permissionModel: PermissionModel,
+    @Body() permissionRequest: PermissionRequest,
       @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
-      const data = await this.createPermissionService.create(permissionModel);
+      const data = await this.createPermissionService.create(permissionRequest);
       return this.apiResponseService.successResponse(
         ['Permission category store successfully'],
         data as Permissions,
@@ -54,7 +53,7 @@ export class PermissionController {
     try {
       const data = await this.listPermissionService.getAll();
       return this.apiResponseService.successResponse(
-        ['Permission category store successfully'],
+        ['List of permission'],
         data as Permissions[],
         res,
       );
@@ -74,7 +73,7 @@ export class PermissionController {
     try {
       const data = await this.getByIdPermissionService.getById(id);
       return this.apiResponseService.successResponse(
-        ['Permission category store successfully'],
+        ['Get permission successfully'],
         data as Permissions,
         res,
       );
@@ -89,16 +88,16 @@ export class PermissionController {
   @Put('/permission/:id')
   async updatePermission(
     @Param('id') id: number,
-      @Body() permissionModel: PermissionModel,
+      @Body() permissionRequest: PermissionRequest,
       @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.updatePermissionService.update(
         id,
-        permissionModel,
+        permissionRequest,
       );
       return this.apiResponseService.successResponse(
-        ['Permission category store successfully'],
+        ['Permission category updated successfully'],
         data as Permissions,
         res,
       );
@@ -118,7 +117,7 @@ export class PermissionController {
     try {
       const data = await this.deletePermissionService.delete(id);
       return this.apiResponseService.successResponse(
-        ['Permission category store successfully'],
+        ['Permission category deleted successfully'],
         data,
         res,
       );

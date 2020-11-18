@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { LocalDateToUtc } from 'src/share/date-time-conversion/date-time-conversion';
-import { User } from './user.entity';
+import { LocalDateToUtc } from 'src/utils/date-time-conversion/date-time-conversion';
+import { User } from '../entities/user.entity';
 // eslint-disable-next-line import/extensions
-import { UserInput } from './user';
+import { UserRequest } from '../requests/user.request';
 
 @Injectable()
 export class UpdateUsersService {
@@ -13,12 +13,12 @@ export class UpdateUsersService {
     private usersRepository: Repository<User>,
   ) {}
 
-  async execute(id: number, userInput: UserInput): Promise<UserInput> {
+  async execute(id: number, userRequest: UserRequest): Promise<UserRequest> {
     await this.usersRepository.update(id, {
-      ...userInput,
-      updatedBy: 1,
-      updatedAt: LocalDateToUtc(new Date()),
+      ...userRequest,
+      updated_by: 1,
+      updated_at: LocalDateToUtc(new Date()),
     });
-    return userInput;
+    return userRequest;
   }
 }

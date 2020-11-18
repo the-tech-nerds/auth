@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Permissions } from 'src/authorization/authorization.entity';
-import { PermissionModel } from 'src/authorization/authorization';
 import { AuthorizationService } from '../authorization.service';
+import { Permissions } from '../../entities/permission.entity';
+import { PermissionRequest } from '../../requests/permission.request';
 
 @Injectable()
 export class CreatePermissionService extends AuthorizationService {
@@ -14,10 +14,10 @@ export class CreatePermissionService extends AuthorizationService {
     super();
   }
 
-  async create(permissionModel: PermissionModel): Promise<Permissions> {
+  async create(permissionRequest: PermissionRequest): Promise<Permissions> {
     return this.permissionRepository.save({
-      ...permissionModel,
-      createdBy: 1,
+      ...permissionRequest,
+      created_by: 1,
     });
   }
 }

@@ -1,5 +1,5 @@
-import BaseEntity from 'src/share/entities/base-entity';
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import BaseEntity from '../../utils/entities/base-entity';
 
 export type UserType = 'admin' | 'user';
 
@@ -8,18 +8,15 @@ export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({
-    length: 100,
-  })
-  firstName: string;
+  @Column()
+  first_name: string;
+
+  @Column()
+  last_name: string;
 
   @Column({
     length: 100,
-  })
-  lastName: string;
-
-  @Column({
-    length: 100,
+    unique: true,
   })
   email: string;
 
@@ -27,13 +24,13 @@ export class User extends BaseEntity {
   password: string;
 
   @Column({ nullable: true })
-  facebookAuth: string;
+  facebook_auth: string;
 
   @Column({ nullable: true })
-  googleAuth: string;
+  google_auth: string;
 
   @Column({ nullable: true })
-  imageUrl: string;
+  image_url: string;
 
   //   @Column({
   //     type: "enum",
@@ -46,5 +43,5 @@ export class User extends BaseEntity {
   type: string;
 
   @Column({ default: true })
-  isActive: boolean;
+  is_active: boolean;
 }
