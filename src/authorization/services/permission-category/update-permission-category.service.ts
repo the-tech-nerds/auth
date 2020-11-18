@@ -20,7 +20,7 @@ export class UpdatePermissionCategoryService extends AuthorizationService {
   ): Promise<PermissionCategories | undefined> {
     await this.permissionCategoryRepository.update(id, {
       ...permissionCategoryRequest,
-      updatedBy: 1,
+      updated_by: 1,
     });
     return this.permissionCategoryRepository.findOne(id);
   }

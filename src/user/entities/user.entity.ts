@@ -24,13 +24,13 @@ export class User extends BaseEntity {
   password: string;
 
   @Column({ nullable: true })
-  facebookAuth: string;
+  facebook_auth: string;
 
   @Column({ nullable: true })
-  googleAuth: string;
+  google_auth: string;
 
   @Column({ nullable: true })
-  imageUrl: string;
+  image_url: string;
 
   //   @Column({
   //     type: "enum",

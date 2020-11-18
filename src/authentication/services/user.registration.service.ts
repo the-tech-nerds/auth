@@ -15,6 +15,7 @@ export class UserRegistrationService {
     return this.userRepository.save({
       ...userData,
       password: await hash(password, 10),
+      created_by: 1,
     });
   }
 }

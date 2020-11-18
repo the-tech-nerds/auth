@@ -16,7 +16,7 @@ export class ListPermissionCategoryService extends AuthorizationService {
   async getAll(): Promise<PermissionCategories[]> {
     return this.permissionCategoryRepository.find({
       where: {
-        isActive: true,
+        is_active: true,
         deleteAt: null,
       },
     });

@@ -19,7 +19,7 @@ export class CreatePermissionCategoryService extends AuthorizationService {
   ): Promise<PermissionCategories> {
     return this.permissionCategoryRepository.save({
       ...permissionCategoryRequest,
-      createdBy: 1,
+      created_by: 1,
     });
   }
 }

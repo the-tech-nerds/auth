@@ -7,8 +7,8 @@ import { CreateClientService } from '../services/oauth/create-client.service';
 import { Client } from '../entities/client.entity';
 import { AuthorizeService } from '../services/oauth/authorize.service';
 import { TokenService } from '../services/oauth/token.service';
-import { ClientRequest } from '../../authentication/requests/client.request';
-import { TokenRequest } from '../../authentication/requests/token.request';
+import { ClientRequest } from '../requests/client.request';
+import { TokenRequest } from '../requests/token.request';
 
 @Controller()
 export class OauthController {
