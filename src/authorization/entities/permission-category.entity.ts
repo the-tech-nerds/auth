@@ -1,6 +1,4 @@
-import {
-  Column, Entity, OneToMany, PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import BaseEntity from '../../utils/entities/base-entity';
 import { Permissions } from './permission.entity';
 
@@ -20,7 +18,7 @@ export class PermissionCategories extends BaseEntity {
 
   @OneToMany(
     () => Permissions,
-    (permission) => permission.permission_category_id,
+    permission => permission.permission_category_id,
   )
   permissions: Permissions[];
 }

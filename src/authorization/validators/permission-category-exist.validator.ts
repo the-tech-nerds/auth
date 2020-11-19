@@ -10,16 +10,16 @@ import { PermissionCategoryRepository } from '../repositories/permission-categor
 
 @ValidatorConstraint({ async: true })
 export class IsPermissionCategoryExistConstraint
-implements ValidatorConstraintInterface {
+  implements ValidatorConstraintInterface {
   validate(permission_category_id: number, args: ValidationArguments) {
     const permissionCategoryRepository = getCustomRepository(
       PermissionCategoryRepository,
     );
     return permissionCategoryRepository
       .findOne(permission_category_id)
-      .then((permissionCategories) => (args.constraints[0]
-        ? !permissionCategories
-        : !!permissionCategories));
+      .then(permissionCategories =>
+        args.constraints[0] ? !permissionCategories : !!permissionCategories,
+      );
   }
 }
 
@@ -27,7 +27,7 @@ export function IsPermissionCategoryExist(
   exist: boolean = false,
   validationOptions?: ValidationOptions,
 ) {
-  return function (object: Object, propertyName: string) {
+  return function(object: Object, propertyName: string) {
     registerDecorator({
       target: object.constructor,
       propertyName,

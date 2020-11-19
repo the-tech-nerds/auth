@@ -12,12 +12,12 @@ import { RoleRepository } from '../repositories/role.repository';
 export class IsRoleNotExistConstraint implements ValidatorConstraintInterface {
   validate(role_id: number, args: ValidationArguments) {
     const roleCategoryRepository = getCustomRepository(RoleRepository);
-    return roleCategoryRepository.findOne(role_id).then((role) => !!role);
+    return roleCategoryRepository.findOne(role_id).then(role => !!role);
   }
 }
 
 export function IsRoleNotExist(validationOptions?: ValidationOptions) {
-  return function (object: Object, propertyName: string) {
+  return function(object: Object, propertyName: string) {
     registerDecorator({
       target: object.constructor,
       propertyName,

@@ -1,8 +1,14 @@
-import { AuthorizationService } from '../authorization.service';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository, UpdateResult } from 'typeorm';
+import { Roles } from '../../entities/role.entity';
 
-export class DeleteRoleService extends AuthorizationService {
-  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
-  constructor() {
-    super();
+export class DeleteRoleService {
+  constructor(
+    @InjectRepository(Roles)
+    private roleRepository: Repository<Roles>,
+  ) {}
+
+  async delete(id: number): Promise<UpdateResult> {
+    return this.roleRepository.softDelete(id);
   }
 }

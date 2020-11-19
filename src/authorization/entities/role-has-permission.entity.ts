@@ -1,6 +1,4 @@
-import {
-  Column, Entity, OneToOne, PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import BaseEntity from '../../utils/entities/base-entity';
 import { Permissions } from './permission.entity';
 import { Roles } from './role.entity';
@@ -18,13 +16,13 @@ export class RoleHasPermissions extends BaseEntity {
 
   @OneToOne(
     () => Permissions,
-    (permission) => permission,
+    permission => permission,
   )
   permission: Permissions;
 
   @OneToOne(
     () => Roles,
-    (role) => role,
+    role => role,
   )
   role: Roles;
 }

@@ -22,7 +22,7 @@ export class Permissions extends BaseEntity {
   @JoinColumn()
   @ManyToOne(
     () => PermissionCategories,
-    (category) => category.permissions,
+    category => category.permissions,
   )
   permission_category_id: number;
 
