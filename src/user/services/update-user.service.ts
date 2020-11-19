@@ -13,12 +13,15 @@ export class UpdateUsersService {
     private usersRepository: Repository<User>,
   ) {}
 
-  async execute(id: number, userRequest: UserRequest): Promise<UserRequest> {
+  async execute(
+    id: number,
+    userRequest: UserRequest,
+  ): Promise<User | undefined> {
     await this.usersRepository.update(id, {
       ...userRequest,
       updated_by: 1,
       updated_at: LocalDateToUtc(new Date()),
     });
-    return userRequest;
+    return this.usersRepository.findOne(id);
   }
 }

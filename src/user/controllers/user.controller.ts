@@ -1,12 +1,5 @@
 import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Post,
-  Put,
-  Res,
+  Body, Controller, Delete, Get, Param, Put, Res,
 } from '@nestjs/common';
 import { ApiResponseService } from 'src/utils/services/api-response/response/api-response.service';
 import { Response } from 'express';
@@ -14,7 +7,6 @@ import { User } from '../entities/user.entity';
 // eslint-disable-next-line import/extensions
 import { UserRequest } from '../requests/user.request';
 import { ListUsersService } from '../services/list-users.service';
-import { CreateUserService } from '../services/create-user.service';
 import { UpdateUsersService } from '../services/update-user.service';
 import { FetchUserByIdService } from '../services/fetch-user-by-id.service';
 import { DeleteUserService } from '../services/delete-user.service';
@@ -23,7 +15,6 @@ import { DeleteUserService } from '../services/delete-user.service';
 export class UserController {
   constructor(
     private readonly listUsersService: ListUsersService,
-    private readonly createUserService: CreateUserService,
     private readonly updateUsersService: UpdateUsersService,
     private readonly fetchUserByIdService: FetchUserByIdService,
     private readonly deleteUserService: DeleteUserService,
@@ -38,23 +29,6 @@ export class UserController {
       return this.apiResponseService.successResponse(
         ['User list fetched successfully'],
         data as User[],
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
-  }
-
-  @Post('/user')
-  async createUser(
-    @Body() userRequest: UserRequest,
-      @Res() res: Response,
-  ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.createUserService.execute(userRequest);
-      return this.apiResponseService.successResponse(
-        ['User created successfully'],
-        data as User,
         res,
       );
     } catch (e) {
