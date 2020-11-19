@@ -15,11 +15,10 @@ export class IsPermissionCategoryExistConstraint
     const permissionCategoryRepository = getCustomRepository(
       PermissionCategoryRepository,
     );
+    // tslint:disable-next-line:max-line-length
     return permissionCategoryRepository
       .findOne(permission_category_id)
-      .then(permissionCategories =>
-        args.constraints[0] ? !permissionCategories : !!permissionCategories,
-      );
+      .then(pc => (args.constraints[0] ? !pc : !!pc));
   }
 }
 

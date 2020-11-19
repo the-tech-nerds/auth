@@ -123,4 +123,24 @@ export class RoleController {
       );
     }
   }
+
+  @Post('/role/')
+  async AssignPermission(
+    @Param('id') id: number,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    try {
+      const data = await this.deleteRoleService.delete(id);
+      return this.apiResponseService.successResponse(
+        ['Role category deleted successfully'],
+        data,
+        res,
+      );
+    } catch (e) {
+      return this.apiResponseService.internalServerError(
+        ['Something went wrong! please try again later'],
+        res,
+      );
+    }
+  }
 }
