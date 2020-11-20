@@ -4,11 +4,13 @@ import {
   JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
+  Unique,
 } from 'typeorm';
 import BaseEntity from '../../utils/entities/base-entity';
 import { PermissionCategories } from './permission-category.entity';
 
 @Entity()
+@Unique(['name'])
 export class Permissions extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;

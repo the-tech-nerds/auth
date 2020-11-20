@@ -1,8 +1,15 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  Unique,
+} from 'typeorm';
 import BaseEntity from '../../utils/entities/base-entity';
 import { Permissions } from './permission.entity';
 
 @Entity()
+@Unique(['name'])
 export class PermissionCategories extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
