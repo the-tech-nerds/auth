@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CacheModule } from '@technerds/common-services';
+import { APP_GUARD } from '@nestjs/core';
 import { AuthorizationController } from './authorization.controller';
 import { CreatePermissionCategoryService } from './services/permission-category/create-permision-category.service';
 import { ListPermissionCategoryService } from './services/permission-category/list-permission-category.service';
@@ -37,6 +38,8 @@ import { Client } from './entities/client.entity';
 import { AccessCode } from './entities/access-code.entity';
 import { AccessToken } from './entities/access-token.entity';
 import { GetByIdRoleService } from './services/role/get-by-id-role.service';
+import { RolesGuard } from './guards/roles/roles.guard';
+import { PermissionsGuard } from './guards/permissions/permissions.guard';
 
 @Module({
   imports: [
@@ -79,6 +82,14 @@ import { GetByIdRoleService } from './services/role/get-by-id-role.service';
     TokenService,
     InitializeOauthServerService,
     GetByIdRoleService,
+    {
+      provide: APP_GUARD,
+      useClass: RolesGuard,
+    },
+    {
+      provide: APP_GUARD,
+      useClass: PermissionsGuard,
+    },
   ],
   controllers: [
     AuthorizationController,
