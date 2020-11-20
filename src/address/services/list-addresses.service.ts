@@ -1,16 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, UpdateResult } from 'typeorm';
+import { Repository } from 'typeorm';
 import { User } from '../entities/user.entity';
 
 @Injectable()
-export class DeleteUserService {
+export class ListAddressesService {
   constructor(
     @InjectRepository(User)
     private usersRepository: Repository<User>,
   ) {}
 
-  async execute(id: number): Promise<UpdateResult> {
-    return this.usersRepository.softDelete(id);
+  async execute(): Promise<User[]> {
+    return this.usersRepository.find();
   }
 }
