@@ -1,6 +1,6 @@
 import BaseEntity from 'src/share/entities/base-entity';
 
-interface UserInput extends BaseEntity {
+interface Address extends BaseEntity {
   id: number;
   firstName: string;
   lastName: string;

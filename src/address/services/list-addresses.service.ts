@@ -1,16 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User } from '../entities/user.entity';
+import { Address } from '../entities/address.entity';
 
 @Injectable()
 export class ListAddressesService {
   constructor(
-    @InjectRepository(User)
-    private usersRepository: Repository<User>,
+    @InjectRepository(Address)
+    private addressRepository: Repository<Address>,
   ) {}
 
-  async execute(): Promise<User[]> {
-    return this.usersRepository.find();
+  async execute(): Promise<Address[]> {
+    return this.addressRepository.find();
   }
 }

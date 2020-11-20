@@ -1,18 +1,18 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User } from '../entities/user.entity';
+import { Address } from '../entities/address.entity';
 
 @Injectable()
 export class FetchAddressByIdService {
   constructor(
-    @InjectRepository(User)
-    private usersRepository: Repository<User>,
+    @InjectRepository(Address)
+    private addressRepository: Repository<Address>,
   ) {}
 
-  async execute(userId: number): Promise<User | undefined> {
-    return this.usersRepository.findOne({
-      id: userId,
+  async execute(addressId: number): Promise<Address | undefined> {
+    return this.addressRepository.findOne({
+      id: addressId,
     });
   }
 }

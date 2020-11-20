@@ -1,11 +1,12 @@
 import {
   Body, Controller, Delete, Get, Param, Put, Res,
 } from '@nestjs/common';
+
 import { ApiResponseService } from 'src/utils/services/api-response/response/api-response.service';
 import { Response } from 'express';
 import { User } from '../entities/user.entity';
-// eslint-disable-next-line import/extensions
 import { UserRequest } from '../requests/user.request';
+
 import { ListUsersService } from '../services/list-users.service';
 import { UpdateUsersService } from '../services/update-user.service';
 import { FetchUserByIdService } from '../services/fetch-user-by-id.service';
