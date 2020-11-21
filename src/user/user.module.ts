@@ -13,6 +13,7 @@ import { ApiResponseService } from '../utils/services/api-response/response/api-
 @Module({
   imports: [TypeOrmModule.forFeature([User])],
   providers: [
+    ApiResponseService,
     ListUsersService,
     UpdateUsersService,
     FetchUserByIdService,
