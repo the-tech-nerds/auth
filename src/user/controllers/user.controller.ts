@@ -1,15 +1,19 @@
 import {
   Body, Controller, Delete, Get, Param, Put, Res,
 } from '@nestjs/common';
+
 import { ApiResponseService } from 'src/utils/services/api-response/response/api-response.service';
 import { Response } from 'express';
 import { User } from '../entities/user.entity';
-// eslint-disable-next-line import/extensions
 import { UserRequest } from '../requests/user.request';
+
 import { ListUsersService } from '../services/list-users.service';
 import { UpdateUsersService } from '../services/update-user.service';
 import { FetchUserByIdService } from '../services/fetch-user-by-id.service';
 import { DeleteUserService } from '../services/delete-user.service';
+import { GetAddressesByUserService } from '../services/get-addresses-by-user.service';
+
+import { Address } from '../../address/entities/address.entity';
 
 @Controller()
 export class UserController {
@@ -17,6 +21,7 @@ export class UserController {
     private readonly listUsersService: ListUsersService,
     private readonly updateUsersService: UpdateUsersService,
     private readonly fetchUserByIdService: FetchUserByIdService,
+    private readonly getAddressesByUserService: GetAddressesByUserService,
     private readonly deleteUserService: DeleteUserService,
 
     private readonly apiResponseService: ApiResponseService,
@@ -64,6 +69,23 @@ export class UserController {
       return this.apiResponseService.successResponse(
         ['User fetched successfully'],
         data as User,
+        res,
+      );
+    } catch (e) {
+      return this.apiResponseService.internalServerError([e.toString()], res);
+    }
+  }
+
+  @Get('/user/:id/addresses')
+  async getAddressByUser(
+    @Param('id') id: number,
+      @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    try {
+      const data = await this.getAddressesByUserService.execute(id);
+      return this.apiResponseService.successResponse(
+        ['User Addresses fetched successfully'],
+        data as Address[],
         res,
       );
     } catch (e) {

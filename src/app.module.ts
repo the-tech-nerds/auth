@@ -7,12 +7,14 @@ import { UserModule } from './user/user.module';
 import { AuthorizationModule } from './authorization/authorization.module';
 import { routes } from './route';
 import { AuthenticationModule } from './authentication/authentication.module';
+import { AddressModule } from './address/address.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
     RouterModule.forRoutes(routes),
     UserModule,
+    AddressModule,
     AuthorizationModule,
     AuthenticationModule,
   ],
