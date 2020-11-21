@@ -8,6 +8,7 @@ import { ListAddressesService } from './services/list-addresses.service';
 import { UpdateAddressService } from './services/update-address.service';
 import { FetchAddressByIdService } from './services/fetch-address-by-id.service';
 import { DeleteAddressService } from './services/delete-address.service';
+import { ApiResponseService } from '../utils/services/api-response/response/api-response.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Address])],
@@ -17,6 +18,7 @@ import { DeleteAddressService } from './services/delete-address.service';
     UpdateAddressService,
     FetchAddressByIdService,
     DeleteAddressService,
+    ApiResponseService,
   ],
   controllers: [AddressController],
 })

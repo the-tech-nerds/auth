@@ -8,6 +8,7 @@ import { UpdateUsersService } from './services/update-user.service';
 import { FetchUserByIdService } from './services/fetch-user-by-id.service';
 import { GetAddressesByUserService } from './services/get-addresses-by-user.service';
 import { DeleteUserService } from './services/delete-user.service';
+import { ApiResponseService } from '../utils/services/api-response/response/api-response.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User])],
@@ -17,6 +18,7 @@ import { DeleteUserService } from './services/delete-user.service';
     FetchUserByIdService,
     GetAddressesByUserService,
     DeleteUserService,
+    ApiResponseService,
   ],
   controllers: [UserController],
 })
