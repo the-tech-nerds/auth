@@ -27,7 +27,7 @@ export class UserController {
     private readonly apiResponseService: ApiResponseService,
   ) {}
 
-  @Get('/users')
+  @Get('/all')
   async getUsers(@Res() res: Response): Promise<Response<ResponseModel>> {
     try {
       const data = await this.listUsersService.execute();
@@ -41,7 +41,7 @@ export class UserController {
     }
   }
 
-  @Put('/user/:id')
+  @Put('/:id')
   async updateUser(
     @Param('id') id: number,
       @Body() userRequest: UserRequest,
@@ -59,7 +59,7 @@ export class UserController {
     }
   }
 
-  @Get('/user/:id')
+  @Get('/:id')
   async getUserById(
     @Param('id') id: number,
       @Res() res: Response,
@@ -76,7 +76,7 @@ export class UserController {
     }
   }
 
-  @Get('/user/:id/addresses')
+  @Get('/:id/addresses')
   async getAddressByUser(
     @Param('id') id: number,
       @Res() res: Response,
@@ -93,7 +93,7 @@ export class UserController {
     }
   }
 
-  @Delete('/user/:id')
+  @Delete('/:id')
   async DeleteUser(
     @Param('id') id: number,
       @Res() res: Response,
