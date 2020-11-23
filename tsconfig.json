@@ -12,7 +12,10 @@
     "incremental": true,
     "noImplicitAny": true,
     "target": "ES2019",
-    "lib": ["ES2019"],
+    "lib": [
+      "ES2019",
+      "dom"
+    ],
     "strictNullChecks": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,

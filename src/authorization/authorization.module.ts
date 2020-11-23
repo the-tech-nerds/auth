@@ -36,6 +36,7 @@ import { UserHasRoles } from './entities/user-has-role.entity';
 import { Client } from './entities/client.entity';
 import { AccessCode } from './entities/access-code.entity';
 import { AccessToken } from './entities/access-token.entity';
+import { GetByIdRoleService } from './services/role/get-by-id-role.service';
 
 @Module({
   imports: [
@@ -77,6 +78,7 @@ import { AccessToken } from './entities/access-token.entity';
     AuthorizeService,
     TokenService,
     InitializeOauthServerService,
+    GetByIdRoleService,
   ],
   controllers: [
     AuthorizationController,

@@ -1,6 +1,4 @@
-import {
-  Entity, Column, PrimaryGeneratedColumn, OneToMany,
-} from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import BaseEntity from '../../utils/entities/base-entity';
 import { Address } from '../../address/entities/address.entity';
 
@@ -50,7 +48,7 @@ export class User extends BaseEntity {
 
   @OneToMany(
     () => Address,
-    (address) => address.user_id,
+    address => address.user_id,
   )
   addresses: Address[];
 }

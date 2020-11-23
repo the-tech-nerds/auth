@@ -1,6 +1,4 @@
-import {
-  Column, Entity, OneToOne, PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import BaseEntity from '../../utils/entities/base-entity';
 import { User } from '../../user/entities/user.entity';
 import { Roles } from './role.entity';
@@ -18,13 +16,13 @@ export class UserHasRoles extends BaseEntity {
 
   @OneToOne(
     () => User,
-    (user) => user,
+    user => user,
   )
   user: User;
 
   @OneToOne(
     () => Roles,
-    (role) => role,
+    role => role,
   )
   role: Roles;
 }

@@ -32,7 +32,7 @@ export class PermissionController {
   @Post('/permission')
   async createPermission(
     @Body() permissionRequest: PermissionRequest,
-      @Res() res: Response,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.createPermissionService.create(permissionRequest);
@@ -68,7 +68,7 @@ export class PermissionController {
   @Get('/permission/:id')
   async getPermissionsById(
     @Param('id') id: number,
-      @Res() res: Response,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.getByIdPermissionService.getById(id);
@@ -88,8 +88,8 @@ export class PermissionController {
   @Put('/permission/:id')
   async updatePermission(
     @Param('id') id: number,
-      @Body() permissionRequest: PermissionRequest,
-      @Res() res: Response,
+    @Body() permissionRequest: PermissionRequest,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.updatePermissionService.update(
@@ -112,7 +112,7 @@ export class PermissionController {
   @Delete('/permission/:id')
   async DeletePermissions(
     @Param('id') id: number,
-      @Res() res: Response,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.deletePermissionService.delete(id);

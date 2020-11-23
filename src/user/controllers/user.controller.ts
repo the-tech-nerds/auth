@@ -1,6 +1,4 @@
-import {
-  Body, Controller, Delete, Get, Param, Put, Res,
-} from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Put, Res } from '@nestjs/common';
 
 import { ApiResponseService } from 'src/utils/services/api-response/response/api-response.service';
 import { Response } from 'express';
@@ -23,7 +21,6 @@ export class UserController {
     private readonly fetchUserByIdService: FetchUserByIdService,
     private readonly getAddressesByUserService: GetAddressesByUserService,
     private readonly deleteUserService: DeleteUserService,
-
     private readonly apiResponseService: ApiResponseService,
   ) {}
 
@@ -44,8 +41,8 @@ export class UserController {
   @Put('/:id')
   async updateUser(
     @Param('id') id: number,
-      @Body() userRequest: UserRequest,
-      @Res() res: Response,
+    @Body() userRequest: UserRequest,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.updateUsersService.execute(id, userRequest);
@@ -62,7 +59,7 @@ export class UserController {
   @Get('/:id')
   async getUserById(
     @Param('id') id: number,
-      @Res() res: Response,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.fetchUserByIdService.execute(id);
@@ -79,7 +76,7 @@ export class UserController {
   @Get('/:id/addresses')
   async getAddressByUser(
     @Param('id') id: number,
-      @Res() res: Response,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.getAddressesByUserService.execute(id);
@@ -96,7 +93,7 @@ export class UserController {
   @Delete('/:id')
   async DeleteUser(
     @Param('id') id: number,
-      @Res() res: Response,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.deleteUserService.execute(id);
