@@ -1,6 +1,7 @@
 import {
   Column,
   Entity,
+  JoinTable,
   ManyToMany,
   PrimaryGeneratedColumn,
   Unique,
@@ -22,11 +23,13 @@ export class Roles extends BaseEntity {
     type => Permissions,
     permissions => permissions.roles,
   )
-  permissions: Permissions[];
+  @JoinTable({ name: 'role_has_permissions' })
+  permissions!: Permissions[];
 
   @ManyToMany(
     type => User,
     users => users.roles,
   )
-  users: User[];
+  @JoinTable({ name: 'user_has_roles' })
+  users!: User[];
 }

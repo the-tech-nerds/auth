@@ -38,6 +38,7 @@ import { AccessToken } from './entities/access-token.entity';
 import { GetByIdRoleService } from './services/role/get-by-id-role.service';
 import { RolesGuard } from './guards/roles/roles.guard';
 import { PermissionsGuard } from './guards/permissions/permissions.guard';
+import { AssignPermissionInRoleService } from './services/role/assign-permission-in-role.service';
 
 @Module({
   imports: [
@@ -61,14 +62,13 @@ import { PermissionsGuard } from './guards/permissions/permissions.guard';
     ListRoleService,
     UpdateRoleService,
     DeleteRoleService,
-
+    AssignPermissionInRoleService,
     CreatePermissionService,
     ListPermissionService,
     UpdatePermissionService,
     DeletePermissionService,
     ApiResponseService,
     GetByIdPermissionService,
-
     CreateClientService,
     SerializeClientService,
     DeserializeClientService,

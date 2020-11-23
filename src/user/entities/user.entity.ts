@@ -57,11 +57,11 @@ export class User extends BaseEntity {
     () => Address,
     address => address.user_id,
   )
-  addresses: Address[];
+  addresses!: Address[];
 
   @ManyToMany(
-    type => Roles,
+    () => Roles,
     roles => roles.users,
   )
-  roles: Roles[];
+  roles!: Roles[];
 }

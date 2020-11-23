@@ -34,7 +34,7 @@ export class Permissions extends BaseEntity {
   is_active: boolean;
 
   @ManyToMany(
-    type => Roles,
+    () => Roles,
     roles => roles.permissions,
   )
   roles: Roles[];

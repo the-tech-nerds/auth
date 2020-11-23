@@ -1,6 +1,7 @@
 import {
   Column,
   Entity,
+  JoinTable,
   OneToMany,
   PrimaryGeneratedColumn,
   Unique,
@@ -27,5 +28,6 @@ export class PermissionCategories extends BaseEntity {
     () => Permissions,
     permission => permission.permission_category,
   )
+  @JoinTable()
   permissions: Permissions[];
 }

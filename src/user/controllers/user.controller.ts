@@ -1,4 +1,13 @@
-import { Body, Controller, Delete, Get, Param, Put, Res } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  Res,
+} from '@nestjs/common';
 
 import { ApiResponseService } from 'src/utils/services/api-response/response/api-response.service';
 import { Response } from 'express';
@@ -12,6 +21,8 @@ import { DeleteUserService } from '../services/delete-user.service';
 import { GetAddressesByUserService } from '../services/get-addresses-by-user.service';
 
 import { Address } from '../../address/entities/address.entity';
+import { UserAssignRolesRequest } from '../requests/user-assign-permission.request';
+import { AssignRolesInUserService } from '../services/assign-role-in-user.service';
 
 @Controller()
 export class UserController {
@@ -20,6 +31,7 @@ export class UserController {
     private readonly updateUsersService: UpdateUsersService,
     private readonly fetchUserByIdService: FetchUserByIdService,
     private readonly getAddressesByUserService: GetAddressesByUserService,
+    private readonly assignRolesInUserService: AssignRolesInUserService,
     private readonly deleteUserService: DeleteUserService,
 
     private readonly apiResponseService: ApiResponseService,
@@ -105,6 +117,30 @@ export class UserController {
       );
     } catch (e) {
       return this.apiResponseService.internalServerError([e.toString()], res);
+    }
+  }
+
+  @Post('/:id/assign-roles')
+  async AssignPermission(
+    @Param('id') id: number,
+    @Body() userAssignRolesRequest: UserAssignRolesRequest,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    try {
+      const data = await this.assignRolesInUserService.assign(
+        id,
+        userAssignRolesRequest.roles,
+      );
+      return this.apiResponseService.successResponse(
+        ['Role Assign successfully'],
+        data,
+        res,
+      );
+    } catch (e) {
+      return this.apiResponseService.internalServerError(
+        ['Something went wrong! please try again later'],
+        res,
+      );
     }
   }
 }

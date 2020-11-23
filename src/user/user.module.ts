@@ -9,9 +9,11 @@ import { FetchUserByIdService } from './services/fetch-user-by-id.service';
 import { GetAddressesByUserService } from './services/get-addresses-by-user.service';
 import { DeleteUserService } from './services/delete-user.service';
 import { ApiResponseService } from '../utils/services/api-response/response/api-response.service';
+import { AssignRolesInUserService } from './services/assign-role-in-user.service';
+import { Roles } from '../authorization/entities/role.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User])],
+  imports: [TypeOrmModule.forFeature([User, Roles])],
   providers: [
     ApiResponseService,
     ListUsersService,
@@ -19,6 +21,7 @@ import { ApiResponseService } from '../utils/services/api-response/response/api-
     FetchUserByIdService,
     GetAddressesByUserService,
     DeleteUserService,
+    AssignRolesInUserService,
   ],
   controllers: [UserController],
 })

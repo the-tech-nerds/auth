@@ -17,6 +17,8 @@ import { UpdateRoleService } from '../services/role/update-role.service';
 import { ApiResponseService } from '../../utils/services/api-response/response/api-response.service';
 import { RoleRequest } from '../requests/role.request';
 import { Roles } from '../entities/role.entity';
+import { AssignPermissionInRoleService } from '../services/role/assign-permission-in-role.service';
+import { RoleAssignPermissionRequest } from '../requests/role-assign-permission.request';
 
 @Controller()
 export class RoleController {
@@ -25,6 +27,7 @@ export class RoleController {
     private readonly listRoleService: ListRoleService,
     private readonly getByIdRoleService: GetByIdRoleService,
     private readonly deleteRoleService: DeleteRoleService,
+    private readonly assignPermissionInRoleService: AssignPermissionInRoleService,
     private readonly updateRoleService: UpdateRoleService,
     private readonly apiResponseService: ApiResponseService,
   ) {}
@@ -124,15 +127,19 @@ export class RoleController {
     }
   }
 
-  @Post('/role/')
+  @Post('/role/:id/assign-permissions')
   async AssignPermission(
     @Param('id') id: number,
+    @Body() roleAssignPermissionRequest: RoleAssignPermissionRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
-      const data = await this.deleteRoleService.delete(id);
+      const data = await this.assignPermissionInRoleService.assign(
+        id,
+        roleAssignPermissionRequest.permissions,
+      );
       return this.apiResponseService.successResponse(
-        ['Role category deleted successfully'],
+        ['Role Assign successfully'],
         data,
         res,
       );
