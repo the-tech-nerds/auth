@@ -1,11 +1,11 @@
 import { IsNotEmpty } from 'class-validator';
 
-export class OtpRequest {
+export class OtpValidateRequest {
   @IsNotEmpty({ message: 'Phone number is required.' })
   phone: string;
 
-  email?: string;
+  @IsNotEmpty({ message: 'otp code is required.' })
+  code: string;
 
-  @IsNotEmpty({ message: 'purpose number is required.' })
-  purpose: string;
+  email?: string;
 }
