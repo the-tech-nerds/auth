@@ -8,6 +8,7 @@ import { AuthorizationModule } from './authorization/authorization.module';
 import { routes } from './route';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { AddressModule } from './address/address.module';
+import { OtpModule } from './otp/otp.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { AddressModule } from './address/address.module';
     AddressModule,
     AuthorizationModule,
     AuthenticationModule,
+    OtpModule,
   ],
   controllers: [AppController],
   providers: [AppService],

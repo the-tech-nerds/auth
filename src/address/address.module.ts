@@ -13,12 +13,12 @@ import { ApiResponseService } from '../utils/services/api-response/response/api-
 @Module({
   imports: [TypeOrmModule.forFeature([Address])],
   providers: [
-    ApiResponseService,
     ListAddressesService,
     CreateAddressService,
     UpdateAddressService,
     FetchAddressByIdService,
     DeleteAddressService,
+    ApiResponseService,
   ],
   controllers: [AddressController],
 })
