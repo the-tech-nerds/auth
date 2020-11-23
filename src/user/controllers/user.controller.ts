@@ -33,7 +33,6 @@ export class UserController {
     private readonly getAddressesByUserService: GetAddressesByUserService,
     private readonly assignRolesInUserService: AssignRolesInUserService,
     private readonly deleteUserService: DeleteUserService,
-
     private readonly apiResponseService: ApiResponseService,
   ) {}
 
@@ -54,8 +53,8 @@ export class UserController {
   @Put('/:id')
   async updateUser(
     @Param('id') id: number,
-    @Body() userRequest: UserRequest,
-    @Res() res: Response,
+      @Body() userRequest: UserRequest,
+      @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.updateUsersService.execute(id, userRequest);
@@ -72,7 +71,7 @@ export class UserController {
   @Get('/:id')
   async getUserById(
     @Param('id') id: number,
-    @Res() res: Response,
+      @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.fetchUserByIdService.execute(id);
@@ -89,7 +88,7 @@ export class UserController {
   @Get('/:id/addresses')
   async getAddressByUser(
     @Param('id') id: number,
-    @Res() res: Response,
+      @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.getAddressesByUserService.execute(id);
@@ -106,7 +105,7 @@ export class UserController {
   @Delete('/:id')
   async DeleteUser(
     @Param('id') id: number,
-    @Res() res: Response,
+      @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.deleteUserService.execute(id);
@@ -123,8 +122,8 @@ export class UserController {
   @Post('/:id/assign-roles')
   async AssignPermission(
     @Param('id') id: number,
-    @Body() userAssignRolesRequest: UserAssignRolesRequest,
-    @Res() res: Response,
+      @Body() userAssignRolesRequest: UserAssignRolesRequest,
+      @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.assignRolesInUserService.assign(

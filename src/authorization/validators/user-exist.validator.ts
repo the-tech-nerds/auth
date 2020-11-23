@@ -12,12 +12,12 @@ import { UserRepository } from '../repositories/user.repository';
 export class IsUserExistConstraint implements ValidatorConstraintInterface {
   validate(user_id: number, args: ValidationArguments) {
     const userRepository = getCustomRepository(UserRepository);
-    return userRepository.findOne(user_id).then(user => !!user);
+    return userRepository.findOne(user_id).then((user) => !!user);
   }
 }
 
 export function IsUserExist(validationOptions?: ValidationOptions) {
-  return function(object: Object, propertyName: string) {
+  return function (object: Object, propertyName: string) {
     registerDecorator({
       target: object.constructor,
       propertyName,

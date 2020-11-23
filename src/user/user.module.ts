@@ -15,13 +15,13 @@ import { Roles } from '../authorization/entities/role.entity';
 @Module({
   imports: [TypeOrmModule.forFeature([User, Roles])],
   providers: [
-    ApiResponseService,
     ListUsersService,
     UpdateUsersService,
     FetchUserByIdService,
     GetAddressesByUserService,
     DeleteUserService,
     AssignRolesInUserService,
+    ApiResponseService,
   ],
   controllers: [UserController],
 })

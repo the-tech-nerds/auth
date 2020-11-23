@@ -1,4 +1,6 @@
-import { IsEmail, MinLength, IsNotEmpty, IsBoolean } from 'class-validator';
+import {
+  IsEmail, MinLength, IsNotEmpty, IsBoolean,
+} from 'class-validator';
 
 export class UserRequest {
   @IsNotEmpty({ message: 'First Name is required.' })

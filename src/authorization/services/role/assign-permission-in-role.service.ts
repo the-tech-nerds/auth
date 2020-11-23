@@ -23,8 +23,7 @@ export class AssignPermissionInRoleService extends AuthorizationService {
     try {
       const ROLE = await this.rolesRepository.findOne(role_id);
       // @ts-ignore
-      ROLE?.permissions =
-        (await this.permissionsRepository.findByIds(permissions)) || [];
+      ROLE?.permissions = (await this.permissionsRepository.findByIds(permissions)) || [];
       // @ts-ignore
       return { role: await this.rolesRepository.save(ROLE) };
     } catch (e) {

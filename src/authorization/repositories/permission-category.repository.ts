@@ -3,5 +3,5 @@ import { PermissionCategories } from '../entities/permission-category.entity';
 
 @EntityRepository(PermissionCategories)
 export class PermissionCategoryRepository extends Repository<
-  PermissionCategories
+PermissionCategories
 > {}
