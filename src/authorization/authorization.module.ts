@@ -32,8 +32,6 @@ import { TokenService } from './services/oauth/token.service';
 import { PermissionCategories } from './entities/permission-category.entity';
 import { Permissions } from './entities/permission.entity';
 import { Roles } from './entities/role.entity';
-import { RoleHasPermissions } from './entities/role-has-permission.entity';
-import { UserHasRoles } from './entities/user-has-role.entity';
 import { Client } from './entities/client.entity';
 import { AccessCode } from './entities/access-code.entity';
 import { AccessToken } from './entities/access-token.entity';
@@ -47,8 +45,6 @@ import { PermissionsGuard } from './guards/permissions/permissions.guard';
       PermissionCategories,
       Permissions,
       Roles,
-      RoleHasPermissions,
-      UserHasRoles,
       Client,
       AccessCode,
       AccessToken,

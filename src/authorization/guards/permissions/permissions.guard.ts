@@ -21,7 +21,6 @@ export class PermissionsGuard implements CanActivate {
         break;
       case PermissionTypeEnum.hasAnyPermissions:
         console.log(2);
-
         break;
       case PermissionTypeEnum.hasAllPermissions:
         console.log(3);

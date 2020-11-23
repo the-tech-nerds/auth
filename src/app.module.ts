@@ -9,6 +9,7 @@ import { routes } from './route';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { AddressModule } from './address/address.module';
 
+// @ts-ignore
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
