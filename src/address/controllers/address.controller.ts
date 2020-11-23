@@ -32,7 +32,7 @@ export class AddressController {
     private readonly apiResponseService: ApiResponseService,
   ) {}
 
-  @Post('/address')
+  @Post('/')
   async createAddress(
     @Body() addressRequest: AddressRequest,
       @Res() res: Response,
@@ -49,7 +49,7 @@ export class AddressController {
     }
   }
 
-  @Get('/addresses')
+  @Get('/all')
   async getAddresses(@Res() res: Response): Promise<Response<ResponseModel>> {
     try {
       const data = await this.listAddressesService.execute();
@@ -63,7 +63,7 @@ export class AddressController {
     }
   }
 
-  @Put('/address/:id')
+  @Put('/:id')
   async updateAddress(
     @Param('id') id: number,
       @Body() addressRequest: AddressRequest,
@@ -81,7 +81,7 @@ export class AddressController {
     }
   }
 
-  @Get('/address/:id')
+  @Get('/:id')
   async getAddressById(
     @Param('id') id: number,
       @Res() res: Response,
@@ -98,7 +98,7 @@ export class AddressController {
     }
   }
 
-  @Delete('/address/:id')
+  @Delete('/:id')
   async DeleteAddress(
     @Param('id') id: number,
       @Res() res: Response,
