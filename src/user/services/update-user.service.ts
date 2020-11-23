@@ -3,15 +3,14 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { LocalDateToUtc } from 'src/utils/date-time-conversion/date-time-conversion';
 import { User } from '../entities/user.entity';
+// eslint-disable-next-line import/extensions
 import { UserRequest } from '../requests/user.request';
-import { FetchUserByIdService } from './fetch-user-by-id.service';
 
 @Injectable()
 export class UpdateUsersService {
   constructor(
     @InjectRepository(User)
     private usersRepository: Repository<User>,
-    private fetchUserByIdService: FetchUserByIdService,
   ) {}
 
   async execute(
@@ -23,6 +22,6 @@ export class UpdateUsersService {
       updated_by: 1,
       updated_at: LocalDateToUtc(new Date()),
     });
-    return this.fetchUserByIdService.execute(id);
+    return this.usersRepository.findOne(id);
   }
 }
