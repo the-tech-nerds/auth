@@ -1,4 +1,4 @@
-import commonConfig from '@technerds/common-services/dist/config/common-config';
+import { commonConfig } from '@technerds/common-services';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
