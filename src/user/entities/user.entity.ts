@@ -1,6 +1,17 @@
+<<<<<<< HEAD
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  ManyToMany,
+} from 'typeorm';
+=======
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+>>>>>>> 861504fdaff6c7f82b3f761411f7d2a29dcb6cd4
 import BaseEntity from '../../utils/entities/base-entity';
 import { Address } from '../../address/entities/address.entity';
+import { Roles } from '../../authorization/entities/role.entity';
 
 export type UserType = 'admin' | 'user';
 
@@ -50,5 +61,11 @@ export class User extends BaseEntity {
     () => Address,
     address => address.user_id,
   )
-  addresses: Address[];
+  addresses!: Address[];
+
+  @ManyToMany(
+    () => Roles,
+    roles => roles.users,
+  )
+  roles!: Roles[];
 }

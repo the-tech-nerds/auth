@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CacheModule } from '@technerds/common-services';
+import { APP_GUARD } from '@nestjs/core';
 import { AuthorizationController } from './authorization.controller';
 import { CreatePermissionCategoryService } from './services/permission-category/create-permision-category.service';
 import { ListPermissionCategoryService } from './services/permission-category/list-permission-category.service';
@@ -31,12 +32,13 @@ import { TokenService } from './services/oauth/token.service';
 import { PermissionCategories } from './entities/permission-category.entity';
 import { Permissions } from './entities/permission.entity';
 import { Roles } from './entities/role.entity';
-import { RoleHasPermissions } from './entities/role-has-permission.entity';
-import { UserHasRoles } from './entities/user-has-role.entity';
 import { Client } from './entities/client.entity';
 import { AccessCode } from './entities/access-code.entity';
 import { AccessToken } from './entities/access-token.entity';
 import { GetByIdRoleService } from './services/role/get-by-id-role.service';
+import { RolesGuard } from './guards/roles/roles.guard';
+import { PermissionsGuard } from './guards/permissions/permissions.guard';
+import { AssignPermissionInRoleService } from './services/role/assign-permission-in-role.service';
 
 @Module({
   imports: [
@@ -44,8 +46,6 @@ import { GetByIdRoleService } from './services/role/get-by-id-role.service';
       PermissionCategories,
       Permissions,
       Roles,
-      RoleHasPermissions,
-      UserHasRoles,
       Client,
       AccessCode,
       AccessToken,
@@ -62,14 +62,13 @@ import { GetByIdRoleService } from './services/role/get-by-id-role.service';
     ListRoleService,
     UpdateRoleService,
     DeleteRoleService,
-
+    AssignPermissionInRoleService,
     CreatePermissionService,
     ListPermissionService,
     UpdatePermissionService,
     DeletePermissionService,
     ApiResponseService,
     GetByIdPermissionService,
-
     CreateClientService,
     SerializeClientService,
     DeserializeClientService,
@@ -79,6 +78,14 @@ import { GetByIdRoleService } from './services/role/get-by-id-role.service';
     TokenService,
     InitializeOauthServerService,
     GetByIdRoleService,
+    {
+      provide: APP_GUARD,
+      useClass: RolesGuard,
+    },
+    {
+      provide: APP_GUARD,
+      useClass: PermissionsGuard,
+    },
   ],
   controllers: [
     AuthorizationController,

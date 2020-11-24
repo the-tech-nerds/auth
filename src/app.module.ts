@@ -10,6 +10,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { AddressModule } from './address/address.module';
 import { OtpModule } from './otp/otp.module';
 
+// @ts-ignore
 @Module({
   imports: [
     TypeOrmModule.forRoot(),

@@ -2,12 +2,14 @@ import {
   Column,
   Entity,
   JoinColumn,
+  ManyToMany,
   ManyToOne,
   PrimaryGeneratedColumn,
   Unique,
 } from 'typeorm';
 import BaseEntity from '../../utils/entities/base-entity';
 import { PermissionCategories } from './permission-category.entity';
+import { Roles } from './role.entity';
 
 @Entity()
 @Unique(['name'])
@@ -24,10 +26,16 @@ export class Permissions extends BaseEntity {
   @JoinColumn()
   @ManyToOne(
     () => PermissionCategories,
-    category => category.permissions,
+    (category) => category.permissions,
   )
-  permission_category_id: number;
+  permission_category: PermissionCategories;
 
   @Column({ default: true })
   is_active: boolean;
+
+  @ManyToMany(
+    () => Roles,
+    (roles) => roles.permissions,
+  )
+  roles: Roles[];
 }

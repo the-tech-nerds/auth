@@ -1,4 +1,6 @@
-import { Body, Controller, Post, Res } from '@nestjs/common';
+import {
+  Body, Controller, Post, Res,
+} from '@nestjs/common';
 import { Response } from 'express';
 import { CreateOtpService } from '../services/create-otp.service';
 import { ValidateOtpService } from '../services/validation-otp.service';
@@ -18,7 +20,7 @@ export class OtpController {
   @Post('/generate')
   async generateOtp(
     @Body() otpRequest: OtpRequest,
-    @Res() res: Response,
+      @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.createOtpService.create(otpRequest);
@@ -35,7 +37,7 @@ export class OtpController {
   @Post('/validate')
   async validateOtp(
     @Body() otpValidateRequest: OtpValidateRequest,
-    @Res() res: Response,
+      @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.validateOtpService.validate(otpValidateRequest);

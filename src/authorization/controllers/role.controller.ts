@@ -17,6 +17,8 @@ import { UpdateRoleService } from '../services/role/update-role.service';
 import { ApiResponseService } from '../../utils/services/api-response/response/api-response.service';
 import { RoleRequest } from '../requests/role.request';
 import { Roles } from '../entities/role.entity';
+import { AssignPermissionInRoleService } from '../services/role/assign-permission-in-role.service';
+import { RoleAssignPermissionRequest } from '../requests/role-assign-permission.request';
 
 @Controller()
 export class RoleController {
@@ -25,6 +27,7 @@ export class RoleController {
     private readonly listRoleService: ListRoleService,
     private readonly getByIdRoleService: GetByIdRoleService,
     private readonly deleteRoleService: DeleteRoleService,
+    private readonly assignPermissionInRoleService: AssignPermissionInRoleService,
     private readonly updateRoleService: UpdateRoleService,
     private readonly apiResponseService: ApiResponseService,
   ) {}
@@ -32,7 +35,7 @@ export class RoleController {
   @Post('/role')
   async createRole(
     @Body() roleRequest: RoleRequest,
-    @Res() res: Response,
+      @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.createRoleService.create(roleRequest);
@@ -66,7 +69,7 @@ export class RoleController {
   @Get('/role/:id')
   async getRolesById(
     @Param('id') id: number,
-    @Res() res: Response,
+      @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.getByIdRoleService.getById(id);
@@ -86,8 +89,8 @@ export class RoleController {
   @Put('/role/:id')
   async updateRole(
     @Param('id') id: number,
-    @Body() roleRequest: RoleRequest,
-    @Res() res: Response,
+      @Body() roleRequest: RoleRequest,
+      @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.updateRoleService.update(id, roleRequest);
@@ -107,7 +110,7 @@ export class RoleController {
   @Delete('/role/:id')
   async DeleteRoles(
     @Param('id') id: number,
-    @Res() res: Response,
+      @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.deleteRoleService.delete(id);
@@ -124,15 +127,19 @@ export class RoleController {
     }
   }
 
-  @Post('/role/')
+  @Post('/role/:id/assign-permissions')
   async AssignPermission(
     @Param('id') id: number,
-    @Res() res: Response,
+      @Body() roleAssignPermissionRequest: RoleAssignPermissionRequest,
+      @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
-      const data = await this.deleteRoleService.delete(id);
+      const data = await this.assignPermissionInRoleService.assign(
+        id,
+        roleAssignPermissionRequest.permissions,
+      );
       return this.apiResponseService.successResponse(
-        ['Role category deleted successfully'],
+        ['Role Assign successfully'],
         data,
         res,
       );
