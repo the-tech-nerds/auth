@@ -17,7 +17,7 @@ import { PermissionCategories } from '../entities/permission-category.entity';
 import { ApiResponseService } from '../../utils/services/api-response/response/api-response.service';
 import { PermissionCategoryRequest } from '../requests/permission-category.request';
 
-@Controller()
+@Controller('permission')
 export class PermissionCategoryController {
   constructor(
     private readonly createPermissionCategoryService: CreatePermissionCategoryService,
@@ -27,18 +27,18 @@ export class PermissionCategoryController {
     private readonly apiResponseService: ApiResponseService,
   ) {}
 
-  @Post('/permission/category')
+  @Post('/category')
   async createPermissionCategory(
     @Body() permissionCategoryRequest: PermissionCategoryRequest,
-      @Res() res: Response,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.createPermissionCategoryService.create(
         permissionCategoryRequest,
       );
       return this.apiResponseService.successResponse(
-        ['Permission store successfully'],
-        data as PermissionCategories,
+        ['Permission category store successfully'],
+        data,
         res,
       );
     } catch (e) {
@@ -49,7 +49,7 @@ export class PermissionCategoryController {
     }
   }
 
-  @Get('/permission/categories')
+  @Get('/categories')
   async getAllPermissionsCategory(
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
@@ -68,11 +68,11 @@ export class PermissionCategoryController {
     }
   }
 
-  @Put('/permission/category/:id')
+  @Put('/category/:id')
   async updatePermissionCategory(
     @Param('id') id: number,
-      @Body() permissionCategoryRequest: PermissionCategoryRequest,
-      @Res() res: Response,
+    @Body() permissionCategoryRequest: PermissionCategoryRequest,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.updatePermissionCategoryService.update(
@@ -92,10 +92,10 @@ export class PermissionCategoryController {
     }
   }
 
-  @Delete('/permission/category/:id')
+  @Delete('/category/:id')
   async deletePermissionCategory(
     @Param('id') id: number,
-      @Res() res: Response,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       await this.deletePermissionCategoryService.delete(id);

@@ -1,8 +1,13 @@
 import {
-  Entity, Column, PrimaryGeneratedColumn, OneToMany,
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  ManyToMany,
 } from 'typeorm';
 import BaseEntity from '../../utils/entities/base-entity';
 import { Address } from '../../address/entities/address.entity';
+import { Roles } from '../../authorization/entities/role.entity';
 
 export type UserType = 'admin' | 'user';
 
@@ -50,7 +55,13 @@ export class User extends BaseEntity {
 
   @OneToMany(
     () => Address,
-    (address) => address.user_id,
+    address => address.user_id,
   )
-  addresses: Address[];
+  addresses!: Address[];
+
+  @ManyToMany(
+    () => Roles,
+    roles => roles.users,
+  )
+  roles!: Roles[];
 }

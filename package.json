@@ -98,7 +98,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "prettier --write \"src/**/*.ts\" && eslint \"src/**/*.{ts,jsx,js,tsx}\" --fix && git add ."
+      "pre-commit": "eslint \"src/**/*.{ts,jsx,js,tsx}\" --fix && prettier --write \"src/**/*.ts\" &&  git add ."
     }
   }
 }

@@ -10,8 +10,10 @@ import { AuthorizationModule } from './authorization/authorization.module';
 import { routes } from './route';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { AddressModule } from './address/address.module';
+import { OtpModule } from './otp/otp.module';
 import configuration from './config/configuration';
 
+// @ts-ignore
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
@@ -24,6 +26,7 @@ import configuration from './config/configuration';
     AddressModule,
     AuthorizationModule,
     AuthenticationModule,
+    OtpModule,
   ],
   controllers: [AppController],
   providers: [AppService],
