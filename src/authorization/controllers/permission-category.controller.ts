@@ -30,7 +30,7 @@ export class PermissionCategoryController {
   @Post('/category')
   async createPermissionCategory(
     @Body() permissionCategoryRequest: PermissionCategoryRequest,
-      @Res() res: Response,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.createPermissionCategoryService.create(
@@ -71,8 +71,8 @@ export class PermissionCategoryController {
   @Put('/category/:id')
   async updatePermissionCategory(
     @Param('id') id: number,
-      @Body() permissionCategoryRequest: PermissionCategoryRequest,
-      @Res() res: Response,
+    @Body() permissionCategoryRequest: PermissionCategoryRequest,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.updatePermissionCategoryService.update(
@@ -95,7 +95,7 @@ export class PermissionCategoryController {
   @Delete('/category/:id')
   async deletePermissionCategory(
     @Param('id') id: number,
-      @Res() res: Response,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       await this.deletePermissionCategoryService.delete(id);

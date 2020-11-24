@@ -26,7 +26,7 @@ export class PermissionCategories extends BaseEntity {
 
   @OneToMany(
     () => Permissions,
-    (permission) => permission.permission_category,
+    permission => permission.permission_category,
   )
   @JoinTable()
   permissions: Permissions[];

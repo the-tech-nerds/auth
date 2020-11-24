@@ -26,7 +26,7 @@ export class Permissions extends BaseEntity {
   @JoinColumn()
   @ManyToOne(
     () => PermissionCategories,
-    (category) => category.permissions,
+    category => category.permissions,
   )
   permission_category: PermissionCategories;
 
@@ -35,7 +35,7 @@ export class Permissions extends BaseEntity {
 
   @ManyToMany(
     () => Roles,
-    (roles) => roles.permissions,
+    roles => roles.permissions,
   )
   roles: Roles[];
 }

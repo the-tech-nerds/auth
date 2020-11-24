@@ -35,7 +35,7 @@ export class RoleController {
   @Post('/role')
   async createRole(
     @Body() roleRequest: RoleRequest,
-      @Res() res: Response,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.createRoleService.create(roleRequest);
@@ -69,7 +69,7 @@ export class RoleController {
   @Get('/role/:id')
   async getRolesById(
     @Param('id') id: number,
-      @Res() res: Response,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.getByIdRoleService.getById(id);
@@ -89,8 +89,8 @@ export class RoleController {
   @Put('/role/:id')
   async updateRole(
     @Param('id') id: number,
-      @Body() roleRequest: RoleRequest,
-      @Res() res: Response,
+    @Body() roleRequest: RoleRequest,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.updateRoleService.update(id, roleRequest);
@@ -110,7 +110,7 @@ export class RoleController {
   @Delete('/role/:id')
   async DeleteRoles(
     @Param('id') id: number,
-      @Res() res: Response,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.deleteRoleService.delete(id);
@@ -130,8 +130,8 @@ export class RoleController {
   @Post('/role/:id/assign-permissions')
   async AssignPermission(
     @Param('id') id: number,
-      @Body() roleAssignPermissionRequest: RoleAssignPermissionRequest,
-      @Res() res: Response,
+    @Body() roleAssignPermissionRequest: RoleAssignPermissionRequest,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.assignPermissionInRoleService.assign(
