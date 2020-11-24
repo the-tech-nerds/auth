@@ -21,16 +21,18 @@ services:
     networks:
       - groceryshop
     depends_on:
-      - redis
+      - authredis
       - authdb
 
-  redis:
-    container_name: redis
+  authredis:
+    container_name: authredis
     image: redis:alpine
     ports:
       - 6379:6379
     networks:
       - groceryshop
+    volumes:
+       - "./data/redis:/data"
   authdb:
     image: mysql:5.7
     container_name: authdb

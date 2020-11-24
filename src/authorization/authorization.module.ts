@@ -1,6 +1,7 @@
-import { Module } from '@nestjs/common';
+import { HttpModule, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CacheModule } from '@technerds/common-services';
+import { JwtModule } from '@nestjs/jwt';
 import { AuthorizationController } from './authorization.controller';
 import { CreatePermissionCategoryService } from './services/permission-category/create-permision-category.service';
 import { ListPermissionCategoryService } from './services/permission-category/list-permission-category.service';
@@ -36,6 +37,7 @@ import { UserHasRoles } from './entities/user-has-role.entity';
 import { Client } from './entities/client.entity';
 import { AccessCode } from './entities/access-code.entity';
 import { AccessToken } from './entities/access-token.entity';
+import { jwtConstants } from '../authentication/constants';
 
 @Module({
   imports: [
@@ -50,6 +52,11 @@ import { AccessToken } from './entities/access-token.entity';
       AccessToken,
     ]),
     CacheModule,
+    HttpModule,
+    JwtModule.register({
+      secret: jwtConstants.secret,
+      signOptions: { expiresIn: '3600s' },
+    }),
   ],
   providers: [
     CreatePermissionCategoryService,
