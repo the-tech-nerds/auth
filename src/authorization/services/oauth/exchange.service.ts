@@ -67,8 +67,8 @@ export class ExchangeService extends AuthorizationService {
               const savedToken = await this.accessTokenRepository.save(token);
               const accessToken = {
                 value: savedToken.value,
-                client_id,
-                user_id,
+                client_id: clientId,
+                user_id: userId,
                 id: savedToken.id,
               };
               return callback(null, accessToken, null, {
