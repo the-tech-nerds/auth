@@ -12,7 +12,7 @@ import {
 import { ApiResponseService } from 'src/utils/services/api-response/response/api-response.service';
 import { Response } from 'express';
 import { User } from '../entities/user.entity';
-import { UserRequest } from '../requests/user.request';
+import { UserUpdateRequest } from '../requests/user-update.request';
 
 import { ListUsersService } from '../services/list-users.service';
 import { UpdateUsersService } from '../services/update-user.service';
@@ -53,11 +53,11 @@ export class UserController {
   @Put('/:id')
   async updateUser(
     @Param('id') id: number,
-    @Body() userRequest: UserRequest,
+    @Body() userUpdateRequest: UserUpdateRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
-      const data = await this.updateUsersService.execute(id, userRequest);
+      const data = await this.updateUsersService.execute(id, userUpdateRequest);
       return this.apiResponseService.successResponse(
         ['User has been updated successfully'],
         data as User,
