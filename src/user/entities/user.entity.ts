@@ -5,7 +5,6 @@ import {
   OneToMany,
   ManyToMany,
 } from 'typeorm';
-
 import BaseEntity from '../../utils/entities/base-entity';
 import { Address } from '../../address/entities/address.entity';
 import { Roles } from '../../authorization/entities/role.entity';
