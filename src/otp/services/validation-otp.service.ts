@@ -12,7 +12,7 @@ export class ValidateOtpService {
     private otpsRepository: Repository<Otps>,
   ) {}
 
-  async validate(otpValidateRequest: OtpValidateRequest): Promise<string> {
+  async validate(otpValidateRequest: OtpValidateRequest): Promise<boolean> {
     const otp = await this.otpsRepository.findOne({
       where: {
         code: otpValidateRequest.code,
@@ -25,7 +25,7 @@ export class ValidateOtpService {
     if (otp) {
       otp.status = true;
       await this.otpsRepository.update(otp.id, otp);
-      return 'otp verification success';
+      return true;
     }
 
     throw new Error('invalid otp.');
