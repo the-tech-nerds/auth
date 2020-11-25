@@ -11,6 +11,8 @@ export class UserRequest {
   @IsEmail()
   email: string;
 
+  phone: string;
+
   @IsNotEmpty({ message: 'Password is required.' })
   @MinLength(8, { message: 'Password must be atleast 8 charracters' })
   password: string;
