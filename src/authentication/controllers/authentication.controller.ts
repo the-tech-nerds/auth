@@ -31,7 +31,7 @@ export class AuthenticationController {
 
   @Post('/register')
   async register(
-  @Body() userRegistrationRequest: UserRegistrationRequest,
+    @Body() userRegistrationRequest: UserRegistrationRequest,
     @Res() res: any,
   ) {
     const user = await this.userRegistrationService.register(

@@ -35,7 +35,7 @@ export class AddressController {
   @Post('/')
   async createAddress(
     @Body() addressRequest: AddressRequest,
-      @Res() res: Response,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.createAddressService.create(addressRequest);
@@ -66,8 +66,8 @@ export class AddressController {
   @Put('/:id')
   async updateAddress(
     @Param('id') id: number,
-      @Body() addressRequest: AddressRequest,
-      @Res() res: Response,
+    @Body() addressRequest: AddressRequest,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.updateAddressService.execute(id, addressRequest);
@@ -84,7 +84,7 @@ export class AddressController {
   @Get('/:id')
   async getAddressById(
     @Param('id') id: number,
-      @Res() res: Response,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.fetchAddressByIdService.execute(id);
@@ -101,7 +101,7 @@ export class AddressController {
   @Delete('/:id')
   async DeleteAddress(
     @Param('id') id: number,
-      @Res() res: Response,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.deleteAddressService.execute(id);
