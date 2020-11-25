@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Address } from '../entities/address.entity';
 import { ForgetPasswordInitRequest } from '../requests/forget-password-init.request';
 import { CreateOtpService } from '../../otp/services/create-otp.service';
 import { OtpRequest } from '../../otp/requests/otp.request';
@@ -11,7 +10,7 @@ import { User } from '../../user/entities/user.entity';
 @Injectable()
 export class ForgetPasswordInitService {
   constructor(
-    @InjectRepository(Address)
+    @InjectRepository(User)
     private userRepository: Repository<User>,
     private createOtpService: CreateOtpService,
   ) {}
