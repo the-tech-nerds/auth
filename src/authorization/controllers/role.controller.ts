@@ -19,6 +19,9 @@ import { RoleRequest } from '../requests/role.request';
 import { Roles } from '../entities/role.entity';
 import { AssignPermissionInRoleService } from '../services/role/assign-permission-in-role.service';
 import { RoleAssignPermissionRequest } from '../requests/role-assign-permission.request';
+import { HasPermissions } from '../guards/meta-data/permissions/permissions.decorator';
+import * as type from '../utils/permission-types/permission.type';
+import { PermissionTypeEnum } from '../enum/permission-type.enum';
 
 @Controller()
 export class RoleController {
@@ -32,6 +35,7 @@ export class RoleController {
     private readonly apiResponseService: ApiResponseService,
   ) {}
 
+  @HasPermissions([type.ROLE.CREATE], PermissionTypeEnum.hasPermission)
   @Post('/role')
   async createRole(
     @Body() roleRequest: RoleRequest,
@@ -49,6 +53,7 @@ export class RoleController {
     }
   }
 
+  @HasPermissions([type.ROLE.GET], PermissionTypeEnum.hasPermission)
   @Get('/roles')
   async getAllRoles(@Res() res: Response): Promise<Response<ResponseModel>> {
     try {
@@ -66,6 +71,7 @@ export class RoleController {
     }
   }
 
+  @HasPermissions([type.ROLE.CREATE], PermissionTypeEnum.hasPermission)
   @Get('/role/:id')
   async getRolesById(
     @Param('id') id: number,
@@ -86,6 +92,7 @@ export class RoleController {
     }
   }
 
+  @HasPermissions([type.ROLE.UPDATE], PermissionTypeEnum.hasPermission)
   @Put('/role/:id')
   async updateRole(
     @Param('id') id: number,
@@ -107,6 +114,7 @@ export class RoleController {
     }
   }
 
+  @HasPermissions([type.ROLE.DELETE], PermissionTypeEnum.hasPermission)
   @Delete('/role/:id')
   async DeleteRoles(
     @Param('id') id: number,
@@ -127,6 +135,10 @@ export class RoleController {
     }
   }
 
+  @HasPermissions(
+    [type.ROLE.PERMISSION_ASSIGN],
+    PermissionTypeEnum.hasPermission,
+  )
   @Post('/role/:id/assign-permissions')
   async AssignPermission(
     @Param('id') id: number,

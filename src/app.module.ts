@@ -13,7 +13,6 @@ import { AddressModule } from './address/address.module';
 import { OtpModule } from './otp/otp.module';
 import configuration from './config/configuration';
 
-// @ts-ignore
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
