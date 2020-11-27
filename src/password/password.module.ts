@@ -6,12 +6,15 @@ import { ForgetPasswordInitService } from './services/forget-password-init.servi
 import { ForgetPasswordCompleteService } from './services/forget-password-complete.service';
 import { ApiResponseService } from '../utils/services/api-response/response/api-response.service';
 import { User } from '../user/entities/user.entity';
+import { ResetPasswordService } from './services/reset-password.service';
+import { OtpModule } from '../otp/otp.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User])],
+  imports: [TypeOrmModule.forFeature([User]), OtpModule],
   providers: [
     ForgetPasswordInitService,
     ForgetPasswordCompleteService,
+    ResetPasswordService,
     ApiResponseService,
   ],
   controllers: [PasswordManagementController],

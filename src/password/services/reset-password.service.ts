@@ -31,10 +31,11 @@ export class ResetPasswordService {
       resetPasswordRequest.new_password,
       user.password,
     );
-    if (!isPassMatching)
+    if (!isPassMatching) {
       throw new Error(
         'Sorry! Provided password did not match with your current password',
       );
+    }
 
     user.password = await hash(resetPasswordRequest.new_password, 10);
     await this.userRepository.save(user);
