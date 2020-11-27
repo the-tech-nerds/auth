@@ -12,6 +12,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { AddressModule } from './address/address.module';
 import { OtpModule } from './otp/otp.module';
 import configuration from './config/configuration';
+import { PasswordModule } from './password/password.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import configuration from './config/configuration';
     AuthorizationModule,
     AuthenticationModule,
     OtpModule,
+    PasswordModule,
   ],
   controllers: [AppController],
   providers: [AppService],

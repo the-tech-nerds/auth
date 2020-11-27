@@ -4,6 +4,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { OtpModule } from './otp/otp.module';
 import { UserModule } from './user/user.module';
 import { AddressModule } from './address/address.module';
+import { PasswordModule } from './password/password.module';
 
 export const routes: Routes = [
   {
@@ -25,5 +26,9 @@ export const routes: Routes = [
   {
     path: '/address',
     module: AddressModule,
+  },
+  {
+    path: '/password',
+    module: PasswordModule,
   },
 ];

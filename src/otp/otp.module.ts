@@ -11,5 +11,6 @@ import { ApiResponseService } from '../utils/services/api-response/response/api-
   imports: [TypeOrmModule.forFeature([Otps])],
   providers: [CreateOtpService, ValidateOtpService, ApiResponseService],
   controllers: [OtpController],
+  exports: [CreateOtpService],
 })
 export class OtpModule {}
