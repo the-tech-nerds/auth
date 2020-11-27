@@ -19,3 +19,14 @@ export function addMinutes(date: Date, minutes: number) {
     .add(minutes, 'm')
     .toDate();
 }
+export function addDay(date: Date, days: number) {
+  return moment(date)
+    .add(days, 'd')
+    .toDate();
+}
+
+export function subtractDay(date: Date, days: number) {
+  return moment(date)
+    .subtract(days, 'd')
+    .toDate();
+}
