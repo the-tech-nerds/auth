@@ -28,7 +28,7 @@ export class ResetPasswordService {
     );
 
     const isPassMatching = await compare(
-      resetPasswordRequest.new_password,
+      resetPasswordRequest.old_password,
       user.password,
     );
     if (!isPassMatching) {

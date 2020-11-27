@@ -1,4 +1,4 @@
-import { IsNotEmpty, MinLength, ValidateIf } from 'class-validator';
+import { IsNotEmpty, MinLength } from 'class-validator';
 
 export class ResetPasswordRequest {
   @IsNotEmpty({ message: 'User id is required.' })
@@ -12,6 +12,5 @@ export class ResetPasswordRequest {
   new_password: string;
 
   @IsNotEmpty({ message: 'Password confirmation is required.' })
-  @ValidateIf(user => user.new_password !== user.new_password_confirm)
   new_password_confirm: string;
 }
