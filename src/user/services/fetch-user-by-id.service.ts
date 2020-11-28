@@ -11,8 +11,8 @@ export class FetchUserByIdService {
   ) {}
 
   async execute(userId: number): Promise<User | undefined> {
-    return this.usersRepository.findOne({
-      id: userId,
+    return this.usersRepository.findOne(userId, {
+      relations: ['roles', 'roles.permissions'],
     });
   }
 }

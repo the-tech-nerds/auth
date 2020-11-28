@@ -11,8 +11,6 @@ import { ApiResponseService } from '../utils/services/api-response/response/api-
 import { PermissionCategories } from '../authorization/entities/permission-category.entity';
 import { Permissions } from '../authorization/entities/permission.entity';
 import { Roles } from '../authorization/entities/role.entity';
-import { RoleHasPermissions } from '../authorization/entities/role-has-permission.entity';
-import { UserHasRoles } from '../authorization/entities/user-has-role.entity';
 import { Client } from '../authorization/entities/client.entity';
 import { AccessCode } from '../authorization/entities/access-code.entity';
 import { AccessToken } from '../authorization/entities/access-token.entity';
@@ -21,6 +19,7 @@ import { JwtStrategy } from './strategies/jwt.strategy';
 import { UserLoginService } from './services/user.login.service';
 import { LocalStrategy } from './strategies/local.strategy';
 import { UserValidationService } from './services/user.validation.service';
+import { FetchUserByIdService } from '../user/services/fetch-user-by-id.service';
 
 @Module({
   imports: [
@@ -28,8 +27,6 @@ import { UserValidationService } from './services/user.validation.service';
       PermissionCategories,
       Permissions,
       Roles,
-      RoleHasPermissions,
-      UserHasRoles,
       Client,
       AccessCode,
       AccessToken,
@@ -50,6 +47,7 @@ import { UserValidationService } from './services/user.validation.service';
     UserValidationService,
     LocalStrategy,
     JwtStrategy,
+    FetchUserByIdService,
   ],
   controllers: [AuthenticationController],
 })

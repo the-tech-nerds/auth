@@ -13,3 +13,9 @@ export function UtcDateToLocal(date: Date) {
     .local()
     .format('YYYY-MM-DD HH:mm:ss');
 }
+
+export function addMinutes(date: Date, minutes: number) {
+  return moment(date)
+    .add(minutes, 'm')
+    .toDate();
+}

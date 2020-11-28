@@ -7,5 +7,5 @@ export class PermissionCategoryRequest {
   description: string;
 
   @IsBoolean({ message: 'Is active should be boolean' })
-  is_active: boolean;
+  is_active?: boolean;
 }

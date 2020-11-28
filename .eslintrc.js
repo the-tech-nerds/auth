@@ -6,4 +6,7 @@ module.exports = {
   extends: [
     '@technerds/eslint-config'
   ],
+  rules: {
+    "nest/max-attributes-per-line": "off"
+  }
 };

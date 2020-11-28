@@ -1,15 +1,28 @@
 import {
-  Body, Controller, Delete, Get, Param, Put, Res,
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  Res,
 } from '@nestjs/common';
+
 import { ApiResponseService } from 'src/utils/services/api-response/response/api-response.service';
 import { Response } from 'express';
 import { User } from '../entities/user.entity';
-// eslint-disable-next-line import/extensions
 import { UserRequest } from '../requests/user.request';
+
 import { ListUsersService } from '../services/list-users.service';
 import { UpdateUsersService } from '../services/update-user.service';
 import { FetchUserByIdService } from '../services/fetch-user-by-id.service';
 import { DeleteUserService } from '../services/delete-user.service';
+import { GetAddressesByUserService } from '../services/get-addresses-by-user.service';
+
+import { Address } from '../../address/entities/address.entity';
+import { UserAssignRolesRequest } from '../requests/user-assign-permission.request';
+import { AssignRolesInUserService } from '../services/assign-role-in-user.service';
 
 @Controller()
 export class UserController {
@@ -17,12 +30,13 @@ export class UserController {
     private readonly listUsersService: ListUsersService,
     private readonly updateUsersService: UpdateUsersService,
     private readonly fetchUserByIdService: FetchUserByIdService,
+    private readonly getAddressesByUserService: GetAddressesByUserService,
+    private readonly assignRolesInUserService: AssignRolesInUserService,
     private readonly deleteUserService: DeleteUserService,
-
     private readonly apiResponseService: ApiResponseService,
   ) {}
 
-  @Get('/users')
+  @Get('/all')
   async getUsers(@Res() res: Response): Promise<Response<ResponseModel>> {
     try {
       const data = await this.listUsersService.execute();
@@ -36,11 +50,11 @@ export class UserController {
     }
   }
 
-  @Put('/user/:id')
+  @Put('/:id')
   async updateUser(
     @Param('id') id: number,
-      @Body() userRequest: UserRequest,
-      @Res() res: Response,
+    @Body() userRequest: UserRequest,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.updateUsersService.execute(id, userRequest);
@@ -54,10 +68,10 @@ export class UserController {
     }
   }
 
-  @Get('/user/:id')
+  @Get('/:id')
   async getUserById(
     @Param('id') id: number,
-      @Res() res: Response,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.fetchUserByIdService.execute(id);
@@ -71,10 +85,27 @@ export class UserController {
     }
   }
 
-  @Delete('/user/:id')
+  @Get('/:id/addresses')
+  async getAddressByUser(
+    @Param('id') id: number,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    try {
+      const data = await this.getAddressesByUserService.execute(id);
+      return this.apiResponseService.successResponse(
+        ['User Addresses fetched successfully'],
+        data as Address[],
+        res,
+      );
+    } catch (e) {
+      return this.apiResponseService.internalServerError([e.toString()], res);
+    }
+  }
+
+  @Delete('/:id')
   async DeleteUser(
     @Param('id') id: number,
-      @Res() res: Response,
+    @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.deleteUserService.execute(id);
@@ -85,6 +116,30 @@ export class UserController {
       );
     } catch (e) {
       return this.apiResponseService.internalServerError([e.toString()], res);
+    }
+  }
+
+  @Post('/:id/assign-roles')
+  async AssignPermission(
+    @Param('id') id: number,
+    @Body() userAssignRolesRequest: UserAssignRolesRequest,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    try {
+      const data = await this.assignRolesInUserService.assign(
+        id,
+        userAssignRolesRequest.roles,
+      );
+      return this.apiResponseService.successResponse(
+        ['Role Assign successfully'],
+        data,
+        res,
+      );
+    } catch (e) {
+      return this.apiResponseService.internalServerError(
+        ['Something went wrong! please try again later'],
+        res,
+      );
     }
   }
 }
