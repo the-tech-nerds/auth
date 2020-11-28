@@ -5,7 +5,7 @@ export class OtpGenerateInfoResponse {
 
   sent_email?: string;
 
-  expire_time: number;
+  expire_time: Date;
 
   purpose?: string;
 }

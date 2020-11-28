@@ -1,6 +1,6 @@
-import { IsEmail, MinLength, IsNotEmpty, IsBoolean } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsBoolean } from 'class-validator';
 
-export class UserRequest {
+export class UserUpdateRequest {
   @IsNotEmpty({ message: 'First Name is required.' })
   first_name: string;
 
@@ -11,18 +11,8 @@ export class UserRequest {
   @IsEmail()
   email: string;
 
-  phone: string;
-
-  @IsNotEmpty({ message: 'Password is required.' })
-  @MinLength(8, { message: 'Password must be atleast 8 charracters' })
-  password: string;
-
   @IsBoolean({ message: 'Is active should be boolean' })
   is_active: boolean;
-
-  facebook_auth: string;
-
-  google_auth: string;
 
   image_url: string;
 

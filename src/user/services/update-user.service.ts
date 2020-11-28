@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { LocalDateToUtc } from 'src/utils/date-time-conversion/date-time-conversion';
 import { User } from '../entities/user.entity';
 // eslint-disable-next-line import/extensions
-import { UserRequest } from '../requests/user.request';
+import { UserUpdateRequest } from '../requests/user-update.request';
 
 @Injectable()
 export class UpdateUsersService {
@@ -15,10 +15,10 @@ export class UpdateUsersService {
 
   async execute(
     id: number,
-    userRequest: UserRequest,
+    userUpdateRequest: UserUpdateRequest,
   ): Promise<User | undefined> {
     await this.usersRepository.update(id, {
-      ...userRequest,
+      ...userUpdateRequest,
       updated_by: 1,
       updated_at: LocalDateToUtc(new Date()),
     });

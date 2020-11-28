@@ -28,6 +28,12 @@ export class User extends BaseEntity {
   })
   email: string;
 
+  @Column({
+    length: 20,
+    unique: true,
+  })
+  phone: string;
+
   @Column()
   password: string;
 

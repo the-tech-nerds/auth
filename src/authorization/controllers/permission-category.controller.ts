@@ -16,6 +16,9 @@ import { DeletePermissionCategoryService } from '../services/permission-category
 import { PermissionCategories } from '../entities/permission-category.entity';
 import { ApiResponseService } from '../../utils/services/api-response/response/api-response.service';
 import { PermissionCategoryRequest } from '../requests/permission-category.request';
+import { HasPermissions } from '../guards/meta-data/permissions/permissions.decorator';
+import * as type from '../utils/permission-types/permission.type';
+import { PermissionTypeEnum } from '../enum/permission-type.enum';
 
 @Controller('permission')
 export class PermissionCategoryController {
@@ -27,6 +30,10 @@ export class PermissionCategoryController {
     private readonly apiResponseService: ApiResponseService,
   ) {}
 
+  @HasPermissions(
+    [type.PERMISSION_CATEGORY.CREATE],
+    PermissionTypeEnum.hasPermission,
+  )
   @Post('/category')
   async createPermissionCategory(
     @Body() permissionCategoryRequest: PermissionCategoryRequest,
@@ -49,6 +56,10 @@ export class PermissionCategoryController {
     }
   }
 
+  @HasPermissions(
+    [type.PERMISSION_CATEGORY.GET],
+    PermissionTypeEnum.hasPermission,
+  )
   @Get('/categories')
   async getAllPermissionsCategory(
     @Res() res: Response,
@@ -68,6 +79,10 @@ export class PermissionCategoryController {
     }
   }
 
+  @HasPermissions(
+    [type.PERMISSION_CATEGORY.UPDATE],
+    PermissionTypeEnum.hasPermission,
+  )
   @Put('/category/:id')
   async updatePermissionCategory(
     @Param('id') id: number,
@@ -92,6 +107,10 @@ export class PermissionCategoryController {
     }
   }
 
+  @HasPermissions(
+    [type.PERMISSION_CATEGORY.DELETE],
+    PermissionTypeEnum.hasPermission,
+  )
   @Delete('/category/:id')
   async deletePermissionCategory(
     @Param('id') id: number,
