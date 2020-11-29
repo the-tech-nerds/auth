@@ -14,6 +14,7 @@ import { OtpModule } from './otp/otp.module';
 import configuration from './config/configuration';
 import { PasswordModule } from './password/password.module';
 
+// @ts-ignore
 @Module({
   imports: [
     TypeOrmModule.forRoot(),

@@ -19,6 +19,7 @@ import { JwtStrategy } from './strategies/jwt.strategy';
 import { UserLoginService } from './services/user.login.service';
 import { LocalStrategy } from './strategies/local.strategy';
 import { UserValidationService } from './services/user.validation.service';
+import { FetchUserByIdService } from '../user/services/fetch-user-by-id.service';
 
 @Module({
   imports: [
@@ -46,6 +47,7 @@ import { UserValidationService } from './services/user.validation.service';
     UserValidationService,
     LocalStrategy,
     JwtStrategy,
+    FetchUserByIdService,
   ],
   controllers: [AuthenticationController],
 })

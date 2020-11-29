@@ -1,8 +1,8 @@
-import { Module } from '@nestjs/common';
+import { HttpModule, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CacheModule } from '@technerds/common-services';
-import { APP_GUARD } from '@nestjs/core';
 import { JwtModule } from '@nestjs/jwt';
+import { APP_GUARD } from '@nestjs/core';
 import { AuthorizationController } from './authorization.controller';
 import { CreatePermissionCategoryService } from './services/permission-category/create-permision-category.service';
 import { ListPermissionCategoryService } from './services/permission-category/list-permission-category.service';
@@ -41,6 +41,7 @@ import { RolesGuard } from './guards/roles/roles.guard';
 import { PermissionsGuard } from './guards/permissions/permissions.guard';
 import { AssignPermissionInRoleService } from './services/role/assign-permission-in-role.service';
 import { jwtConstants } from '../authentication/constants';
+
 @Module({
   imports: [
     TypeOrmModule.forFeature([
@@ -52,6 +53,7 @@ import { jwtConstants } from '../authentication/constants';
       AccessToken,
     ]),
     CacheModule,
+    HttpModule,
     JwtModule.register({
       secret: jwtConstants.secret,
       signOptions: { expiresIn: '3600s' },
@@ -74,6 +76,7 @@ import { jwtConstants } from '../authentication/constants';
     DeletePermissionService,
     ApiResponseService,
     GetByIdPermissionService,
+
     CreateClientService,
     SerializeClientService,
     DeserializeClientService,

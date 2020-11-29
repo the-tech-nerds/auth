@@ -15,6 +15,9 @@ export class CreateRoleService extends AuthorizationService {
   }
 
   async create(roleRequest: RoleRequest): Promise<Roles> {
-    return this.rolesRepository.save(roleRequest);
+    return this.rolesRepository.save({
+      ...roleRequest,
+      created_by: 1,
+    });
   }
 }

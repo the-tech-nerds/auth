@@ -41,9 +41,21 @@ export class OauthController {
   async authorization(@Req() req: any, @Res() res: any, @Next() next: any) {
     const authorization = await this.authorizeService.authorize();
     req.user = {
-      id: req.client_id,
+      id: req.query.user_id,
+      user_id: req.query.client_id,
     };
     return authorization(req, res, next);
+  }
+
+  @Get('oauth/token')
+  async getToken(@Req() req: any, @Res() res: any) {
+    return this.apiResponseService.successResponse(
+      ['Authorization successful'],
+      {
+        code: req.query.code,
+      },
+      res,
+    );
   }
 
   @Post('oauth/token')

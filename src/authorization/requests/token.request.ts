@@ -7,8 +7,8 @@ export class TokenRequest {
   @IsNotEmpty({ message: 'Client secret is required' })
   secret: string;
 
-  @IsNotEmpty({ message: 'Authorization code is required' })
-  code: string;
+  // @IsNotEmpty({ message: 'Authorization code is required' })
+  // code: string;
 
   @IsNotEmpty({ message: 'Grant type is required' })
   grant_type: string;

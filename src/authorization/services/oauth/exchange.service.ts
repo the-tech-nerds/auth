@@ -1,11 +1,11 @@
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
 import { AccessCode } from '../../entities/access-code.entity';
 import { AccessToken } from '../../entities/access-token.entity';
 import { Client } from '../../entities/client.entity';
 import { AuthorizationService } from '../authorization.service';
-import { uid } from '../../../utils/utils';
 
 const oauth2orize = require('oauth2orize');
 
@@ -16,6 +16,7 @@ export class ExchangeService extends AuthorizationService {
     private accessCodeRepository: Repository<AccessCode>,
     @InjectRepository(AccessToken)
     private accessTokenRepository: Repository<AccessToken>,
+    private jwtService: JwtService,
   ) {
     super();
   }
@@ -48,18 +49,33 @@ export class ExchangeService extends AuthorizationService {
               return callback(e);
             }
 
+            /** eslint-disable */
+            const { client_id: clientId = '', user_id: userId = 0 } = authCode;
+            /** eslint-disable */
+
             const token = {
-              value: uid(64),
-              client_id: authCode.client_id,
-              user_id: authCode.user_id,
-              created_by: authCode.user_id,
+              value: this.jwtService.sign({
+                client_id: clientId,
+                user_id: userId,
+              }),
+              client_id: clientId,
+              user_id: userId,
+              created_by: userId,
             } as AccessToken;
 
             try {
               const savedToken = await this.accessTokenRepository.save(token);
-              return callback(null, savedToken, null, {
+              const accessToken = {
+                value: savedToken.value,
+                client_id: clientId,
+                user_id: userId,
+                id: savedToken.id,
+              };
+              return callback(null, accessToken, null, {
                 code: 200,
-                data: { access_token: savedToken },
+                data: {
+                  access_token: accessToken,
+                },
               });
             } catch (e) {
               return callback(e);
