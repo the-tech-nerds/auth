@@ -30,7 +30,7 @@ export class User extends BaseEntity {
 
   @Column({
     length: 20,
-    unique: true,
+    nullable: true,
   })
   phone: string;
 

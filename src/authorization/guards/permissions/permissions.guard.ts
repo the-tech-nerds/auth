@@ -27,7 +27,7 @@ export class PermissionsGuard implements CanActivate {
       const tokenPayload = this.jwtService.decode(token);
       // @ts-ignore
       const userPermissions = tokenPayload.permissions.map(
-        permission => permission.name,
+        (permission: any) => permission.name,
       );
       const systemPermission = permissions.permissions;
       switch (permissions.type) {

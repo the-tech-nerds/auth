@@ -19,6 +19,7 @@ async function bootstrap(): Promise<void> {
   );
   app.useGlobalFilters(new ErrorFilter(new ApiResponseService()));
   app.useGlobalPipes(new ValidationPipe());
+  app.setGlobalPrefix('api/v1');
   await app.listen(3000);
 }
 // eslint-disable-next-line @typescript-eslint/no-use-before-define,no-void
