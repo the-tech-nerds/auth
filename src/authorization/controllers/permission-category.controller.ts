@@ -56,10 +56,10 @@ export class PermissionCategoryController {
     }
   }
 
-  @HasPermissions(
-    [type.PERMISSION_CATEGORY.GET],
-    PermissionTypeEnum.hasPermission,
-  )
+  // @HasPermissions(
+  //   [type.PERMISSION_CATEGORY.GET],
+  //   PermissionTypeEnum.hasPermission,
+  // )
   @Get('/categories')
   async getAllPermissionsCategory(
     @Res() res: Response,
