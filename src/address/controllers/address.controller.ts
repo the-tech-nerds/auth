@@ -19,6 +19,7 @@ import { ListAddressesService } from '../services/list-addresses.service';
 import { UpdateAddressService } from '../services/update-address.service';
 import { FetchAddressByIdService } from '../services/fetch-address-by-id.service';
 import { DeleteAddressService } from '../services/delete-address.service';
+import { FetchAddressByUserIdService } from '../services/fetch-address-by-user-id.service';
 
 @Controller()
 export class AddressController {
@@ -28,7 +29,7 @@ export class AddressController {
     private readonly updateAddressService: UpdateAddressService,
     private readonly fetchAddressByIdService: FetchAddressByIdService,
     private readonly deleteAddressService: DeleteAddressService,
-
+    private readonly fetchAddressByUserIdService: FetchAddressByUserIdService,
     private readonly apiResponseService: ApiResponseService,
   ) {}
 
@@ -91,6 +92,23 @@ export class AddressController {
       return this.apiResponseService.successResponse(
         ['Address fetched successfully'],
         data as Address,
+        res,
+      );
+    } catch (e) {
+      return this.apiResponseService.internalServerError([e.toString()], res);
+    }
+  }
+
+  @Get('/user/:id')
+  async getAddressesByUserId(
+    @Param('id') id: number,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    try {
+      const data = await this.fetchAddressByUserIdService.execute(id);
+      return this.apiResponseService.successResponse(
+        ['Address fetched successfully'],
+        data as Address[],
         res,
       );
     } catch (e) {

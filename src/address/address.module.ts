@@ -9,6 +9,7 @@ import { UpdateAddressService } from './services/update-address.service';
 import { FetchAddressByIdService } from './services/fetch-address-by-id.service';
 import { DeleteAddressService } from './services/delete-address.service';
 import { ApiResponseService } from '../utils/services/api-response/response/api-response.service';
+import { FetchAddressByUserIdService } from './services/fetch-address-by-user-id.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Address])],
@@ -19,6 +20,7 @@ import { ApiResponseService } from '../utils/services/api-response/response/api-
     FetchAddressByIdService,
     DeleteAddressService,
     ApiResponseService,
+    FetchAddressByUserIdService,
   ],
   controllers: [AddressController],
 })
