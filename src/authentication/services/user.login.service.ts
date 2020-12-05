@@ -29,6 +29,7 @@ export class UserLoginService {
         roles: allRoles,
         permissions: allPermissions,
       }),
+      code: 200,
     };
   }
 }
