@@ -15,7 +15,7 @@ export class GetAddressesByUserService {
     const user = await this.usersRepository.findOne({
       id: userId,
     });
-
+    console.log(user);
     return user?.addresses;
   }
 }
