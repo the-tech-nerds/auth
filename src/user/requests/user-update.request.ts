@@ -16,5 +16,9 @@ export class UserUpdateRequest {
 
   image_url: string;
 
+  birthday?: Date;
+
+  gender_type?: number;
+
   type: string;
 }

@@ -23,6 +23,10 @@ import { GetAddressesByUserService } from '../services/get-addresses-by-user.ser
 import { Address } from '../../address/entities/address.entity';
 import { UserAssignRolesRequest } from '../requests/user-assign-permission.request';
 import { AssignRolesInUserService } from '../services/assign-role-in-user.service';
+import { FetchUserInfoByIdService } from '../services/fetch-user-info-by-id.servec';
+import { UserResponse } from '../response/user.response';
+import { UserInfoUpdateRequest } from '../requests/user-info-update.request';
+import { UpdateUserInfoesService } from '../services/update-user-info.service';
 
 @Controller()
 export class UserController {
@@ -34,6 +38,8 @@ export class UserController {
     private readonly assignRolesInUserService: AssignRolesInUserService,
     private readonly deleteUserService: DeleteUserService,
     private readonly apiResponseService: ApiResponseService,
+    private readonly fetchUserInfoByIdService: FetchUserInfoByIdService,
+    private readonly updateUserInfoService: UpdateUserInfoesService,
   ) {}
 
   @Get('/all')
@@ -77,6 +83,45 @@ export class UserController {
       const data = await this.fetchUserByIdService.execute(id);
       return this.apiResponseService.successResponse(
         ['User fetched successfully'],
+        data as User,
+        res,
+      );
+    } catch (e) {
+      return this.apiResponseService.internalServerError([e.toString()], res);
+    }
+  }
+
+  // only specific info
+  @Get('/info/:id')
+  async getUserInfoById(
+    @Param('id') id: number,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    try {
+      const data = await this.fetchUserInfoByIdService.execute(id);
+      return this.apiResponseService.successResponse(
+        ['User fetched successfully'],
+        data as UserResponse,
+        res,
+      );
+    } catch (e) {
+      return this.apiResponseService.internalServerError([e.toString()], res);
+    }
+  }
+
+  @Put('/info/:id')
+  async updateUserInfo(
+    @Param('id') id: number,
+    @Body() userInfoUpdateRequest: UserInfoUpdateRequest,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    try {
+      const data = await this.updateUserInfoService.execute(
+        id,
+        userInfoUpdateRequest,
+      );
+      return this.apiResponseService.successResponse(
+        ['User has been updated successfully'],
         data as User,
         res,
       );
