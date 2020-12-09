@@ -72,10 +72,7 @@ export class PermissionCategoryController {
         res,
       );
     } catch (e) {
-      return this.apiResponseService.internalServerError(
-        ['Something went wrong! please try again later'],
-        res,
-      );
+      return this.apiResponseService.internalServerError([e.message], res);
     }
   }
 
