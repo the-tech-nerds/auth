@@ -17,7 +17,7 @@ import { PermissionCategories } from '../entities/permission-category.entity';
 import { ApiResponseService } from '../../utils/services/api-response/response/api-response.service';
 import { PermissionCategoryRequest } from '../requests/permission-category.request';
 import { HasPermissions } from '../guards/meta-data/permissions/permissions.decorator';
-import * as type from '../utils/permission-types/permission.type';
+import type from '../utils/permission-types/permission.type';
 import { PermissionTypeEnum } from '../enum/permission-type.enum';
 
 @Controller('permission')
