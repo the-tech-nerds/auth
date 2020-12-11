@@ -28,7 +28,6 @@ export class AddressController {
     private readonly updateAddressService: UpdateAddressService,
     private readonly fetchAddressByIdService: FetchAddressByIdService,
     private readonly deleteAddressService: DeleteAddressService,
-
     private readonly apiResponseService: ApiResponseService,
   ) {}
 

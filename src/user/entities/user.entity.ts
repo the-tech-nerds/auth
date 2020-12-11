@@ -38,6 +38,12 @@ export class User extends BaseEntity {
   password: string;
 
   @Column({ nullable: true })
+  gender_type: number;
+
+  @Column({ nullable: true })
+  birthday: Date;
+
+  @Column({ nullable: true })
   facebook_auth: string;
 
   @Column({ nullable: true })
@@ -58,6 +64,9 @@ export class User extends BaseEntity {
 
   @Column({ default: true })
   is_active: boolean;
+
+  @Column({ default: false })
+  is_mobile_verified: boolean;
 
   @OneToMany(
     () => Address,

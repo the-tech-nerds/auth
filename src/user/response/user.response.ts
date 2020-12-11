@@ -10,4 +10,10 @@ export class UserResponse {
   phone: string;
 
   image_url: string;
+
+  gender_type?: number;
+
+  is_mobile_verified: boolean;
+
+  birthday?: Date;
 }
