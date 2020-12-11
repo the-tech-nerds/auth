@@ -1,5 +1,6 @@
 import { JwtService } from '@nestjs/jwt';
 import { Injectable } from '@nestjs/common';
+import { CacheService } from '@technerds/common-services';
 import { User } from '../../user/entities/user.entity';
 import { FetchUserByIdService } from '../../user/services/fetch-user-by-id.service';
 
@@ -8,6 +9,7 @@ export class UserLoginService {
   constructor(
     private readonly jwtService: JwtService,
     private readonly fetchUserByIdService: FetchUserByIdService,
+    private readonly cacheService: CacheService,
   ) {}
 
   async login(user: Partial<User>) {
@@ -22,13 +24,18 @@ export class UserLoginService {
       id: roleId,
       name,
     }));
+
+    const accessToken = this.jwtService.sign({
+      email,
+      id,
+      roles: allRoles,
+      permissions: allPermissions,
+    });
+
+    await this.cacheService.set(`user-token-${id}`, accessToken);
+
     return {
-      access_token: this.jwtService.sign({
-        email,
-        id,
-        roles: allRoles,
-        permissions: allPermissions,
-      }),
+      access_token: accessToken,
       code: 200,
     };
   }

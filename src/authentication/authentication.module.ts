@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CacheModule } from '@technerds/common-services';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthenticationController } from './controllers/authentication.controller';
 import { UserRegistrationService } from './services/user.registration.service';
 import { UserModule } from '../user/user.module';
@@ -14,7 +15,6 @@ import { Roles } from '../authorization/entities/role.entity';
 import { Client } from '../authorization/entities/client.entity';
 import { AccessCode } from '../authorization/entities/access-code.entity';
 import { AccessToken } from '../authorization/entities/access-token.entity';
-import { jwtConstants } from './constants';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { UserLoginService } from './services/user.login.service';
 import { LocalStrategy } from './strategies/local.strategy';
@@ -35,9 +35,13 @@ import { FetchUserByIdService } from '../user/services/fetch-user-by-id.service'
     CacheModule,
     UserModule,
     PassportModule,
-    JwtModule.register({
-      secret: jwtConstants.secret,
-      signOptions: { expiresIn: '3600s' },
+    JwtModule.registerAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => ({
+        secret: configService.get('jwt_secret'),
+        signOptions: { expiresIn: configService.get('jwt_expiration') },
+      }),
+      inject: [ConfigService],
     }),
   ],
   providers: [

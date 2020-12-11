@@ -19,11 +19,8 @@ export class PermissionsGuard implements CanActivate {
       if (!permissions) {
         return true;
       }
-      // @todo get token from user request that comment below
-      // const request = context.switchToHttp().getRequest();
-
-      const token =
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNha2liM0BnbWFpbC5jb20iLCJpZCI6MSwicm9sZXMiOlt7ImlkIjoxLCJuYW1lIjoiQWRtaW4ifV0sInBlcm1pc3Npb25zIjpbeyJpZCI6MSwibmFtZSI6IlByb2R1Y3QgVmlldyJ9XSwiaWF0IjoxNjA2MjQwMDU3LCJleHAiOjE2MDYyNDM2NTd9.ONmFOyQiGBxqCvwnoT_oTdS2atQZLBRTBClTAbQwIno';
+      const request = context.switchToHttp().getRequest();
+      const token = request.headers.access_token;
       const tokenPayload = this.jwtService.decode(token);
       // @ts-ignore
       const userPermissions = tokenPayload.permissions.map(
