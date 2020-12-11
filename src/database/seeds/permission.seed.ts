@@ -13,12 +13,12 @@
 //       });
 //       const permissionList: any[] = [];
 //       // @ts-ignore
-//       for (const permission of Object.keys(permission_details[permission_category])) {
+//       for (const permission of Object.keys(permission_details[pc])) {
 //         permissionList.push({
 //           // @ts-ignore
-//           name: permission_details[permission_category][permission],
+//           name: permission_details[pc][permission],
 //           // @ts-ignore
-//           permissionCategoryId: permissionCategory.id,
+//           permissionCategoryId: permissionCategoryEntry.id,
 //           created_by: 0,
 //           description: `${permissionCategoryEntry.name}, ${permission}`,
 //         });
