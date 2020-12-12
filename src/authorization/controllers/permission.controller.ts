@@ -10,6 +10,11 @@ import {
 } from '@nestjs/common';
 import { ApiResponseService } from 'src/utils/services/api-response/response/api-response.service';
 import { Response } from 'express';
+import {
+  HasPermissions,
+  PermissionTypeEnum,
+  PermissionTypes,
+} from '@technerds/common-services';
 import { Permissions } from '../entities/permission.entity';
 import { CreatePermissionService } from '../services/permission/create-permission.service';
 import { DeletePermissionService } from '../services/permission/delete-permission.service';
@@ -17,9 +22,6 @@ import { ListPermissionService } from '../services/permission/list-permission.se
 import { UpdatePermissionService } from '../services/permission/update-permission.service';
 import { GetByIdPermissionService } from '../services/permission/getById-permission.service';
 import { PermissionRequest } from '../requests/permission.request';
-import { HasPermissions } from '../guards/meta-data/permissions/permissions.decorator';
-import { PermissionTypeEnum } from '../enum/permission-type.enum';
-import type from '../utils/permission-types/permission.type';
 
 @Controller()
 export class PermissionController {
@@ -32,7 +34,10 @@ export class PermissionController {
     private readonly apiResponseService: ApiResponseService,
   ) {}
 
-  @HasPermissions([type.PERMISSION.CREATE], PermissionTypeEnum.hasPermission)
+  @HasPermissions(
+    [PermissionTypes.PERMISSION.CREATE],
+    PermissionTypeEnum.hasPermission,
+  )
   @Post('/permission')
   async createPermission(
     @Body() permissionRequest: PermissionRequest,
@@ -50,7 +55,10 @@ export class PermissionController {
     }
   }
 
-  @HasPermissions([type.PERMISSION.GET], PermissionTypeEnum.hasPermission)
+  @HasPermissions(
+    [PermissionTypes.PERMISSION.GET],
+    PermissionTypeEnum.hasPermission,
+  )
   @Get('/permissions')
   async getAllPermissions(
     @Res() res: Response,
@@ -70,7 +78,10 @@ export class PermissionController {
     }
   }
 
-  @HasPermissions([type.PERMISSION.GET], PermissionTypeEnum.hasPermission)
+  @HasPermissions(
+    [PermissionTypes.PERMISSION.GET],
+    PermissionTypeEnum.hasPermission,
+  )
   @Get('/permission/:id')
   async getPermissionsById(
     @Param('id') id: number,
@@ -91,7 +102,10 @@ export class PermissionController {
     }
   }
 
-  @HasPermissions([type.PERMISSION.UPDATE], PermissionTypeEnum.hasPermission)
+  @HasPermissions(
+    [PermissionTypes.PERMISSION.UPDATE],
+    PermissionTypeEnum.hasPermission,
+  )
   @Put('/permission/:id')
   async updatePermission(
     @Param('id') id: number,
@@ -116,7 +130,10 @@ export class PermissionController {
     }
   }
 
-  @HasPermissions([type.PERMISSION.DELETE], PermissionTypeEnum.hasPermission)
+  @HasPermissions(
+    [PermissionTypes.PERMISSION.DELETE],
+    PermissionTypeEnum.hasPermission,
+  )
   @Delete('/permission/:id')
   async DeletePermissions(
     @Param('id') id: number,
