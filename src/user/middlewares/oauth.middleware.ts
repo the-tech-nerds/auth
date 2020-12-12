@@ -31,7 +31,8 @@ export class OauthMiddleware implements NestMiddleware {
 
     if (accessToken === token) {
       next();
+    } else {
+      throw new UnauthorizedException('Unauthorized');
     }
-    throw new UnauthorizedException('Unauthorized');
   }
 }
