@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Permissions } from '../../entities/permission.entity';
 import { GetByIdRoleService } from '../role/get-by-id-role.service';
+import { Roles } from '../../entities/role.entity';
 
 @Injectable()
 export class ListPermissionService {
@@ -21,8 +22,7 @@ export class ListPermissionService {
     });
   }
 
-  async getFromRole(roleId: number): Promise<number[]> {
-    const role = await this.roleIdService.getById(roleId);
-    return role ? role.permissions.map(permission => permission.id) : [];
+  async getFromRole(roleId: number): Promise<Roles | undefined> {
+    return this.roleIdService.getById(roleId);
   }
 }

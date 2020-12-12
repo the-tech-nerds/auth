@@ -20,6 +20,7 @@ import { PermissionRequest } from '../requests/permission.request';
 import { HasPermissions } from '../guards/meta-data/permissions/permissions.decorator';
 import { PermissionTypeEnum } from '../enum/permission-type.enum';
 import * as type from '../utils/permission-types/permission.type';
+import { Roles } from '../entities/role.entity';
 
 @Controller()
 export class PermissionController {
@@ -92,16 +93,26 @@ export class PermissionController {
   }
 
   @HasPermissions([type.PERMISSION.GET], PermissionTypeEnum.hasPermission)
-  @Get('/role/:roleId/permissons')
-  async getPermissionsCategoryFromRole(
+  @Get('/role/:roleId/permissions')
+  async getPermissionsFromRole(
     @Param('roleId') roleId: number,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
-      const data = await this.listPermissionService.getFromRole(roleId);
+      const data:
+        | Roles
+        | undefined = await this.listPermissionService.getFromRole(roleId);
+      const permission = data?.permissions.map(p => p.id);
       return this.apiResponseService.successResponse(
         ['Role Permission retrieved successfully'],
-        data,
+        {
+          permissions: permission,
+          role: {
+            // @ts-ignore
+            name: data.name,
+            id: roleId,
+          },
+        },
         res,
       );
     } catch (e) {

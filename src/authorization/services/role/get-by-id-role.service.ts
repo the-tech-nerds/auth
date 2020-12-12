@@ -9,6 +9,8 @@ export class GetByIdRoleService {
   ) {}
 
   async getById(id: number): Promise<Roles | undefined> {
-    return this.roleRepository.findOne(id);
+    return this.roleRepository.findOne(id, {
+      relations: ['permissions'],
+    });
   }
 }
