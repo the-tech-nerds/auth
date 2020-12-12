@@ -91,6 +91,24 @@ export class PermissionController {
     }
   }
 
+  @HasPermissions([type.PERMISSION.GET], PermissionTypeEnum.hasPermission)
+  @Get('/role/:roleId/permissons')
+  async getPermissionsCategoryFromRole(
+    @Param('roleId') roleId: number,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    try {
+      const data = await this.listPermissionService.getFromRole(roleId);
+      return this.apiResponseService.successResponse(
+        ['Role Permission retrieved successfully'],
+        data,
+        res,
+      );
+    } catch (e) {
+      return this.apiResponseService.internalServerError([e.message], res);
+    }
+  }
+
   @HasPermissions([type.PERMISSION.UPDATE], PermissionTypeEnum.hasPermission)
   @Put('/permission/:id')
   async updatePermission(

@@ -3,14 +3,12 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { PermissionCategories } from 'src/authorization/entities/permission-category.entity';
 import { Repository } from 'typeorm';
 import { AuthorizationService } from '../authorization.service';
-import { RoleRepository } from '../../repositories/role.repository';
 
 @Injectable()
 export class ListPermissionCategoryService extends AuthorizationService {
   constructor(
     @InjectRepository(PermissionCategories)
     private permissionCategoryRepository: Repository<PermissionCategories>,
-    private rolesRepository: RoleRepository,
   ) {
     super();
   }
@@ -39,9 +37,4 @@ export class ListPermissionCategoryService extends AuthorizationService {
     });
     return '';
   } */
-
-  async getFromRole(roleId: number): Promise<number[]> {
-    const role = await this.rolesRepository.findOneOrFail(roleId);
-    return role.permissions.map(permission => permission.id);
-  }
 }

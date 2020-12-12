@@ -76,7 +76,7 @@ export class PermissionCategoryController {
     }
   }
 
-  @HasPermissions(
+  /* @HasPermissions(
     [type.PERMISSION_CATEGORY.GET],
     PermissionTypeEnum.hasPermission,
   )
@@ -95,7 +95,7 @@ export class PermissionCategoryController {
     } catch (e) {
       return this.apiResponseService.internalServerError([e.message], res);
     }
-  }
+  } */
 
   @HasPermissions(
     [type.PERMISSION_CATEGORY.UPDATE],
