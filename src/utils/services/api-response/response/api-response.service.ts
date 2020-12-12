@@ -64,6 +64,18 @@ export class ApiResponseService {
     });
   }
 
+  forbiddenError(
+    message: string[] | string,
+    res: Response,
+  ): Response<ResponseModel> {
+    return res.status(403).json({
+      message,
+      status: 'Forbidden',
+      code: 403,
+      data: null,
+    });
+  }
+
   internalServerError(
     message: string[] | string,
     res: Response,

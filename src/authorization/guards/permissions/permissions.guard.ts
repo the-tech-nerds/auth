@@ -1,4 +1,9 @@
-import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
+import {
+  CanActivate,
+  ExecutionContext,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { JwtService } from '@nestjs/jwt';
 import { PermissionTypeEnum } from '../../enum/permission-type.enum';
@@ -26,6 +31,7 @@ export class PermissionsGuard implements CanActivate {
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNha2liM0BnbWFpbC5jb20iLCJpZCI6MSwicm9sZXMiOlt7ImlkIjoxLCJuYW1lIjoiQWRtaW4ifV0sInBlcm1pc3Npb25zIjpbeyJpZCI6MSwibmFtZSI6IlByb2R1Y3QgVmlldyJ9XSwiaWF0IjoxNjA2MjQwMDU3LCJleHAiOjE2MDYyNDM2NTd9.ONmFOyQiGBxqCvwnoT_oTdS2atQZLBRTBClTAbQwIno';
       const tokenPayload = this.jwtService.decode(token);
       // @ts-ignore
+
       const userPermissions = tokenPayload.permissions.map(
         (permission: any) => permission.name,
       );
@@ -46,37 +52,52 @@ export class PermissionsGuard implements CanActivate {
   }
 
   hasAnyPermissions(systemPermissions: string[], userPermissions: string[]) {
+    let permissionMatch = false;
     try {
       for (let i = 0; i <= userPermissions.length; i += 1) {
         for (let j = 0; j < systemPermissions.length; j += 1) {
           if (userPermissions[i] === systemPermissions[j]) {
-            return false;
+            permissionMatch = true;
+            break;
           }
         }
       }
-      return false;
+      permissionMatch = false;
     } catch (e) {
-      return true;
+      throw new UnauthorizedException('Unauthenticated request');
     }
+    if (!permissionMatch) {
+      throw new UnauthorizedException('Unauthenticated request');
+    }
+    return true;
   }
 
   hasPermission(systemPermissions: string[], userPermissions: string[]) {
+    let permissionMatch = -1;
     try {
-      return !userPermissions.find(
+      permissionMatch = userPermissions.findIndex(
         (permission: string) => permission === systemPermissions[0],
       );
     } catch (e) {
-      return true;
+      throw new UnauthorizedException('Unauthenticated request');
     }
+    if (permissionMatch === -1) {
+      throw new UnauthorizedException('Unauthenticated request');
+    }
+    return true;
   }
 
   hasAllPermission(systemPermissions: string[], userPermissions: string[]) {
+    let permissionMatch = false;
     try {
-      return (
-        JSON.stringify(userPermissions) !== JSON.stringify(systemPermissions)
-      );
+      permissionMatch =
+        JSON.stringify(userPermissions) !== JSON.stringify(systemPermissions);
     } catch (e) {
-      return true;
+      throw new UnauthorizedException('Unauthenticated request');
     }
+    if (!permissionMatch) {
+      throw new UnauthorizedException('Unauthenticated request');
+    }
+    return true;
   }
 }
