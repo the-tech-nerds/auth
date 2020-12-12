@@ -12,6 +12,7 @@ export class ErrorFilter implements ExceptionFilter {
   constructor(private readonly apiResponseService: ApiResponseService) {}
 
   catch(error: Error, host: ArgumentsHost) {
+    console.log(error);
     const response = host.switchToHttp().getResponse();
     const status =
       error instanceof HttpException
@@ -29,6 +30,9 @@ export class ErrorFilter implements ExceptionFilter {
         [error.message],
         response,
       );
+    }
+    if (status === HttpStatus.FORBIDDEN) {
+      return this.apiResponseService.forbiddenError([error.message], response);
     }
     if (status === HttpStatus.NOT_FOUND) {
       return this.apiResponseService.notFoundError([error.message], response);
