@@ -19,7 +19,7 @@ import { GetByIdPermissionService } from '../services/permission/getById-permiss
 import { PermissionRequest } from '../requests/permission.request';
 import { HasPermissions } from '../guards/meta-data/permissions/permissions.decorator';
 import { PermissionTypeEnum } from '../enum/permission-type.enum';
-import * as type from '../utils/permission-types/permission.type';
+import type from '../utils/permission-types/permission.type';
 
 @Controller()
 export class PermissionController {

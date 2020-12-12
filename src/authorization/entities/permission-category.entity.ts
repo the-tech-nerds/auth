@@ -27,6 +27,7 @@ export class PermissionCategories extends BaseEntity {
   @OneToMany(
     () => Permissions,
     permission => permission.permission_category,
+    { cascade: true },
   )
   @JoinTable()
   permissions: Permissions[];

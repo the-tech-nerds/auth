@@ -20,7 +20,7 @@ import { Roles } from '../entities/role.entity';
 import { AssignPermissionInRoleService } from '../services/role/assign-permission-in-role.service';
 import { RoleAssignPermissionRequest } from '../requests/role-assign-permission.request';
 import { HasPermissions } from '../guards/meta-data/permissions/permissions.decorator';
-import * as type from '../utils/permission-types/permission.type';
+import type from '../utils/permission-types/permission.type';
 import { PermissionTypeEnum } from '../enum/permission-type.enum';
 
 @Controller()
