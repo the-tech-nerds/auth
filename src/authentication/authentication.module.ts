@@ -20,6 +20,7 @@ import { UserLoginService } from './services/user.login.service';
 import { LocalStrategy } from './strategies/local.strategy';
 import { UserValidationService } from './services/user.validation.service';
 import { FetchUserByIdService } from '../user/services/fetch-user-by-id.service';
+import { UserLogoutService } from './services/user.logout.service';
 
 @Module({
   imports: [
@@ -48,6 +49,7 @@ import { FetchUserByIdService } from '../user/services/fetch-user-by-id.service'
     ApiResponseService,
     UserRegistrationService,
     UserLoginService,
+    UserLogoutService,
     UserValidationService,
     LocalStrategy,
     JwtStrategy,

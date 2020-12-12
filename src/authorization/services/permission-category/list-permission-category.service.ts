@@ -17,8 +17,9 @@ export class ListPermissionCategoryService extends AuthorizationService {
     return this.permissionCategoryRepository.find({
       where: {
         is_active: true,
-        deleteAt: null,
+        deleted_at: null,
       },
+      relations: ['permissions'],
     });
   }
 }

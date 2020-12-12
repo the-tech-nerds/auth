@@ -9,6 +9,11 @@ import {
   Res,
 } from '@nestjs/common';
 import { Response } from 'express';
+import {
+  HasPermissions,
+  PermissionTypeEnum,
+  PermissionTypes,
+} from '@technerds/common-services';
 import { CreatePermissionCategoryService } from '../services/permission-category/create-permision-category.service';
 import { ListPermissionCategoryService } from '../services/permission-category/list-permission-category.service';
 import { UpdatePermissionCategoryService } from '../services/permission-category/update-permission-category.service';
@@ -16,9 +21,6 @@ import { DeletePermissionCategoryService } from '../services/permission-category
 import { PermissionCategories } from '../entities/permission-category.entity';
 import { ApiResponseService } from '../../utils/services/api-response/response/api-response.service';
 import { PermissionCategoryRequest } from '../requests/permission-category.request';
-import { HasPermissions } from '../guards/meta-data/permissions/permissions.decorator';
-import * as type from '../utils/permission-types/permission.type';
-import { PermissionTypeEnum } from '../enum/permission-type.enum';
 
 @Controller('permission')
 export class PermissionCategoryController {
@@ -31,7 +33,7 @@ export class PermissionCategoryController {
   ) {}
 
   @HasPermissions(
-    [type.PERMISSION_CATEGORY.CREATE],
+    [PermissionTypes.PERMISSION_CATEGORY.CREATE],
     PermissionTypeEnum.hasPermission,
   )
   @Post('/category')
@@ -57,7 +59,7 @@ export class PermissionCategoryController {
   }
 
   @HasPermissions(
-    [type.PERMISSION_CATEGORY.GET],
+    [PermissionTypes.PERMISSION_CATEGORY.GET],
     PermissionTypeEnum.hasPermission,
   )
   @Get('/categories')
@@ -72,15 +74,12 @@ export class PermissionCategoryController {
         res,
       );
     } catch (e) {
-      return this.apiResponseService.internalServerError(
-        ['Something went wrong! please try again later'],
-        res,
-      );
+      return this.apiResponseService.internalServerError([e.message], res);
     }
   }
 
   @HasPermissions(
-    [type.PERMISSION_CATEGORY.UPDATE],
+    [PermissionTypes.PERMISSION_CATEGORY.UPDATE],
     PermissionTypeEnum.hasPermission,
   )
   @Put('/category/:id')
@@ -108,7 +107,7 @@ export class PermissionCategoryController {
   }
 
   @HasPermissions(
-    [type.PERMISSION_CATEGORY.DELETE],
+    [PermissionTypes.PERMISSION_CATEGORY.DELETE],
     PermissionTypeEnum.hasPermission,
   )
   @Delete('/category/:id')
