@@ -1,4 +1,4 @@
-import { IsEmail, MinLength, IsNotEmpty } from 'class-validator';
+import { IsEmail, IsNotEmpty } from 'class-validator';
 
 export class UserRegistrationRequest {
   @IsNotEmpty({ message: 'First Name is required.' })
@@ -11,7 +11,9 @@ export class UserRegistrationRequest {
   @IsEmail()
   email: string;
 
-  @IsNotEmpty({ message: 'Password is required.' })
-  @MinLength(8, { message: 'Password must be atleast 8 charracters' })
   password: string;
+
+  google_auth?: string;
+
+  image_url?: string;
 }

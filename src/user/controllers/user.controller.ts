@@ -7,10 +7,12 @@ import {
   Post,
   Put,
   Res,
+  UseGuards,
 } from '@nestjs/common';
 
 import { ApiResponseService } from 'src/utils/services/api-response/response/api-response.service';
 import { Response } from 'express';
+import { CurrentUser, UserGuard } from '@technerds/common-services';
 import { User } from '../entities/user.entity';
 import { UserUpdateRequest } from '../requests/user-update.request';
 
@@ -91,14 +93,15 @@ export class UserController {
     }
   }
 
-  // only specific info
-  @Get('/info/:id')
+  @UseGuards(UserGuard)
+  @Get('/info')
   async getUserInfoById(
-    @Param('id') id: number,
+    @CurrentUser('id') userId: any,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
-      const data = await this.fetchUserInfoByIdService.execute(id);
+      console.log('userId', userId);
+      const data = await this.fetchUserInfoByIdService.execute(userId);
       return this.apiResponseService.successResponse(
         ['User fetched successfully'],
         data as UserResponse,
