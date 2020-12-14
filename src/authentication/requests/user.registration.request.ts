@@ -7,13 +7,16 @@ export class UserRegistrationRequest {
   @IsNotEmpty({ message: 'Last Name is required.' })
   last_name: string;
 
-  @IsNotEmpty({ message: 'Email is required.' })
   @IsEmail()
-  email: string;
+  email?: string;
 
   password: string;
 
   google_auth?: string;
 
   image_url?: string;
+
+  facebook_auth?: string;
+
+  facebook_user_id?: string;
 }
