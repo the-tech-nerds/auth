@@ -50,7 +50,7 @@ export class UserController {
       const data = await this.listUsersService.execute();
       return this.apiResponseService.successResponse(
         ['User list fetched successfully'],
-        data as User[],
+        data,
         res,
       );
     } catch (e) {
