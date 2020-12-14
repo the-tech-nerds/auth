@@ -92,7 +92,7 @@ export class UserLoginService {
       userProfileInfo.first_name = user.firstName;
       userProfileInfo.last_name = user.lastName;
       userProfileInfo.facebook_auth = user.facebook_auth;
-      userProfileInfo.image_url = user.image_url;
+      userProfileInfo.image_url = user.picture;
       await this.userRepository.save(userProfileInfo);
     } else {
       userProfileInfo = (await this.userRegistrationService.register({
