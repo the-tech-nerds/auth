@@ -4,6 +4,7 @@ import {
   PrimaryGeneratedColumn,
   OneToMany,
   ManyToMany,
+  Index,
 } from 'typeorm';
 import BaseEntity from '../../utils/entities/base-entity';
 import { Address } from '../../address/entities/address.entity';
@@ -24,8 +25,9 @@ export class User extends BaseEntity {
 
   @Column({
     length: 100,
-    unique: true,
+    nullable: true,
   })
+  @Index({ unique: true, where: 'externalId IS NOT NULL' })
   email: string;
 
   @Column({
@@ -45,6 +47,9 @@ export class User extends BaseEntity {
 
   @Column({ nullable: true })
   facebook_auth: string;
+
+  @Column({ nullable: true })
+  facebook_user_id: string;
 
   @Column({ nullable: true })
   google_auth: string;
