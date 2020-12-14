@@ -21,6 +21,7 @@ import { LocalStrategy } from './strategies/local.strategy';
 import { UserValidationService } from './services/user.validation.service';
 import { FetchUserByIdService } from '../user/services/fetch-user-by-id.service';
 import { UserLogoutService } from './services/user.logout.service';
+import { FetchUserInfoByEmailService } from '../user/services/fetch-user-by-email.service';
 
 @Module({
   imports: [
@@ -54,6 +55,7 @@ import { UserLogoutService } from './services/user.logout.service';
     LocalStrategy,
     JwtStrategy,
     FetchUserByIdService,
+    FetchUserInfoByEmailService,
   ],
   controllers: [AuthenticationController],
 })
