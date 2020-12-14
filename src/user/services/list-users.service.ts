@@ -11,6 +11,8 @@ export class ListUsersService {
   ) {}
 
   async execute(): Promise<User[]> {
-    return this.usersRepository.find();
+    return this.usersRepository.find({
+      relations: ['roles'],
+    });
   }
 }

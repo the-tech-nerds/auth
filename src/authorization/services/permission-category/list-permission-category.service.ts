@@ -14,6 +14,7 @@ export class ListPermissionCategoryService extends AuthorizationService {
   }
 
   async getAll(): Promise<PermissionCategories[]> {
+    // [1,2]
     return this.permissionCategoryRepository.find({
       where: {
         is_active: true,
@@ -22,4 +23,18 @@ export class ListPermissionCategoryService extends AuthorizationService {
       relations: ['permissions'],
     });
   }
+
+  /* async getFromRole(roleId: number): Promise<any> {
+    const role = await this.rolesRepository.findOneOrFail(roleId);
+    const permissioncategoryIds = {};
+    const categoryList = [];
+    role.permissions.forEach((permission) => {
+      if(! permissioncategoryIds[permission.permission_category.id]){
+        categoryList.push(permission.permission_category);
+      } else {
+        permissioncategoryIds[permission.permission_category.id] = true;
+      }
+    });
+    return '';
+  } */
 }
