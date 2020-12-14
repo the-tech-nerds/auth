@@ -7,10 +7,12 @@ import {
   Param,
   Put,
   Res,
+  UseGuards,
 } from '@nestjs/common';
 
 import { ApiResponseService } from 'src/utils/services/api-response/response/api-response.service';
 import { Response } from 'express';
+import { CurrentUser, UserGuard } from '@technerds/common-services';
 import { Address } from '../entities/address.entity';
 import { AddressRequest } from '../requests/address.request';
 
@@ -31,12 +33,15 @@ export class AddressController {
     private readonly apiResponseService: ApiResponseService,
   ) {}
 
+  @UseGuards(UserGuard)
   @Post('/')
   async createAddress(
+    @CurrentUser('id') userId: any,
     @Body() addressRequest: AddressRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
+      addressRequest.user_id = userId;
       const data = await this.createAddressService.create(addressRequest);
       return this.apiResponseService.successResponse(
         ['Address stored successfully'],
@@ -48,6 +53,7 @@ export class AddressController {
     }
   }
 
+  @UseGuards(UserGuard)
   @Get('/all')
   async getAddresses(@Res() res: Response): Promise<Response<ResponseModel>> {
     try {
@@ -62,13 +68,16 @@ export class AddressController {
     }
   }
 
+  @UseGuards(UserGuard)
   @Put('/:id')
   async updateAddress(
+    @CurrentUser('id') userId: any,
     @Param('id') id: number,
     @Body() addressRequest: AddressRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
+      addressRequest.user_id = userId;
       const data = await this.updateAddressService.execute(id, addressRequest);
       return this.apiResponseService.successResponse(
         ['Address has been updated successfully'],

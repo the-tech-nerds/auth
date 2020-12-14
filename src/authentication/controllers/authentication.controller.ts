@@ -9,11 +9,11 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import {
+  CurrentUser,
   HasPermissions,
   PermissionTypeEnum,
   PermissionTypes,
   UserGuard,
-  User,
 } from '@technerds/common-services';
 import { UserRegistrationService } from '../services/user.registration.service';
 import { UserRegistrationRequest } from '../requests/user.registration.request';
@@ -37,6 +37,11 @@ export class AuthenticationController {
     return this.userLoginService.login(req.user);
   }
 
+  @Post('/login/gmail')
+  async loginWithGmail(@Body() user: any) {
+    return this.userLoginService.loginByGoogle(user);
+  }
+
   @Post('/register')
   async register(
     @Body() userRegistrationRequest: UserRegistrationRequest,
@@ -53,7 +58,7 @@ export class AuthenticationController {
   }
 
   @Get('/logout')
-  async logout(@User('id') userId: any) {
+  async logout(@CurrentUser('id') userId: any) {
     await this.userLogoutService.logout(userId);
   }
 

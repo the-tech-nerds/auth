@@ -1,5 +1,5 @@
 import { CacheModule, commonConfig } from '@technerds/common-services';
-import { MiddlewareConsumer, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { RouterModule } from 'nest-router';
@@ -14,7 +14,6 @@ import { AddressModule } from './address/address.module';
 import { OtpModule } from './otp/otp.module';
 import configuration from './config/configuration';
 import { PasswordModule } from './password/password.module';
-import { OauthMiddleware } from './user/middlewares/oauth.middleware';
 
 // @ts-ignore
 @Module({
@@ -44,8 +43,4 @@ import { OauthMiddleware } from './user/middlewares/oauth.middleware';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(OauthMiddleware).forRoutes('address');
-  }
-}
+export class AppModule {}
