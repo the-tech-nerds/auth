@@ -94,13 +94,12 @@ export class UserController {
   }
 
   @UseGuards(UserGuard)
-  @Get('/info')
+  @Get('/profile/info')
   async getUserInfoById(
     @CurrentUser('id') userId: any,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
-      console.log('userId', userId);
       const data = await this.fetchUserInfoByIdService.execute(userId);
       return this.apiResponseService.successResponse(
         ['User fetched successfully'],
@@ -112,15 +111,16 @@ export class UserController {
     }
   }
 
-  @Put('/info/:id')
+  @UseGuards(UserGuard)
+  @Put('/profile/info')
   async updateUserInfo(
-    @Param('id') id: number,
+    @CurrentUser('id') userId: any,
     @Body() userInfoUpdateRequest: UserInfoUpdateRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.updateUserInfoService.execute(
-        id,
+        userId,
         userInfoUpdateRequest,
       );
       return this.apiResponseService.successResponse(
