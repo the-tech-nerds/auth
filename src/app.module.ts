@@ -14,7 +14,7 @@ import { AddressModule } from './address/address.module';
 import { OtpModule } from './otp/otp.module';
 import configuration from './config/configuration';
 import { PasswordModule } from './password/password.module';
-import { OauthMiddleware } from './user/middlewares/oauth.middleware';
+import { OauthMiddleware } from './address/middlewares/oauth.middleware';
 
 // @ts-ignore
 @Module({
