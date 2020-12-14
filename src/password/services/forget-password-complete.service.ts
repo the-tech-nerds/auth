@@ -32,6 +32,9 @@ export class ForgetPasswordCompleteService {
       email: user.email,
       phone: user.phone,
       image_url: user.image_url,
+      birthday: user.birthday,
+      is_mobile_verified: user.is_mobile_verified,
+      gender_type: user.gender_type,
     };
   }
 }

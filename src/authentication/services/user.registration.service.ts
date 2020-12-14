@@ -20,7 +20,7 @@ export class UserRegistrationService {
       id,
     } = await this.userRepository.save({
       ...userData,
-      password: await hash(password, 10),
+      password: password.length > 4 ? await hash(password, 10) : password,
       created_by: 1,
     });
     return {

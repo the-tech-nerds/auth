@@ -7,10 +7,12 @@ import {
   Post,
   Put,
   Res,
+  UseGuards,
 } from '@nestjs/common';
 
 import { ApiResponseService } from 'src/utils/services/api-response/response/api-response.service';
 import { Response } from 'express';
+import { CurrentUser, UserGuard } from '@technerds/common-services';
 import { User } from '../entities/user.entity';
 import { UserUpdateRequest } from '../requests/user-update.request';
 
@@ -23,6 +25,10 @@ import { GetAddressesByUserService } from '../services/get-addresses-by-user.ser
 import { Address } from '../../address/entities/address.entity';
 import { UserAssignRolesRequest } from '../requests/user-assign-permission.request';
 import { AssignRolesInUserService } from '../services/assign-role-in-user.service';
+import { FetchUserInfoByIdService } from '../services/fetch-user-info-by-id.servec';
+import { UserResponse } from '../response/user.response';
+import { UserInfoUpdateRequest } from '../requests/user-info-update.request';
+import { UpdateUserInfoesService } from '../services/update-user-info.service';
 
 @Controller()
 export class UserController {
@@ -34,6 +40,8 @@ export class UserController {
     private readonly assignRolesInUserService: AssignRolesInUserService,
     private readonly deleteUserService: DeleteUserService,
     private readonly apiResponseService: ApiResponseService,
+    private readonly fetchUserInfoByIdService: FetchUserInfoByIdService,
+    private readonly updateUserInfoService: UpdateUserInfoesService,
   ) {}
 
   @Get('/all')
@@ -77,6 +85,46 @@ export class UserController {
       const data = await this.fetchUserByIdService.execute(id);
       return this.apiResponseService.successResponse(
         ['User fetched successfully'],
+        data as User,
+        res,
+      );
+    } catch (e) {
+      return this.apiResponseService.internalServerError([e.toString()], res);
+    }
+  }
+
+  @UseGuards(UserGuard)
+  @Get('/profile/info')
+  async getUserInfoById(
+    @CurrentUser('id') userId: any,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    try {
+      const data = await this.fetchUserInfoByIdService.execute(userId);
+      return this.apiResponseService.successResponse(
+        ['User fetched successfully'],
+        data as UserResponse,
+        res,
+      );
+    } catch (e) {
+      return this.apiResponseService.internalServerError([e.toString()], res);
+    }
+  }
+
+  @UseGuards(UserGuard)
+  @Put('/profile/info')
+  async updateUserInfo(
+    @CurrentUser('id') userId: any,
+    @Body() userInfoUpdateRequest: UserInfoUpdateRequest,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    try {
+      const data = await this.updateUserInfoService.execute(
+        userId,
+        userInfoUpdateRequest,
+      );
+      return this.apiResponseService.successResponse(
+        ['User has been updated successfully'],
         data as User,
         res,
       );

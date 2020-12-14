@@ -18,7 +18,11 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "seed:config": "ts-node ./node_modules/typeorm-seeding/dist/cli.js config",
+    "seed:run": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed",
+    "schema:drop": "ts-node ./node_modules/typeorm/cli.js schema:drop",
+    "schema:sync": "ts-node ./node_modules/typeorm/cli.js schema:sync"
   },
   "dependencies": {
     "@nestjs/common": "^7.0.0",
@@ -28,7 +32,7 @@
     "@nestjs/passport": "^7.1.2",
     "@nestjs/platform-express": "^7.0.0",
     "@nestjs/typeorm": "^7.1.4",
-    "@technerds/common-services": "git@github.com:the-tech-nerds/common-services.git#f499029",
+    "@technerds/common-services": "git@github.com:the-tech-nerds/common-services.git#c70dae2",
     "@types/bcryptjs": "^2.4.2",
     "@types/passport-jwt": "^3.0.3",
     "bcryptjs": "^2.4.3",
@@ -50,7 +54,8 @@
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.4",
-    "typeorm": "^0.2.29"
+    "typeorm": "^0.2.29",
+    "typeorm-seeding": "^1.6.1"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",
@@ -75,6 +80,7 @@
     "eslint-plugin-react-hooks": "^2.5.1",
     "husky": "^4.3.0",
     "jest": "26.4.2",
+    "nestjs-command": "^1.5.3",
     "prettier": "^1.19.1",
     "supertest": "^4.0.2",
     "ts-jest": "26.2.0",
