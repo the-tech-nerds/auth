@@ -42,6 +42,11 @@ export class AuthenticationController {
     return this.userLoginService.loginByGoogle(user);
   }
 
+  @Post('/login/facebook')
+  async loginWithFacebook(@Body() user: any) {
+    return this.userLoginService.loginByFacebook(user);
+  }
+
   @Post('/register')
   async register(
     @Body() userRegistrationRequest: UserRegistrationRequest,
