@@ -6,6 +6,6 @@ export class UserLogoutService {
   constructor(private readonly cacheService: CacheService) {}
 
   async logout(userId: any) {
-    await this.cacheService.set(`user-token-${userId}`, null);
+    await this.cacheService.delete(`user-token-${userId}`);
   }
 }
