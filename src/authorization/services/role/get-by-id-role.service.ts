@@ -13,7 +13,7 @@ export class GetByIdRoleService {
 
   async getById(id: number): Promise<Roles | undefined> {
     return this.roleRepository.findOne(id, {
-      relations: ['permissions'],
+      relations: ['permissions', 'permissions.permission_category'],
     });
   }
 

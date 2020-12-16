@@ -58,10 +58,10 @@ export class PermissionCategoryController {
     }
   }
 
-  @HasPermissions(
+  /* @HasPermissions(
     [PermissionTypes.PERMISSION_CATEGORY.GET],
     PermissionTypeEnum.hasPermission,
-  )
+  ) */
   @Get('/categories')
   async getAllPermissionsCategory(
     @Res() res: Response,
@@ -81,7 +81,7 @@ export class PermissionCategoryController {
   /* @HasPermissions(
     [type.PERMISSION_CATEGORY.GET],
     PermissionTypeEnum.hasPermission,
-  )
+  ) */
   @Get('/categories/role/:roleId')
   async getPermissionsCategoryFromRole(
     @Param('roleId') roleId: number,
@@ -97,7 +97,7 @@ export class PermissionCategoryController {
     } catch (e) {
       return this.apiResponseService.internalServerError([e.message], res);
     }
-  } */
+  }
 
   @HasPermissions(
     [PermissionTypes.PERMISSION_CATEGORY.UPDATE],
