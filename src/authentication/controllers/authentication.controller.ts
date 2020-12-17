@@ -62,6 +62,7 @@ export class AuthenticationController {
     );
   }
 
+  @UseGuards(UserGuard)
   @Get('/logout')
   async logout(@CurrentUser('id') userId: any) {
     await this.userLogoutService.logout(userId);
