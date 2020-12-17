@@ -37,10 +37,10 @@ export class RoleController {
     private readonly apiResponseService: ApiResponseService,
   ) {}
 
-  @HasPermissions(
+  /* @HasPermissions(
     [PermissionTypes.ROLE.CREATE],
     PermissionTypeEnum.hasPermission,
-  )
+  ) */
   @Post('/role')
   async createRole(
     @Body() roleRequest: RoleRequest,
@@ -58,7 +58,7 @@ export class RoleController {
     }
   }
 
-  @HasPermissions([PermissionTypes.ROLE.GET], PermissionTypeEnum.hasPermission)
+  /* @HasPermissions([PermissionTypes.ROLE.GET], PermissionTypeEnum.hasPermission) */
   @Get('/roles')
   async getAllRoles(@Res() res: Response): Promise<Response<ResponseModel>> {
     try {
@@ -100,10 +100,10 @@ export class RoleController {
     }
   }
 
-  @HasPermissions(
+  /* @HasPermissions(
     [PermissionTypes.ROLE.UPDATE],
     PermissionTypeEnum.hasPermission,
-  )
+  ) */
   @Put('/role/:id')
   async updateRole(
     @Param('id') id: number,
