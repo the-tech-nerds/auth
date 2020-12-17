@@ -30,6 +30,7 @@ export class ListPermissionCategoryService extends AuthorizationService {
     const role = await this.getByIdRoleService.getById(roleId);
     const permissioncategoryIds: any = {};
     const categoryList: any = {};
+
     role?.permissions?.forEach(permission => {
       if (permissioncategoryIds[permission.permission_category.name]) {
         categoryList[permission.permission_category.name].push({
