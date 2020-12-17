@@ -89,7 +89,6 @@ export class PermissionCategoryController {
   ): Promise<Response<ResponseModel>> {
     try {
       const data = await this.listPermissionCategoryService.getFromRole(roleId);
-      console.log(data);
       return this.apiResponseService.successResponse(
         ['Permission retrieved successfully'],
         data,
