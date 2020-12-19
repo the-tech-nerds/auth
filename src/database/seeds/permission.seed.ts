@@ -37,6 +37,5 @@ export default class PermissionSeed implements Seeder {
       permissionCategoryEntry.permissions = permissions;
       await permissionCategoryRepository.save(permissionCategoryEntry);
     }
-    console.log('Permission and Permission Category seed run successfully');
   }
 }
