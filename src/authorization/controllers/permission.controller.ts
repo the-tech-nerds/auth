@@ -22,6 +22,7 @@ import { ListPermissionService } from '../services/permission/list-permission.se
 import { UpdatePermissionService } from '../services/permission/update-permission.service';
 import { GetByIdPermissionService } from '../services/permission/getById-permission.service';
 import { PermissionRequest } from '../requests/permission.request';
+import { Roles } from '../entities/role.entity';
 
 @Controller()
 export class PermissionController {
@@ -75,6 +76,34 @@ export class PermissionController {
         ['Something went wrong! please try again later'],
         res,
       );
+    }
+  }
+
+  /* @HasPermissions([type.PERMISSION.GET], PermissionTypeEnum.hasPermission) */
+  @Get('/role/:roleId/permissions')
+  async getPermissionsFromRole(
+    @Param('roleId') roleId: number,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    try {
+      const data:
+        | Roles
+        | undefined = await this.listPermissionService.getFromRole(roleId);
+      const permission = data?.permissions.map(p => p.id);
+      return this.apiResponseService.successResponse(
+        ['Role Permission retrieved successfully'],
+        {
+          permissions: permission,
+          role: {
+            // @ts-ignore
+            name: data.name,
+            id: roleId,
+          },
+        },
+        res,
+      );
+    } catch (e) {
+      return this.apiResponseService.internalServerError([e.message], res);
     }
   }
 
