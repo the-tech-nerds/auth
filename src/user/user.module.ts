@@ -13,6 +13,7 @@ import { AssignRolesInUserService } from './services/assign-role-in-user.service
 import { Roles } from '../authorization/entities/role.entity';
 import { FetchUserInfoByIdService } from './services/fetch-user-info-by-id.servec';
 import { UpdateUserInfoesService } from './services/update-user-info.service';
+import { UpdatePhoneVerifiedService } from './services/verified-phone.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User, Roles])],
@@ -26,6 +27,7 @@ import { UpdateUserInfoesService } from './services/update-user-info.service';
     ApiResponseService,
     FetchUserInfoByIdService,
     UpdateUserInfoesService,
+    UpdatePhoneVerifiedService,
   ],
   controllers: [UserController],
 })
