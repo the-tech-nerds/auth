@@ -15,5 +15,11 @@ export class UserResponse {
 
   is_mobile_verified: boolean;
 
+  has_password?: boolean;
+
+  is_facebook_login?: boolean;
+
+  is_gmail_login?: boolean;
+
   birthday?: Date;
 }

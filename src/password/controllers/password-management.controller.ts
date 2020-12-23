@@ -1,7 +1,8 @@
-import { Body, Controller, Post, Res } from '@nestjs/common';
+import { Body, Controller, Post, Res, UseGuards } from '@nestjs/common';
 
 import { ApiResponseService } from 'src/utils/services/api-response/response/api-response.service';
 import { Response } from 'express';
+import { CurrentUser, UserGuard } from '@technerds/common-services';
 import { ForgetPasswordInitRequest } from '../requests/forget-password-init.request';
 
 import { ForgetPasswordInitService } from '../services/forget-password-init.service';
@@ -11,6 +12,8 @@ import { ResetPasswordRequest } from '../requests/reset-password.request';
 import { ForgetPasswordCompleteService } from '../services/forget-password-complete.service';
 import { ResetPasswordService } from '../services/reset-password.service';
 import { UserResponse } from '../../user/response/user.response';
+import { CreatePasswordRequest } from '../requests/create-password.request';
+import { CreatePasswordService } from '../services/create-password.servic e';
 
 @Controller()
 export class PasswordManagementController {
@@ -18,7 +21,7 @@ export class PasswordManagementController {
     private readonly forgetPasswordInitService: ForgetPasswordInitService,
     private readonly forgetPasswordCompleteService: ForgetPasswordCompleteService,
     private readonly resetPasswordService: ResetPasswordService,
-
+    private readonly createPasswordService: CreatePasswordService,
     private readonly apiResponseService: ApiResponseService,
   ) {}
 
@@ -52,16 +55,39 @@ export class PasswordManagementController {
     }
   }
 
+  @UseGuards(UserGuard)
   @Post('/reset')
   async resetPassword(
+    @CurrentUser('id') userId: any,
     @Body() request: ResetPasswordRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
+      request.user_id = userId;
       const data = await this.resetPasswordService.execute(request);
       return this.apiResponseService.successResponse(
         ['Password has been reset successfully'],
         data as UserResponse,
+        res,
+      );
+    } catch (e) {
+      return this.apiResponseService.internalServerError([e.toString()], res);
+    }
+  }
+
+  @UseGuards(UserGuard)
+  @Post('/create')
+  async createPassword(
+    @CurrentUser('id') userId: any,
+    @Body() request: CreatePasswordRequest,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    try {
+      request.user_id = userId;
+      const data = await this.createPasswordService.execute(request);
+      return this.apiResponseService.successResponse(
+        ['Password has been created successfully'],
+        data as Boolean,
         res,
       );
     } catch (e) {
