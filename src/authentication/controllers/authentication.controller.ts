@@ -14,10 +14,11 @@ import {
   PermissionTypeEnum,
   PermissionTypes,
   UserGuard,
+  ApiResponseService,
 } from '@technerds/common-services';
+import { Response } from 'express';
 import { UserRegistrationService } from '../services/user.registration.service';
 import { UserRegistrationRequest } from '../requests/user.registration.request';
-import { ApiResponseService } from '../../utils/services/api-response/response/api-response.service';
 import { UserLoginService } from '../services/user.login.service';
 import { LocalGuard } from '../guards/local.guard';
 import { UserLogoutService } from '../services/user.logout.service';
@@ -51,7 +52,7 @@ export class AuthenticationController {
   async register(
     @Body() userRegistrationRequest: UserRegistrationRequest,
     @Res() res: any,
-  ) {
+  ): Promise<Response<ResponseModel>> {
     const user = await this.userRegistrationService.register(
       userRegistrationRequest,
     );

@@ -1,4 +1,8 @@
-import { CacheModule, commonConfig } from '@technerds/common-services';
+import {
+  ApiResponseModule,
+  CacheModule,
+  commonConfig,
+} from '@technerds/common-services';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -39,6 +43,7 @@ import { PasswordModule } from './password/password.module';
       inject: [ConfigService],
     }),
     CacheModule,
+    ApiResponseModule,
   ],
   controllers: [AppController],
   providers: [AppService],

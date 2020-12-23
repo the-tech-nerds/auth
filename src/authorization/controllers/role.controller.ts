@@ -13,13 +13,13 @@ import {
   HasPermissions,
   PermissionTypeEnum,
   PermissionTypes,
+  ApiResponseService,
 } from '@technerds/common-services';
 import { CreateRoleService } from '../services/role/create-role.service';
 import { ListRoleService } from '../services/role/list-role.service';
 import { GetByIdRoleService } from '../services/role/get-by-id-role.service';
 import { DeleteRoleService } from '../services/role/delete-role.service';
 import { UpdateRoleService } from '../services/role/update-role.service';
-import { ApiResponseService } from '../../utils/services/api-response/response/api-response.service';
 import { RoleRequest } from '../requests/role.request';
 import { Roles } from '../entities/role.entity';
 import { AssignPermissionInRoleService } from '../services/role/assign-permission-in-role.service';
@@ -37,10 +37,10 @@ export class RoleController {
     private readonly apiResponseService: ApiResponseService,
   ) {}
 
-  /* @HasPermissions(
+  @HasPermissions(
     [PermissionTypes.ROLE.CREATE],
     PermissionTypeEnum.hasPermission,
-  ) */
+  )
   @Post('/role')
   async createRole(
     @Body() roleRequest: RoleRequest,
@@ -58,7 +58,7 @@ export class RoleController {
     }
   }
 
-  /* @HasPermissions([PermissionTypes.ROLE.GET], PermissionTypeEnum.hasPermission) */
+  @HasPermissions([PermissionTypes.ROLE.GET], PermissionTypeEnum.hasPermission)
   @Get('/roles')
   async getAllRoles(@Res() res: Response): Promise<Response<ResponseModel>> {
     try {
@@ -100,10 +100,10 @@ export class RoleController {
     }
   }
 
-  /* @HasPermissions(
+  @HasPermissions(
     [PermissionTypes.ROLE.UPDATE],
     PermissionTypeEnum.hasPermission,
-  ) */
+  )
   @Put('/role/:id')
   async updateRole(
     @Param('id') id: number,

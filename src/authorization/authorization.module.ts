@@ -1,6 +1,10 @@
 import { HttpModule, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { CacheModule, PermissionsGuard } from '@technerds/common-services';
+import {
+  CacheModule,
+  PermissionsGuard,
+  ApiResponseService,
+} from '@technerds/common-services';
 import { JwtModule } from '@nestjs/jwt';
 import { APP_GUARD } from '@nestjs/core';
 import { RolesGuard } from '@technerds/common-services/dist/guards/roles/roles.guard';
@@ -20,7 +24,6 @@ import { DeletePermissionService } from './services/permission/delete-permission
 import { PermissionCategoryController } from './controllers/permission-category.controller';
 import { RoleController } from './controllers/role.controller';
 import { PermissionController } from './controllers/permission.controller';
-import { ApiResponseService } from '../utils/services/api-response/response/api-response.service';
 import { GetByIdPermissionService } from './services/permission/getById-permission.service';
 import { OauthController } from './controllers/oauth.controller';
 import { CreateClientService } from './services/oauth/create-client.service';
@@ -59,6 +62,7 @@ import { jwtConstants } from '../authentication/constants';
     }),
   ],
   providers: [
+    ApiResponseService,
     CreatePermissionCategoryService,
     ListPermissionCategoryService,
     UpdatePermissionCategoryService,
@@ -73,7 +77,6 @@ import { jwtConstants } from '../authentication/constants';
     ListPermissionService,
     UpdatePermissionService,
     DeletePermissionService,
-    ApiResponseService,
     GetByIdPermissionService,
 
     CreateClientService,

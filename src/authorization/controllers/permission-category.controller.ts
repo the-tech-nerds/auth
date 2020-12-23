@@ -13,13 +13,13 @@ import {
   HasPermissions,
   PermissionTypeEnum,
   PermissionTypes,
+  ApiResponseService,
 } from '@technerds/common-services';
 import { CreatePermissionCategoryService } from '../services/permission-category/create-permision-category.service';
 import { ListPermissionCategoryService } from '../services/permission-category/list-permission-category.service';
 import { UpdatePermissionCategoryService } from '../services/permission-category/update-permission-category.service';
 import { DeletePermissionCategoryService } from '../services/permission-category/delete-permission-category.service';
 import { PermissionCategories } from '../entities/permission-category.entity';
-import { ApiResponseService } from '../../utils/services/api-response/response/api-response.service';
 import { PermissionCategoryRequest } from '../requests/permission-category.request';
 
 @Controller('permission')

@@ -1,6 +1,6 @@
 import { Body, Controller, Post, Res } from '@nestjs/common';
 
-import { ApiResponseService } from 'src/utils/services/api-response/response/api-response.service';
+import { ApiResponseService } from '@technerds/common-services';
 import { Response } from 'express';
 import { ForgetPasswordInitRequest } from '../requests/forget-password-init.request';
 
