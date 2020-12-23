@@ -46,7 +46,7 @@ export class ApiResponseService {
   ): Response<ResponseModel> {
     return res.status(400).json({
       message,
-      status: 'Bad request',
+      status: 'Bad requests',
       code: 400,
       data: null,
     });

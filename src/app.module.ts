@@ -14,6 +14,7 @@ import { AddressModule } from './address/address.module';
 import { OtpModule } from './otp/otp.module';
 import configuration from './config/configuration';
 import { PasswordModule } from './password/password.module';
+import { NotificationModule } from './notification/notification.module';
 
 // @ts-ignore
 @Module({
@@ -39,6 +40,7 @@ import { PasswordModule } from './password/password.module';
       inject: [ConfigService],
     }),
     CacheModule,
+    NotificationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
