@@ -16,4 +16,6 @@ export class UserResponse {
   is_mobile_verified: boolean;
 
   birthday?: Date;
+
+  roles?: any[];
 }

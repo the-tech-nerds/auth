@@ -12,7 +12,9 @@ export class FetchUserInfoByIdService {
   ) {}
 
   async execute(userId: number): Promise<UserResponse | undefined> {
-    const userInfo = await this.usersRepository.findOne(userId);
+    const userInfo = await this.usersRepository.findOne(userId, {
+      relations: ['roles'],
+    });
     if (userInfo) {
       return {
         id: userInfo.id,
@@ -24,6 +26,7 @@ export class FetchUserInfoByIdService {
         birthday: userInfo.birthday,
         is_mobile_verified: userInfo.is_mobile_verified,
         gender_type: userInfo.gender_type,
+        roles: userInfo.roles,
       };
     }
     return undefined;
