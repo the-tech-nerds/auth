@@ -29,6 +29,7 @@ import { FetchUserInfoByIdService } from '../services/fetch-user-info-by-id.serv
 import { UserResponse } from '../response/user.response';
 import { UserInfoUpdateRequest } from '../requests/user-info-update.request';
 import { UpdateUserInfoesService } from '../services/update-user-info.service';
+import { UpdatePhoneVerifiedService } from '../services/verified-phone.service';
 
 @Controller()
 export class UserController {
@@ -42,6 +43,7 @@ export class UserController {
     private readonly apiResponseService: ApiResponseService,
     private readonly fetchUserInfoByIdService: FetchUserInfoByIdService,
     private readonly updateUserInfoService: UpdateUserInfoesService,
+    private readonly updatePhoneVerifiedService: UpdatePhoneVerifiedService,
   ) {}
 
   @Get('/all')
@@ -126,6 +128,24 @@ export class UserController {
       return this.apiResponseService.successResponse(
         ['User has been updated successfully'],
         data as User,
+        res,
+      );
+    } catch (e) {
+      return this.apiResponseService.internalServerError([e.toString()], res);
+    }
+  }
+
+  @UseGuards(UserGuard)
+  @Put('/phone/verify')
+  async VerifyPhoneNumber(
+    @CurrentUser('id') userId: any,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    try {
+      const data = await this.updatePhoneVerifiedService.execute(userId);
+      return this.apiResponseService.successResponse(
+        ['Mobile verified successfully'],
+        data as Boolean,
         res,
       );
     } catch (e) {

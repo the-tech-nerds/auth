@@ -25,7 +25,7 @@ export class CreateOtpService {
       ...otpRequest,
       code: otp,
       time_sent: LocalDateToUtc(new Date()),
-      expiration_time: LocalDateToUtc(addMinutes(new Date(), 5)),
+      expiration_time: LocalDateToUtc(addMinutes(new Date(), 1)),
     });
     // send otp to desire number or email
 
