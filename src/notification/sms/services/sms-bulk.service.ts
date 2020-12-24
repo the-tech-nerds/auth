@@ -30,6 +30,5 @@ export class SmsBulkService extends SMSService {
         },
       })
       .then(res => res.data);
-    console.log(response);
   }
 }
