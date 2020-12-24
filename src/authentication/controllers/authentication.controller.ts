@@ -72,7 +72,7 @@ export class AuthenticationController {
   @UseGuards(UserGuard)
   @HasPermissions([PermissionTypes.USER.GET], PermissionTypeEnum.hasPermission)
   @Get('/test')
-  test(@Request() req: any, @Res() res: any) {
+  test(@Request() req: any, @Res() res: any): Response<ResponseModel> {
     return this.apiResponseService.successResponse(
       ['Test user data'],
       req.user,
