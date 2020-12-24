@@ -31,7 +31,7 @@ export class PasswordManagementController {
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
-      const data = await this.forgetPasswordInitService.execute(request);
+      const data = await this.forgetPasswordInitService.execute(request, res);
       return this.apiResponseService.successResponse([data.info], null, res);
     } catch (e) {
       return this.apiResponseService.internalServerError([e.toString()], res);

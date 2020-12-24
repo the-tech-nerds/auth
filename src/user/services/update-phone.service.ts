@@ -15,6 +15,7 @@ export class UpdatePhoneService {
     const user = await this.usersRepository.findOne(request.user_id);
     if (user) {
       user.phone = request.phone;
+      user.is_mobile_verified = true;
       await this.usersRepository.save(user);
     } else {
       throw new Error('User not found');

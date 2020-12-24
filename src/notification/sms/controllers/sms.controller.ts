@@ -5,11 +5,7 @@ import { SingleSmsRequest } from '../requests/single-sms.request';
 
 @Controller('send')
 export class SmsController {
-  constructor(
-    private readonly smsSingleService: SmsSingleService,
-  ) // private readonly smsBulkService: SmsBulkService,
-  // private readonly smsDynamicService: DynamicModule,
-  {}
+  constructor(private readonly smsSingleService: SmsSingleService) {}
 
   @Post('single-sms')
   sendSMSSingle(@Body() smsData: SingleSmsRequest, @Res() res: Response) {

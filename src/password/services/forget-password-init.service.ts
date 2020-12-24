@@ -17,6 +17,7 @@ export class ForgetPasswordInitService {
 
   async execute(
     forgetPasswordRequest: ForgetPasswordInitRequest,
+    res: any,
   ): Promise<OtpGenerateInfoResponse> {
     const user = await this.userRepository.findOneOrFail({
       where: {
@@ -27,6 +28,6 @@ export class ForgetPasswordInitService {
     const otpReq = new OtpRequest();
     otpReq.phone = user.phone;
     otpReq.purpose = 'forget-pass';
-    return this.createOtpService.create(otpReq);
+    return this.createOtpService.create(otpReq, res);
   }
 }
