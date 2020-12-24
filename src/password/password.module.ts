@@ -8,6 +8,7 @@ import { ApiResponseService } from '../utils/services/api-response/response/api-
 import { User } from '../user/entities/user.entity';
 import { ResetPasswordService } from './services/reset-password.service';
 import { OtpModule } from '../otp/otp.module';
+import { CreatePasswordService } from './services/create-password.servic e';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User]), OtpModule],
@@ -16,6 +17,7 @@ import { OtpModule } from '../otp/otp.module';
     ForgetPasswordCompleteService,
     ResetPasswordService,
     ApiResponseService,
+    CreatePasswordService,
   ],
   controllers: [PasswordManagementController],
 })
