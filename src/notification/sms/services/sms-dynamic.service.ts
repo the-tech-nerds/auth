@@ -18,7 +18,7 @@ export class SmsDynamicService extends SMSService {
     text: string;
     csms_id: string;
   }) {
-    const response = await this.fetch
+    await this.fetch
       .execute(this.url, {
         method: 'POST',
         body: {
@@ -37,7 +37,7 @@ export class SmsDynamicService extends SMSService {
     text: string;
     batch_csms_id: string;
   }) {
-    const response = await this.fetch
+    await this.fetch
       .execute('/api/v3/send-sms/dynamic', {
         method: 'POST',
         body: {
@@ -54,7 +54,7 @@ export class SmsDynamicService extends SMSService {
   async sendDynamicSMS(
     smsBody: { msisdn: string; text: string; csms_id: string }[] = [],
   ) {
-    const response = await this.fetch
+    await this.fetch
       .execute('/api/v3/send-sms/dynamic', {
         method: 'POST',
         body: {
