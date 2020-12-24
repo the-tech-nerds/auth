@@ -21,7 +21,7 @@ export class OtpController {
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
-      const data = await this.createOtpService.create(otpRequest);
+      const data = await this.createOtpService.create(otpRequest, res);
       return this.apiResponseService.successResponse(
         ['otp generate successfully'],
         data as OtpGenerateInfoResponse,

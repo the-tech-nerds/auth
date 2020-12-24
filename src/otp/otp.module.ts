@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ApiResponseService } from '@technerds/common-services';
+import { NotificationModule } from 'src/notification/notification.module';
 import { Otps } from './entities/otp.entity';
 import { CreateOtpService } from './services/create-otp.service';
 import { ValidateOtpService } from './services/validation-otp.service';
@@ -8,7 +9,7 @@ import { ValidateOtpService } from './services/validation-otp.service';
 import { OtpController } from './controller/otp.controller';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Otps])],
+  imports: [TypeOrmModule.forFeature([Otps]), NotificationModule],
   providers: [CreateOtpService, ValidateOtpService, ApiResponseService],
   controllers: [OtpController],
   exports: [CreateOtpService],

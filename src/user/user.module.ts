@@ -14,6 +14,7 @@ import { Roles } from '../authorization/entities/role.entity';
 import { FetchUserInfoByIdService } from './services/fetch-user-info-by-id.servec';
 import { UpdateUserInfoesService } from './services/update-user-info.service';
 import { UpdatePhoneVerifiedService } from './services/verified-phone.service';
+import { UpdatePhoneService } from './services/update-phone.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User, Roles])],
@@ -28,6 +29,7 @@ import { UpdatePhoneVerifiedService } from './services/verified-phone.service';
     FetchUserInfoByIdService,
     UpdateUserInfoesService,
     UpdatePhoneVerifiedService,
+    UpdatePhoneService,
   ],
   controllers: [UserController],
 })

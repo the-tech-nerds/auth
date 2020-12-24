@@ -33,6 +33,8 @@ import { UserResponse } from '../response/user.response';
 import { UserInfoUpdateRequest } from '../requests/user-info-update.request';
 import { UpdateUserInfoesService } from '../services/update-user-info.service';
 import { UpdatePhoneVerifiedService } from '../services/verified-phone.service';
+import { UpdatePhoneRequest } from '../requests/update-phone.request';
+import { UpdatePhoneService } from '../services/update-phone.service';
 
 @Controller()
 export class UserController {
@@ -47,6 +49,7 @@ export class UserController {
     private readonly fetchUserInfoByIdService: FetchUserInfoByIdService,
     private readonly updateUserInfoService: UpdateUserInfoesService,
     private readonly updatePhoneVerifiedService: UpdatePhoneVerifiedService,
+    private readonly updatePhoneService: UpdatePhoneService,
   ) {}
 
   @Get('/all')
@@ -148,6 +151,26 @@ export class UserController {
       const data = await this.updatePhoneVerifiedService.execute(userId);
       return this.apiResponseService.successResponse(
         ['Mobile verified successfully'],
+        data as Boolean,
+        res,
+      );
+    } catch (e) {
+      return this.apiResponseService.internalServerError([e.toString()], res);
+    }
+  }
+
+  @UseGuards(UserGuard)
+  @Put('/update/phone')
+  async UpdatePhoneNumber(
+    @CurrentUser('id') userId: any,
+    @Body() request: UpdatePhoneRequest,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    try {
+      request.user_id = userId;
+      const data = await this.updatePhoneService.execute(request);
+      return this.apiResponseService.successResponse(
+        ['Mobile updated successfully'],
         data as Boolean,
         res,
       );

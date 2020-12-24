@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Between, MoreThan, Repository } from 'typeorm';
+import { SmsSingleService } from 'src/notification/sms/services/sms-single.service';
 import { Otps } from '../entities/otp.entity';
 import { OtpRequest } from '../requests/otp.request';
 import {
@@ -15,9 +16,13 @@ export class CreateOtpService {
   constructor(
     @InjectRepository(Otps)
     private otpsRepository: Repository<Otps>,
+    private smsSingleService: SmsSingleService,
   ) {}
 
-  async create(otpRequest: OtpRequest): Promise<OtpGenerateInfoResponse> {
+  async create(
+    otpRequest: OtpRequest,
+    res: any,
+  ): Promise<OtpGenerateInfoResponse> {
     await this.checkOtpAvailability(otpRequest.phone);
 
     const otp = this.generateOTP(4);
@@ -28,6 +33,15 @@ export class CreateOtpService {
       expiration_time: LocalDateToUtc(addMinutes(new Date(), 1)),
     });
     // send otp to desire number or email
+    await this.smsSingleService.sendSingleSMS(
+      {
+        msisdn: otpRequest.phone,
+        purpose: otpRequest.purpose,
+        text: `you otp is: ${otp}`,
+        user_id: 0,
+      },
+      res,
+    );
 
     const response: OtpGenerateInfoResponse = {
       info: 'OTP have sent to specific mobile number',
