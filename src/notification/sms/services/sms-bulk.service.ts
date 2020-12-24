@@ -18,7 +18,7 @@ export class SmsBulkService extends SMSService {
     text: string;
     batch_csms_id: string;
   }) {
-    const response = await this.fetch
+    await this.fetch
       .execute(this.url, {
         method: 'POST',
         body: {

@@ -17,6 +17,5 @@ import { SMSLogs } from './sms/entities/sms-logs.entity';
     ApiResponseModule,
   ],
   providers: [SMSService, SmsSingleService, SmsBulkService, SmsDynamicService],
-  exports: [SmsSingleService],
 })
 export class NotificationModule {}
