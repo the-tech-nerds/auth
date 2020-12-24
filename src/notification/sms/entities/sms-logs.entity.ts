@@ -32,7 +32,7 @@ export class SMSLogs {
   @Column()
   purpose: string;
 
-  @Column({ default: 'en', length: 8 })
+  @Column('text')
   sms_lang: string;
 
   @Column({ nullable: true, length: 16 }) // success or invalid or duplicate

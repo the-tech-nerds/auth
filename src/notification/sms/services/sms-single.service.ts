@@ -22,16 +22,12 @@ export class SmsSingleService extends SMSService {
     private fetch: FetchService,
     @InjectRepository(SMSLogs)
     private smsLogsRepository: Repository<SMSLogs>,
-    private apiResponseService: ApiResponseService,
   ) {
     super();
     this.url = this.domain + this.url;
   }
 
-  async sendSingleSMS(
-    smsBody: SingleSmsRequest,
-    res: Response,
-  ): Promise<Response<ResponseModel>> {
+  async sendSingleSMS(smsBody: SingleSmsRequest, res: Response): Promise<any> {
     const response = await this.fetch.execute(this.url, {
       method: 'POST',
       body: this.getBodyData(smsBody),
@@ -45,17 +41,13 @@ export class SmsSingleService extends SMSService {
         this.getResponseFormattedDate(response, smsBody),
         this.smsLogsRepository,
       );
-      return this.apiResponseService.successResponse(
-        'SMS send successfully',
-        [],
-        res,
-      );
+      return 'success';
     }
     await this.storeSMSLogs(
       this.getResponseFormattedDate(response, smsBody),
       this.smsLogsRepository,
     );
-    return this.apiResponseService.successResponse('SMS send failed', [], res);
+    return 'SMS send failed';
   }
 
   private getBodyData(smsBody: SingleSmsRequest) {
