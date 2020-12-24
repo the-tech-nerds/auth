@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { CacheModule } from '@technerds/common-services';
+import { CacheModule, ApiResponseService } from '@technerds/common-services';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -8,7 +8,6 @@ import { AuthenticationController } from './controllers/authentication.controlle
 import { UserRegistrationService } from './services/user.registration.service';
 import { UserModule } from '../user/user.module';
 import { User } from '../user/entities/user.entity';
-import { ApiResponseService } from '../utils/services/api-response/response/api-response.service';
 import { PermissionCategories } from '../authorization/entities/permission-category.entity';
 import { Permissions } from '../authorization/entities/permission.entity';
 import { Roles } from '../authorization/entities/role.entity';
@@ -47,7 +46,6 @@ import { FetchUserInfoByEmailService } from '../user/services/fetch-user-by-emai
     }),
   ],
   providers: [
-    ApiResponseService,
     UserRegistrationService,
     UserLoginService,
     UserLogoutService,
@@ -56,6 +54,7 @@ import { FetchUserInfoByEmailService } from '../user/services/fetch-user-by-emai
     JwtStrategy,
     FetchUserByIdService,
     FetchUserInfoByEmailService,
+    ApiResponseService,
   ],
   controllers: [AuthenticationController],
 })

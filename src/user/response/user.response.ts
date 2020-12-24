@@ -22,4 +22,6 @@ export class UserResponse {
   is_gmail_login?: boolean;
 
   birthday?: Date;
+
+  roles?: any[];
 }

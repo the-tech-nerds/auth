@@ -30,6 +30,7 @@ export class SmsDynamicService extends SMSService {
         },
       })
       .then(res => res.data);
+    console.log(response);
   }
 
   async sendBulkSMS(smsBody: {
@@ -49,6 +50,7 @@ export class SmsDynamicService extends SMSService {
         },
       })
       .then(res => res.data);
+    console.log(response);
   }
 
   async sendDynamicSMS(

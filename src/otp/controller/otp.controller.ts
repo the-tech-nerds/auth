@@ -1,9 +1,9 @@
 import { Body, Controller, Post, Res } from '@nestjs/common';
 import { Response } from 'express';
+import { ApiResponseService } from '@technerds/common-services';
 import { CreateOtpService } from '../services/create-otp.service';
 import { ValidateOtpService } from '../services/validation-otp.service';
 import { OtpRequest } from '../requests/otp.request';
-import { ApiResponseService } from '../../utils/services/api-response/response/api-response.service';
 import { OtpGenerateInfoResponse } from '../response/otp_generate_info.response';
 import { OtpValidateRequest } from '../requests/otp-validate.request';
 
