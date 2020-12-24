@@ -10,9 +10,12 @@ import {
   UseGuards,
 } from '@nestjs/common';
 
-import { ApiResponseService } from 'src/utils/services/api-response/response/api-response.service';
 import { Response } from 'express';
-import { CurrentUser, UserGuard } from '@technerds/common-services';
+import {
+  CurrentUser,
+  UserGuard,
+  ApiResponseService,
+} from '@technerds/common-services';
 import { User } from '../entities/user.entity';
 import { UserUpdateRequest } from '../requests/user-update.request';
 

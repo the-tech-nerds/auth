@@ -21,6 +21,7 @@ export class IsPermissionNotExistConstraint
 }
 
 export function IsPermissionNotExist(validationOptions?: ValidationOptions) {
+  // eslint-disable-next-line func-names
   return function(object: Object, propertyName: string) {
     registerDecorator({
       target: object.constructor,

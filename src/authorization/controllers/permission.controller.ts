@@ -8,12 +8,12 @@ import {
   Put,
   Res,
 } from '@nestjs/common';
-import { ApiResponseService } from 'src/utils/services/api-response/response/api-response.service';
 import { Response } from 'express';
 import {
   HasPermissions,
   PermissionTypeEnum,
   PermissionTypes,
+  ApiResponseService,
 } from '@technerds/common-services';
 import { Permissions } from '../entities/permission.entity';
 import { CreatePermissionService } from '../services/permission/create-permission.service';

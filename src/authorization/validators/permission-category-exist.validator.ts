@@ -27,6 +27,7 @@ export function IsPermissionCategoryExist(
   exist: boolean = false,
   validationOptions?: ValidationOptions,
 ) {
+  // eslint-disable-next-line func-names
   return function(object: Object, propertyName: string) {
     registerDecorator({
       target: object.constructor,

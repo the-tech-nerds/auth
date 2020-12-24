@@ -18,6 +18,7 @@ export class IsRoleNotExistConstraint implements ValidatorConstraintInterface {
 }
 
 export function IsRoleNotExist(validationOptions?: ValidationOptions) {
+  // eslint-disable-next-line func-names
   return function(object: Object, propertyName: string) {
     registerDecorator({
       target: object.constructor,
