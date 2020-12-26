@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ApiResponseService } from '@technerds/common-services';
+// @ts-ignore
+import { ApiResponseService, UploadService } from '@technerds/common-services';
 import { User } from './entities/user.entity';
 
 import { UserController } from './controllers/user.controller';
@@ -30,6 +31,7 @@ import { UpdatePhoneService } from './services/update-phone.service';
     UpdateUserInfoesService,
     UpdatePhoneVerifiedService,
     UpdatePhoneService,
+    UploadService,
   ],
   controllers: [UserController],
 })

@@ -35,10 +35,10 @@ export class PermissionController {
     private readonly apiResponseService: ApiResponseService,
   ) {}
 
-  @HasPermissions(
+  /* @HasPermissions(
     [PermissionTypes.PERMISSION.CREATE],
     PermissionTypeEnum.hasPermission,
-  )
+  ) */
   @Post('/permission')
   async createPermission(
     @Body() permissionRequest: PermissionRequest,
@@ -79,7 +79,10 @@ export class PermissionController {
     }
   }
 
-  /* @HasPermissions([type.PERMISSION.GET], PermissionTypeEnum.hasPermission) */
+  @HasPermissions(
+    [PermissionTypes.PERMISSION.GET],
+    PermissionTypeEnum.hasPermission,
+  )
   @Get('/role/:roleId/permissions')
   async getPermissionsFromRole(
     @Param('roleId') roleId: number,
@@ -159,10 +162,10 @@ export class PermissionController {
     }
   }
 
-  @HasPermissions(
+  /* @HasPermissions(
     [PermissionTypes.PERMISSION.DELETE],
     PermissionTypeEnum.hasPermission,
-  )
+  ) */
   @Delete('/permission/:id')
   async DeletePermissions(
     @Param('id') id: number,
