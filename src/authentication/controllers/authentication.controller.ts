@@ -13,7 +13,7 @@ import {
   HasPermissions,
   PermissionTypeEnum,
   PermissionTypes,
-  UserGuard,
+  UserGuard, // @ts-ignore
   ApiResponseService,
 } from '@technerds/common-services';
 import { Response } from 'express';
@@ -34,17 +34,17 @@ export class AuthenticationController {
 
   @UseGuards(LocalGuard)
   @Post('/login')
-  async login(@Req() req: any) {
+  async login(@Req() req: any): Promise<any> {
     return this.userLoginService.login(req.user);
   }
 
   @Post('/login/gmail')
-  async loginWithGmail(@Body() user: any) {
+  async loginWithGmail(@Body() user: any): Promise<any> {
     return this.userLoginService.loginByGoogle(user);
   }
 
   @Post('/login/facebook')
-  async loginWithFacebook(@Body() user: any) {
+  async loginWithFacebook(@Body() user: any): Promise<any> {
     return this.userLoginService.loginByFacebook(user);
   }
 
@@ -65,7 +65,7 @@ export class AuthenticationController {
 
   @UseGuards(UserGuard)
   @Get('/logout')
-  async logout(@CurrentUser('id') userId: any) {
+  async logout(@CurrentUser('id') userId: any): Promise<void> {
     await this.userLogoutService.logout(userId);
   }
 

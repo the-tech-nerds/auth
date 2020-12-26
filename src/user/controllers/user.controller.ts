@@ -59,7 +59,6 @@ export class UserController {
     private readonly updateUserInfoService: UpdateUserInfoesService,
     private readonly updatePhoneVerifiedService: UpdatePhoneVerifiedService,
     private readonly updatePhoneService: UpdatePhoneService,
-
     private readonly uploadService: UploadService,
   ) {}
 
@@ -121,10 +120,6 @@ export class UserController {
     }
   }
 
-  @HasPermissions(
-    [PermissionTypes.USER.DETAILS],
-    PermissionTypeEnum.hasPermission,
-  )
   @UseGuards(UserGuard)
   @Get('/profile/info')
   async getUserInfoById(
@@ -275,7 +270,10 @@ export class UserController {
 
   @Post('upload')
   @UseInterceptors(FileInterceptor('image'))
-  async upload(@UploadedFile() file: any, @Res() res: Response) {
+  async upload(
+    @UploadedFile() file: any,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
     const fileName = `example_${Math.ceil(Math.random() * 100)}`;
     return this.uploadService
       .upload(file, fileName)
