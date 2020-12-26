@@ -58,13 +58,15 @@ export class PasswordManagementController {
     }
   }
 
+  @UseGuards(UserGuard)
   @Post('/reset')
   async resetPassword(
+    @CurrentUser('id') userId: any,
     @Body() request: ResetPasswordRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
-      const data = await this.resetPasswordService.execute(request);
+      const data = await this.resetPasswordService.execute(request, userId);
       return this.apiResponseService.successResponse(
         ['Password has been reset successfully'],
         data as UserResponse,

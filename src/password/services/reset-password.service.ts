@@ -15,6 +15,7 @@ export class ResetPasswordService {
 
   async execute(
     resetPasswordRequest: ResetPasswordRequest,
+    user_id: number,
   ): Promise<UserResponse> {
     if (
       resetPasswordRequest.new_password !==
@@ -23,9 +24,7 @@ export class ResetPasswordService {
       throw new Error('Sorry! Password confirmation did not match');
     }
 
-    const user = await this.userRepository.findOneOrFail(
-      resetPasswordRequest.user_id,
-    );
+    const user = await this.userRepository.findOneOrFail(user_id);
 
     const isPassMatching = await compare(
       resetPasswordRequest.old_password,
