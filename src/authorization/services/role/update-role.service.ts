@@ -17,17 +17,18 @@ export class UpdateRoleService {
   async update(
     id: number,
     roleRequest: RoleRequest,
-  ): Promise<Roles | undefined> {
-    await this.roleRepository.update(id, {
-      name: roleRequest.name,
-      updated_by: 1,
-    });
-    const role = await this.roleRepository.findOne(id);
-    // @ts-ignore
-    role?.permissions = await this.permissionRepository.findByIds(
-      roleRequest.permissions,
-    );
-    // @ts-ignore
-    return this.roleRepository.save(role);
+  ): Promise<Roles | undefined | void> {
+    try {
+      const role = await this.roleRepository.findOneOrFail(id);
+      role.name = roleRequest.name;
+      role.updated_by = 1;
+      role.permissions = await this.permissionRepository.findByIds(
+        roleRequest.permissions,
+      );
+      console.log(await this.roleRepository.save(role));
+      // return await this.roleRepository.save(role);
+    } catch (e) {
+      console.log(e);
+    }
   }
 }

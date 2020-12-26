@@ -13,6 +13,7 @@ import {
   HasPermissions,
   PermissionTypeEnum,
   PermissionTypes,
+  // @ts-ignore
   ApiResponseService,
 } from '@technerds/common-services';
 import { CreateRoleService } from '../services/role/create-role.service';
@@ -77,7 +78,7 @@ export class RoleController {
   }
 
   @HasPermissions(
-    [PermissionTypes.ROLE.CREATE],
+    [PermissionTypes.ROLE.DETAILS],
     PermissionTypeEnum.hasPermission,
   )
   @Get('/role/:id')

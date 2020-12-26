@@ -14,7 +14,11 @@ import { Response } from 'express';
 import {
   CurrentUser,
   UserGuard,
+  // @ts-ignore
   ApiResponseService,
+  HasPermissions,
+  PermissionTypes,
+  PermissionTypeEnum,
 } from '@technerds/common-services';
 import { User } from '../entities/user.entity';
 import { UserUpdateRequest } from '../requests/user-update.request';
@@ -52,6 +56,7 @@ export class UserController {
     private readonly updatePhoneService: UpdatePhoneService,
   ) {}
 
+  @HasPermissions([PermissionTypes.USER.GET], PermissionTypeEnum.hasPermission)
   @Get('/all')
   async getUsers(@Res() res: Response): Promise<Response<ResponseModel>> {
     try {
@@ -66,6 +71,10 @@ export class UserController {
     }
   }
 
+  @HasPermissions(
+    [PermissionTypes.USER.UPDATE],
+    PermissionTypeEnum.hasPermission,
+  )
   @Put('/:id')
   async updateUser(
     @Param('id') id: number,
@@ -84,6 +93,10 @@ export class UserController {
     }
   }
 
+  @HasPermissions(
+    [PermissionTypes.USER.DETAILS],
+    PermissionTypeEnum.hasPermission,
+  )
   @Get('/:id')
   async getUserById(
     @Param('id') id: number,
@@ -101,6 +114,10 @@ export class UserController {
     }
   }
 
+  @HasPermissions(
+    [PermissionTypes.USER.DETAILS],
+    PermissionTypeEnum.hasPermission,
+  )
   @UseGuards(UserGuard)
   @Get('/profile/info')
   async getUserInfoById(
@@ -119,6 +136,10 @@ export class UserController {
     }
   }
 
+  @HasPermissions(
+    [PermissionTypes.USER.UPDATE],
+    PermissionTypeEnum.hasPermission,
+  )
   @UseGuards(UserGuard)
   @Put('/profile/info')
   async updateUserInfo(
@@ -196,6 +217,10 @@ export class UserController {
     }
   }
 
+  @HasPermissions(
+    [PermissionTypes.USER.DELETE],
+    PermissionTypeEnum.hasPermission,
+  )
   @Delete('/:id')
   async DeleteUser(
     @Param('id') id: number,
@@ -213,6 +238,10 @@ export class UserController {
     }
   }
 
+  @HasPermissions(
+    [PermissionTypes.USER.ROLE_ASSIGN],
+    PermissionTypeEnum.hasPermission,
+  )
   @Post('/:id/assign-roles')
   async AssignPermission(
     @Param('id') id: number,
