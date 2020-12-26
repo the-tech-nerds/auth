@@ -138,10 +138,6 @@ export class UserController {
     }
   }
 
-  @HasPermissions(
-    [PermissionTypes.USER.UPDATE],
-    PermissionTypeEnum.hasPermission,
-  )
   @UseGuards(UserGuard)
   @Put('/profile/info')
   async updateUserInfo(

@@ -10,7 +10,7 @@ import { ApiResponseService } from '@technerds/common-services';
 export class ErrorFilter implements ExceptionFilter {
   constructor(private readonly apiResponseService: ApiResponseService) {}
 
-  catch(error: Error, host: ArgumentsHost) {
+  catch(error: Error, host: ArgumentsHost): any {
     const response = host.switchToHttp().getResponse();
     const status =
       error instanceof HttpException
