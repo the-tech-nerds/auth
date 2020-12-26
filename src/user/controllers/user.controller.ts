@@ -7,7 +7,9 @@ import {
   Post,
   Put,
   Res,
+  UploadedFile,
   UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
 
 import { Response } from 'express';
@@ -19,7 +21,10 @@ import {
   HasPermissions,
   PermissionTypes,
   PermissionTypeEnum,
+  // @ts-ignore
+  UploadService,
 } from '@technerds/common-services';
+import { FileInterceptor } from '@nestjs/platform-express';
 import { User } from '../entities/user.entity';
 import { UserUpdateRequest } from '../requests/user-update.request';
 
@@ -54,6 +59,8 @@ export class UserController {
     private readonly updateUserInfoService: UpdateUserInfoesService,
     private readonly updatePhoneVerifiedService: UpdatePhoneVerifiedService,
     private readonly updatePhoneService: UpdatePhoneService,
+
+    private readonly uploadService: UploadService,
   ) {}
 
   @HasPermissions([PermissionTypes.USER.GET], PermissionTypeEnum.hasPermission)
@@ -264,5 +271,26 @@ export class UserController {
         res,
       );
     }
+  }
+
+  @Post('upload')
+  @UseInterceptors(FileInterceptor('image'))
+  async upload(@UploadedFile() file: any, @Res() res: Response) {
+    const fileName = `example_${Math.ceil(Math.random() * 100)}`;
+    return this.uploadService
+      .upload(file, fileName)
+      .then((response: any) =>
+        this.apiResponseService.successResponse(
+          ['Image Uploaded successfully'],
+          response,
+          res,
+        ),
+      )
+      .catch((error: any) =>
+        this.apiResponseService.internalServerError(
+          ['Something went wrong! please try again later'],
+          res,
+        ),
+      );
   }
 }

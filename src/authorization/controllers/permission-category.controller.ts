@@ -32,10 +32,10 @@ export class PermissionCategoryController {
     private readonly apiResponseService: ApiResponseService,
   ) {}
 
-  @HasPermissions(
+  /* @HasPermissions(
     [PermissionTypes.PERMISSION_CATEGORY.CREATE],
     PermissionTypeEnum.hasPermission,
-  )
+  ) */
   @Post('/category')
   async createPermissionCategory(
     @Body() permissionCategoryRequest: PermissionCategoryRequest,
@@ -58,10 +58,10 @@ export class PermissionCategoryController {
     }
   }
 
-  /* @HasPermissions(
+  @HasPermissions(
     [PermissionTypes.PERMISSION_CATEGORY.GET],
     PermissionTypeEnum.hasPermission,
-  ) */
+  )
   @Get('/categories')
   async getAllPermissionsCategory(
     @Res() res: Response,
@@ -78,10 +78,10 @@ export class PermissionCategoryController {
     }
   }
 
-  /* @HasPermissions(
-    [type.PERMISSION_CATEGORY.GET],
+  @HasPermissions(
+    [PermissionTypes.PERMISSION_CATEGORY.GET],
     PermissionTypeEnum.hasPermission,
-  ) */
+  )
   @Get('/categories/role/:roleId')
   async getPermissionsCategoryFromRole(
     @Param('roleId') roleId: number,
@@ -127,10 +127,10 @@ export class PermissionCategoryController {
     }
   }
 
-  @HasPermissions(
+  /* @HasPermissions(
     [PermissionTypes.PERMISSION_CATEGORY.DELETE],
     PermissionTypeEnum.hasPermission,
-  )
+  ) */
   @Delete('/category/:id')
   async deletePermissionCategory(
     @Param('id') id: number,
