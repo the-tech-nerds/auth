@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Next, Post, Req, Res } from '@nestjs/common';
+// @ts-ignore
 import { ApiResponseService } from '@technerds/common-services';
 import { response, Response } from 'express';
 import { CreateClientService } from '../services/oauth/create-client.service';
@@ -48,7 +49,7 @@ export class OauthController {
   }
 
   @Get('oauth/token')
-  async getToken(@Req() req: any, @Res() res: any) {
+  async getToken(@Req() req: any, @Res() res: any): Promise<any> {
     return this.apiResponseService.successResponse(
       ['Authorization successful'],
       {
@@ -64,7 +65,7 @@ export class OauthController {
     @Req() req: any,
     @Res() res: any,
     @Next() next: any,
-  ) {
+  ): Promise<any> {
     const tokenHandler = await this.tokenService.execute();
     const { client_id: id, secret } = tokenRequest;
     req.client = {
