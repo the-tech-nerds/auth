@@ -155,6 +155,7 @@ export class UserController {
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
+      console.log('in update user auth');
       const data = await this.updateUserInfoService.execute(
         userId,
         userInfoUpdateRequest,
@@ -275,22 +276,33 @@ export class UserController {
 
   @Post('upload')
   @UseInterceptors(FileInterceptor('image'))
-  async upload(@UploadedFile() file: any, @Res() res: Response) {
-    const fileName = `example_${Math.ceil(Math.random() * 100)}`;
-    return this.uploadService
-      .upload(file, fileName)
-      .then((response: any) =>
-        this.apiResponseService.successResponse(
-          ['Image Uploaded successfully'],
-          response,
-          res,
-        ),
-      )
-      .catch((error: any) =>
-        this.apiResponseService.internalServerError(
-          ['Something went wrong! please try again later'],
-          res,
-        ),
+  async upload(
+    @UploadedFile() file: any,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    try {
+      const fileName = `example_${Math.ceil(Math.random() * 100)}`;
+
+      return this.uploadService
+        .upload(file, fileName)
+        .then((response: any) =>
+          this.apiResponseService.successResponse(
+            ['Image Uploaded successfully'],
+            response,
+            res,
+          ),
+        )
+        .catch((error: any) =>
+          this.apiResponseService.internalServerError(
+            ['Something went wrong! please try again later'],
+            res,
+          ),
+        );
+    } catch (e) {
+      return this.apiResponseService.internalServerError(
+        ['Something went wrong! please try again later'],
+        res,
       );
+    }
   }
 }
