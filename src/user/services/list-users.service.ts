@@ -10,8 +10,11 @@ export class ListUsersService {
     private usersRepository: Repository<User>,
   ) {}
 
-  async execute(): Promise<User[]> {
+  async execute(userType: string): Promise<User[]> {
     return this.usersRepository.find({
+      where: {
+        type: Number(userType),
+      },
       relations: ['roles'],
     });
   }

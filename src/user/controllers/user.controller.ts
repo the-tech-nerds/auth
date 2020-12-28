@@ -6,6 +6,7 @@ import {
   Param,
   Post,
   Put,
+  Query,
   Res,
   UploadedFile,
   UseGuards,
@@ -65,9 +66,12 @@ export class UserController {
 
   @HasPermissions([PermissionTypes.USER.GET], PermissionTypeEnum.hasPermission)
   @Get('/all')
-  async getUsers(@Res() res: Response): Promise<Response<ResponseModel>> {
+  async getUsers(
+    @Query('userType') userType: string,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
     try {
-      const data = await this.listUsersService.execute();
+      const data = await this.listUsersService.execute(userType);
       return this.apiResponseService.successResponse(
         ['User list fetched successfully'],
         data,
