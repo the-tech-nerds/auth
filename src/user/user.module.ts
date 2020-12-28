@@ -16,6 +16,7 @@ import { FetchUserInfoByIdService } from './services/fetch-user-info-by-id.serve
 import { UpdateUserInfoesService } from './services/update-user-info.service';
 import { UpdatePhoneVerifiedService } from './services/verified-phone.service';
 import { UpdatePhoneService } from './services/update-phone.service';
+import { UpdateEmailService } from './services/update-email.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User, Roles])],
@@ -32,6 +33,7 @@ import { UpdatePhoneService } from './services/update-phone.service';
     UpdatePhoneVerifiedService,
     UpdatePhoneService,
     UploadService,
+    UpdateEmailService,
   ],
   controllers: [UserController],
 })
