@@ -61,6 +61,7 @@ export class UserController {
     private readonly updateUserInfoService: UpdateUserInfoesService,
     private readonly updatePhoneVerifiedService: UpdatePhoneVerifiedService,
     private readonly updatePhoneService: UpdatePhoneService,
+
     private readonly uploadService: UploadService,
     private readonly updateEmailService: UpdateEmailService,
   ) {}
@@ -123,6 +124,10 @@ export class UserController {
     }
   }
 
+  @HasPermissions(
+    [PermissionTypes.USER.DETAILS],
+    PermissionTypeEnum.hasPermission,
+  )
   @UseGuards(UserGuard)
   @Get('/profile/info')
   async getUserInfoById(
@@ -141,6 +146,10 @@ export class UserController {
     }
   }
 
+  @HasPermissions(
+    [PermissionTypes.USER.UPDATE],
+    PermissionTypeEnum.hasPermission,
+  )
   @UseGuards(UserGuard)
   @Put('/profile/info')
   async updateUserInfo(
@@ -149,6 +158,7 @@ export class UserController {
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
+      console.log('in update user auth');
       const data = await this.updateUserInfoService.execute(
         userId,
         userInfoUpdateRequest,
@@ -295,21 +305,29 @@ export class UserController {
     @UploadedFile() file: any,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    const fileName = `example_${Math.ceil(Math.random() * 100)}`;
-    return this.uploadService
-      .upload(file, fileName)
-      .then((response: any) =>
-        this.apiResponseService.successResponse(
-          ['Image Uploaded successfully'],
-          response,
-          res,
-        ),
-      )
-      .catch((error: any) =>
-        this.apiResponseService.internalServerError(
-          ['Something went wrong! please try again later'],
-          res,
-        ),
+    try {
+      const fileName = `example_${Math.ceil(Math.random() * 100)}`;
+
+      return this.uploadService
+        .upload(file, fileName)
+        .then((response: any) =>
+          this.apiResponseService.successResponse(
+            ['Image Uploaded successfully'],
+            response,
+            res,
+          ),
+        )
+        .catch((error: any) =>
+          this.apiResponseService.internalServerError(
+            ['Something went wrong! please try again later'],
+            res,
+          ),
+        );
+    } catch (e) {
+      return this.apiResponseService.internalServerError(
+        ['Something went wrong! please try again later'],
+        res,
       );
+    }
   }
 }
