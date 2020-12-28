@@ -125,10 +125,6 @@ export class UserController {
     }
   }
 
-  @HasPermissions(
-    [PermissionTypes.USER.DETAILS],
-    PermissionTypeEnum.hasPermission,
-  )
   @UseGuards(UserGuard)
   @Get('/profile/info')
   async getUserInfoById(
@@ -147,10 +143,6 @@ export class UserController {
     }
   }
 
-  @HasPermissions(
-    [PermissionTypes.USER.UPDATE],
-    PermissionTypeEnum.hasPermission,
-  )
   @UseGuards(UserGuard)
   @Put('/profile/info')
   async updateUserInfo(
@@ -159,7 +151,6 @@ export class UserController {
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
-      console.log('in update user auth');
       const data = await this.updateUserInfoService.execute(
         userId,
         userInfoUpdateRequest,
