@@ -1,6 +1,6 @@
 /* eslint-disable no-empty */
 import { JwtService } from '@nestjs/jwt';
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { CacheService } from '@technerds/common-services';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -20,11 +20,16 @@ export class UserLoginService {
     private userRepository: Repository<User>,
   ) {}
 
-  async login(user: Partial<User>) {
+  async login(user: Partial<User>, userType: number) {
     const { email, id } = user;
-    const { roles = [] } = (await this.fetchUserByIdService.execute(
+    const { roles = [], type } = (await this.fetchUserByIdService.execute(
       Number(id),
     )) as User;
+
+    if (userType !== type) {
+      throw new UnauthorizedException();
+    }
+
     const allPermissions = roles
       .reduce((acc, role) => [...acc, ...role.permissions], [])
       .map(({ id: permissionId, name }) => ({ id: permissionId, name }));
