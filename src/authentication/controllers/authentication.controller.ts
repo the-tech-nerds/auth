@@ -22,6 +22,7 @@ import { UserRegistrationRequest } from '../requests/user.registration.request';
 import { UserLoginService } from '../services/user.login.service';
 import { LocalGuard } from '../guards/local.guard';
 import { UserLogoutService } from '../services/user.logout.service';
+import { UserType } from '../../user/entities/user.entity';
 
 @Controller()
 export class AuthenticationController {
@@ -33,9 +34,15 @@ export class AuthenticationController {
   ) {}
 
   @UseGuards(LocalGuard)
-  @Post('/login')
-  async login(@Req() req: any): Promise<any> {
-    return this.userLoginService.login(req.user);
+  @Post('/login/admin')
+  async loginAdmin(@Req() req: any): Promise<any> {
+    return this.userLoginService.login(req.user, UserType.ADMIN);
+  }
+
+  @UseGuards(LocalGuard)
+  @Post('/login/user')
+  async loginUser(@Req() req: any): Promise<any> {
+    return this.userLoginService.login(req.user, UserType.USER);
   }
 
   @Post('/login/gmail')
