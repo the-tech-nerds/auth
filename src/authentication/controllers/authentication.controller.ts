@@ -48,8 +48,28 @@ export class AuthenticationController {
     return this.userLoginService.loginByFacebook(user);
   }
 
-  @Post('/register')
-  async register(
+  @HasPermissions(
+    [PermissionTypes.USER.CREATE],
+    PermissionTypeEnum.hasPermission,
+  )
+  @Post('/register/admin')
+  async registerAdmin(
+    @Body() userRegistrationRequest: UserRegistrationRequest,
+    @Res() res: any,
+  ): Promise<Response<ResponseModel>> {
+    const user = await this.userRegistrationService.register({
+      ...userRegistrationRequest,
+      type: 1,
+    });
+    return this.apiResponseService.successResponse(
+      ['Registered successfully'],
+      user,
+      res,
+    );
+  }
+
+  @Post('/register/user')
+  async registerUser(
     @Body() userRegistrationRequest: UserRegistrationRequest,
     @Res() res: any,
   ): Promise<Response<ResponseModel>> {

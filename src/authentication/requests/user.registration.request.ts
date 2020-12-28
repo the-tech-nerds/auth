@@ -19,4 +19,6 @@ export class UserRegistrationRequest {
   facebook_auth?: string;
 
   facebook_user_id?: string;
+
+  type?: number;
 }

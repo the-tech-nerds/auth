@@ -10,7 +10,10 @@ import BaseEntity from '../../utils/entities/base-entity';
 import { Address } from '../../address/entities/address.entity';
 import { Roles } from '../../authorization/entities/role.entity';
 
-export type UserType = 'admin' | 'user';
+export enum UserType {
+  ADMIN = 1,
+  USER = 2,
+}
 
 @Entity()
 export class User extends BaseEntity {
@@ -57,15 +60,12 @@ export class User extends BaseEntity {
   @Column({ nullable: true })
   image_url: string;
 
-  //   @Column({
-  //     type: "enum",
-  //     enum: ["admin", "user"],
-  //     default: "user"
-  // })
-  // type: userType;
-
-  @Column({ default: 'user' })
-  type: string;
+  @Column({
+    type: 'enum',
+    enum: UserType,
+    default: UserType.USER,
+  })
+  type: UserType;
 
   @Column({ default: true })
   is_active: boolean;

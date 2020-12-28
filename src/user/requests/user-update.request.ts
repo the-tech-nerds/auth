@@ -20,5 +20,5 @@ export class UserUpdateRequest {
 
   gender_type?: number;
 
-  type: string;
+  type?: number;
 }

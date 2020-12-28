@@ -1,7 +1,7 @@
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { hash } from 'bcryptjs';
-import { User } from '../../user/entities/user.entity';
+import { User, UserType } from '../../user/entities/user.entity';
 import { UserRegistrationRequest } from '../requests/user.registration.request';
 
 export class UserRegistrationService {
@@ -11,7 +11,7 @@ export class UserRegistrationService {
   ) {}
 
   async register(userData: UserRegistrationRequest) {
-    const { password = '' } = userData;
+    const { password = '', type = UserType.USER } = userData;
     const {
       first_name: firstName,
       last_name: lastName,
@@ -20,6 +20,7 @@ export class UserRegistrationService {
       id,
     } = await this.userRepository.save({
       ...userData,
+      type,
       password: password.length > 4 ? await hash(password, 10) : password,
       created_by: 1,
     });
