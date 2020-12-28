@@ -44,6 +44,8 @@ import { UpdateUserInfoesService } from '../services/update-user-info.service';
 import { UpdatePhoneVerifiedService } from '../services/verified-phone.service';
 import { UpdatePhoneRequest } from '../requests/update-phone.request';
 import { UpdatePhoneService } from '../services/update-phone.service';
+import { UpdateEmailService } from '../services/update-email.service';
+import { UpdateEmailRequest } from '../requests/update-email.request';
 
 @Controller()
 export class UserController {
@@ -61,6 +63,7 @@ export class UserController {
     private readonly updatePhoneService: UpdatePhoneService,
 
     private readonly uploadService: UploadService,
+    private readonly updateEmailService: UpdateEmailService,
   ) {}
 
   @HasPermissions([PermissionTypes.USER.GET], PermissionTypeEnum.hasPermission)
@@ -200,6 +203,28 @@ export class UserController {
       const data = await this.updatePhoneService.execute(request);
       return this.apiResponseService.successResponse(
         ['Mobile updated successfully'],
+        data as Boolean,
+        res,
+      );
+    } catch (e) {
+      return this.apiResponseService.internalServerError([e.toString()], res);
+    }
+  }
+
+  @UseGuards(UserGuard)
+  @Put('/update/email')
+  async UpdateEmail(
+    @CurrentUser('id') userId: any,
+    @Body() updateEmailRequest: UpdateEmailRequest,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    try {
+      const data = await this.updateEmailService.execute(
+        updateEmailRequest,
+        userId,
+      );
+      return this.apiResponseService.successResponse(
+        ['Email updated successfully'],
         data as Boolean,
         res,
       );
