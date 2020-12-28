@@ -16,9 +16,10 @@ export default class SuperAdminSeed implements Seeder {
     const user = await userRepository.save({
       first_name: 'Super',
       last_name: 'Admin',
-      type: 'admin',
+      type: 1,
+      email: 'admin@khanfcbd.com',
       is_mobile_verified: 1,
-      password: await hash('12345678', 10),
+      password: await hash('khan@123', 10),
       created_by: 0,
     });
     // @ts-ignore
