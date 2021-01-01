@@ -26,6 +26,7 @@ import {
   UploadService,
 } from '@technerds/common-services';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { CustomLoggerService } from '../../logger/customLogger.service';
 import { User } from '../entities/user.entity';
 import { UserUpdateRequest } from '../requests/user-update.request';
 
@@ -65,15 +66,18 @@ export class UserController {
 
     private readonly uploadService: UploadService,
     private readonly updateEmailService: UpdateEmailService,
+
+    protected readonly customLoggerService: CustomLoggerService,
   ) {}
 
-  @HasPermissions([PermissionTypes.USER.GET], PermissionTypeEnum.hasPermission)
+  /* @HasPermissions([PermissionTypes.USER.GET], PermissionTypeEnum.hasPermission) */
   @Get('/all')
   async getUsers(
     @Query('userType') userType: string,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
+      this.customLoggerService.log('user list showing');
       const data = await this.listUsersService.execute(userType);
       return this.apiResponseService.successResponse(
         ['User list fetched successfully'],

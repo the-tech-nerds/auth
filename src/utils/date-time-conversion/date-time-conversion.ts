@@ -1,5 +1,9 @@
 import moment = require('moment');
 
+export function CurrentDate(format = 'YYYY-MM-DD') {
+  return moment().format(format);
+}
+
 export function LocalDateToUtc(date: Date) {
   const utcDate = moment(date)
     .utc()

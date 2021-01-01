@@ -16,6 +16,7 @@ async function bootstrap(): Promise<void> {
       saveUninitialized: false,
     }),
   );
+
   app.useGlobalFilters(new ErrorFilter(new ApiResponseService()));
   app.useGlobalPipes(new ValidationPipe());
   app.setGlobalPrefix('api/v1');
