@@ -26,6 +26,7 @@ import {
   UploadService,
 } from '@technerds/common-services';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { CustomLoggerService } from '../../logger/customLogger.service';
 import { User } from '../entities/user.entity';
 import { UserUpdateRequest } from '../requests/user-update.request';
 
@@ -65,8 +66,11 @@ export class UserController {
 
     private readonly uploadService: UploadService,
     private readonly updateEmailService: UpdateEmailService,
+
+    protected readonly customLoggerService: CustomLoggerService,
   ) {}
 
+  @UseGuards(UserGuard)
   @HasPermissions([PermissionTypes.USER.GET], PermissionTypeEnum.hasPermission)
   @Get('/all')
   async getUsers(
@@ -81,10 +85,12 @@ export class UserController {
         res,
       );
     } catch (e) {
+      this.customLoggerService.error(e.toString());
       return this.apiResponseService.internalServerError([e.toString()], res);
     }
   }
 
+  @UseGuards(UserGuard)
   @HasPermissions(
     [PermissionTypes.USER.UPDATE],
     PermissionTypeEnum.hasPermission,
@@ -107,6 +113,7 @@ export class UserController {
     }
   }
 
+  @UseGuards(UserGuard)
   @HasPermissions(
     [PermissionTypes.USER.DETAILS],
     PermissionTypeEnum.hasPermission,
@@ -228,6 +235,7 @@ export class UserController {
     }
   }
 
+  @UseGuards(UserGuard)
   @Get('/:id/addresses')
   async getAddressByUser(
     @Param('id') id: number,
@@ -245,6 +253,7 @@ export class UserController {
     }
   }
 
+  @UseGuards(UserGuard)
   @HasPermissions(
     [PermissionTypes.USER.DELETE],
     PermissionTypeEnum.hasPermission,
@@ -266,6 +275,7 @@ export class UserController {
     }
   }
 
+  @UseGuards(UserGuard)
   @HasPermissions(
     [PermissionTypes.USER.ROLE_ASSIGN],
     PermissionTypeEnum.hasPermission,

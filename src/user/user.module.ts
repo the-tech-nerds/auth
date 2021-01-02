@@ -17,6 +17,7 @@ import { UpdateUserInfoesService } from './services/update-user-info.service';
 import { UpdatePhoneVerifiedService } from './services/verified-phone.service';
 import { UpdatePhoneService } from './services/update-phone.service';
 import { UpdateEmailService } from './services/update-email.service';
+import { CustomLoggerService } from '../logger/customLogger.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User, Roles])],
@@ -34,6 +35,7 @@ import { UpdateEmailService } from './services/update-email.service';
     UpdatePhoneService,
     UploadService,
     UpdateEmailService,
+    CustomLoggerService,
   ],
   controllers: [UserController],
 })
