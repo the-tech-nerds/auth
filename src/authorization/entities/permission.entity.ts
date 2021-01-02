@@ -27,6 +27,9 @@ export class Permissions extends BaseEntity {
   @ManyToOne(
     () => PermissionCategories,
     category => category.permissions,
+    {
+      onDelete: 'CASCADE',
+    },
   )
   permission_category: PermissionCategories;
 
@@ -36,7 +39,7 @@ export class Permissions extends BaseEntity {
   @ManyToMany(
     () => Roles,
     roles => roles.permissions,
-    { cascade: true },
+    { cascade: true, eager: true },
   )
   roles: Roles[];
 }
