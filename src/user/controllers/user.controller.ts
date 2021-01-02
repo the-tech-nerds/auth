@@ -77,7 +77,6 @@ export class UserController {
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     try {
-      this.customLoggerService.log('user list showing');
       const data = await this.listUsersService.execute(userType);
       return this.apiResponseService.successResponse(
         ['User list fetched successfully'],
@@ -85,6 +84,7 @@ export class UserController {
         res,
       );
     } catch (e) {
+      this.customLoggerService.error(e.toString());
       return this.apiResponseService.internalServerError([e.toString()], res);
     }
   }

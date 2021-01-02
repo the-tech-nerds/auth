@@ -4,25 +4,63 @@ import { CurrentDate } from '../utils/date-time-conversion/date-time-conversion'
 
 export class CustomLoggerService implements LoggerService {
   log(message: string) {
-    fs.writeFile(`./logs/log-${CurrentDate()}.txt`, `data: ${message}`, err => {
+    fs.writeFile(`./logs/log-${CurrentDate()}.txt`, `LOG: ${message}`, err => {
       // Rest of your code
-      if (err) throw err;
+      if (err) {
+        //
+      }
     });
   }
 
-  error(message: string, trace: string) {
-    /* your implementation */
+  error(message: string) {
+    fs.writeFile(
+      `./logs/error-${CurrentDate()}.txt`,
+      `ERROR: ${message}`,
+      err => {
+        // Rest of your code
+        if (err) {
+          //
+        }
+      },
+    );
   }
 
   warn(message: string) {
-    /* your implementation */
+    fs.writeFile(
+      `./logs/warning-${CurrentDate()}.txt`,
+      `WARNING: ${message}`,
+      err => {
+        // Rest of your code
+        if (err) {
+          //
+        }
+      },
+    );
   }
 
   debug(message: string) {
-    /* your implementation */
+    fs.writeFile(
+      `./logs/debug-${CurrentDate()}.txt`,
+      `DEBUG: ${message}`,
+      err => {
+        // Rest of your code
+        if (err) {
+          //
+        }
+      },
+    );
   }
 
   verbose(message: string) {
-    /* your implementation */
+    fs.writeFile(
+      `./logs/verbos-${CurrentDate()}.txt`,
+      `VERBOSE: ${message}`,
+      err => {
+        // Rest of your code
+        if (err) {
+          //
+        }
+      },
+    );
   }
 }
