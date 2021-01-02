@@ -70,7 +70,8 @@ export class UserController {
     protected readonly customLoggerService: CustomLoggerService,
   ) {}
 
-  /* @HasPermissions([PermissionTypes.USER.GET], PermissionTypeEnum.hasPermission) */
+  @UseGuards(UserGuard)
+  @HasPermissions([PermissionTypes.USER.GET], PermissionTypeEnum.hasPermission)
   @Get('/all')
   async getUsers(
     @Query('userType') userType: string,
@@ -89,6 +90,7 @@ export class UserController {
     }
   }
 
+  @UseGuards(UserGuard)
   @HasPermissions(
     [PermissionTypes.USER.UPDATE],
     PermissionTypeEnum.hasPermission,
@@ -111,6 +113,7 @@ export class UserController {
     }
   }
 
+  @UseGuards(UserGuard)
   @HasPermissions(
     [PermissionTypes.USER.DETAILS],
     PermissionTypeEnum.hasPermission,
@@ -232,6 +235,7 @@ export class UserController {
     }
   }
 
+  @UseGuards(UserGuard)
   @Get('/:id/addresses')
   async getAddressByUser(
     @Param('id') id: number,
@@ -249,6 +253,7 @@ export class UserController {
     }
   }
 
+  @UseGuards(UserGuard)
   @HasPermissions(
     [PermissionTypes.USER.DELETE],
     PermissionTypeEnum.hasPermission,
@@ -270,6 +275,7 @@ export class UserController {
     }
   }
 
+  @UseGuards(UserGuard)
   @HasPermissions(
     [PermissionTypes.USER.ROLE_ASSIGN],
     PermissionTypeEnum.hasPermission,
