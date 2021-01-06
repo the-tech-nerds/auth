@@ -34,8 +34,8 @@ export default class PermissionSeed implements Seeder {
       // @ts-ignore
       for (const permission of Object.keys(PermissionTypes[pc])) {
         const index = permissionListOld.findIndex(
+          // @ts-ignore
           permissionOld =>
-            // @ts-ignore
             permissionOld.name === PermissionTypes[pc][permission],
         );
         if (index === -1) {

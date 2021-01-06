@@ -1,7 +1,6 @@
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { compare } from 'bcryptjs';
-import { NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { User } from '../../user/entities/user.entity';
 
 export class UserValidationService {
@@ -16,7 +15,7 @@ export class UserValidationService {
     });
 
     if (!user) {
-      throw new NotFoundException(`User with email ${email} not found`);
+      throw new Error(`User with email ${email} not found`);
     }
 
     const { password: hashedPassword, ...result } = user;
@@ -24,7 +23,7 @@ export class UserValidationService {
     const verify = await compare(password, hashedPassword);
 
     if (!verify) {
-      throw new UnauthorizedException('Password did not match');
+      throw new Error('Password did not match');
     }
 
     return result;
