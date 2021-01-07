@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { CacheService } from '@technerds/common-services';
 import { AuthorizationService } from '../../authorization/services/authorization.service';
 import { Roles } from '../../authorization/entities/role.entity';
 import { User } from '../entities/user.entity';
@@ -12,6 +13,7 @@ export class AssignRolesInUserService extends AuthorizationService {
     private rolesRepository: Repository<Roles>,
     @InjectRepository(User)
     private userRepository: Repository<User>,
+    private readonly cacheService: CacheService,
   ) {
     super();
   }
@@ -25,7 +27,11 @@ export class AssignRolesInUserService extends AuthorizationService {
       // @ts-ignore
       USER?.roles = (await this.rolesRepository.findByIds(roles)) || [];
       // @ts-ignore
-      return { user: await this.userRepository.save(USER) };
+      const user = await this.userRepository.save(USER);
+      // delete user access token if exist
+      await this.cacheService.delete(`user-token-${user_id}`);
+      // @ts-ignore
+      return { user };
     } catch (e) {
       return null;
     }

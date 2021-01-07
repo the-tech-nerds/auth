@@ -1,7 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 // @ts-ignore
-import { ApiResponseService, UploadService } from '@technerds/common-services';
+import {
+  ApiResponseService,
+  CacheModule,
+  UploadService,
+} from '@technerds/common-services';
 import { User } from './entities/user.entity';
 
 import { UserController } from './controllers/user.controller';
@@ -20,7 +24,7 @@ import { UpdateEmailService } from './services/update-email.service';
 import { CustomLoggerService } from '../logger/customLogger.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User, Roles])],
+  imports: [TypeOrmModule.forFeature([User, Roles]), CacheModule],
   providers: [
     ApiResponseService,
     ListUsersService,
