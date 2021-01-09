@@ -26,7 +26,6 @@ import {
   UploadService,
 } from '@technerds/common-services';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { CustomLoggerService } from '../../logger/customLogger.service';
 import { User } from '../entities/user.entity';
 import { UserUpdateRequest } from '../requests/user-update.request';
 
@@ -66,8 +65,6 @@ export class UserController {
 
     private readonly uploadService: UploadService,
     private readonly updateEmailService: UpdateEmailService,
-
-    protected readonly customLoggerService: CustomLoggerService,
   ) {}
 
   @UseGuards(UserGuard)
@@ -85,7 +82,6 @@ export class UserController {
         res,
       );
     } catch (e) {
-      this.customLoggerService.error(e.toString());
       return this.apiResponseService.internalServerError([e.toString()], res);
     }
   }
