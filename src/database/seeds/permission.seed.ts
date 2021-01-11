@@ -13,7 +13,8 @@ export default class PermissionSeed implements Seeder {
     let permissionList: any[] = [];
     const deletedPermissionCategoryIds: number[] = [];
     let permissions: any;
-    for (const pc of Object.keys(PermissionTypes)) {
+    const permissionType: any = PermissionTypes;
+    for (const pc of Object.keys(permissionType)) {
       permissionCategoryEntry = await permissionCategoryRepository.findOne({
         name: pc,
         description: pc,
@@ -32,16 +33,16 @@ export default class PermissionSeed implements Seeder {
         })) || [];
       permissionList = [];
       // @ts-ignore
-      for (const permission of Object.keys(PermissionTypes[pc])) {
+      for (const permission of Object.keys(permissionType[pc])) {
         const index = permissionListOld.findIndex(
           // @ts-ignore
           (permissionOld: any) =>
-            permissionOld.name === PermissionTypes[pc][permission],
+            permissionOld.name === permissionType[pc][permission],
         );
         if (index === -1) {
           permissionList.push({
             // @ts-ignore
-            name: PermissionTypes[pc][permission],
+            name: permissionType[pc][permission],
             // @ts-ignore
             permissionCategoryId: permissionCategoryEntry?.id,
             created_by: 0,
@@ -51,7 +52,7 @@ export default class PermissionSeed implements Seeder {
           // @ts-ignore
           await permissionRepository.update(permissionListOld[index].id, {
             // @ts-ignore
-            name: PermissionTypes[pc][permission],
+            name: permissionType[pc][permission],
             created_by: 0,
             description: `${permissionCategoryEntry?.name}, ${permission}`,
           });
