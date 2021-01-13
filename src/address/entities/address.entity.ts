@@ -51,4 +51,7 @@ export class Address extends BaseEntity {
 
   @Column({ default: false })
   is_default: boolean;
+
+  @Column({ default: false })
+  is_active: boolean;
 }
