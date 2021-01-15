@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MoreThan, Repository } from 'typeorm';
 import { Otps } from '../entities/otp.entity';
@@ -28,6 +28,6 @@ export class ValidateOtpService {
       return true;
     }
 
-    throw new Error('invalid otp.');
+    throw new BadRequestException('invalid otp.');
   }
 }

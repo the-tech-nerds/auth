@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { hash } from 'bcryptjs';
@@ -19,7 +19,9 @@ export class CreatePasswordService {
       createPasswordRequest.new_password !==
       createPasswordRequest.new_password_confirm
     ) {
-      throw new Error('Sorry! Password confirmation did not match');
+      throw new BadRequestException(
+        'Sorry! Password confirmation did not match',
+      );
     }
 
     const user = await this.userRepository.findOneOrFail(

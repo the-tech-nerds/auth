@@ -20,16 +20,12 @@ export class OtpController {
     @Body() otpRequest: OtpRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.createOtpService.create(otpRequest, res);
-      return this.apiResponseService.successResponse(
-        ['otp generate successfully'],
-        data as OtpGenerateInfoResponse,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    const data = await this.createOtpService.create(otpRequest, res);
+    return this.apiResponseService.successResponse(
+      ['otp generate successfully'],
+      data as OtpGenerateInfoResponse,
+      res,
+    );
   }
 
   @Post('/validate')
@@ -37,15 +33,11 @@ export class OtpController {
     @Body() otpValidateRequest: OtpValidateRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.validateOtpService.validate(otpValidateRequest);
-      return this.apiResponseService.successResponse(
-        ['Otp validated successfully'],
-        data,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    const data = await this.validateOtpService.validate(otpValidateRequest);
+    return this.apiResponseService.successResponse(
+      ['Otp validated successfully'],
+      data,
+      res,
+    );
   }
 }

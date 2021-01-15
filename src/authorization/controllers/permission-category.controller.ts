@@ -41,21 +41,14 @@ export class PermissionCategoryController {
     @Body() permissionCategoryRequest: PermissionCategoryRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.createPermissionCategoryService.create(
-        permissionCategoryRequest,
-      );
-      return this.apiResponseService.successResponse(
-        ['Permission category store successfully'],
-        data,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError(
-        ['Something went wrong! please try again later'],
-        res,
-      );
-    }
+    const data = await this.createPermissionCategoryService.create(
+      permissionCategoryRequest,
+    );
+    return this.apiResponseService.successResponse(
+      ['Permission category store successfully'],
+      data,
+      res,
+    );
   }
 
   @HasPermissions(
@@ -66,16 +59,12 @@ export class PermissionCategoryController {
   async getAllPermissionsCategory(
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.listPermissionCategoryService.getAll();
-      return this.apiResponseService.successResponse(
-        ['Permission retrieved successfully'],
-        data as PermissionCategories[],
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.message], res);
-    }
+    const data = await this.listPermissionCategoryService.getAll();
+    return this.apiResponseService.successResponse(
+      ['Permission retrieved successfully'],
+      data as PermissionCategories[],
+      res,
+    );
   }
 
   @HasPermissions(
@@ -87,16 +76,12 @@ export class PermissionCategoryController {
     @Param('roleId') roleId: number,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.listPermissionCategoryService.getFromRole(roleId);
-      return this.apiResponseService.successResponse(
-        ['Permission retrieved successfully'],
-        data,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.message], res);
-    }
+    const data = await this.listPermissionCategoryService.getFromRole(roleId);
+    return this.apiResponseService.successResponse(
+      ['Permission retrieved successfully'],
+      data,
+      res,
+    );
   }
 
   @HasPermissions(
@@ -109,22 +94,15 @@ export class PermissionCategoryController {
     @Body() permissionCategoryRequest: PermissionCategoryRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.updatePermissionCategoryService.update(
-        id,
-        permissionCategoryRequest,
-      );
-      return this.apiResponseService.successResponse(
-        ['Permission update successfully'],
-        data as PermissionCategories,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError(
-        ['Something went wrong! please try again later'],
-        res,
-      );
-    }
+    const data = await this.updatePermissionCategoryService.update(
+      id,
+      permissionCategoryRequest,
+    );
+    return this.apiResponseService.successResponse(
+      ['Permission update successfully'],
+      data as PermissionCategories,
+      res,
+    );
   }
 
   /* @HasPermissions(
@@ -136,18 +114,11 @@ export class PermissionCategoryController {
     @Param('id') id: number,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      await this.deletePermissionCategoryService.delete(id);
-      return this.apiResponseService.successResponse(
-        ['Permission delete successfully'],
-        null,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError(
-        ['Something went wrong! please try again later'],
-        res,
-      );
-    }
+    await this.deletePermissionCategoryService.delete(id);
+    return this.apiResponseService.successResponse(
+      ['Permission delete successfully'],
+      null,
+      res,
+    );
   }
 }

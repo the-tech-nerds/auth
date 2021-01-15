@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from '../entities/user.entity';
@@ -18,14 +18,14 @@ export class UpdateEmailService {
     const user = await this.usersRepository.findOne(user_id);
     if (user) {
       if (user.email === request.email) {
-        throw new Error(
+        throw new BadRequestException(
           'This email has already account. Please login using this email',
         );
       }
       user.email = request.email;
       await this.usersRepository.save(user);
     } else {
-      throw new Error('User not found');
+      throw new BadRequestException('User not found');
     }
     return true;
   }

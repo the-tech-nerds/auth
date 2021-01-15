@@ -74,16 +74,12 @@ export class UserController {
     @Query('userType') userType: string,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.listUsersService.execute(userType);
-      return this.apiResponseService.successResponse(
-        ['User list fetched successfully'],
-        data,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    const data = await this.listUsersService.execute(userType);
+    return this.apiResponseService.successResponse(
+      ['User list fetched successfully'],
+      data,
+      res,
+    );
   }
 
   @UseGuards(UserGuard)
@@ -97,16 +93,12 @@ export class UserController {
     @Body() userUpdateRequest: UserUpdateRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.updateUsersService.execute(id, userUpdateRequest);
-      return this.apiResponseService.successResponse(
-        ['User has been updated successfully'],
-        data as User,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    const data = await this.updateUsersService.execute(id, userUpdateRequest);
+    return this.apiResponseService.successResponse(
+      ['User has been updated successfully'],
+      data as User,
+      res,
+    );
   }
 
   @UseGuards(UserGuard)
@@ -119,16 +111,12 @@ export class UserController {
     @Param('id') id: number,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.fetchUserByIdService.execute(id);
-      return this.apiResponseService.successResponse(
-        ['User fetched successfully'],
-        data as User,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    const data = await this.fetchUserByIdService.execute(id);
+    return this.apiResponseService.successResponse(
+      ['User fetched successfully'],
+      data as User,
+      res,
+    );
   }
 
   @UseGuards(UserGuard)
@@ -137,16 +125,12 @@ export class UserController {
     @CurrentUser('id') userId: any,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.fetchUserInfoByIdService.execute(userId);
-      return this.apiResponseService.successResponse(
-        ['User fetched successfully'],
-        data as UserResponse,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    const data = await this.fetchUserInfoByIdService.execute(userId);
+    return this.apiResponseService.successResponse(
+      ['User fetched successfully'],
+      data as UserResponse,
+      res,
+    );
   }
 
   @UseGuards(UserGuard)
@@ -156,19 +140,15 @@ export class UserController {
     @Body() userInfoUpdateRequest: UserInfoUpdateRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.updateUserInfoService.execute(
-        userId,
-        userInfoUpdateRequest,
-      );
-      return this.apiResponseService.successResponse(
-        ['User has been updated successfully'],
-        data as User,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    const data = await this.updateUserInfoService.execute(
+      userId,
+      userInfoUpdateRequest,
+    );
+    return this.apiResponseService.successResponse(
+      ['User has been updated successfully'],
+      data as User,
+      res,
+    );
   }
 
   @UseGuards(UserGuard)
@@ -177,16 +157,12 @@ export class UserController {
     @CurrentUser('id') userId: any,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.updatePhoneVerifiedService.execute(userId);
-      return this.apiResponseService.successResponse(
-        ['Mobile verified successfully'],
-        data as Boolean,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    const data = await this.updatePhoneVerifiedService.execute(userId);
+    return this.apiResponseService.successResponse(
+      ['Mobile verified successfully'],
+      data as Boolean,
+      res,
+    );
   }
 
   @UseGuards(UserGuard)
@@ -196,17 +172,13 @@ export class UserController {
     @Body() request: UpdatePhoneRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      request.user_id = userId;
-      const data = await this.updatePhoneService.execute(request);
-      return this.apiResponseService.successResponse(
-        ['Mobile updated successfully'],
-        data as Boolean,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    request.user_id = userId;
+    const data = await this.updatePhoneService.execute(request);
+    return this.apiResponseService.successResponse(
+      ['Mobile updated successfully'],
+      data as Boolean,
+      res,
+    );
   }
 
   @UseGuards(UserGuard)
@@ -216,19 +188,15 @@ export class UserController {
     @Body() updateEmailRequest: UpdateEmailRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.updateEmailService.execute(
-        updateEmailRequest,
-        userId,
-      );
-      return this.apiResponseService.successResponse(
-        ['Email updated successfully'],
-        data as Boolean,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    const data = await this.updateEmailService.execute(
+      updateEmailRequest,
+      userId,
+    );
+    return this.apiResponseService.successResponse(
+      ['Email updated successfully'],
+      data as Boolean,
+      res,
+    );
   }
 
   @UseGuards(UserGuard)
@@ -237,16 +205,12 @@ export class UserController {
     @Param('id') id: number,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.getAddressesByUserService.execute(id);
-      return this.apiResponseService.successResponse(
-        ['User Addresses fetched successfully'],
-        data as Address[],
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    const data = await this.getAddressesByUserService.execute(id);
+    return this.apiResponseService.successResponse(
+      ['User Addresses fetched successfully'],
+      data as Address[],
+      res,
+    );
   }
 
   @UseGuards(UserGuard)
@@ -259,16 +223,12 @@ export class UserController {
     @Param('id') id: number,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.deleteUserService.execute(id);
-      return this.apiResponseService.successResponse(
-        ['User has been deleted successfully'],
-        data,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    const data = await this.deleteUserService.execute(id);
+    return this.apiResponseService.successResponse(
+      ['User has been deleted successfully'],
+      data,
+      res,
+    );
   }
 
   @UseGuards(UserGuard)
@@ -282,22 +242,15 @@ export class UserController {
     @Body() userAssignRolesRequest: UserAssignRolesRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.assignRolesInUserService.assign(
-        id,
-        userAssignRolesRequest.roles,
-      );
-      return this.apiResponseService.successResponse(
-        ['Role Assign successfully'],
-        data,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError(
-        ['Something went wrong! please try again later'],
-        res,
-      );
-    }
+    const data = await this.assignRolesInUserService.assign(
+      id,
+      userAssignRolesRequest.roles,
+    );
+    return this.apiResponseService.successResponse(
+      ['Role Assign successfully'],
+      data,
+      res,
+    );
   }
 
   @Post('upload')
@@ -306,29 +259,22 @@ export class UserController {
     @UploadedFile() file: any,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const fileName = `example_${Math.ceil(Math.random() * 100)}`;
+    const fileName = `example_${Math.ceil(Math.random() * 100)}`;
 
-      return this.uploadService
-        .upload(file, fileName)
-        .then((response: any) =>
-          this.apiResponseService.successResponse(
-            ['Image Uploaded successfully'],
-            response,
-            res,
-          ),
-        )
-        .catch((error: any) =>
-          this.apiResponseService.internalServerError(
-            ['Something went wrong! please try again later'],
-            res,
-          ),
-        );
-    } catch (e) {
-      return this.apiResponseService.internalServerError(
-        ['Something went wrong! please try again later'],
-        res,
+    return this.uploadService
+      .upload(file, fileName)
+      .then((response: any) =>
+        this.apiResponseService.successResponse(
+          ['Image Uploaded successfully'],
+          response,
+          res,
+        ),
+      )
+      .catch((error: any) =>
+        this.apiResponseService.internalServerError(
+          ['Something went wrong! please try again later'],
+          res,
+        ),
       );
-    }
   }
 }
