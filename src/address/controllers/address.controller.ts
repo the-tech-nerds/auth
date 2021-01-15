@@ -43,32 +43,24 @@ export class AddressController {
     @Body() addressRequest: AddressRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      addressRequest.user_id = userId;
-      const data = await this.createAddressService.create(addressRequest);
-      return this.apiResponseService.successResponse(
-        ['Address stored successfully'],
-        data as Address,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    addressRequest.user_id = userId;
+    const data = await this.createAddressService.create(addressRequest);
+    return this.apiResponseService.successResponse(
+      ['Address stored successfully'],
+      data as Address,
+      res,
+    );
   }
 
   @UseGuards(UserGuard)
   @Get('/all')
   async getAddresses(@Res() res: Response): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.listAddressesService.execute();
-      return this.apiResponseService.successResponse(
-        ['Address list fetched successfully'],
-        data as Address[],
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    const data = await this.listAddressesService.execute();
+    return this.apiResponseService.successResponse(
+      ['Address list fetched successfully'],
+      data as Address[],
+      res,
+    );
   }
 
   @UseGuards(UserGuard)
@@ -79,17 +71,13 @@ export class AddressController {
     @Body() addressRequest: AddressRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      addressRequest.user_id = userId;
-      const data = await this.updateAddressService.execute(id, addressRequest);
-      return this.apiResponseService.successResponse(
-        ['Address has been updated successfully'],
-        data as Address,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    addressRequest.user_id = userId;
+    const data = await this.updateAddressService.execute(id, addressRequest);
+    return this.apiResponseService.successResponse(
+      ['Address has been updated successfully'],
+      data as Address,
+      res,
+    );
   }
 
   @Get('/:id')
@@ -97,16 +85,12 @@ export class AddressController {
     @Param('id') id: number,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.fetchAddressByIdService.execute(id);
-      return this.apiResponseService.successResponse(
-        ['Address fetched successfully'],
-        data as Address,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    const data = await this.fetchAddressByIdService.execute(id);
+    return this.apiResponseService.successResponse(
+      ['Address fetched successfully'],
+      data as Address,
+      res,
+    );
   }
 
   @Delete('/:id')
@@ -114,15 +98,11 @@ export class AddressController {
     @Param('id') id: number,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.deleteAddressService.execute(id);
-      return this.apiResponseService.successResponse(
-        ['Address has been deleted successfully'],
-        data,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    const data = await this.deleteAddressService.execute(id);
+    return this.apiResponseService.successResponse(
+      ['Address has been deleted successfully'],
+      data,
+      res,
+    );
   }
 }

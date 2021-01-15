@@ -33,12 +33,8 @@ export class PasswordManagementController {
     @Body() request: ForgetPasswordInitRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.forgetPasswordInitService.execute(request, res);
-      return this.apiResponseService.successResponse([data.info], null, res);
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    const data = await this.forgetPasswordInitService.execute(request, res);
+    return this.apiResponseService.successResponse([data.info], null, res);
   }
 
   @Post('/recover/complete')
@@ -46,16 +42,12 @@ export class PasswordManagementController {
     @Body() request: ForgetPasswordCompleteRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.forgetPasswordCompleteService.execute(request);
-      return this.apiResponseService.successResponse(
-        ['Password has been updated successfully'],
-        data as UserResponse,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    const data = await this.forgetPasswordCompleteService.execute(request);
+    return this.apiResponseService.successResponse(
+      ['Password has been updated successfully'],
+      data as UserResponse,
+      res,
+    );
   }
 
   @UseGuards(UserGuard)
@@ -65,16 +57,12 @@ export class PasswordManagementController {
     @Body() request: ResetPasswordRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.resetPasswordService.execute(request, userId);
-      return this.apiResponseService.successResponse(
-        ['Password has been reset successfully'],
-        data as UserResponse,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    const data = await this.resetPasswordService.execute(request, userId);
+    return this.apiResponseService.successResponse(
+      ['Password has been reset successfully'],
+      data as UserResponse,
+      res,
+    );
   }
 
   @UseGuards(UserGuard)
@@ -84,16 +72,12 @@ export class PasswordManagementController {
     @Body() request: CreatePasswordRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      request.user_id = userId;
-      const data = await this.createPasswordService.execute(request);
-      return this.apiResponseService.successResponse(
-        ['Password has been created successfully'],
-        data as Boolean,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    request.user_id = userId;
+    const data = await this.createPasswordService.execute(request);
+    return this.apiResponseService.successResponse(
+      ['Password has been created successfully'],
+      data as Boolean,
+      res,
+    );
   }
 }

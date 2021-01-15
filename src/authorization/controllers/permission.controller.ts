@@ -44,16 +44,12 @@ export class PermissionController {
     @Body() permissionRequest: PermissionRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.createPermissionService.create(permissionRequest);
-      return this.apiResponseService.successResponse(
-        ['Permission category store successfully'],
-        data as Permissions,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    const data = await this.createPermissionService.create(permissionRequest);
+    return this.apiResponseService.successResponse(
+      ['Permission category store successfully'],
+      data as Permissions,
+      res,
+    );
   }
 
   @HasPermissions(
@@ -64,19 +60,12 @@ export class PermissionController {
   async getAllPermissions(
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.listPermissionService.getAll();
-      return this.apiResponseService.successResponse(
-        ['List of permission'],
-        data as Permissions[],
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError(
-        ['Something went wrong! please try again later'],
-        res,
-      );
-    }
+    const data = await this.listPermissionService.getAll();
+    return this.apiResponseService.successResponse(
+      ['List of permission'],
+      data as Permissions[],
+      res,
+    );
   }
 
   @HasPermissions(
@@ -88,26 +77,22 @@ export class PermissionController {
     @Param('roleId') roleId: number,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data:
-        | Roles
-        | undefined = await this.listPermissionService.getFromRole(roleId);
-      const permission = data?.permissions.map(p => p.id);
-      return this.apiResponseService.successResponse(
-        ['Role Permission retrieved successfully'],
-        {
-          permissions: permission,
-          role: {
-            // @ts-ignore
-            name: data.name,
-            id: roleId,
-          },
+    const data:
+      | Roles
+      | undefined = await this.listPermissionService.getFromRole(roleId);
+    const permission = data?.permissions.map(p => p.id);
+    return this.apiResponseService.successResponse(
+      ['Role Permission retrieved successfully'],
+      {
+        permissions: permission,
+        role: {
+          // @ts-ignore
+          name: data.name,
+          id: roleId,
         },
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.message], res);
-    }
+      },
+      res,
+    );
   }
 
   @HasPermissions(
@@ -119,19 +104,12 @@ export class PermissionController {
     @Param('id') id: number,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.getByIdPermissionService.getById(id);
-      return this.apiResponseService.successResponse(
-        ['Get permission successfully'],
-        data as Permissions,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError(
-        ['Something went wrong! please try again later'],
-        res,
-      );
-    }
+    const data = await this.getByIdPermissionService.getById(id);
+    return this.apiResponseService.successResponse(
+      ['Get permission successfully'],
+      data as Permissions,
+      res,
+    );
   }
 
   @HasPermissions(
@@ -144,22 +122,15 @@ export class PermissionController {
     @Body() permissionRequest: PermissionRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.updatePermissionService.update(
-        id,
-        permissionRequest,
-      );
-      return this.apiResponseService.successResponse(
-        ['Permission category updated successfully'],
-        data as Permissions,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError(
-        ['Something went wrong! please try again later'],
-        res,
-      );
-    }
+    const data = await this.updatePermissionService.update(
+      id,
+      permissionRequest,
+    );
+    return this.apiResponseService.successResponse(
+      ['Permission category updated successfully'],
+      data as Permissions,
+      res,
+    );
   }
 
   /* @HasPermissions(
@@ -171,18 +142,11 @@ export class PermissionController {
     @Param('id') id: number,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.deletePermissionService.delete(id);
-      return this.apiResponseService.successResponse(
-        ['Permission category deleted successfully'],
-        data,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError(
-        ['Something went wrong! please try again later'],
-        res,
-      );
-    }
+    const data = await this.deletePermissionService.delete(id);
+    return this.apiResponseService.successResponse(
+      ['Permission category deleted successfully'],
+      data,
+      res,
+    );
   }
 }

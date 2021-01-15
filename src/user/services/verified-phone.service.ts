@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from '../entities/user.entity';
@@ -16,7 +16,7 @@ export class UpdatePhoneVerifiedService {
       user.is_mobile_verified = true;
       await this.usersRepository.save(user);
     } else {
-      throw new Error('User not found');
+      throw new BadRequestException('User not found');
     }
     return true;
   }

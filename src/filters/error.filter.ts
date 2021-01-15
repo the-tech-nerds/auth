@@ -18,9 +18,7 @@ export class ErrorFilter implements ExceptionFilter {
         : HttpStatus.INTERNAL_SERVER_ERROR;
 
     if (status === HttpStatus.BAD_REQUEST) {
-      const res: ResponseModel = (error as HttpException).getResponse() as ResponseModel;
-      const { message } = res;
-      return this.apiResponseService.badRequestError(message, response);
+      return this.apiResponseService.badRequestError([error.message], response);
     }
 
     if (status === HttpStatus.UNAUTHORIZED) {

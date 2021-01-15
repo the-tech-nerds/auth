@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Between, MoreThan, Repository } from 'typeorm';
 import { SmsSingleService } from 'src/notification/sms/services/sms-single.service';
@@ -62,7 +62,7 @@ export class CreateOtpService {
       time_sent: Between(subtractDay(currentUTCDate, 30), currentUTCDate),
     });
     if (otpCount > 30) {
-      throw new Error('Monthly otp limit exceed .');
+      throw new BadRequestException('Monthly otp limit exceed .');
     }
     // check valid otp
     const validOtp = await this.otpsRepository.findOne({
@@ -72,7 +72,7 @@ export class CreateOtpService {
     });
 
     if (validOtp) {
-      throw new Error('please try after sometimes.');
+      throw new BadRequestException('please try after sometimes.');
     }
 
     return true;

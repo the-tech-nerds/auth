@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Next, Post, Req, Res } from '@nestjs/common';
 // @ts-ignore
 import { ApiResponseService } from '@technerds/common-services';
-import { response, Response } from 'express';
+import { Response } from 'express';
 import { CreateClientService } from '../services/oauth/create-client.service';
 import { Client } from '../entities/client.entity';
 import { AuthorizeService } from '../services/oauth/authorize.service';
@@ -23,19 +23,12 @@ export class OauthController {
     @Body() clientRequest: ClientRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const client = await this.createClientService.create(clientRequest);
-      return this.apiResponseService.successResponse(
-        ['Client created successfully'],
-        client as Client,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError(
-        [`Client creation failed. Reasons: ${e.message}`],
-        response,
-      );
-    }
+    const client = await this.createClientService.create(clientRequest);
+    return this.apiResponseService.successResponse(
+      ['Client created successfully'],
+      client as Client,
+      res,
+    );
   }
 
   @Get('oauth/authorize')

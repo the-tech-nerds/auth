@@ -47,34 +47,23 @@ export class RoleController {
     @Body() roleRequest: RoleRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.createRoleService.create(roleRequest);
-      return this.apiResponseService.successResponse(
-        ['Role category store successfully'],
-        data as Roles,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError([e.toString()], res);
-    }
+    const data = await this.createRoleService.create(roleRequest);
+    return this.apiResponseService.successResponse(
+      ['Role category store successfully'],
+      data as Roles,
+      res,
+    );
   }
 
   @HasPermissions([PermissionTypes.ROLE.GET], PermissionTypeEnum.hasPermission)
   @Get('/roles')
   async getAllRoles(@Res() res: Response): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.listRoleService.getAll();
-      return this.apiResponseService.successResponse(
-        ['List of role'],
-        data as Roles[],
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError(
-        ['Something went wrong! please try again later'],
-        res,
-      );
-    }
+    const data = await this.listRoleService.getAll();
+    return this.apiResponseService.successResponse(
+      ['List of role'],
+      data as Roles[],
+      res,
+    );
   }
 
   @HasPermissions(
@@ -86,19 +75,12 @@ export class RoleController {
     @Param('id') id: number,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.getByIdRoleService.getById(id);
-      return this.apiResponseService.successResponse(
-        ['Get role successfully'],
-        data as Roles,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError(
-        ['Something went wrong! please try again later'],
-        res,
-      );
-    }
+    const data = await this.getByIdRoleService.getById(id);
+    return this.apiResponseService.successResponse(
+      ['Get role successfully'],
+      data as Roles,
+      res,
+    );
   }
 
   @HasPermissions(
@@ -111,19 +93,12 @@ export class RoleController {
     @Body() roleRequest: RoleRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.updateRoleService.update(id, roleRequest);
-      return this.apiResponseService.successResponse(
-        ['Role category updated successfully'],
-        data as Roles,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError(
-        ['Something went wrong! please try again later'],
-        res,
-      );
-    }
+    const data = await this.updateRoleService.update(id, roleRequest);
+    return this.apiResponseService.successResponse(
+      ['Role category updated successfully'],
+      data as Roles,
+      res,
+    );
   }
 
   @HasPermissions(
@@ -135,19 +110,12 @@ export class RoleController {
     @Param('id') id: number,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.deleteRoleService.delete(id);
-      return this.apiResponseService.successResponse(
-        ['Role category deleted successfully'],
-        data,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError(
-        ['Something went wrong! please try again later'],
-        res,
-      );
-    }
+    const data = await this.deleteRoleService.delete(id);
+    return this.apiResponseService.successResponse(
+      ['Role category deleted successfully'],
+      data,
+      res,
+    );
   }
 
   @HasPermissions(
@@ -160,21 +128,14 @@ export class RoleController {
     @Body() roleAssignPermissionRequest: RoleAssignPermissionRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    try {
-      const data = await this.assignPermissionInRoleService.assign(
-        id,
-        roleAssignPermissionRequest.permissions,
-      );
-      return this.apiResponseService.successResponse(
-        ['Role Assign successfully'],
-        data,
-        res,
-      );
-    } catch (e) {
-      return this.apiResponseService.internalServerError(
-        ['Something went wrong! please try again later'],
-        res,
-      );
-    }
+    const data = await this.assignPermissionInRoleService.assign(
+      id,
+      roleAssignPermissionRequest.permissions,
+    );
+    return this.apiResponseService.successResponse(
+      ['Role Assign successfully'],
+      data,
+      res,
+    );
   }
 }
