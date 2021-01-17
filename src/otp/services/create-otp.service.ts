@@ -74,6 +74,7 @@ export class CreateOtpService {
   ): Promise<Boolean> {
     const currentUTCDate = LocalDateToUtc(new Date());
     let otpCount = 0;
+    let validOtp = null;
     //  count otp for last 30 days
     if (mobile) {
       otpCount = await this.otpsRepository.count({
@@ -91,12 +92,22 @@ export class CreateOtpService {
       throw new BadRequestException('Monthly otp limit exceed .');
     }
     // check valid otp
-    const validOtp = await this.otpsRepository.findOne({
-      phone: mobile,
-      expiration_time: MoreThan(currentUTCDate),
-      status: false,
-    });
 
+    if (mobile) {
+      validOtp = await this.otpsRepository.findOne({
+        phone: mobile,
+        expiration_time: MoreThan(currentUTCDate),
+        status: false,
+      });
+    }
+
+    if (email) {
+      validOtp = await this.otpsRepository.findOne({
+        email,
+        expiration_time: MoreThan(currentUTCDate),
+        status: false,
+      });
+    }
     if (validOtp) {
       throw new BadRequestException('please try after sometimes.');
     }
