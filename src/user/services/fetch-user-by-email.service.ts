@@ -10,7 +10,6 @@ export class FetchUserInfoByEmailService {
   ) {}
 
   async execute(email: string, type: number): Promise<Boolean | undefined> {
-    console.log(email);
     const userInfo = await this.usersRepository.findOne({
       email,
       type,
