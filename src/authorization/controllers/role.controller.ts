@@ -102,6 +102,23 @@ export class RoleController {
   }
 
   @HasPermissions(
+    [PermissionTypes.ROLE.UPDATE],
+    PermissionTypeEnum.hasPermission,
+  )
+  @Put('/role/:id/status')
+  async changeRoleStatus(
+    @Param('id') id: number,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    const data = await this.updateRoleService.changeStatus(id);
+    return this.apiResponseService.successResponse(
+      ['Role category updated successfully'],
+      data as Roles,
+      res,
+    );
+  }
+
+  @HasPermissions(
     [PermissionTypes.ROLE.DELETE],
     PermissionTypeEnum.hasPermission,
   )

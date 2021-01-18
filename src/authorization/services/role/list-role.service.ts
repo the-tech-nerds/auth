@@ -11,9 +11,9 @@ export class ListRoleService {
   async getAll(): Promise<Roles[]> {
     return this.roleRepository.find({
       where: {
-        // is_active: true,
         deleted_at: null,
       },
+      relations: ['users'],
     });
   }
 }
