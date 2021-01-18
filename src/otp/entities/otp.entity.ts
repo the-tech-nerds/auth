@@ -17,7 +17,7 @@ export class Otps {
   @Column({ default: false })
   status: boolean;
 
-  @Column()
+  @Column({ nullable: true, length: 12 })
   phone: string;
 
   @Column({ nullable: true, length: 100 })
