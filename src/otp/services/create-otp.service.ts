@@ -23,7 +23,17 @@ export class CreateOtpService {
     otpRequest: OtpRequest,
     res: any,
   ): Promise<OtpGenerateInfoResponse> {
-    await this.checkOtpAvailability(otpRequest.phone);
+    if (otpRequest.email && otpRequest.phone) {
+      throw new BadRequestException(
+        'Please select only email or phone number.',
+      );
+    }
+    if (otpRequest.phone) {
+      await this.checkOtpAvailability(otpRequest.phone, otpRequest.email);
+    }
+    if (otpRequest.email) {
+      await this.checkOtpAvailability(otpRequest.phone, otpRequest.email);
+    }
 
     const otp = this.generateOTP(4);
     const otpModel = await this.otpsRepository.save({
@@ -32,19 +42,24 @@ export class CreateOtpService {
       time_sent: LocalDateToUtc(new Date()),
       expiration_time: LocalDateToUtc(addMinutes(new Date(), 1)),
     });
-    // send otp to desire number or email
-    await this.smsSingleService.sendSingleSMS(
-      {
-        msisdn: otpRequest.phone,
-        purpose: otpRequest.purpose,
-        text: `you otp is: ${otp}`,
-        user_id: 0,
-      },
-      res,
-    );
 
+    // send otp to desire number or email
+    if (otpRequest.phone) {
+      await this.smsSingleService.sendSingleSMS(
+        {
+          msisdn: otpRequest.phone === undefined ? '' : otpRequest.phone,
+          purpose: otpRequest.purpose,
+          text: `your otp is: ${otp}`,
+          user_id: 0,
+        },
+        res,
+      );
+    }
+    if (otpRequest.email) {
+      // send email here
+    }
     const response: OtpGenerateInfoResponse = {
-      info: 'OTP have sent to specific mobile number',
+      info: 'OTP have sent',
       sent_number: otpRequest.phone,
       sent_email: otpRequest.email,
       purpose: otpRequest.purpose,
@@ -53,24 +68,46 @@ export class CreateOtpService {
     return response;
   }
 
-  async checkOtpAvailability(mobile: string): Promise<Boolean> {
+  async checkOtpAvailability(
+    mobile?: string,
+    email?: string,
+  ): Promise<Boolean> {
     const currentUTCDate = LocalDateToUtc(new Date());
-
+    let otpCount = 0;
+    let validOtp = null;
     //  count otp for last 30 days
-    const otpCount = await this.otpsRepository.count({
-      phone: mobile,
-      time_sent: Between(subtractDay(currentUTCDate, 30), currentUTCDate),
-    });
+    if (mobile) {
+      otpCount = await this.otpsRepository.count({
+        phone: mobile,
+        time_sent: Between(subtractDay(currentUTCDate, 30), currentUTCDate),
+      });
+    }
+    if (email) {
+      otpCount = await this.otpsRepository.count({
+        email,
+        time_sent: Between(subtractDay(currentUTCDate, 30), currentUTCDate),
+      });
+    }
     if (otpCount > 30) {
       throw new BadRequestException('Monthly otp limit exceed .');
     }
     // check valid otp
-    const validOtp = await this.otpsRepository.findOne({
-      phone: mobile,
-      expiration_time: MoreThan(currentUTCDate),
-      status: false,
-    });
 
+    if (mobile) {
+      validOtp = await this.otpsRepository.findOne({
+        phone: mobile,
+        expiration_time: MoreThan(currentUTCDate),
+        status: false,
+      });
+    }
+
+    if (email) {
+      validOtp = await this.otpsRepository.findOne({
+        email,
+        expiration_time: MoreThan(currentUTCDate),
+        status: false,
+      });
+    }
     if (validOtp) {
       throw new BadRequestException('please try after sometimes.');
     }

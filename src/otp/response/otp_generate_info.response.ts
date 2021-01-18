@@ -1,5 +1,5 @@
 export class OtpGenerateInfoResponse {
-  sent_number: string;
+  sent_number?: string;
 
   info: string;
 

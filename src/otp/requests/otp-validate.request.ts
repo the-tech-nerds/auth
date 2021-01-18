@@ -1,8 +1,7 @@
 import { IsNotEmpty } from 'class-validator';
 
 export class OtpValidateRequest {
-  @IsNotEmpty({ message: 'Phone number is required.' })
-  phone: string;
+  phone?: string;
 
   @IsNotEmpty({ message: 'otp code is required.' })
   code: string;
