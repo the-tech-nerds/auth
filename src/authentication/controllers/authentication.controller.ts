@@ -40,6 +40,12 @@ export class AuthenticationController {
   }
 
   @UseGuards(LocalGuard)
+  @Post('/user/roles-permissions')
+  async getUserRolePermissions(@Req() req: any): Promise<any> {
+    return this.userLoginService.userRolePermissions(req.user, UserType.ADMIN);
+  }
+
+  @UseGuards(LocalGuard)
   @Post('/login/user')
   async loginUser(@Req() req: any): Promise<any> {
     return this.userLoginService.login(req.user, UserType.USER);

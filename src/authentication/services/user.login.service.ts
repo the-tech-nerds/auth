@@ -8,6 +8,7 @@ import { User } from '../../user/entities/user.entity';
 import { UserRegistrationService } from './user.registration.service';
 import { FetchUserByIdService } from '../../user/services/fetch-user-by-id.service';
 import { FetchUserInfoByEmailService } from '../../user/services/fetch-user-by-email.service';
+
 @Injectable()
 export class UserLoginService {
   constructor(
@@ -49,6 +50,33 @@ export class UserLoginService {
 
     return {
       access_token: accessToken,
+      code: 200,
+    };
+  }
+
+  async userRolePermissions(user: Partial<User>, userType: number) {
+    const { id } = user;
+    const { roles = [], type } = (await this.fetchUserByIdService.execute(
+      Number(id),
+    )) as User;
+
+    if (userType !== type) {
+      throw new UnauthorizedException();
+    }
+
+    const allPermissions = roles
+      .reduce((acc, role) => [...acc, ...role.permissions], [])
+      .map(({ id: permissionId, name }) => ({ id: permissionId, name }));
+    const allRoles = roles.map(({ id: roleId, name }) => ({
+      id: roleId,
+      name,
+    }));
+
+    return {
+      data: {
+        roles: allRoles,
+        permissions: allPermissions,
+      },
       code: 200,
     };
   }
