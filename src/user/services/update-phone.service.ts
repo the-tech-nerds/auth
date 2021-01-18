@@ -14,6 +14,9 @@ export class UpdatePhoneService {
   async execute(request: UpdatePhoneRequest): Promise<boolean> {
     const user = await this.usersRepository.findOne(request.user_id);
     if (user) {
+      if (user.phone === request.phone) {
+        throw new BadRequestException('Phone number already exist.');
+      }
       user.phone = request.phone;
       user.is_mobile_verified = true;
       await this.usersRepository.save(user);

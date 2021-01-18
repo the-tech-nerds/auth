@@ -4,7 +4,7 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { CacheService } from '@technerds/common-services';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { User } from '../../user/entities/user.entity';
+import { User, UserType } from '../../user/entities/user.entity';
 import { UserRegistrationService } from './user.registration.service';
 import { FetchUserByIdService } from '../../user/services/fetch-user-by-id.service';
 import { FetchUserInfoByEmailService } from '../../user/services/fetch-user-by-email.service';
@@ -21,7 +21,7 @@ export class UserLoginService {
   ) {}
 
   async login(user: Partial<User>, userType: number) {
-    const { email, id } = user;
+    const { email, id, phone } = user;
     const { roles = [], type } = (await this.fetchUserByIdService.execute(
       Number(id),
     )) as User;
@@ -40,6 +40,7 @@ export class UserLoginService {
 
     const accessToken = this.jwtService.sign({
       email,
+      phone,
       id,
       roles: allRoles,
       permissions: allPermissions,
@@ -56,6 +57,7 @@ export class UserLoginService {
   async loginByGoogle(user: any) {
     let registerUser = (await this.fetchUserInfoByEmailService.execute(
       user.email,
+      UserType.USER,
     )) as any;
 
     if (!registerUser) {

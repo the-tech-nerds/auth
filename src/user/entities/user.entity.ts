@@ -4,7 +4,7 @@ import {
   PrimaryGeneratedColumn,
   OneToMany,
   ManyToMany,
-  Index,
+  Unique,
 } from 'typeorm';
 import BaseEntity from '../../utils/entities/base-entity';
 import { Address } from '../../address/entities/address.entity';
@@ -16,6 +16,8 @@ export enum UserType {
 }
 
 @Entity()
+@Unique('UQ_Email_UserType', ['email', 'type'])
+@Unique('UQ_Phone_UserType', ['phone', 'type'])
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -30,7 +32,6 @@ export class User extends BaseEntity {
     length: 100,
     nullable: true,
   })
-  @Index({ unique: true, where: 'externalId IS NOT NULL' })
   email: string;
 
   @Column({
@@ -72,6 +73,9 @@ export class User extends BaseEntity {
 
   @Column({ default: false })
   is_mobile_verified: boolean;
+
+  @Column({ default: false })
+  is_email_verified: boolean;
 
   @OneToMany(
     () => Address,
