@@ -1,6 +1,7 @@
+import { BadRequestException, Injectable } from '@nestjs/common';
 /* eslint-disable no-empty */
 import { JwtService } from '@nestjs/jwt';
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+
 import { CacheService } from '@technerds/common-services';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -27,7 +28,7 @@ export class UserLoginService {
     )) as User;
 
     if (userType !== type) {
-      throw new UnauthorizedException();
+      throw new BadRequestException(`User with ${email || phone} not found.`);
     }
 
     const allPermissions = roles
