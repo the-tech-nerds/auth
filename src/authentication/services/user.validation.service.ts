@@ -10,13 +10,13 @@ export class UserValidationService {
     private readonly userRepository: Repository<User>,
   ) {}
 
-  async validate(email: string, password: string) {
+  async validate(userName: string, password: string) {
     const user = await this.userRepository.findOne({
-      email,
+      where: [{ email: userName }, { phone: userName }],
     });
 
     if (!user) {
-      throw new BadRequestException(`User with email ${email} not found`);
+      throw new BadRequestException(`User with email ${userName} not found`);
     }
 
     const { password: hashedPassword, ...result } = user;
