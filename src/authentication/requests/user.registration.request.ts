@@ -25,5 +25,7 @@ export class UserRegistrationRequest {
 
   is_mobile_verified?: boolean;
 
+  is_used_promotion?: boolean;
+
   type?: number;
 }

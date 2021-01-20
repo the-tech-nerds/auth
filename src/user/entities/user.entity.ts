@@ -77,6 +77,9 @@ export class User extends BaseEntity {
   @Column({ default: false })
   is_email_verified: boolean;
 
+  @Column({ default: true })
+  is_used_promotion: boolean;
+
   @OneToMany(
     () => Address,
     address => address.user_id,
