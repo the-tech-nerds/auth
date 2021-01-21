@@ -13,14 +13,27 @@ export class ValidateOtpService {
   ) {}
 
   async validate(otpValidateRequest: OtpValidateRequest): Promise<boolean> {
-    const otp = await this.otpsRepository.findOne({
-      where: {
-        code: otpValidateRequest.code,
-        phone: otpValidateRequest.phone,
-        expiration_time: MoreThan(LocalDateToUtc(new Date())),
-        status: false,
-      },
-    });
+    let otp = null;
+    if (otpValidateRequest.phone) {
+      otp = await this.otpsRepository.findOne({
+        where: {
+          code: otpValidateRequest.code,
+          phone: otpValidateRequest.phone,
+          expiration_time: MoreThan(LocalDateToUtc(new Date())),
+          status: false,
+        },
+      });
+    }
+    if (otpValidateRequest.email) {
+      otp = await this.otpsRepository.findOne({
+        where: {
+          code: otpValidateRequest.code,
+          email: otpValidateRequest.email,
+          expiration_time: MoreThan(LocalDateToUtc(new Date())),
+          status: false,
+        },
+      });
+    }
 
     if (otp) {
       otp.status = true;
