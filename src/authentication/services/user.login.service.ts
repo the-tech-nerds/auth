@@ -31,10 +31,12 @@ export class UserLoginService {
       throw new BadRequestException(`User with ${email || phone} not found.`);
     }
 
-    const allPermissions = roles
+    const filteredRoles = roles.filter(role => role.is_active);
+
+    const allPermissions = filteredRoles
       .reduce((acc, role) => [...acc, ...role.permissions], [])
       .map(({ id: permissionId, name }) => ({ id: permissionId, name }));
-    const allRoles = roles.map(({ id: roleId, name }) => ({
+    const allRoles = filteredRoles.map(({ id: roleId, name }) => ({
       id: roleId,
       name,
     }));
