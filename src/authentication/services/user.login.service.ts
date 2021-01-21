@@ -77,6 +77,7 @@ export class UserLoginService {
       registerUser.image_url = user.picture;
       await this.userRepository.save(registerUser);
     }
+
     const accessToken = this.jwtService.sign({
       email: registerUser.email,
       id: registerUser.id,

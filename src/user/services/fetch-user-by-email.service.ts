@@ -9,13 +9,17 @@ export class FetchUserInfoByEmailService {
     private usersRepository: Repository<User>,
   ) {}
 
-  async execute(email: string, type: number): Promise<Boolean | undefined> {
+  async execute(
+    email: string,
+    type: number,
+    onlyBoolean?: Boolean,
+  ): Promise<any> {
     const userInfo = await this.usersRepository.findOne({
       email,
       type,
     });
     if (userInfo) {
-      return true;
+      return onlyBoolean ?? userInfo;
     }
     return undefined;
   }

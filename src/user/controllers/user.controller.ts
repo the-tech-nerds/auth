@@ -291,6 +291,7 @@ export class UserController {
     const data = await this.fetchUserInfoByEmailService.execute(
       email,
       Number(userType),
+      true,
     );
     return this.apiResponseService.successResponse(
       ['User  fetched successfully'],
