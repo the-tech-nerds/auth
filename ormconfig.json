@@ -6,7 +6,7 @@
   "password": "grocery123",
   "database": "auth",
   "entities": ["dist/**/*.entity{.ts,.js}"],
-  "synchronize": false,
+  "synchronize": true,
   "cli": {
     "migrationsDir": "src/migrations"
   }
