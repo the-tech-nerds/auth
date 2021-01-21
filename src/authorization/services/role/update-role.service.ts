@@ -5,6 +5,7 @@ import { CacheService } from '@technerds/common-services';
 import { Roles } from '../../entities/role.entity';
 import { Permissions } from '../../entities/permission.entity';
 import { RoleRequest } from '../../requests/role.request';
+import { User } from '../../../user/entities/user.entity';
 
 @Injectable()
 export class UpdateRoleService {
@@ -29,8 +30,7 @@ export class UpdateRoleService {
       roleRequest.permissions,
     );
     const res = this.roleRepository.save(role);
-    // @ts-ignore
-    await this.removeTokenFromRedis(role?.users);
+    this.removeTokenFromRedis(role?.users);
     return res;
   }
 
@@ -38,18 +38,13 @@ export class UpdateRoleService {
     const role = await this.roleRepository.findOneOrFail(id);
     role.is_active = !role.is_active;
     const res = await this.roleRepository.save(role);
-    // @ts-ignore
-    await this.removeTokenFromRedis(role.users);
+    this.removeTokenFromRedis(role.users);
     return res;
   }
 
-  private async removeTokenFromRedis(users?: []): Promise<void> {
-    if (!users || users.length < 1) return;
+  private removeTokenFromRedis(users?: User[]): void {
+    if (!users || !users.length) return;
 
-    const ids = users.map((x: any) => x.id);
-    // @ts-ignore
-    for (let i = 0; i < ids; i += 1) {
-      await this.cacheService.delete(`user-token-${ids[i]}`);
-    }
+    users.map(({ id = null }) => this.cacheService.delete(`user-token-${id}`));
   }
 }
