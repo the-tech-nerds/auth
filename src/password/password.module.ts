@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ApiResponseService } from '@technerds/common-services';
+import { ApiResponseService } from '@the-tech-nerds/common-services';
 import { PasswordManagementController } from './controllers/password-management.controller';
 
 import { ForgetPasswordInitService } from './services/forget-password-init.service';

@@ -15,7 +15,7 @@ import {
   CurrentUser,
   UserGuard,
   ApiResponseService,
-} from '@technerds/common-services';
+} from '@the-tech-nerds/common-services';
 import { Address } from '../entities/address.entity';
 import { AddressRequest } from '../requests/address.request';
 

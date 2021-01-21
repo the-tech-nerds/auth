@@ -5,7 +5,7 @@ import {
   ApiResponseService,
   CacheModule,
   UploadService,
-} from '@technerds/common-services';
+} from '@the-tech-nerds/common-services';
 import { User } from './entities/user.entity';
 
 import { UserController } from './controllers/user.controller';

@@ -2,7 +2,7 @@ import {
   ApiResponseModule,
   CacheModule,
   commonConfig,
-} from '@technerds/common-services';
+} from '@the-tech-nerds/common-services';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';

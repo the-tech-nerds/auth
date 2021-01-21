@@ -3,7 +3,7 @@ import {
   FetchService,
   // @ts-ignore
   ApiResponseService,
-} from '@technerds/common-services';
+} from '@the-tech-nerds/common-services';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Response } from 'express';

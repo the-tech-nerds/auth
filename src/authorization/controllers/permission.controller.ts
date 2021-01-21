@@ -14,7 +14,7 @@ import {
   PermissionTypeEnum,
   PermissionTypes,
   ApiResponseService,
-} from '@technerds/common-services';
+} from '@the-tech-nerds/common-services';
 import { Permissions } from '../entities/permission.entity';
 import { CreatePermissionService } from '../services/permission/create-permission.service';
 import { DeletePermissionService } from '../services/permission/delete-permission.service';

@@ -4,10 +4,10 @@ import {
   CacheModule,
   PermissionsGuard,
   ApiResponseService,
-} from '@technerds/common-services';
+} from '@the-tech-nerds/common-services';
 import { JwtModule } from '@nestjs/jwt';
 import { APP_GUARD } from '@nestjs/core';
-import { RolesGuard } from '@technerds/common-services/dist/guards/roles/roles.guard';
+import { RolesGuard } from '@the-tech-nerds/common-services/dist/guards/roles/roles.guard';
 import { AuthorizationController } from './authorization.controller';
 import { CreatePermissionCategoryService } from './services/permission-category/create-permision-category.service';
 import { ListPermissionCategoryService } from './services/permission-category/list-permission-category.service';

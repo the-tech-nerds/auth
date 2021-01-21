@@ -15,7 +15,7 @@ import {
   PermissionTypes,
   UserGuard, // @ts-ignore
   ApiResponseService,
-} from '@technerds/common-services';
+} from '@the-tech-nerds/common-services';
 import { Response } from 'express';
 import { UserRegistrationService } from '../services/user.registration.service';
 import { UserRegistrationRequest } from '../requests/user.registration.request';

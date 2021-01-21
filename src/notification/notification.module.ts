@@ -1,6 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ApiResponseModule, FetchModule } from '@technerds/common-services';
+import {
+  ApiResponseModule,
+  FetchModule,
+} from '@the-tech-nerds/common-services';
 import { SmsController } from './sms/controllers/sms.controller';
 import { SMSService } from './sms/services/sms.service';
 import { SmsSingleService } from './sms/services/sms-single.service';

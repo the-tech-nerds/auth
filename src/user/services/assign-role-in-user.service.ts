@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CacheService } from '@technerds/common-services';
+import { CacheService } from '@the-tech-nerds/common-services';
 import { AuthorizationService } from '../../authorization/services/authorization.service';
 import { Roles } from '../../authorization/entities/role.entity';
 import { User } from '../entities/user.entity';

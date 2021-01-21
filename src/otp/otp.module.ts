@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ApiResponseService } from '@technerds/common-services';
+import { ApiResponseService } from '@the-tech-nerds/common-services';
 import { NotificationModule } from 'src/notification/notification.module';
 import { UserModule } from 'src/user/user.module';
 import { Otps } from './entities/otp.entity';

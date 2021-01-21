@@ -15,7 +15,7 @@ import {
   PermissionTypes,
   // @ts-ignore
   ApiResponseService,
-} from '@technerds/common-services';
+} from '@the-tech-nerds/common-services';
 import { CreateRoleService } from '../services/role/create-role.service';
 import { ListRoleService } from '../services/role/list-role.service';
 import { GetByIdRoleService } from '../services/role/get-by-id-role.service';
