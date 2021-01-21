@@ -19,6 +19,9 @@ export class Roles extends BaseEntity {
   @Column()
   name: string;
 
+  @Column({ default: true })
+  is_active: boolean;
+
   @ManyToMany(
     type => Permissions,
     permissions => permissions.roles,

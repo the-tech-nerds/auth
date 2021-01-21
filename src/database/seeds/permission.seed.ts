@@ -1,6 +1,6 @@
 import { Factory, Seeder } from 'typeorm-seeding';
 import { Connection } from 'typeorm';
-import { PermissionTypes } from '@technerds/common-services';
+import { PermissionTypes } from '@the-tech-nerds/common-services';
 
 export default class PermissionSeed implements Seeder {
   // @ts-ignore

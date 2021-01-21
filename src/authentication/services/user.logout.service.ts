@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CacheService } from '@technerds/common-services';
+import { CacheService } from '@the-tech-nerds/common-services';
 
 @Injectable()
 export class UserLogoutService {

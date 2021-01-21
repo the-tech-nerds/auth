@@ -24,7 +24,7 @@ import {
   PermissionTypeEnum,
   // @ts-ignore
   UploadService,
-} from '@technerds/common-services';
+} from '@the-tech-nerds/common-services';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { User } from '../entities/user.entity';
 import { UserUpdateRequest } from '../requests/user-update.request';
