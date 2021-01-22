@@ -35,7 +35,9 @@ export class UpdateRoleService {
   }
 
   async changeStatus(id: number): Promise<Roles | undefined | void> {
-    const role = await this.roleRepository.findOneOrFail(id);
+    const role = await this.roleRepository.findOneOrFail(id, {
+      relations: ['users'],
+    });
     role.is_active = !role.is_active;
     const res = await this.roleRepository.save(role);
     this.removeTokenFromRedis(role.users);
