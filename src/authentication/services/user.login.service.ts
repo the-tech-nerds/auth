@@ -52,6 +52,7 @@ export class UserLoginService {
     await this.cacheService.set(`user-token-${id}`, accessToken);
 
     return {
+      id,
       access_token: accessToken,
       code: 200,
     };
