@@ -4,7 +4,7 @@ import {
   ApiResponseService,
   CurrentUser,
   UserGuard,
-} from '@technerds/common-services';
+} from '@the-tech-nerds/common-services';
 import { Response } from 'express';
 import { ForgetPasswordInitRequest } from '../requests/forget-password-init.request';
 

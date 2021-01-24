@@ -14,7 +14,7 @@ import {
   PermissionTypeEnum,
   PermissionTypes,
   ApiResponseService,
-} from '@technerds/common-services';
+} from '@the-tech-nerds/common-services';
 import { CreatePermissionCategoryService } from '../services/permission-category/create-permision-category.service';
 import { ListPermissionCategoryService } from '../services/permission-category/list-permission-category.service';
 import { UpdatePermissionCategoryService } from '../services/permission-category/update-permission-category.service';

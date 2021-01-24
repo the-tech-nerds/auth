@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { FetchService } from '@technerds/common-services';
+import { FetchService } from '@the-tech-nerds/common-services';
 import { SMSService } from './sms.service';
 
 @Injectable()

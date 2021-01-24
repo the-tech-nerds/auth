@@ -2,7 +2,7 @@ import {
   ApiResponseModule,
   CacheModule,
   commonConfig,
-} from '@technerds/common-services';
+} from '@the-tech-nerds/common-services';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -19,12 +19,11 @@ import { OtpModule } from './otp/otp.module';
 import configuration from './config/configuration';
 import { PasswordModule } from './password/password.module';
 import { NotificationModule } from './notification/notification.module';
-import * as ormconfig from './database';
 
 // @ts-ignore
 @Module({
   imports: [
-    TypeOrmModule.forRoot(ormconfig),
+    TypeOrmModule.forRoot(),
     ConfigModule.forRoot({
       isGlobal: true,
       load: [configuration, commonConfig],

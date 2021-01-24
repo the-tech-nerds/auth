@@ -24,7 +24,7 @@ import {
   PermissionTypeEnum,
   // @ts-ignore
   UploadService,
-} from '@technerds/common-services';
+} from '@the-tech-nerds/common-services';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { User } from '../entities/user.entity';
 import { UserUpdateRequest } from '../requests/user-update.request';
@@ -47,6 +47,8 @@ import { UpdatePhoneRequest } from '../requests/update-phone.request';
 import { UpdatePhoneService } from '../services/update-phone.service';
 import { UpdateEmailService } from '../services/update-email.service';
 import { UpdateEmailRequest } from '../requests/update-email.request';
+import { FetchUserInfoByEmailService } from '../services/fetch-user-by-email.service';
+import { FetchUserInfoByPhoneService } from '../services/fetch-user-by-phone.service';
 
 @Controller()
 export class UserController {
@@ -65,6 +67,8 @@ export class UserController {
 
     private readonly uploadService: UploadService,
     private readonly updateEmailService: UpdateEmailService,
+    private readonly fetchUserInfoByEmailService: FetchUserInfoByEmailService,
+    private readonly fetchUserInfoByPhoneService: FetchUserInfoByPhoneService,
   ) {}
 
   @UseGuards(UserGuard)
@@ -276,5 +280,40 @@ export class UserController {
           res,
         ),
       );
+  }
+
+  @Get('/check/email')
+  async getUserByEmail(
+    @Query('userType') userType: string,
+    @Query('email') email: string,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    const data = await this.fetchUserInfoByEmailService.execute(
+      email,
+      Number(userType),
+      true,
+    );
+    return this.apiResponseService.successResponse(
+      ['User  fetched successfully'],
+      data,
+      res,
+    );
+  }
+
+  @Get('/check/phone')
+  async getUserByPhone(
+    @Query('userType') userType: string,
+    @Query('phone') phone: string,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    const data = await this.fetchUserInfoByPhoneService.execute(
+      phone,
+      Number(userType),
+    );
+    return this.apiResponseService.successResponse(
+      ['User  fetched successfully'],
+      data,
+      res,
+    );
   }
 }

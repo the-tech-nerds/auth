@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty } from 'class-validator';
+import { IsNotEmpty } from 'class-validator';
 
 export class UserRegistrationRequest {
   @IsNotEmpty({ message: 'First Name is required.' })
@@ -7,8 +7,9 @@ export class UserRegistrationRequest {
   @IsNotEmpty({ message: 'Last Name is required.' })
   last_name: string;
 
-  @IsEmail()
   email?: string;
+
+  phone?: string;
 
   password: string;
 
@@ -19,6 +20,12 @@ export class UserRegistrationRequest {
   facebook_auth?: string;
 
   facebook_user_id?: string;
+
+  is_email_verified?: boolean;
+
+  is_mobile_verified?: boolean;
+
+  is_used_promotion?: boolean;
 
   type?: number;
 }

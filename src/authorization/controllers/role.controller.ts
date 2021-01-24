@@ -15,7 +15,7 @@ import {
   PermissionTypes,
   // @ts-ignore
   ApiResponseService,
-} from '@technerds/common-services';
+} from '@the-tech-nerds/common-services';
 import { CreateRoleService } from '../services/role/create-role.service';
 import { ListRoleService } from '../services/role/list-role.service';
 import { GetByIdRoleService } from '../services/role/get-by-id-role.service';
@@ -94,6 +94,23 @@ export class RoleController {
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     const data = await this.updateRoleService.update(id, roleRequest);
+    return this.apiResponseService.successResponse(
+      ['Role category updated successfully'],
+      data as Roles,
+      res,
+    );
+  }
+
+  @HasPermissions(
+    [PermissionTypes.ROLE.UPDATE],
+    PermissionTypeEnum.hasPermission,
+  )
+  @Put('/role/:id/status')
+  async changeRoleStatus(
+    @Param('id') id: number,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    const data = await this.updateRoleService.changeStatus(id);
     return this.apiResponseService.successResponse(
       ['Role category updated successfully'],
       data as Roles,

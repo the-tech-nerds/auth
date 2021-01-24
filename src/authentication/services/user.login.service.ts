@@ -1,10 +1,11 @@
+import { BadRequestException, Injectable } from '@nestjs/common';
 /* eslint-disable no-empty */
 import { JwtService } from '@nestjs/jwt';
-import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { CacheService } from '@technerds/common-services';
+
+import { CacheService } from '@the-tech-nerds/common-services';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { User } from '../../user/entities/user.entity';
+import { User, UserType } from '../../user/entities/user.entity';
 import { UserRegistrationService } from './user.registration.service';
 import { FetchUserByIdService } from '../../user/services/fetch-user-by-id.service';
 import { FetchUserInfoByEmailService } from '../../user/services/fetch-user-by-email.service';
@@ -22,25 +23,28 @@ export class UserLoginService {
   ) {}
 
   async login(user: Partial<User>, userType: number) {
-    const { email, id } = user;
+    const { email, id, phone } = user;
     const { roles = [], type } = (await this.fetchUserByIdService.execute(
       Number(id),
     )) as User;
 
     if (userType !== type) {
-      throw new UnauthorizedException();
+      throw new BadRequestException(`User with ${email || phone} not found.`);
     }
 
-    const allPermissions = roles
+    const filteredRoles = roles.filter(role => role.is_active);
+
+    const allPermissions = filteredRoles
       .reduce((acc, role) => [...acc, ...role.permissions], [])
       .map(({ id: permissionId, name }) => ({ id: permissionId, name }));
-    const allRoles = roles.map(({ id: roleId, name }) => ({
+    const allRoles = filteredRoles.map(({ id: roleId, name }) => ({
       id: roleId,
       name,
     }));
 
     const accessToken = this.jwtService.sign({
       email,
+      phone,
       id,
       roles: allRoles,
       permissions: allPermissions,
@@ -49,6 +53,7 @@ export class UserLoginService {
     await this.cacheService.set(`user-token-${id}`, accessToken);
 
     return {
+      id,
       access_token: accessToken,
       code: 200,
     };
@@ -84,6 +89,7 @@ export class UserLoginService {
   async loginByGoogle(user: any) {
     let registerUser = (await this.fetchUserInfoByEmailService.execute(
       user.email,
+      UserType.USER,
     )) as any;
 
     if (!registerUser) {
@@ -102,6 +108,7 @@ export class UserLoginService {
       registerUser.image_url = user.picture;
       await this.userRepository.save(registerUser);
     }
+
     const accessToken = this.jwtService.sign({
       email: registerUser.email,
       id: registerUser.id,

@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Next, Post, Req, Res } from '@nestjs/common';
 // @ts-ignore
-import { ApiResponseService } from '@technerds/common-services';
+import { ApiResponseService } from '@the-tech-nerds/common-services';
 import { Response } from 'express';
 import { CreateClientService } from '../services/oauth/create-client.service';
 import { Client } from '../entities/client.entity';

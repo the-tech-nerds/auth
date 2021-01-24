@@ -5,7 +5,7 @@ import {
   ApiResponseService,
   CacheModule,
   UploadService,
-} from '@technerds/common-services';
+} from '@the-tech-nerds/common-services';
 import { User } from './entities/user.entity';
 
 import { UserController } from './controllers/user.controller';
@@ -21,6 +21,8 @@ import { UpdateUserInfoesService } from './services/update-user-info.service';
 import { UpdatePhoneVerifiedService } from './services/verified-phone.service';
 import { UpdatePhoneService } from './services/update-phone.service';
 import { UpdateEmailService } from './services/update-email.service';
+import { FetchUserInfoByPhoneService } from './services/fetch-user-by-phone.service';
+import { FetchUserInfoByEmailService } from './services/fetch-user-by-email.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User, Roles]), CacheModule],
@@ -38,6 +40,8 @@ import { UpdateEmailService } from './services/update-email.service';
     UpdatePhoneService,
     UploadService,
     UpdateEmailService,
+    FetchUserInfoByPhoneService,
+    FetchUserInfoByEmailService,
   ],
   controllers: [UserController],
 })

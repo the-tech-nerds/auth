@@ -1,10 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CacheService } from '@technerds/common-services';
+import { CacheService } from '@the-tech-nerds/common-services';
 import { Roles } from '../../entities/role.entity';
 import { Permissions } from '../../entities/permission.entity';
 import { RoleRequest } from '../../requests/role.request';
+import { User } from '../../../user/entities/user.entity';
 
 @Injectable()
 export class UpdateRoleService {
@@ -29,20 +30,23 @@ export class UpdateRoleService {
       roleRequest.permissions,
     );
     const res = this.roleRepository.save(role);
-    // @ts-ignore
-    await this.removeTokenFromRedis(role?.users);
+    this.removeTokenFromRedis(role?.users);
     return res;
   }
 
-  private async removeTokenFromRedis(users?: []): Promise<void> {
-    if (users) {
-      if (users.length > 0) {
-        const ids = users.map((x: any) => x.id);
-        // @ts-ignore
-        for (let i = 0; i < ids; i += 1) {
-          await this.cacheService.delete(`user-token-${ids[i]}`);
-        }
-      }
-    }
+  async changeStatus(id: number): Promise<Roles | undefined | void> {
+    const role = await this.roleRepository.findOneOrFail(id, {
+      relations: ['users'],
+    });
+    role.is_active = !role.is_active;
+    const res = await this.roleRepository.save(role);
+    this.removeTokenFromRedis(role.users);
+    return res;
+  }
+
+  private removeTokenFromRedis(users?: User[]): void {
+    if (!users || !users.length) return;
+
+    users.map(({ id = null }) => this.cacheService.delete(`user-token-${id}`));
   }
 }

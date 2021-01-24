@@ -1,6 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { CacheModule, ApiResponseService } from '@technerds/common-services';
+import {
+  CacheModule,
+  ApiResponseService,
+} from '@the-tech-nerds/common-services';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { ConfigModule, ConfigService } from '@nestjs/config';
