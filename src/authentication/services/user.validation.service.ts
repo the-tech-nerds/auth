@@ -13,11 +13,8 @@ export class UserValidationService {
   async validate(userName: string, password: string, type: number) {
     const user = await this.userRepository.findOne({
       where: [
-        { email: userName },
-        { phone: userName },
-        {
-          type,
-        },
+        { email: userName, type },
+        { phone: userName, type },
       ],
     });
 
