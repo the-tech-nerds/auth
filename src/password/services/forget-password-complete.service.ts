@@ -22,11 +22,8 @@ export class ForgetPasswordCompleteService {
     }
     const user = await this.userRepository.findOneOrFail({
       where: [
-        { email: forgetPasswordRequest.phone },
-        { phone: forgetPasswordRequest.email },
-        {
-          type,
-        },
+        { phone: forgetPasswordRequest.phone, type },
+        { email: forgetPasswordRequest.email, type },
       ],
     });
 
