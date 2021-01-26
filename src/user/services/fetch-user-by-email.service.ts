@@ -21,6 +21,6 @@ export class FetchUserInfoByEmailService {
     if (userInfo) {
       return onlyBoolean ?? userInfo;
     }
-    return undefined;
+    return false;
   }
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { hash } from 'bcryptjs';
@@ -15,13 +15,24 @@ export class ForgetPasswordCompleteService {
 
   async execute(
     forgetPasswordRequest: ForgetPasswordCompleteRequest,
+    type: number,
   ): Promise<UserResponse> {
+    if (forgetPasswordRequest.phone && forgetPasswordRequest.email) {
+      throw new BadRequestException('need only email or only password.');
+    }
     const user = await this.userRepository.findOneOrFail({
-      where: {
-        phone: forgetPasswordRequest.phone,
-        is_active: true,
-      },
+      where: [
+        { email: forgetPasswordRequest.phone },
+        { phone: forgetPasswordRequest.email },
+        {
+          type,
+        },
+      ],
     });
+
+    if (!user) {
+      throw new BadRequestException('user not found');
+    }
     user.password = await hash(forgetPasswordRequest.password, 10);
     await this.userRepository.save(user);
 
