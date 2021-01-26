@@ -23,6 +23,7 @@ import { UpdatePhoneService } from './services/update-phone.service';
 import { UpdateEmailService } from './services/update-email.service';
 import { FetchUserInfoByPhoneService } from './services/fetch-user-by-phone.service';
 import { FetchUserInfoByEmailService } from './services/fetch-user-by-email.service';
+import { InsertLoginHistoryService } from '../login-history/services/insert-login-history.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User, Roles]), CacheModule],
@@ -42,6 +43,7 @@ import { FetchUserInfoByEmailService } from './services/fetch-user-by-email.serv
     UpdateEmailService,
     FetchUserInfoByPhoneService,
     FetchUserInfoByEmailService,
+    InsertLoginHistoryService,
   ],
   controllers: [UserController],
 })

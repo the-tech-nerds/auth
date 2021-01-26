@@ -17,6 +17,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { AddressModule } from './address/address.module';
 import { OtpModule } from './otp/otp.module';
 import configuration from './config/configuration';
+import loginConfig from './config/login-config';
 import { PasswordModule } from './password/password.module';
 import { NotificationModule } from './notification/notification.module';
 
@@ -26,7 +27,7 @@ import { NotificationModule } from './notification/notification.module';
     TypeOrmModule.forRoot(),
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [configuration, commonConfig],
+      load: [configuration, commonConfig, loginConfig],
     }),
     RouterModule.forRoutes(routes),
     UserModule,
