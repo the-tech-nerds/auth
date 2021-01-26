@@ -18,6 +18,6 @@ export class FetchUserInfoByPhoneService {
     if (userInfo) {
       return true;
     }
-    return undefined;
+    return false;
   }
 }

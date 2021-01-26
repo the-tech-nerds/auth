@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Res, UseGuards } from '@nestjs/common';
+import { Body, Controller, Post, Query, Res, UseGuards } from '@nestjs/common';
 
 import {
   ApiResponseService,
@@ -39,10 +39,14 @@ export class PasswordManagementController {
 
   @Post('/recover/complete')
   async recoverForgetPassComplete(
+    @Query('userType') userType: string,
     @Body() request: ForgetPasswordCompleteRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    const data = await this.forgetPasswordCompleteService.execute(request);
+    const data = await this.forgetPasswordCompleteService.execute(
+      request,
+      Number(userType),
+    );
     return this.apiResponseService.successResponse(
       ['Password has been updated successfully'],
       data as UserResponse,

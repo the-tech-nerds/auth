@@ -6,11 +6,21 @@ import { UserValidationService } from '../services/user.validation.service';
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {
   constructor(private readonly userValidationService: UserValidationService) {
-    super();
+    super({
+      passReqToCallback: true,
+    });
   }
 
-  async validate(username: string, password: string): Promise<any> {
-    const user = await this.userValidationService.validate(username, password);
+  async validate(
+    request: any,
+    username: string,
+    password: string,
+  ): Promise<any> {
+    const user = await this.userValidationService.validate(
+      username,
+      password,
+      request.body.type,
+    );
 
     if (!user) {
       throw new UnauthorizedException();
