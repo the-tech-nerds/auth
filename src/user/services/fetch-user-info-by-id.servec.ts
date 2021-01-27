@@ -25,6 +25,7 @@ export class FetchUserInfoByIdService {
         image_url: userInfo.image_url,
         birthday: userInfo.birthday,
         is_mobile_verified: userInfo.is_mobile_verified,
+        is_email_verified: userInfo.is_email_verified,
         is_facebook_login: !!userInfo.facebook_user_id,
         has_password: userInfo.password.length > 5,
         is_gmail_login: !!userInfo.google_auth,
