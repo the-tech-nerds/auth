@@ -37,8 +37,7 @@ export class ResetPasswordAutoGenerateService {
     this.emailNotification.send({
       template: 'authentication/admin-reset-password',
       to: [email],
-      from: 'admin@khanfreshcornerbd.com',
-      subject: 'Admin Invitation for Khan Fresh Corner BD!',
+      subject: `New password for ${firstName}!`,
       data: {
         name: `${firstName}`,
         password: newGeneratedPassword,

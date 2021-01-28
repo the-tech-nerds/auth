@@ -37,7 +37,6 @@ export class UserRegistrationService {
       this.emailNotification.send({
         template: 'authentication/admin-user-create',
         to: [email],
-        from: 'khanfreshcornerbd@gmail.com',
         subject: 'Admin Invitation for Khan Fresh Corner BD!',
         data: {
           loginUrl: process.env.LOGIN_URL,
