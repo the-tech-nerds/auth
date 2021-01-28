@@ -1,11 +1,11 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 import { ConfigService } from '@nestjs/config';
 import { User } from '../../user/entities/user.entity';
 import {
   addMinutes,
   CurrentDate,
   LocalDateToUtc,
+  UtcDateToLocal,
 } from '../../utils/date-time-conversion/date-time-conversion';
 import { InsertLoginHistoryService } from '../../login-history/services/insert-login-history.service';
 import { LoginHistoryRequest } from '../../login-history/requests/login-history.request';
@@ -14,7 +14,6 @@ import { UpdateUsersService } from '../../user/services/update-user.service';
 @Injectable()
 export class UserVerifyActionService {
   constructor(
-    @InjectRepository(User)
     private readonly insertLoginHistoryService: InsertLoginHistoryService,
     private readonly updateUsersService: UpdateUsersService,
     private readonly configService: ConfigService,
@@ -23,7 +22,7 @@ export class UserVerifyActionService {
   async performUserFrozenCheckAction(user: User): Promise<void> {
     if (user.is_frozen) {
       const currentDate = CurrentDate('YYYY-MM-DD HH:mm:ss');
-      if (currentDate >= user.unfreeze_at.toDateString()) {
+      if (currentDate >= UtcDateToLocal(user.unfreeze_at)) {
         user.is_frozen = false;
         user.failed_login_count -= 1;
         await this.updateUsersService.execute(user.id, user);
@@ -44,7 +43,8 @@ export class UserVerifyActionService {
       request_source: user.type,
       status: false,
     } as LoginHistoryRequest;
-    this.insertLoginHistoryService.execute(loginHistoryData);
+    console.log(this.insertLoginHistoryService);
+    await this.insertLoginHistoryService.execute(loginHistoryData);
 
     user.failed_login_count += 1;
     if (

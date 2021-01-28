@@ -11,7 +11,7 @@ export class InsertLoginHistoryService {
     private loginHistoriesRepository: Repository<LoginHistories>,
   ) {}
 
-  execute(loginHistoryRequest: LoginHistoryRequest): void {
+  async execute(loginHistoryRequest: LoginHistoryRequest) {
     const isEmail = loginHistoryRequest.userName.includes('@');
 
     const loginHistoryData = {
@@ -23,7 +23,7 @@ export class InsertLoginHistoryService {
     // @ts-ignore
     const data = this.loginHistoriesRepository.save({
       ...loginHistoryData,
-      created_by: 1,
+      created_by: 0,
     });
   }
 }

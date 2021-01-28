@@ -27,7 +27,6 @@ import { UserLogoutService } from './services/user.logout.service';
 import { FetchUserInfoByEmailService } from '../user/services/fetch-user-by-email.service';
 import { LoginHistories } from '../login-history/entities/login-history.entity';
 import { LoginHistoryModule } from '../login-history/login-history.module';
-import { InsertLoginHistoryService } from '../login-history/services/insert-login-history.service';
 import { UserVerifyActionService } from './services/user.verify-action.service';
 
 @Module({
@@ -66,7 +65,6 @@ import { UserVerifyActionService } from './services/user.verify-action.service';
     JwtStrategy,
     FetchUserByIdService,
     FetchUserInfoByEmailService,
-    InsertLoginHistoryService,
     ApiResponseService,
   ],
   controllers: [AuthenticationController],
