@@ -17,6 +17,8 @@ import { ResetPasswordService } from '../services/reset-password.service';
 import { UserResponse } from '../../user/response/user.response';
 import { CreatePasswordRequest } from '../requests/create-password.request';
 import { CreatePasswordService } from '../services/create-password.servic e';
+import { ResetPasswordAutoGenerateService } from '../services/reset-password-auto-generate.service';
+import { ResetPasswordAutoGenerateRequest } from '../requests/reset-password-auto-generate.request';
 
 @Controller()
 export class PasswordManagementController {
@@ -26,6 +28,7 @@ export class PasswordManagementController {
     private readonly resetPasswordService: ResetPasswordService,
     private readonly createPasswordService: CreatePasswordService,
     private readonly apiResponseService: ApiResponseService,
+    private readonly resetPasswordAutoGenerateService: ResetPasswordAutoGenerateService,
   ) {}
 
   @Post('/recover/init')
@@ -62,6 +65,23 @@ export class PasswordManagementController {
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     const data = await this.resetPasswordService.execute(request, userId);
+    return this.apiResponseService.successResponse(
+      ['Password has been reset successfully'],
+      data as UserResponse,
+      res,
+    );
+  }
+
+  @UseGuards(UserGuard)
+  @Post('/reset-password-auto-generate')
+  async resetAdminPassword(
+    @Body() request: ResetPasswordAutoGenerateRequest,
+    @CurrentUser('id') userId: any,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    const data = await this.resetPasswordAutoGenerateService.execute(
+      request.user_id,
+    );
     return this.apiResponseService.successResponse(
       ['Password has been reset successfully'],
       data as UserResponse,
