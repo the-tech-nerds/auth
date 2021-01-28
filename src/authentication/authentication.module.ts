@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import {
   CacheModule,
   ApiResponseService,
+  NotificationModule,
 } from '@the-tech-nerds/common-services';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
@@ -53,6 +54,7 @@ import { UserVerifyActionService } from './services/user.verify-action.service';
       }),
       inject: [ConfigService],
     }),
+    NotificationModule,
   ],
   providers: [
     UserRegistrationService,
