@@ -17,8 +17,6 @@ export class ErrorFilter implements ExceptionFilter {
         ? error.getStatus()
         : HttpStatus.INTERNAL_SERVER_ERROR;
 
-    console.log(error);
-
     if (status === HttpStatus.BAD_REQUEST) {
       return this.apiResponseService.badRequestError([error.message], response);
     }

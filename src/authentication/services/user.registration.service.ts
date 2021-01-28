@@ -23,7 +23,10 @@ export class UserRegistrationService {
     } = userData;
 
     const user = await this.userRepository.findOne({
-      where: [email && { email, type }, phone && { phone, type }],
+      where: [
+        { email, type },
+        { phone, type },
+      ],
     });
 
     if (user) {
@@ -33,7 +36,7 @@ export class UserRegistrationService {
     }
     const passwordToSave = type === UserType.ADMIN ? uid(10) : password;
 
-    if (email) {
+    if (email && type === UserType.ADMIN) {
       this.emailNotification.send({
         template: 'authentication/admin-user-create',
         to: [email],
