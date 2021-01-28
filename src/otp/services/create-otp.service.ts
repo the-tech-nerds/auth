@@ -2,6 +2,7 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Between, MoreThan, Repository } from 'typeorm';
 import { SmsSingleService } from 'src/notification/sms/services/sms-single.service';
+import { EmailNotification } from '@the-tech-nerds/common-services';
 import { Otps } from '../entities/otp.entity';
 import { OtpRequest } from '../requests/otp.request';
 import {
@@ -17,6 +18,7 @@ export class CreateOtpService {
     @InjectRepository(Otps)
     private otpsRepository: Repository<Otps>,
     private smsSingleService: SmsSingleService,
+    private emailNotification: EmailNotification,
   ) {}
 
   async create(
@@ -51,7 +53,14 @@ export class CreateOtpService {
       );
     }
     if (otpRequest.email) {
-      // send email here
+      this.emailNotification.send({
+        template: 'authentication/otp',
+        to: [otpRequest.email],
+        subject: `Otp for ${otpRequest.purpose}`,
+        data: {
+          otp,
+        },
+      });
     }
     const response: OtpGenerateInfoResponse = {
       info: 'OTP have sent',
