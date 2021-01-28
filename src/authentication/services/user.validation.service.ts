@@ -45,7 +45,10 @@ export class UserValidationService {
       );
     }
 
-    await this.userVerifyActionService.performSuccessVerificationAction(user);
+    await this.userVerifyActionService.performSuccessVerificationAction(
+      user,
+      userName,
+    );
 
     return result;
   }

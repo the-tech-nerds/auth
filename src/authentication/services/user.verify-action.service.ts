@@ -53,13 +53,30 @@ export class UserVerifyActionService {
       user.unfreeze_at = LocalDateToUtc(
         addMinutes(new Date(), <number>this.configService.get('block_time')),
       );
+
+      await this.updateUsersService.execute(user.id, user);
+
+      throw new BadRequestException(
+        'Sorry! your account is temporarily blocked. Try again later.',
+      );
     }
     await this.updateUsersService.execute(user.id, user);
   }
 
-  async performSuccessVerificationAction(user: User): Promise<void> {
+  async performSuccessVerificationAction(
+    user: User,
+    userName: string,
+  ): Promise<void> {
     user.failed_login_count = 0;
     user.unfreeze_at = new Date();
+    user.last_login_at = new Date();
     await this.updateUsersService.execute(user.id, user);
+
+    const loginHistoryData = {
+      userName,
+      request_source: user.type,
+      status: true,
+    } as LoginHistoryRequest;
+    await this.insertLoginHistoryService.execute(loginHistoryData);
   }
 }
