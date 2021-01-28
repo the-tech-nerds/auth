@@ -1,6 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ApiResponseService } from '@the-tech-nerds/common-services';
+import {
+  ApiResponseService,
+  NotificationModule,
+} from '@the-tech-nerds/common-services';
 import { PasswordManagementController } from './controllers/password-management.controller';
 
 import { ForgetPasswordInitService } from './services/forget-password-init.service';
@@ -9,9 +12,10 @@ import { User } from '../user/entities/user.entity';
 import { ResetPasswordService } from './services/reset-password.service';
 import { OtpModule } from '../otp/otp.module';
 import { CreatePasswordService } from './services/create-password.servic e';
+import { ResetPasswordAutoGenerateService } from './services/reset-password-auto-generate.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User]), OtpModule],
+  imports: [TypeOrmModule.forFeature([User]), OtpModule, NotificationModule],
   providers: [
     ApiResponseService,
     ForgetPasswordInitService,
@@ -19,6 +23,7 @@ import { CreatePasswordService } from './services/create-password.servic e';
     ResetPasswordService,
     ApiResponseService,
     CreatePasswordService,
+    ResetPasswordAutoGenerateService,
   ],
   controllers: [PasswordManagementController],
 })
