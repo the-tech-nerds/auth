@@ -27,6 +27,7 @@ import { FetchUserInfoByEmailService } from '../user/services/fetch-user-by-emai
 import { LoginHistories } from '../login-history/entities/login-history.entity';
 import { LoginHistoryModule } from '../login-history/login-history.module';
 import { InsertLoginHistoryService } from '../login-history/services/insert-login-history.service';
+import { UserVerifyActionService } from './services/user.verify-action.service';
 
 @Module({
   imports: [
@@ -58,6 +59,7 @@ import { InsertLoginHistoryService } from '../login-history/services/insert-logi
     UserLoginService,
     UserLogoutService,
     UserValidationService,
+    UserVerifyActionService,
     LocalStrategy,
     JwtStrategy,
     FetchUserByIdService,

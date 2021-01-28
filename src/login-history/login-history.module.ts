@@ -8,6 +8,6 @@ import { InsertLoginHistoryService } from './services/insert-login-history.servi
   imports: [TypeOrmModule.forFeature([LoginHistories])],
   providers: [InsertLoginHistoryService, ApiResponseService],
   controllers: [],
-  exports: [],
+  exports: [InsertLoginHistoryService],
 })
 export class LoginHistoryModule {}
