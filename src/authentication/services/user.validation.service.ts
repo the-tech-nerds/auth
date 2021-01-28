@@ -1,4 +1,5 @@
 import { InjectRepository } from '@nestjs/typeorm';
+import { ConfigService } from '@nestjs/config';
 import { Repository } from 'typeorm';
 import { compare } from 'bcryptjs';
 import { BadRequestException } from '@nestjs/common';
@@ -10,6 +11,7 @@ export class UserValidationService {
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
     private readonly userVerifyActionService: UserVerifyActionService,
+    private readonly configService: ConfigService,
   ) {}
 
   async validate(userName: string, password: string, type: number) {
@@ -36,7 +38,11 @@ export class UserValidationService {
         userName,
       );
 
-      throw new BadRequestException('Password did not match');
+      const loginLimit = this.configService.get('failed_login_limit');
+      throw new BadRequestException(
+        `Password did not match. You have ${loginLimit -
+          user.failed_login_count} more attempt/s left`,
+      );
     }
 
     await this.userVerifyActionService.performSuccessVerificationAction(user);

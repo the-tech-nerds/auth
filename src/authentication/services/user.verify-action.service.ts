@@ -43,12 +43,11 @@ export class UserVerifyActionService {
       request_source: user.type,
       status: false,
     } as LoginHistoryRequest;
-    console.log(this.insertLoginHistoryService);
     await this.insertLoginHistoryService.execute(loginHistoryData);
 
     user.failed_login_count += 1;
     if (
-      user.failed_login_count > this.configService.get('failed_login_limit')
+      user.failed_login_count >= this.configService.get('failed_login_limit')
     ) {
       user.is_frozen = true;
       user.unfreeze_at = LocalDateToUtc(
