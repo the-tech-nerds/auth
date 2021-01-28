@@ -28,12 +28,7 @@ export class CreateOtpService {
         'Please select only email or phone number.',
       );
     }
-    if (otpRequest.phone) {
-      await this.checkOtpAvailability(otpRequest.phone, otpRequest.email);
-    }
-    if (otpRequest.email) {
-      await this.checkOtpAvailability(otpRequest.phone, otpRequest.email);
-    }
+    await this.checkOtpAvailability(otpRequest.phone, otpRequest.email);
 
     const otp = this.generateOTP(4);
     const otpModel = await this.otpsRepository.save({

@@ -23,6 +23,7 @@ export class UpdateEmailService {
         );
       }
       user.email = request.email;
+      user.is_email_verified = true;
       await this.usersRepository.save(user);
     } else {
       throw new BadRequestException('User not found');

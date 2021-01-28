@@ -13,7 +13,9 @@ export class UserResponse {
 
   gender_type?: number;
 
-  is_mobile_verified: boolean;
+  is_mobile_verified?: boolean;
+
+  is_email_verified?: boolean;
 
   has_password?: boolean;
 
