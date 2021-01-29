@@ -43,6 +43,7 @@ import { FetchUserInfoByEmailService } from './services/fetch-user-by-email.serv
     FetchUserInfoByPhoneService,
     FetchUserInfoByEmailService,
   ],
+  exports: [UpdateUsersService],
   controllers: [UserController],
 })
 export class UserModule {}

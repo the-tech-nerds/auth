@@ -72,6 +72,9 @@ export class User extends BaseEntity {
   is_active: boolean;
 
   @Column({ default: false })
+  is_frozen: boolean;
+
+  @Column({ default: false })
   is_mobile_verified: boolean;
 
   @Column({ default: false })
@@ -79,6 +82,15 @@ export class User extends BaseEntity {
 
   @Column({ default: true })
   is_used_promotion: boolean;
+
+  @Column({ default: 0 })
+  failed_login_count: number;
+
+  @Column({ nullable: true })
+  last_login_at: Date;
+
+  @Column({ nullable: true })
+  unfreeze_at: Date;
 
   @OneToMany(
     () => Address,
