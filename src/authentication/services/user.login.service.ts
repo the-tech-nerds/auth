@@ -72,12 +72,16 @@ export class UserLoginService {
         password: ' ',
         google_auth: user.accessToken,
         image_url: user.picture,
+        is_email_verified: true,
       })) as any;
     } else {
-      registerUser.first_name = user.firstName;
-      registerUser.last_name = user.lastName;
-      registerUser.google_auth = user.accessToken;
-      registerUser.image_url = user.picture;
+      registerUser = {
+        ...registerUser,
+        first_name: user.first_name,
+        last_name: user.lastName,
+        google_auth: user.google_auth,
+        image_url: user.picture,
+      };
       await this.userRepository.save(registerUser);
     }
 
@@ -101,10 +105,13 @@ export class UserLoginService {
       facebook_user_id: user.facebook_profile_id,
     });
     if (userProfileInfo) {
-      userProfileInfo.first_name = user.firstName;
-      userProfileInfo.last_name = user.lastName;
-      userProfileInfo.facebook_auth = user.facebook_auth;
-      userProfileInfo.image_url = user.picture;
+      userProfileInfo = {
+        ...userProfileInfo,
+        first_name: user.first_name,
+        last_name: user.lastName,
+        google_auth: user.facebook_auth,
+        image_url: user.picture,
+      };
       await this.userRepository.save(userProfileInfo);
     } else {
       userProfileInfo = (await this.userRegistrationService.register({
