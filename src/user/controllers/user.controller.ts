@@ -49,6 +49,7 @@ import { UpdateEmailService } from '../services/update-email.service';
 import { UpdateEmailRequest } from '../requests/update-email.request';
 import { FetchUserInfoByEmailService } from '../services/fetch-user-by-email.service';
 import { FetchUserInfoByPhoneService } from '../services/fetch-user-by-phone.service';
+import { UpdateUserFreezeStatusService } from '../services/update-user-freeze-status.service';
 
 @Controller()
 export class UserController {
@@ -69,6 +70,8 @@ export class UserController {
     private readonly updateEmailService: UpdateEmailService,
     private readonly fetchUserInfoByEmailService: FetchUserInfoByEmailService,
     private readonly fetchUserInfoByPhoneService: FetchUserInfoByPhoneService,
+
+    private readonly updateUserFreezeStatusService: UpdateUserFreezeStatusService,
   ) {}
 
   @UseGuards(UserGuard)
@@ -100,6 +103,23 @@ export class UserController {
     const data = await this.updateUsersService.execute(id, userUpdateRequest);
     return this.apiResponseService.successResponse(
       ['User has been updated successfully'],
+      data as User,
+      res,
+    );
+  }
+
+  @HasPermissions(
+    [PermissionTypes.USER.UPDATE],
+    PermissionTypeEnum.hasPermission,
+  )
+  @Put('/:id/unfreeze')
+  async unfreezeUser(
+    @Param('id') id: number,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    const data = await this.updateUserFreezeStatusService.unfreezeUser(id);
+    return this.apiResponseService.successResponse(
+      ['User has been unfrozen successfully'],
       data as User,
       res,
     );
