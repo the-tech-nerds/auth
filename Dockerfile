@@ -1,3 +1,5 @@
+ARG domain
+
 FROM node:14-alpine
 RUN mkdir /app
 WORKDIR /app
@@ -8,5 +10,5 @@ EXPOSE 3306
 
 RUN rm -f .npmrc
 
-CMD [ "npm run start:dev" ]
+CMD [ "npm run start:${domain}" ]
 ENTRYPOINT [ "sh", "-c" ]

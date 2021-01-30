@@ -18,8 +18,8 @@ export class UserRegistrationService {
     const {
       password = '',
       type = UserType.USER,
-      email = null,
-      phone = null,
+      email = undefined,
+      phone = undefined,
     } = userData;
 
     const user = await this.userRepository.findOne({
