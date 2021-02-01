@@ -109,8 +109,8 @@ workflows:
 #              only: develop
       - docker-build-image:
           context: khanfreshcorner
-          requires:
-            - npm-build
+          # requires:
+          #   - npm-build
           filters:
             branches:
               only: develop
