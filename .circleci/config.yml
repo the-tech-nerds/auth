@@ -30,38 +30,37 @@ commands:
             echo "role_arn = arn:aws:iam::${PROD_AWS_ACCOUNT_ID}:role/developer" >> ~/.aws/credentials
             echo "source_profile = default" >> ~/.aws/credentials
 jobs:
-#  npm-install:
-#    resource_class: small
-#    executor: node
-#    steps:
-#      - checkout
-#      - run:
-#          name: Install Node.js dependencies with Npm
-#          command: |
-#            npm install --production
-#      - persist_to_workspace:
-#          root: ~/app
-#          paths:
-#            - .
-#  npm-build:
-#    executor: node
-#    resource_class: medium
-#    steps:
-#      - attach_workspace:
-#          at: ~/app
-#      - run:
-#          name: Build npm
-#          command: |
-#            npm run build
-#      - persist_to_workspace:
-#          root: ~/app
-#          paths:
-#            - .
+  npm-install:
+    resource_class: small
+    executor: node
+    steps:
+      - checkout
+      - run:
+          name: Install Node.js dependencies with Npm
+          command: |
+            npm install
+      - persist_to_workspace:
+          root: ~/app
+          paths:
+            - .
+  npm-build:
+    executor: node
+    resource_class: medium
+    steps:
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: Build npm
+          command: |
+            npm run build
+      - persist_to_workspace:
+          root: ~/app
+          paths:
+            - .
   docker-build-image:
     resource_class: small
     executor: aws
     steps:
-      - checkout
       - attach_workspace:
           at: ~/app
       - run:
@@ -87,7 +86,7 @@ jobs:
             fi
             if [ "develop" == "$CIRCLE_BRANCH" ]
             then
-              docker build -t $DEV_IMAGE_NAME .
+              docker build -t $DEV_IMAGE_NAME --build-arg domain=prod .
               docker tag $DEV_IMAGE_NAME $DEV_IMAGE_NAME_LATEST
               docker push $DEV_IMAGE_NAME_LATEST
               echo "Pushed ${DEV_IMAGE_NAME_LATEST}"
@@ -96,22 +95,22 @@ workflows:
   version: 2
   build:
     jobs:
-#      - npm-install:
-#          context: khanfreshcorner
-#          filters:
-#            branches:
-#              only: develop
-#      - npm-build:
-#          context: khanfreshcorner
-#          requires:
-#            - npm-install
-#          filters:
-#            branches:
-#              only: develop
+      - npm-install:
+          context: khanfreshcorner
+          filters:
+            branches:
+              only: develop
+      - npm-build:
+          context: khanfreshcorner
+          requires:
+            - npm-install
+          filters:
+            branches:
+              only: develop
       - docker-build-image:
           context: khanfreshcorner
-          # requires:
-          #   - npm-build
+          requires:
+             - npm-build
           filters:
             branches:
               only: develop
