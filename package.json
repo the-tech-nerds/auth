@@ -28,7 +28,6 @@
     "typeorm:run": "npm run typeorm migration:run"
   },
   "dependencies": {
-    "@nestjs/cli": "^7.0.0",
     "@nestjs/common": "^7.0.0",
     "@nestjs/config": "^0.6.1",
     "@nestjs/core": "^7.0.0",
@@ -111,7 +110,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "eslint \"src/**/*.{ts,jsx,js,tsx}\" --fix && prettier --write \"src/**/*.ts\" &&  git add . && npm run build"
+      "pre-commit": "eslint \"src/**/*.{ts,jsx,js,tsx}\" --fix && prettier --write \"src/**/*.ts\" &&  git add ."
     }
   }
 }
