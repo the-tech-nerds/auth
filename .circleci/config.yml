@@ -61,6 +61,7 @@ jobs:
     resource_class: small
     executor: aws
     steps:
+      - checkout
       - attach_workspace:
           at: ~/app
       - run:
@@ -109,8 +110,8 @@ workflows:
               only: develop
       - docker-build-image:
           context: khanfreshcorner
-          requires:
-            - npm-build
+          # requires:
+          #   - npm-build
           filters:
             branches:
               only: develop
