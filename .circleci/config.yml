@@ -109,7 +109,7 @@ workflows:
               only: develop
       - docker-build-image:
           context: khanfreshcorner
-           requires:
+          requires:
              - npm-build
           filters:
             branches:
