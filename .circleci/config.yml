@@ -38,7 +38,7 @@ jobs:
       - run:
           name: Install Node.js dependencies with Npm
           command: |
-            npm install
+            npm install --production
       - persist_to_workspace:
           root: ~/app
           paths:
