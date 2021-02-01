@@ -61,6 +61,7 @@ jobs:
     resource_class: small
     executor: aws
     steps:
+      - checkout
       - attach_workspace:
           at: ~/app
       - run:
