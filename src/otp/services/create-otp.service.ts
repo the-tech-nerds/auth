@@ -1,8 +1,10 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Between, MoreThan, Repository } from 'typeorm';
-import { SmsSingleService } from 'src/notification/sms/services/sms-single.service';
-import { EmailNotification } from '@the-tech-nerds/common-services';
+import {
+  EmailNotification,
+  SmsNotification,
+} from '@the-tech-nerds/common-services';
 import { Otps } from '../entities/otp.entity';
 import { OtpRequest } from '../requests/otp.request';
 import {
@@ -17,8 +19,8 @@ export class CreateOtpService {
   constructor(
     @InjectRepository(Otps)
     private otpsRepository: Repository<Otps>,
-    private smsSingleService: SmsSingleService,
     private emailNotification: EmailNotification,
+    private smsNotification: SmsNotification,
   ) {}
 
   async create(
@@ -42,15 +44,12 @@ export class CreateOtpService {
 
     // send otp to desire number or email
     if (otpRequest.phone) {
-      await this.smsSingleService.sendSingleSMS(
-        {
-          msisdn: otpRequest.phone === undefined ? '' : otpRequest.phone,
-          purpose: otpRequest.purpose,
-          text: `your otp is: ${otp}`,
-          user_id: 0,
-        },
-        res,
-      );
+      await this.smsNotification.singleSmsSend({
+        msisdn: otpRequest.phone === undefined ? '' : otpRequest.phone,
+        purpose: otpRequest.purpose,
+        text: `your otp is: ${otp}`,
+        user_id: 0,
+      });
     }
     if (otpRequest.email) {
       this.emailNotification.send({

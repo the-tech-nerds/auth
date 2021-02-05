@@ -10,7 +10,6 @@ exports.OtpModule = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const common_services_1 = require("@the-tech-nerds/common-services");
-const notification_module_1 = require("../notification/notification.module");
 const user_module_1 = require("../user/user.module");
 const otp_entity_1 = require("./entities/otp.entity");
 const create_otp_service_1 = require("./services/create-otp.service");
@@ -22,7 +21,6 @@ OtpModule = __decorate([
     common_1.Module({
         imports: [
             typeorm_1.TypeOrmModule.forFeature([otp_entity_1.Otps]),
-            notification_module_1.NotificationModule,
             user_module_1.UserModule,
             common_services_1.NotificationModule,
         ],
