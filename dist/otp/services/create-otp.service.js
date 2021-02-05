@@ -16,15 +16,14 @@ exports.CreateOtpService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
-const sms_single_service_1 = require("../../notification/sms/services/sms-single.service");
 const common_services_1 = require("@the-tech-nerds/common-services");
 const otp_entity_1 = require("../entities/otp.entity");
 const date_time_conversion_1 = require("../../utils/date-time-conversion/date-time-conversion");
 let CreateOtpService = class CreateOtpService {
-    constructor(otpsRepository, smsSingleService, emailNotification) {
+    constructor(otpsRepository, emailNotification, smsNotification) {
         this.otpsRepository = otpsRepository;
-        this.smsSingleService = smsSingleService;
         this.emailNotification = emailNotification;
+        this.smsNotification = smsNotification;
     }
     async create(otpRequest, res) {
         if (otpRequest.email && otpRequest.phone) {
@@ -39,12 +38,12 @@ let CreateOtpService = class CreateOtpService {
             expiration_time: date_time_conversion_1.LocalDateToUtc(date_time_conversion_1.addMinutes(new Date(), 1)),
         });
         if (otpRequest.phone) {
-            await this.smsSingleService.sendSingleSMS({
+            await this.smsNotification.singleSmsSend({
                 msisdn: otpRequest.phone === undefined ? '' : otpRequest.phone,
                 purpose: otpRequest.purpose,
                 text: `your otp is: ${otp}`,
                 user_id: 0,
-            }, res);
+            });
         }
         if (otpRequest.email) {
             this.emailNotification.send({
@@ -116,8 +115,8 @@ CreateOtpService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectRepository(otp_entity_1.Otps)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
-        sms_single_service_1.SmsSingleService,
-        common_services_1.EmailNotification])
+        common_services_1.EmailNotification,
+        common_services_1.SmsNotification])
 ], CreateOtpService);
 exports.CreateOtpService = CreateOtpService;
 //# sourceMappingURL=create-otp.service.js.map

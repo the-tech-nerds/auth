@@ -19,7 +19,6 @@ import { OtpModule } from './otp/otp.module';
 import configuration from './config/configuration';
 import loginConfig from './config/login-config';
 import { PasswordModule } from './password/password.module';
-import { NotificationModule } from './notification/notification.module';
 
 // @ts-ignore
 @Module({
@@ -46,7 +45,6 @@ import { NotificationModule } from './notification/notification.module';
     }),
     CacheModule,
     ApiResponseModule,
-    NotificationModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -24,7 +24,6 @@ const otp_module_1 = require("./otp/otp.module");
 const configuration_1 = require("./config/configuration");
 const login_config_1 = require("./config/login-config");
 const password_module_1 = require("./password/password.module");
-const notification_module_1 = require("./notification/notification.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -52,7 +51,6 @@ AppModule = __decorate([
             }),
             common_services_1.CacheModule,
             common_services_1.ApiResponseModule,
-            notification_module_1.NotificationModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
