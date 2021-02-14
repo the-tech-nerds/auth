@@ -19,11 +19,7 @@ let OtpModule = class OtpModule {
 };
 OtpModule = __decorate([
     common_1.Module({
-        imports: [
-            typeorm_1.TypeOrmModule.forFeature([otp_entity_1.Otps]),
-            user_module_1.UserModule,
-            common_services_1.NotificationModule,
-        ],
+        imports: [typeorm_1.TypeOrmModule.forFeature([otp_entity_1.Otps]), user_module_1.UserModule, common_services_1.NotificationModule],
         providers: [create_otp_service_1.CreateOtpService, validation_otp_service_1.ValidateOtpService, common_services_1.ApiResponseService],
         controllers: [otp_controller_1.OtpController],
         exports: [create_otp_service_1.CreateOtpService],
