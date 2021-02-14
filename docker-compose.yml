@@ -40,6 +40,7 @@ services:
       - groceryshop
     volumes:
        - "./data/redis:/data"
+
   authdb: 
     image: mysql:5.7
     container_name: authdb
