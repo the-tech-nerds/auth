@@ -6,6 +6,11 @@ volumes:
   db:
     driver:
       local
+
+  notificationdb:
+    driver:
+      local
+
 services:
   auth:
     container_name: auth
@@ -23,11 +28,11 @@ services:
     networks:
       - groceryshop
     depends_on:
-      - authredis
+      - redis
       - authdb
 
-  authredis:
-    container_name: authredis
+  redis:
+    container_name: redis
     image: redis:alpine
     ports:
       - 6379:6379
@@ -43,7 +48,7 @@ services:
     ports:
       - "3307:3306"
     volumes:
-      - "./data:/docker-entrypoint-initdb.d"
+      - "./data/auth:/docker-entrypoint-initdb.d"
       - "db:/var/lib/mysql"
     restart: unless-stopped
     command: --default-authentication-plugin=mysql_native_password
@@ -52,3 +57,39 @@ services:
       MYSQL_USER: ${DB_USERNAME}
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_DATABASE: ${DB_DATABASE_NAME}
+
+  notification:
+    container_name: notification
+    image: 575598310632.dkr.ecr.us-east-1.amazonaws.com/notification
+    environment:
+      domain: ${DOMAIN}
+    restart: always
+    ports:
+      - 9001:3000
+    env_file:
+      - .env
+    networks:
+      - groceryshop
+    external_links:
+      - auth
+      - notificationdb
+    depends_on:
+      - notificationdb
+
+  notificationdb:
+    image: mysql:5.7
+    container_name: notificationdb
+    networks:
+      - groceryshop
+    ports:
+      - "3309:3306"
+    volumes:
+      - "./db.sql:/docker-entrypoint-initdb.d/db.sql"
+      - "notificationdb:/var/lib/mysql"
+    restart: unless-stopped
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: notification
