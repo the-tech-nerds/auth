@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import {
   CacheModule,
   ApiResponseService,
+  NotificationModule,
 } from '@the-tech-nerds/common-services';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
@@ -24,6 +25,9 @@ import { UserValidationService } from './services/user.validation.service';
 import { FetchUserByIdService } from '../user/services/fetch-user-by-id.service';
 import { UserLogoutService } from './services/user.logout.service';
 import { FetchUserInfoByEmailService } from '../user/services/fetch-user-by-email.service';
+import { LoginHistories } from '../login-history/entities/login-history.entity';
+import { LoginHistoryModule } from '../login-history/login-history.module';
+import { UserVerifyActionService } from './services/user.verify-action.service';
 
 @Module({
   imports: [
@@ -35,10 +39,12 @@ import { FetchUserInfoByEmailService } from '../user/services/fetch-user-by-emai
       AccessCode,
       AccessToken,
       User,
+      LoginHistories,
     ]),
     CacheModule,
     UserModule,
     PassportModule,
+    LoginHistoryModule,
     JwtModule.registerAsync({
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
@@ -47,12 +53,14 @@ import { FetchUserInfoByEmailService } from '../user/services/fetch-user-by-emai
       }),
       inject: [ConfigService],
     }),
+    NotificationModule,
   ],
   providers: [
     UserRegistrationService,
     UserLoginService,
     UserLogoutService,
     UserValidationService,
+    UserVerifyActionService,
     LocalStrategy,
     JwtStrategy,
     FetchUserByIdService,

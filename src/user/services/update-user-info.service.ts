@@ -21,7 +21,7 @@ export class UpdateUserInfoesService {
   ): Promise<UserResponse | undefined> {
     await this.usersRepository.update(id, {
       ...userInfoUpdateRequest,
-      updated_by: 1,
+      updated_by: id,
       updated_at: LocalDateToUtc(new Date()),
     });
     return this.fetchUserInfoByIdService.execute(id);

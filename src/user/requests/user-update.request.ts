@@ -14,11 +14,19 @@ export class UserUpdateRequest {
   @IsBoolean({ message: 'Is active should be boolean' })
   is_active: boolean;
 
-  image_url: string;
+  image_url?: string;
 
   birthday?: Date;
 
   gender_type?: number;
 
   type?: number;
+
+  is_frozen?: boolean;
+
+  failed_login_count?: number;
+
+  last_login_at?: Date;
+
+  unfreeze_at?: Date;
 }
