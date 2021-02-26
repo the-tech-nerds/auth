@@ -1,5 +1,5 @@
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Equal, IsNull, Not, Repository } from 'typeorm';
 import { Roles } from '../../entities/role.entity';
 
 export class ListRoleService {
@@ -11,7 +11,8 @@ export class ListRoleService {
   async getAll(): Promise<Roles[]> {
     return this.roleRepository.find({
       where: {
-        deleted_at: null,
+        deleted_at: IsNull(),
+        name: Not(Equal('Super Admin')),
       },
       relations: ['users'],
     });

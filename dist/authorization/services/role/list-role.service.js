@@ -23,7 +23,8 @@ let ListRoleService = class ListRoleService {
     async getAll() {
         return this.roleRepository.find({
             where: {
-                deleted_at: null,
+                deleted_at: typeorm_2.IsNull(),
+                name: typeorm_2.Not(typeorm_2.Equal('Super Admin')),
             },
             relations: ['users'],
         });
