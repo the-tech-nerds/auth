@@ -40,7 +40,7 @@ let PermissionController = class PermissionController {
     }
     async getPermissionsFromRole(roleId, res) {
         const data = await this.listPermissionService.getFromRole(roleId);
-        const permission = data === null || data === void 0 ? void 0 : data.permissions.map(p => p.id);
+        const permission = data === null || data === void 0 ? void 0 : data.permissions.map((p) => p.id);
         return this.apiResponseService.successResponse(['Role Permission retrieved successfully'], {
             permissions: permission,
             role: {

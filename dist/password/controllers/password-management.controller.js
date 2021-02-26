@@ -85,6 +85,7 @@ __decorate([
 ], PasswordManagementController.prototype, "resetPassword", null);
 __decorate([
     common_1.UseGuards(common_services_1.UserGuard),
+    common_services_1.HasPermissions([common_services_1.PermissionTypes.PASSWROD_RESET.UPDATE], common_services_1.PermissionTypeEnum.hasPermission),
     common_1.Post('/reset-password-auto-generate'),
     __param(0, common_1.Body()),
     __param(1, common_services_1.CurrentUser('id')),

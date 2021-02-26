@@ -37,7 +37,7 @@ let UserLoginService = class UserLoginService {
         if (userType !== type) {
             throw new common_1.BadRequestException(`User with ${email || phone} not found.`);
         }
-        const filteredRoles = roles.filter(role => role.is_active);
+        const filteredRoles = roles.filter((role) => role.is_active);
         const allPermissions = filteredRoles
             .reduce((acc, role) => [...acc, ...role.permissions], [])
             .map(({ id: permissionId, name }) => ({ id: permissionId, name }));

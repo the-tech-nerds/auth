@@ -40,11 +40,11 @@ let GetByIdRoleService = class GetByIdRoleService {
             },
         });
         permissionCategory = permissionCategory
-            .map(pc => {
-            pc.permissions = pc.permissions.filter(permission => (role === null || role === void 0 ? void 0 : role.permissions.filter(p => permission.id === p.id)) || []);
+            .map((pc) => {
+            pc.permissions = pc.permissions.filter((permission) => (role === null || role === void 0 ? void 0 : role.permissions.filter((p) => permission.id === p.id)) || []);
             return pc;
         })
-            .filter(pc => pc.permissions.length > 0);
+            .filter((pc) => pc.permissions.length > 0);
         return {
             role: {
                 name: role.name,

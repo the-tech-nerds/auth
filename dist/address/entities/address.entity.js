@@ -21,7 +21,7 @@ __decorate([
 ], Address.prototype, "id", void 0);
 __decorate([
     typeorm_1.JoinColumn({ name: 'user_id' }),
-    typeorm_1.ManyToOne(() => user_entity_1.User, user => user.id),
+    typeorm_1.ManyToOne(() => user_entity_1.User, (user) => user.id),
     __metadata("design:type", Number)
 ], Address.prototype, "user_id", void 0);
 __decorate([

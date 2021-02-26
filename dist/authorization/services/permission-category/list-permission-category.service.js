@@ -39,7 +39,7 @@ let ListPermissionCategoryService = class ListPermissionCategoryService extends 
         const role = await this.getByIdRoleService.getById(roleId);
         const permissioncategoryIds = {};
         const categoryList = {};
-        (_a = role === null || role === void 0 ? void 0 : role.permissions) === null || _a === void 0 ? void 0 : _a.forEach(permission => {
+        (_a = role === null || role === void 0 ? void 0 : role.permissions) === null || _a === void 0 ? void 0 : _a.forEach((permission) => {
             if (permissioncategoryIds[permission.permission_category.name]) {
                 categoryList[permission.permission_category.name].push({
                     permission_id: permission.id,

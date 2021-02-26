@@ -29,12 +29,12 @@ __decorate([
     __metadata("design:type", Boolean)
 ], Roles.prototype, "is_active", void 0);
 __decorate([
-    typeorm_1.ManyToMany(type => permission_entity_1.Permissions, permissions => permissions.roles),
+    typeorm_1.ManyToMany((type) => permission_entity_1.Permissions, (permissions) => permissions.roles),
     typeorm_1.JoinTable({ name: 'role_has_permissions' }),
     __metadata("design:type", Array)
 ], Roles.prototype, "permissions", void 0);
 __decorate([
-    typeorm_1.ManyToMany(type => user_entity_1.User, users => users.roles),
+    typeorm_1.ManyToMany((type) => user_entity_1.User, (users) => users.roles),
     typeorm_1.JoinTable({ name: 'user_has_roles' }),
     __metadata("design:type", Array)
 ], Roles.prototype, "users", void 0);

@@ -28,8 +28,7 @@ let AssignPermissionInRoleService = class AssignPermissionInRoleService extends 
     async assign(role_id, permissions) {
         try {
             const ROLE = await this.rolesRepository.findOne(role_id);
-            ROLE === null || ROLE === void 0 ? void 0 : ROLE.permissions =
-                (await this.permissionsRepository.findByIds(permissions)) || [];
+            ROLE === null || ROLE === void 0 ? void 0 : ROLE.permissions = (await this.permissionsRepository.findByIds(permissions)) || [];
             return { role: await this.rolesRepository.save(ROLE) };
         }
         catch (e) {

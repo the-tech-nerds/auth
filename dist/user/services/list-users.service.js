@@ -25,6 +25,7 @@ let ListUsersService = class ListUsersService {
         return this.usersRepository.find({
             where: {
                 type: Number(userType),
+                email: typeorm_2.Not(typeorm_2.Equal('admin@khanfcbd.com')),
             },
             relations: ['roles'],
         });
