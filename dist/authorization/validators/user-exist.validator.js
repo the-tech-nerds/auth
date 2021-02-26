@@ -13,7 +13,7 @@ const user_repository_1 = require("../repositories/user.repository");
 let IsUserExistConstraint = class IsUserExistConstraint {
     validate(user_id, args) {
         const userRepository = typeorm_1.getCustomRepository(user_repository_1.UserRepository);
-        return userRepository.findOne(user_id).then((user) => !!user);
+        return userRepository.findOne(user_id).then(user => !!user);
     }
 };
 IsUserExistConstraint = __decorate([

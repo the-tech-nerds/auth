@@ -116,11 +116,11 @@ __decorate([
     __metadata("design:type", Date)
 ], User.prototype, "unfreeze_at", void 0);
 __decorate([
-    typeorm_1.OneToMany(() => address_entity_1.Address, (address) => address.user_id),
+    typeorm_1.OneToMany(() => address_entity_1.Address, address => address.user_id),
     __metadata("design:type", Array)
 ], User.prototype, "addresses", void 0);
 __decorate([
-    typeorm_1.ManyToMany(() => role_entity_1.Roles, (roles) => roles.users),
+    typeorm_1.ManyToMany(() => role_entity_1.Roles, roles => roles.users),
     __metadata("design:type", Array)
 ], User.prototype, "roles", void 0);
 User = __decorate([

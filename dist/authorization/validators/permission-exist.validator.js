@@ -15,7 +15,7 @@ let IsPermissionNotExistConstraint = class IsPermissionNotExistConstraint {
         const permissionRepository = typeorm_1.getCustomRepository(permission_repository_1.PermissionRepository);
         return permissionRepository
             .findOne(permission_category_id)
-            .then((permission) => !!permission);
+            .then(permission => !!permission);
     }
 };
 IsPermissionNotExistConstraint = __decorate([

@@ -30,7 +30,7 @@ __decorate([
 ], Permissions.prototype, "description", void 0);
 __decorate([
     typeorm_1.JoinColumn(),
-    typeorm_1.ManyToOne(() => permission_category_entity_1.PermissionCategories, (category) => category.permissions, {
+    typeorm_1.ManyToOne(() => permission_category_entity_1.PermissionCategories, category => category.permissions, {
         onDelete: 'CASCADE',
     }),
     __metadata("design:type", permission_category_entity_1.PermissionCategories)
@@ -40,7 +40,7 @@ __decorate([
     __metadata("design:type", Boolean)
 ], Permissions.prototype, "is_active", void 0);
 __decorate([
-    typeorm_1.ManyToMany(() => role_entity_1.Roles, (roles) => roles.permissions, { cascade: true, eager: true }),
+    typeorm_1.ManyToMany(() => role_entity_1.Roles, roles => roles.permissions, { cascade: true, eager: true }),
     __metadata("design:type", Array)
 ], Permissions.prototype, "roles", void 0);
 Permissions = __decorate([

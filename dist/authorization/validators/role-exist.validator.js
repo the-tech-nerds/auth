@@ -13,7 +13,7 @@ const role_repository_1 = require("../repositories/role.repository");
 let IsRoleNotExistConstraint = class IsRoleNotExistConstraint {
     validate(role_id, args) {
         const roleCategoryRepository = typeorm_1.getCustomRepository(role_repository_1.RoleRepository);
-        return roleCategoryRepository.findOne(role_id).then((role) => !!role);
+        return roleCategoryRepository.findOne(role_id).then(role => !!role);
     }
 };
 IsRoleNotExistConstraint = __decorate([

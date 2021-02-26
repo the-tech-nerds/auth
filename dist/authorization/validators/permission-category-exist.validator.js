@@ -15,7 +15,7 @@ let IsPermissionCategoryExistConstraint = class IsPermissionCategoryExistConstra
         const permissionCategoryRepository = typeorm_1.getCustomRepository(permission_category_repository_1.PermissionCategoryRepository);
         return permissionCategoryRepository
             .findOne(permission_category_id)
-            .then((pc) => (args.constraints[0] ? !pc : !!pc));
+            .then(pc => (args.constraints[0] ? !pc : !!pc));
     }
 };
 IsPermissionCategoryExistConstraint = __decorate([

@@ -23,8 +23,8 @@ let CreatePasswordService = class CreatePasswordService {
         this.userRepository = userRepository;
     }
     async execute(createPasswordRequest) {
-        if (createPasswordRequest.new_password
-            !== createPasswordRequest.new_password_confirm) {
+        if (createPasswordRequest.new_password !==
+            createPasswordRequest.new_password_confirm) {
             throw new common_1.BadRequestException('Sorry! Password confirmation did not match');
         }
         const user = await this.userRepository.findOneOrFail(createPasswordRequest.user_id);

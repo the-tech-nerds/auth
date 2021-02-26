@@ -42,8 +42,8 @@ let UserValidationService = class UserValidationService {
         if (!verify) {
             await this.userVerifyActionService.performFailedVerificationAction(user, userName);
             const loginLimit = this.configService.get('failed_login_limit');
-            throw new common_1.BadRequestException(`Password did not match. You have ${loginLimit
-                - user.failed_login_count} more attempt/s left`);
+            throw new common_1.BadRequestException(`Password did not match. You have ${loginLimit -
+                user.failed_login_count} more attempt/s left`);
         }
         await this.userVerifyActionService.performSuccessVerificationAction(user, userName);
         return result;

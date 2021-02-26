@@ -23,8 +23,8 @@ let ResetPasswordService = class ResetPasswordService {
         this.userRepository = userRepository;
     }
     async execute(resetPasswordRequest, user_id) {
-        if (resetPasswordRequest.new_password
-            !== resetPasswordRequest.new_password_confirm) {
+        if (resetPasswordRequest.new_password !==
+            resetPasswordRequest.new_password_confirm) {
             throw new common_1.BadRequestException('Sorry! Password confirmation did not match');
         }
         const user = await this.userRepository.findOneOrFail(user_id);

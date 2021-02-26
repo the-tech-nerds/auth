@@ -32,7 +32,7 @@ __decorate([
     __metadata("design:type", Boolean)
 ], PermissionCategories.prototype, "is_active", void 0);
 __decorate([
-    typeorm_1.OneToMany(() => permission_entity_1.Permissions, (permission) => permission.permission_category, { cascade: true }),
+    typeorm_1.OneToMany(() => permission_entity_1.Permissions, permission => permission.permission_category, { cascade: true }),
     typeorm_1.JoinTable(),
     __metadata("design:type", Array)
 ], PermissionCategories.prototype, "permissions", void 0);
