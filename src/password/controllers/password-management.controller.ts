@@ -3,6 +3,9 @@ import { Body, Controller, Post, Query, Res, UseGuards } from '@nestjs/common';
 import {
   ApiResponseService,
   CurrentUser,
+  HasPermissions,
+  PermissionTypeEnum,
+  PermissionTypes,
   UserGuard,
 } from '@the-tech-nerds/common-services';
 import { Response } from 'express';
@@ -73,6 +76,10 @@ export class PasswordManagementController {
   }
 
   @UseGuards(UserGuard)
+  @HasPermissions(
+    [PermissionTypes.PASSWROD_RESET.UPDATE],
+    PermissionTypeEnum.hasPermission,
+  )
   @Post('/reset-password-auto-generate')
   async resetAdminPassword(
     @Body() request: ResetPasswordAutoGenerateRequest,

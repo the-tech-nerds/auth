@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Equal, Not, Repository } from 'typeorm';
 import { User } from '../entities/user.entity';
 
 @Injectable()
@@ -14,6 +14,7 @@ export class ListUsersService {
     return this.usersRepository.find({
       where: {
         type: Number(userType),
+        email: Not(Equal('admin@khanfcbd.com')),
       },
       relations: ['roles'],
     });
