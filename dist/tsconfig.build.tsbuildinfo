@@ -1882,8 +1882,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/enum/permission.type.d.ts": {
-        "version": "a944c77f69dfe2ac4ef6fb1dac7f13b8489160a59fdc467ba74ed909d9363fdd",
-        "signature": "a944c77f69dfe2ac4ef6fb1dac7f13b8489160a59fdc467ba74ed909d9363fdd",
+        "version": "d30050252bdfcc505ab7ab3b66b108235a5fabb054cc2566a4caa18c3bacd0cf",
+        "signature": "d30050252bdfcc505ab7ab3b66b108235a5fabb054cc2566a4caa18c3bacd0cf",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/api-response/api-response.service.d.ts": {
@@ -3431,9 +3431,14 @@
         "signature": "0a9137fd1f6cc95a03dc750636d3c795b2a8f1c060aec6c4bd1eb1a55dce802e",
         "affectsGlobalScope": false
       },
+      "../node_modules/@the-tech-nerds/common-services/dist/strategies/jwt.strategy.d.ts": {
+        "version": "bbec3760f8df7a3365984134ecfaecc94e0160446b294d5e348304cc77f03138",
+        "signature": "bbec3760f8df7a3365984134ecfaecc94e0160446b294d5e348304cc77f03138",
+        "affectsGlobalScope": false
+      },
       "../node_modules/@the-tech-nerds/common-services/dist/index.d.ts": {
-        "version": "98645ba5a701607e4fbe5bbd0320f6b7c6f489d549c7a81d04e3a358db407833",
-        "signature": "98645ba5a701607e4fbe5bbd0320f6b7c6f489d549c7a81d04e3a358db407833",
+        "version": "3768730b2ab23a097cdd908f11a2421a98c5d2f5138b5063ecd11b7aff9747da",
+        "signature": "3768730b2ab23a097cdd908f11a2421a98c5d2f5138b5063ecd11b7aff9747da",
         "affectsGlobalScope": false
       },
       "../node_modules/typeorm/schema-builder/options/TableColumnOptions.d.ts": {
@@ -7438,6 +7443,7 @@
         "../node_modules/@the-tech-nerds/common-services/dist/notification/email-notification.d.ts",
         "../node_modules/@the-tech-nerds/common-services/dist/notification/notification.module.d.ts",
         "../node_modules/@the-tech-nerds/common-services/dist/notification/sms-notification.d.ts",
+        "../node_modules/@the-tech-nerds/common-services/dist/strategies/jwt.strategy.d.ts",
         "../node_modules/@the-tech-nerds/common-services/dist/upload/upload.module.d.ts",
         "../node_modules/@the-tech-nerds/common-services/dist/upload/upload.service.d.ts"
       ],
@@ -13817,6 +13823,7 @@
         "../node_modules/@the-tech-nerds/common-services/dist/notification/email-notification.d.ts",
         "../node_modules/@the-tech-nerds/common-services/dist/notification/notification.module.d.ts",
         "../node_modules/@the-tech-nerds/common-services/dist/notification/sms-notification.d.ts",
+        "../node_modules/@the-tech-nerds/common-services/dist/strategies/jwt.strategy.d.ts",
         "../node_modules/@the-tech-nerds/common-services/dist/upload/upload.module.d.ts",
         "../node_modules/@the-tech-nerds/common-services/dist/upload/upload.service.d.ts"
       ],
@@ -19135,6 +19142,7 @@
       "../node_modules/@the-tech-nerds/common-services/dist/notification/email-notification.d.ts",
       "../node_modules/@the-tech-nerds/common-services/dist/notification/notification.module.d.ts",
       "../node_modules/@the-tech-nerds/common-services/dist/notification/sms-notification.d.ts",
+      "../node_modules/@the-tech-nerds/common-services/dist/strategies/jwt.strategy.d.ts",
       "../node_modules/@the-tech-nerds/common-services/dist/upload/upload.module.d.ts",
       "../node_modules/@the-tech-nerds/common-services/dist/upload/upload.service.d.ts",
       "../node_modules/@types/anymatch/index.d.ts",
