@@ -50,7 +50,6 @@ import { UpdateEmailRequest } from '../requests/update-email.request';
 import { FetchUserInfoByEmailService } from '../services/fetch-user-by-email.service';
 import { FetchUserInfoByPhoneService } from '../services/fetch-user-by-phone.service';
 import { UpdateUserFreezeStatusService } from '../services/update-user-freeze-status.service';
-
 @Controller()
 export class UserController {
   constructor(
@@ -283,10 +282,8 @@ export class UserController {
     @UploadedFile() file: any,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    const fileName = `example_${Math.ceil(Math.random() * 100)}`;
-
     return this.uploadService
-      .upload(file, fileName)
+      .upload(file, null, 'user', 'user')
       .then((response: any) =>
         this.apiResponseService.successResponse(
           ['Image Uploaded successfully'],

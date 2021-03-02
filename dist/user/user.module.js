@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserModule = void 0;
+const storage_entity_1 = require("./entities/storage.entity");
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const common_services_1 = require("@the-tech-nerds/common-services");
@@ -27,11 +28,12 @@ const update_email_service_1 = require("./services/update-email.service");
 const fetch_user_by_phone_service_1 = require("./services/fetch-user-by-phone.service");
 const fetch_user_by_email_service_1 = require("./services/fetch-user-by-email.service");
 const update_user_freeze_status_service_1 = require("./services/update-user-freeze-status.service");
+const save_file_service_1 = require("@the-tech-nerds/common-services/dist/upload/save-file.service");
 let UserModule = class UserModule {
 };
 UserModule = __decorate([
     common_1.Module({
-        imports: [typeorm_1.TypeOrmModule.forFeature([user_entity_1.User, role_entity_1.Roles]), common_services_1.CacheModule],
+        imports: [typeorm_1.TypeOrmModule.forFeature([user_entity_1.User, role_entity_1.Roles, storage_entity_1.FileStorage]), common_services_1.CacheModule],
         providers: [
             common_services_1.ApiResponseService,
             list_users_service_1.ListUsersService,
@@ -45,6 +47,7 @@ UserModule = __decorate([
             verified_phone_service_1.UpdatePhoneVerifiedService,
             update_phone_service_1.UpdatePhoneService,
             common_services_1.UploadService,
+            save_file_service_1.SaveFileService,
             update_email_service_1.UpdateEmailService,
             fetch_user_by_phone_service_1.FetchUserInfoByPhoneService,
             fetch_user_by_email_service_1.FetchUserInfoByEmailService,

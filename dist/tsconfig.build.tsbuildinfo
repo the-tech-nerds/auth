@@ -1901,6 +1901,16 @@
         "signature": "b5e94c01a086c2c0bdc1098fa2e4b7b1003a2cd5116062d4ed00cd2a8fbd84fb",
         "affectsGlobalScope": false
       },
+      "../node_modules/@the-tech-nerds/common-services/dist/upload/model/file-storage.model.d.ts": {
+        "version": "d194984b53d96b74740c6cd87df70e47a7dd2f58b44af9919b06bfcdfd6fa0a1",
+        "signature": "d194984b53d96b74740c6cd87df70e47a7dd2f58b44af9919b06bfcdfd6fa0a1",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@the-tech-nerds/common-services/dist/upload/save-file.service.d.ts": {
+        "version": "f9603aa84c9cdaee3e36babca6c4167eab7414f79ed8a11cf7567e66c425763d",
+        "signature": "f9603aa84c9cdaee3e36babca6c4167eab7414f79ed8a11cf7567e66c425763d",
+        "affectsGlobalScope": false
+      },
       "../node_modules/aws-sdk/lib/error.d.ts": {
         "version": "aee22a16add1c6362d3f37af8f779595330b223ed5dcdd612bc7e5ef473017a4",
         "signature": "aee22a16add1c6362d3f37af8f779595330b223ed5dcdd612bc7e5ef473017a4",
@@ -3412,8 +3422,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/upload/upload.service.d.ts": {
-        "version": "ee3759788969a22cbe162ce10872924bffd413669644298a377ca5c2087ce4f9",
-        "signature": "ee3759788969a22cbe162ce10872924bffd413669644298a377ca5c2087ce4f9",
+        "version": "f78b39cb1a50b92045dfeab15fcb51ac7e2ce6d83bf35cbb8c3468dbc99a9d70",
+        "signature": "f78b39cb1a50b92045dfeab15fcb51ac7e2ce6d83bf35cbb8c3468dbc99a9d70",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/notification/email-notification.d.ts": {
@@ -3437,8 +3447,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/index.d.ts": {
-        "version": "3768730b2ab23a097cdd908f11a2421a98c5d2f5138b5063ecd11b7aff9747da",
-        "signature": "3768730b2ab23a097cdd908f11a2421a98c5d2f5138b5063ecd11b7aff9747da",
+        "version": "c7074d10837fbdc0e2b5de2cffc855889affb877a68efc5596859a89753a36a3",
+        "signature": "c7074d10837fbdc0e2b5de2cffc855889affb877a68efc5596859a89753a36a3",
         "affectsGlobalScope": false
       },
       "../node_modules/typeorm/schema-builder/options/TableColumnOptions.d.ts": {
@@ -4791,6 +4801,11 @@
         "signature": "6f7b93880211b8110922a91c612cd43159863b7d93137ecf58f8bd662863d6e1",
         "affectsGlobalScope": false
       },
+      "../src/user/entities/storage.entity.ts": {
+        "version": "34114630776b6013c4109706c6d363c438f727bc1a54366039421813bf4f2f65",
+        "signature": "dbf878c72c4c86874ed0cf3435a87ca34b87f970f1c13622d976e931a15a24ff",
+        "affectsGlobalScope": false
+      },
       "../src/utils/entities/base-entity.ts": {
         "version": "26be4cb0f45bcdd60ff6eb844ac034a181dff8cd746bcecbbfdb1ca731f5011a",
         "signature": "7318f9e404c13a6540484226028b52f06e83c63368cb8da68af3d70ca938fc29",
@@ -5632,12 +5647,12 @@
         "affectsGlobalScope": false
       },
       "../src/user/controllers/user.controller.ts": {
-        "version": "4ac7ee0f07afb2e2f664bb770fc3ccdb60661948d939e39b179523d1c04f7a06",
+        "version": "a07ba0c9f0be661c68c52f789f9ab5ac63dce64a7d444f46ab5eab4634618e3e",
         "signature": "92fd64e2f9d4d6a669a0ac661f649dc3e62455cebef5211426a15cb3be2e2b8f",
         "affectsGlobalScope": false
       },
       "../src/user/user.module.ts": {
-        "version": "411829902983173c610c2037b55b87ebbae62dbe03261971955a0de0d4b287c1",
+        "version": "6cd85a71d39a7abefe191238755814f3f5d6a2ae40dd1279219bc80aed60167f",
         "signature": "482b8f0d35a3d453500a15b6c6057c1e4c40baa4329b39da9e1026d8e1de4329",
         "affectsGlobalScope": false
       },
@@ -6122,7 +6137,7 @@
         "affectsGlobalScope": true
       },
       "../src/filters/error.filter.ts": {
-        "version": "1bd7b88fc349d1c13903da41a88c14aa0181aea7afa58e1f15fdc2fe8ca25f14",
+        "version": "06a5ba5b0c9a54a81132e1893b7ce0567096699efe30a996951d879e4b3d137a",
         "signature": "8dfd9d18225dbd91f39c34a19f6c28694b04bcac861ba5d547875cdab2ca9f07",
         "affectsGlobalScope": false
       },
@@ -6434,6 +6449,11 @@
       "../node_modules/@types/uglify-js/index.d.ts": {
         "version": "0215efc2c3f40fd9ec91f19d277afc9efba41cee054fd0be4c92e75cb10cf2c0",
         "signature": "0215efc2c3f40fd9ec91f19d277afc9efba41cee054fd0be4c92e75cb10cf2c0",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/uuid/index.d.ts": {
+        "version": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
+        "signature": "96b49a9de749afcf92b5bce1d8cc42cfae6816cdf5ea36584fd9256b8b2e5292",
         "affectsGlobalScope": false
       },
       "../node_modules/anymatch/index.d.ts": {
@@ -7444,6 +7464,7 @@
         "../node_modules/@the-tech-nerds/common-services/dist/notification/notification.module.d.ts",
         "../node_modules/@the-tech-nerds/common-services/dist/notification/sms-notification.d.ts",
         "../node_modules/@the-tech-nerds/common-services/dist/strategies/jwt.strategy.d.ts",
+        "../node_modules/@the-tech-nerds/common-services/dist/upload/save-file.service.d.ts",
         "../node_modules/@the-tech-nerds/common-services/dist/upload/upload.module.d.ts",
         "../node_modules/@the-tech-nerds/common-services/dist/upload/upload.service.d.ts"
       ],
@@ -7456,7 +7477,11 @@
       "../node_modules/@the-tech-nerds/common-services/dist/notification/sms-notification.d.ts": [
         "../node_modules/@the-tech-nerds/common-services/dist/gateway/gateway.service.d.ts"
       ],
+      "../node_modules/@the-tech-nerds/common-services/dist/upload/save-file.service.d.ts": [
+        "../node_modules/@the-tech-nerds/common-services/dist/upload/model/file-storage.model.d.ts"
+      ],
       "../node_modules/@the-tech-nerds/common-services/dist/upload/upload.service.d.ts": [
+        "../node_modules/@the-tech-nerds/common-services/dist/upload/save-file.service.d.ts",
         "../node_modules/aws-sdk/index.d.ts"
       ],
       "../node_modules/@types/babel__core/index.d.ts": [
@@ -12786,6 +12811,9 @@
         "../src/user/services/update-user.service.ts",
         "../src/user/services/verified-phone.service.ts"
       ],
+      "../src/user/entities/storage.entity.ts": [
+        "../node_modules/typeorm/index.d.ts"
+      ],
       "../src/user/entities/user.entity.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/address/entities/address.entity.ts",
@@ -12912,8 +12940,10 @@
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/@the-tech-nerds/common-services/dist/index.d.ts",
+        "../node_modules/@the-tech-nerds/common-services/dist/upload/save-file.service.d.ts",
         "../src/authorization/entities/role.entity.ts",
         "../src/user/controllers/user.controller.ts",
+        "../src/user/entities/storage.entity.ts",
         "../src/user/entities/user.entity.ts",
         "../src/user/services/assign-role-in-user.service.ts",
         "../src/user/services/delete-user.service.ts",
@@ -13824,6 +13854,7 @@
         "../node_modules/@the-tech-nerds/common-services/dist/notification/notification.module.d.ts",
         "../node_modules/@the-tech-nerds/common-services/dist/notification/sms-notification.d.ts",
         "../node_modules/@the-tech-nerds/common-services/dist/strategies/jwt.strategy.d.ts",
+        "../node_modules/@the-tech-nerds/common-services/dist/upload/save-file.service.d.ts",
         "../node_modules/@the-tech-nerds/common-services/dist/upload/upload.module.d.ts",
         "../node_modules/@the-tech-nerds/common-services/dist/upload/upload.service.d.ts"
       ],
@@ -13836,7 +13867,11 @@
       "../node_modules/@the-tech-nerds/common-services/dist/notification/sms-notification.d.ts": [
         "../node_modules/@the-tech-nerds/common-services/dist/gateway/gateway.service.d.ts"
       ],
+      "../node_modules/@the-tech-nerds/common-services/dist/upload/save-file.service.d.ts": [
+        "../node_modules/@the-tech-nerds/common-services/dist/upload/model/file-storage.model.d.ts"
+      ],
       "../node_modules/@the-tech-nerds/common-services/dist/upload/upload.service.d.ts": [
+        "../node_modules/@the-tech-nerds/common-services/dist/upload/save-file.service.d.ts",
         "../node_modules/aws-sdk/index.d.ts"
       ],
       "../node_modules/@types/babel__core/index.d.ts": [
@@ -19143,6 +19178,8 @@
       "../node_modules/@the-tech-nerds/common-services/dist/notification/notification.module.d.ts",
       "../node_modules/@the-tech-nerds/common-services/dist/notification/sms-notification.d.ts",
       "../node_modules/@the-tech-nerds/common-services/dist/strategies/jwt.strategy.d.ts",
+      "../node_modules/@the-tech-nerds/common-services/dist/upload/model/file-storage.model.d.ts",
+      "../node_modules/@the-tech-nerds/common-services/dist/upload/save-file.service.d.ts",
       "../node_modules/@the-tech-nerds/common-services/dist/upload/upload.module.d.ts",
       "../node_modules/@the-tech-nerds/common-services/dist/upload/upload.service.d.ts",
       "../node_modules/@types/anymatch/index.d.ts",
@@ -19235,6 +19272,7 @@
       "../node_modules/@types/tapable/index.d.ts",
       "../node_modules/@types/uglify-js/index.d.ts",
       "../node_modules/@types/uglify-js/node_modules/source-map/source-map.d.ts",
+      "../node_modules/@types/uuid/index.d.ts",
       "../node_modules/@types/validator/index.d.ts",
       "../node_modules/@types/webpack-sources/index.d.ts",
       "../node_modules/@types/webpack-sources/lib/CachedSource.d.ts",
@@ -20166,6 +20204,7 @@
       "../src/password/services/reset-password.service.ts",
       "../src/route.ts",
       "../src/user/controllers/user.controller.ts",
+      "../src/user/entities/storage.entity.ts",
       "../src/user/entities/user.entity.ts",
       "../src/user/requests/update-email.request.ts",
       "../src/user/requests/update-phone.request.ts",

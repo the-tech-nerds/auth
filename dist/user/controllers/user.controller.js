@@ -104,9 +104,8 @@ let UserController = class UserController {
         return this.apiResponseService.successResponse(['Role Assign successfully'], data, res);
     }
     async upload(file, res) {
-        const fileName = `example_${Math.ceil(Math.random() * 100)}`;
         return this.uploadService
-            .upload(file, fileName)
+            .upload(file, null, 'user', 'user')
             .then((response) => this.apiResponseService.successResponse(['Image Uploaded successfully'], response, res))
             .catch((error) => this.apiResponseService.internalServerError(['Something went wrong! please try again later'], res));
     }

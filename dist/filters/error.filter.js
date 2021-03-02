@@ -17,6 +17,7 @@ let ErrorFilter = class ErrorFilter {
         this.apiResponseService = apiResponseService;
     }
     catch(error, host) {
+        console.log(error);
         const response = host.switchToHttp().getResponse();
         const status = error instanceof common_1.HttpException
             ? error.getStatus()
