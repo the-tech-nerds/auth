@@ -283,7 +283,7 @@ export class UserController {
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
     return this.uploadService
-      .upload(file, null, 'user', 'user')
+      .upload(file, undefined, 'user', 'user')
       .then((response: any) =>
         this.apiResponseService.successResponse(
           ['Image Uploaded successfully'],
