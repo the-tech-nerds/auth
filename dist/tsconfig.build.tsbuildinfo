@@ -1192,38 +1192,38 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/cache/cache.module.d.ts": {
-        "version": "9468b596be83129ca73c161190b8b348c6c73c005b99cc24510bee72ceb96f96",
-        "signature": "9468b596be83129ca73c161190b8b348c6c73c005b99cc24510bee72ceb96f96",
+        "version": "a9b4239f89a11854d1ae26d21c4ee185bc038bd141064aaa48187d9dc8c1a417",
+        "signature": "a9b4239f89a11854d1ae26d21c4ee185bc038bd141064aaa48187d9dc8c1a417",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/cache/cache.service.d.ts": {
-        "version": "17fe5d722979a4fe1244494324e4caa50e5a78d79acc30f57979954d5868af93",
-        "signature": "17fe5d722979a4fe1244494324e4caa50e5a78d79acc30f57979954d5868af93",
+        "version": "4a07086c178fe1bded57cb02fbcedd84184758aaab0202f65505f3fea11e372b",
+        "signature": "4a07086c178fe1bded57cb02fbcedd84184758aaab0202f65505f3fea11e372b",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/app.bootstrap.d.ts": {
-        "version": "4a6895d8a4237c535113d0e8ffa95fd2c5658559b26a21599a6cc8503f5f15fd",
-        "signature": "4a6895d8a4237c535113d0e8ffa95fd2c5658559b26a21599a6cc8503f5f15fd",
+        "version": "b92abe19db76297daf8cefb835b1357e2fbf60d9ea9dcdd19678abc2a1313aa1",
+        "signature": "b92abe19db76297daf8cefb835b1357e2fbf60d9ea9dcdd19678abc2a1313aa1",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/config/common-config.d.ts": {
-        "version": "990852d89d9b5b94545288bc9d115537ec5f89d0e5578ffa4cb045463c606409",
-        "signature": "990852d89d9b5b94545288bc9d115537ec5f89d0e5578ffa4cb045463c606409",
+        "version": "7e14f03fd7c83d7f6804638bd08abc30b19edc01d83372ec160382710c8f5a11",
+        "signature": "7e14f03fd7c83d7f6804638bd08abc30b19edc01d83372ec160382710c8f5a11",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/gateway/gateway.module.d.ts": {
-        "version": "ad9ae92b0c837418e3016c380d8afe55dbcfa3ae60d82fe4540bebf556e957a2",
-        "signature": "ad9ae92b0c837418e3016c380d8afe55dbcfa3ae60d82fe4540bebf556e957a2",
+        "version": "f63561963ff9b5bf0d172e75ab4db4e4f5de0a69959ada03219b94e32a181b29",
+        "signature": "f63561963ff9b5bf0d172e75ab4db4e4f5de0a69959ada03219b94e32a181b29",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/gateway/ip-resolver.service.d.ts": {
-        "version": "dbf401940060b1a22dcec7ca6d1168a786633e2c87e7e8ef4be1377e38f7994a",
-        "signature": "dbf401940060b1a22dcec7ca6d1168a786633e2c87e7e8ef4be1377e38f7994a",
+        "version": "d8f0381628c08a0c3525a7ba2aa5c9f43120e2ee2609a2658ddf37fd37145967",
+        "signature": "d8f0381628c08a0c3525a7ba2aa5c9f43120e2ee2609a2658ddf37fd37145967",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/fetch/fetch.service.d.ts": {
-        "version": "baf646f38d79122bb245113b007ec0ef9ad56f36e28b46a6750c6d2f91ca334d",
-        "signature": "baf646f38d79122bb245113b007ec0ef9ad56f36e28b46a6750c6d2f91ca334d",
+        "version": "706c24753e4a5caeeecd03fa73c5c64b1e92fb8f1124145d9a17626547ab6dad",
+        "signature": "706c24753e4a5caeeecd03fa73c5c64b1e92fb8f1124145d9a17626547ab6dad",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/config/dist/interfaces/config-factory.interface.d.ts": {
@@ -1287,23 +1287,23 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/gateway/fetch-access-code.service.d.ts": {
-        "version": "7c5739da59ea6043291a9266f74e0a958058c254e5635ce643f8b1d261bb197b",
-        "signature": "7c5739da59ea6043291a9266f74e0a958058c254e5635ce643f8b1d261bb197b",
+        "version": "f57ab63841862aa0cd5dd92cd6fa768c88b1cd0400554de7d460d8f4fd08732d",
+        "signature": "f57ab63841862aa0cd5dd92cd6fa768c88b1cd0400554de7d460d8f4fd08732d",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/gateway/fetch-access-token.service.d.ts": {
-        "version": "dd71cc796b4f7f90b51d6bf4b076b916283c10f5acd2d022f97b34c3994c57d9",
-        "signature": "dd71cc796b4f7f90b51d6bf4b076b916283c10f5acd2d022f97b34c3994c57d9",
+        "version": "528e9dc984fe1d55292159849c61ac154c5b19082ae2156866dacafea08a00f1",
+        "signature": "528e9dc984fe1d55292159849c61ac154c5b19082ae2156866dacafea08a00f1",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/logger/customLogger.service.d.ts": {
-        "version": "08218001317163ff5046d7fc7a5650d718ddd2361bcfcb7ebf15cac0a0486bb0",
-        "signature": "08218001317163ff5046d7fc7a5650d718ddd2361bcfcb7ebf15cac0a0486bb0",
+        "version": "5965597333cc97422a7aa2d96ea0e8113711e7593d12aad9154a304c6f656736",
+        "signature": "5965597333cc97422a7aa2d96ea0e8113711e7593d12aad9154a304c6f656736",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/gateway/gateway.service.d.ts": {
-        "version": "744f278da00c6b7630a121b908d64257947f8a0bfc4d0244beeb245d4dd04549",
-        "signature": "744f278da00c6b7630a121b908d64257947f8a0bfc4d0244beeb245d4dd04549",
+        "version": "15142479af04fc518671a181f6523e2cd605a18bede0d4e159087108f27eb866",
+        "signature": "15142479af04fc518671a181f6523e2cd605a18bede0d4e159087108f27eb866",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/node/globals.d.ts": {
@@ -1577,13 +1577,13 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/gateway/gateway.middleware.d.ts": {
-        "version": "0632e7bbb56ee3922c86a1ff00b6559c8105b5343f538100a6030abfcd5b23bb",
-        "signature": "0632e7bbb56ee3922c86a1ff00b6559c8105b5343f538100a6030abfcd5b23bb",
+        "version": "3abca0396e71548206f2cc5d9170982e416046af6e17d4e6a7e7d712798a6e98",
+        "signature": "3abca0396e71548206f2cc5d9170982e416046af6e17d4e6a7e7d712798a6e98",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/fetch/fetch.module.d.ts": {
-        "version": "8dc743fc0c35d452904a6dec667aa67d18004e8eb97565dd1c6f8ae4172df280",
-        "signature": "8dc743fc0c35d452904a6dec667aa67d18004e8eb97565dd1c6f8ae4172df280",
+        "version": "7891499e36f235bc465db2f3d0ba1f400f62e9131534d8db7ca14f17c1646ab7",
+        "signature": "7891499e36f235bc465db2f3d0ba1f400f62e9131534d8db7ca14f17c1646ab7",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": {
@@ -1802,8 +1802,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/guards/permissions/permissions.guard.d.ts": {
-        "version": "6625ba2a0844c03d9f91b348e14d11b58761b86662f9e1bb57841af0630eb482",
-        "signature": "6625ba2a0844c03d9f91b348e14d11b58761b86662f9e1bb57841af0630eb482",
+        "version": "59f272c1f36b9795ab861bc14da5533a39db8a2a8c893a7649b2387282dcdfb3",
+        "signature": "59f272c1f36b9795ab861bc14da5533a39db8a2a8c893a7649b2387282dcdfb3",
         "affectsGlobalScope": false
       },
       "../node_modules/@nestjs/passport/dist/abstract.strategy.d.ts": {
@@ -1862,43 +1862,43 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/guards/user/user.guard.d.ts": {
-        "version": "3b29dbf02b63defddc949255d97ffbd02dae9ab800692a6f72724be7e6654180",
-        "signature": "3b29dbf02b63defddc949255d97ffbd02dae9ab800692a6f72724be7e6654180",
+        "version": "e2a2c9ab7dea47223c8e9eb5ef05f5034f6bf98fb43f8b010ad1c38bf2792e6f",
+        "signature": "e2a2c9ab7dea47223c8e9eb5ef05f5034f6bf98fb43f8b010ad1c38bf2792e6f",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/guards/meta-data/permissions/permissions.decorator.d.ts": {
-        "version": "f6e9125a76729713eacdc18f6e47a7d19ef74a0327d39e94d932e53de8e54740",
-        "signature": "f6e9125a76729713eacdc18f6e47a7d19ef74a0327d39e94d932e53de8e54740",
+        "version": "891e9a819f2960a0e1e0dc0054115ae6c43eb61a1e9c57af01998152300a1671",
+        "signature": "891e9a819f2960a0e1e0dc0054115ae6c43eb61a1e9c57af01998152300a1671",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/enum/permission-type.enum.d.ts": {
-        "version": "3a2bec8b08d6403f09fcf5c524e057358c969010072dd54978b8ac386ee2d75d",
-        "signature": "3a2bec8b08d6403f09fcf5c524e057358c969010072dd54978b8ac386ee2d75d",
+        "version": "81b3ea101817453bc764c499f41fd0db42204c0682320d67750312ec2bf31cbf",
+        "signature": "81b3ea101817453bc764c499f41fd0db42204c0682320d67750312ec2bf31cbf",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/decorators/user.decorator.d.ts": {
-        "version": "059e1bbbfd545d251d1fa5f593630b34af6a760ae56604ae532cf5a2243cc78f",
-        "signature": "059e1bbbfd545d251d1fa5f593630b34af6a760ae56604ae532cf5a2243cc78f",
+        "version": "ec4ad0b9e5d7d7210f7b8d88a92f545834d41f5884a8bb9ad3a4d2c7d143efa5",
+        "signature": "ec4ad0b9e5d7d7210f7b8d88a92f545834d41f5884a8bb9ad3a4d2c7d143efa5",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/enum/permission.type.d.ts": {
-        "version": "d30050252bdfcc505ab7ab3b66b108235a5fabb054cc2566a4caa18c3bacd0cf",
-        "signature": "d30050252bdfcc505ab7ab3b66b108235a5fabb054cc2566a4caa18c3bacd0cf",
+        "version": "ca8ccb68277c1ee8bfdc35bd948dcfffc234f4310fcb7284aa491555d7f38457",
+        "signature": "ca8ccb68277c1ee8bfdc35bd948dcfffc234f4310fcb7284aa491555d7f38457",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/api-response/api-response.service.d.ts": {
-        "version": "db6cfe72ac5a2f7f9a8ca5ff31229e8d34c4c3324458c0b3525322fa3e0eb9e3",
-        "signature": "db6cfe72ac5a2f7f9a8ca5ff31229e8d34c4c3324458c0b3525322fa3e0eb9e3",
+        "version": "c957ddfe56bde29ea6ee1c375b0b2ccd4522f6d6966e3dd2075d4d30ef60ac52",
+        "signature": "c957ddfe56bde29ea6ee1c375b0b2ccd4522f6d6966e3dd2075d4d30ef60ac52",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/api-response/api-response.module.d.ts": {
-        "version": "5ce9cfb7ffa9ef0f7d2a49b05abf41d9531393e78d0631e1013098be9d2b189e",
-        "signature": "5ce9cfb7ffa9ef0f7d2a49b05abf41d9531393e78d0631e1013098be9d2b189e",
+        "version": "3b8352a366527091f84d09f690ceaf3463848c0056572ebd73db4466b3afd749",
+        "signature": "3b8352a366527091f84d09f690ceaf3463848c0056572ebd73db4466b3afd749",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/upload/upload.module.d.ts": {
-        "version": "b5e94c01a086c2c0bdc1098fa2e4b7b1003a2cd5116062d4ed00cd2a8fbd84fb",
-        "signature": "b5e94c01a086c2c0bdc1098fa2e4b7b1003a2cd5116062d4ed00cd2a8fbd84fb",
+        "version": "0130e2f523b9ad920910011643cf7e5876a950a8af3fc82366d12f070c44bc49",
+        "signature": "0130e2f523b9ad920910011643cf7e5876a950a8af3fc82366d12f070c44bc49",
         "affectsGlobalScope": false
       },
       "../node_modules/aws-sdk/lib/error.d.ts": {
@@ -3412,33 +3412,33 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/upload/upload.service.d.ts": {
-        "version": "ee3759788969a22cbe162ce10872924bffd413669644298a377ca5c2087ce4f9",
-        "signature": "ee3759788969a22cbe162ce10872924bffd413669644298a377ca5c2087ce4f9",
+        "version": "16975ec53a14f6da647cbe2268c41de35dc479ab93c376258ebc4d32a30f63d8",
+        "signature": "16975ec53a14f6da647cbe2268c41de35dc479ab93c376258ebc4d32a30f63d8",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/notification/email-notification.d.ts": {
-        "version": "bf6507ae9c08915911d03517eae5b2cd941ed5fad53c47903c027f57f2b3fd58",
-        "signature": "bf6507ae9c08915911d03517eae5b2cd941ed5fad53c47903c027f57f2b3fd58",
+        "version": "64b33c2a66f797ce193f284473a19e6ca506499cdc62d5f70e0b8fd92ddcda54",
+        "signature": "64b33c2a66f797ce193f284473a19e6ca506499cdc62d5f70e0b8fd92ddcda54",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/notification/sms-notification.d.ts": {
-        "version": "ddd96c51b2b2039a21e002d4135aa4476f102cdb8c0e1d14c387c238d7516701",
-        "signature": "ddd96c51b2b2039a21e002d4135aa4476f102cdb8c0e1d14c387c238d7516701",
+        "version": "24482732d8797af1e0a81dc923abd4d460b69c3283d40252d64ae4186846211f",
+        "signature": "24482732d8797af1e0a81dc923abd4d460b69c3283d40252d64ae4186846211f",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/notification/notification.module.d.ts": {
-        "version": "0a9137fd1f6cc95a03dc750636d3c795b2a8f1c060aec6c4bd1eb1a55dce802e",
-        "signature": "0a9137fd1f6cc95a03dc750636d3c795b2a8f1c060aec6c4bd1eb1a55dce802e",
+        "version": "2bb936018a74923d7e1f44f4c3bd52b4d450b5bea6e50a082dc89c85d6a6caf4",
+        "signature": "2bb936018a74923d7e1f44f4c3bd52b4d450b5bea6e50a082dc89c85d6a6caf4",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/strategies/jwt.strategy.d.ts": {
-        "version": "bbec3760f8df7a3365984134ecfaecc94e0160446b294d5e348304cc77f03138",
-        "signature": "bbec3760f8df7a3365984134ecfaecc94e0160446b294d5e348304cc77f03138",
+        "version": "e457dda80f8e936201aa6b477b865b332aac61137db7976590b3e56f0d17191a",
+        "signature": "e457dda80f8e936201aa6b477b865b332aac61137db7976590b3e56f0d17191a",
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/index.d.ts": {
-        "version": "3768730b2ab23a097cdd908f11a2421a98c5d2f5138b5063ecd11b7aff9747da",
-        "signature": "3768730b2ab23a097cdd908f11a2421a98c5d2f5138b5063ecd11b7aff9747da",
+        "version": "d33832174c202e534b0526f98ef632c5ca0fe3d1377e9a6caa8891736ae6206d",
+        "signature": "d33832174c202e534b0526f98ef632c5ca0fe3d1377e9a6caa8891736ae6206d",
         "affectsGlobalScope": false
       },
       "../node_modules/typeorm/schema-builder/options/TableColumnOptions.d.ts": {
@@ -4797,27 +4797,27 @@
         "affectsGlobalScope": false
       },
       "../src/address/entities/address.entity.ts": {
-        "version": "1da8a86972095878ca063bf98a9e8bb94a005f1f2d700aaf946fc503a7404f62",
+        "version": "e66130d08d77108e427b8d1468698adb9df3265150ad2f057a82c6eae29cf650",
         "signature": "ebd8f6512a67c1fae90951be59a287550e6d8f49f08cc789d0931602f3c6a54e",
         "affectsGlobalScope": false
       },
       "../src/authorization/entities/permission-category.entity.ts": {
-        "version": "6aaab3a209d98558419d0d3499a2ede5180eca3dce336874efdc696c94fb1ee2",
+        "version": "2d566713dca39dbaa699c32b4a3eb6b40a352674d32e20996f8362bdfc186f0f",
         "signature": "7f9e319dc8524d7bad7ccb2fdb42112e554b224937ce302a4f8aac558a975730",
         "affectsGlobalScope": false
       },
       "../src/authorization/entities/permission.entity.ts": {
-        "version": "d0bb8e829ec5add687e77e45f5dbabb3299ff513f2c908ac95d45f001e4e2f8a",
+        "version": "62c5dcf5a83e159ef6a96298d05f7a4b71c4f99950d662b936d234190cee2dc5",
         "signature": "89c6ceee977a7c034c2a55e41efd8f0139de3f4fd367ce70f59f61fca5fc212e",
         "affectsGlobalScope": false
       },
       "../src/authorization/entities/role.entity.ts": {
-        "version": "295734b20ece6413e4abe01a326037a56e9232979e78a4737d0bb82ca7835ea4",
+        "version": "8a5b03460efef171a44597878684183dd1de93673e056d240d3067ee8606bc68",
         "signature": "1d056f668603d373d154966eaa6b784a1c2e3b28940d82c697439ee49c80a7b3",
         "affectsGlobalScope": false
       },
       "../src/user/entities/user.entity.ts": {
-        "version": "1d824515ade57cb8f6a63e7a5ba7dc08149c0637de73178e9c83e1a6e9e20110",
+        "version": "2511732af66334b1c82b1c12886915fd506484e39e1c46fe86f9b4c39df815b0",
         "signature": "a5149f41b88a0d9e077ae988dd236703ee67543de4fc44c9c01f686bc1228c66",
         "affectsGlobalScope": false
       },
@@ -5632,7 +5632,7 @@
         "affectsGlobalScope": false
       },
       "../src/user/controllers/user.controller.ts": {
-        "version": "4ac7ee0f07afb2e2f664bb770fc3ccdb60661948d939e39b179523d1c04f7a06",
+        "version": "795cf76e7634b9d842bc7f4ead2bdb336abef001c16d6f5cc92aec1a647a949f",
         "signature": "92fd64e2f9d4d6a669a0ac661f649dc3e62455cebef5211426a15cb3be2e2b8f",
         "affectsGlobalScope": false
       },
@@ -5642,8 +5642,8 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@the-tech-nerds/common-services/dist/guards/roles/roles.guard.d.ts": {
-        "version": "0cf0a03bcdb26d5eb0053163aea1984be09693a3af677986cea1055899f82f39",
-        "signature": "0cf0a03bcdb26d5eb0053163aea1984be09693a3af677986cea1055899f82f39",
+        "version": "4e317cd2fd2a5a5dc19b03ff48a199ef06aa25792998ca78e949fe80769fc2da",
+        "signature": "4e317cd2fd2a5a5dc19b03ff48a199ef06aa25792998ca78e949fe80769fc2da",
         "affectsGlobalScope": false
       },
       "../src/authorization/authorization.controller.ts": {
@@ -5662,12 +5662,12 @@
         "affectsGlobalScope": false
       },
       "../src/authorization/services/role/get-by-id-role.service.ts": {
-        "version": "ca54bccbc56992fbe3d788a6c1fe1b7aec6e6c4d3ae0eabe1bef4f61228a9adc",
+        "version": "2903179702e3b5f109d77e6c2a9d3c9bcf4dd7aa99cdcb251f69a2500dcb5639",
         "signature": "8775e7e1d965feee8aae2550bc1fc68da331b7649d674089e1cfddbc58a08e6e",
         "affectsGlobalScope": false
       },
       "../src/authorization/services/permission-category/list-permission-category.service.ts": {
-        "version": "10c035f560bbc036b699974936b7348023cfcc38a3cae28c78d61d9169877bee",
+        "version": "94d09f42ac382372bb181564589500e7def0b3a9d2d5026e31683ef59fe51922",
         "signature": "3ec62c01a98c34d7736ceb6f33b523950657f882460bfa0656b660c471ec8c9d",
         "affectsGlobalScope": false
       },
@@ -5687,7 +5687,7 @@
         "affectsGlobalScope": false
       },
       "../src/authorization/services/role/assign-permission-in-role.service.ts": {
-        "version": "c517c114e64eb61884fd730cd24986e5dbfbf4fd999d025e83f3c81f49c5ff73",
+        "version": "b080e9bc3343d6a5ebad67c672bfaf3c69e39afecff40cb882aa0f8670cc9174",
         "signature": "a7ef524a0671ff585f80ae0ee936691f13ee4a4831f6abbee62902dbd6e210f8",
         "affectsGlobalScope": false
       },
@@ -5697,7 +5697,7 @@
         "affectsGlobalScope": false
       },
       "../src/authorization/services/role/list-role.service.ts": {
-        "version": "f8a1ccd6854ba9a790d32aeb48d80602ada9eb9de038a1f57716d637b8923410",
+        "version": "406ba73ad251db81ae35042fb59e5e268b039edeb9fce0e9317afeb27f5ba485",
         "signature": "4d875f37b84af81d2b021b679bee68e783b5fe6d86c872573ac2b10d8e76863a",
         "affectsGlobalScope": false
       },
@@ -5712,12 +5712,12 @@
         "affectsGlobalScope": false
       },
       "../src/authorization/repositories/permission-category.repository.ts": {
-        "version": "57587b6799be27993129791aedb5e4d03c06e5e928a622219d187770c1154de7",
+        "version": "e52a280fad5b843a5300bdd3d775fa403e6399f71e450dd3f20cd662e850f686",
         "signature": "ce3b8c22e433eb3c2da806b6b01af335d549c52eda5caa03cb9e1b4d93687400",
         "affectsGlobalScope": false
       },
       "../src/authorization/validators/permission-category-exist.validator.ts": {
-        "version": "9430553c5acd102d83b17e3dae25863829a37b15a90d51aafaa2198308310317",
+        "version": "e799032147795c2f411b68fcdd3c2366c7c340bf23105af634ede277233b2d4d",
         "signature": "d8cede32992d36cd24fd7a7db7928f44b36454e9b1eaee9d4eb715688e78c9f9",
         "affectsGlobalScope": false
       },
@@ -5747,7 +5747,7 @@
         "affectsGlobalScope": false
       },
       "../src/authorization/controllers/permission-category.controller.ts": {
-        "version": "f7ceb0355df18c270ead79e9916edb3137baad064e4070d930d90fe4baa29329",
+        "version": "3d2aaac3df22594d2a5a92e9dceab06c62b68ac11d4ef047d614e4f0c7e97a18",
         "signature": "74c0696bbcf530a4784994949bc95a359515d3419779f981018a1005f8c077ea",
         "affectsGlobalScope": false
       },
@@ -5757,7 +5757,7 @@
         "affectsGlobalScope": false
       },
       "../src/authorization/controllers/role.controller.ts": {
-        "version": "f2691d5ad833922065494775b6ebe62ef6b3949faf49b506113ab938aff3043e",
+        "version": "fe8c5d822b9a6d9e36834ab00c55d4f349fa1e658afb3545bea69252813e8c0f",
         "signature": "2828c76763ffb06c1cabe8633c236313ac35c04c2b6e07d22f90b91ad409ec7b",
         "affectsGlobalScope": false
       },
@@ -5767,7 +5767,7 @@
         "affectsGlobalScope": false
       },
       "../src/authorization/controllers/permission.controller.ts": {
-        "version": "783b6b8906f5e40a66bba3620125a564c88c50f9596866a90c2c76dab7801974",
+        "version": "a53350f202a20779b968c46a612e27f3374dec3a3f4aa07073d90078c5a81da0",
         "signature": "21753efb3ac6ec06f8569331878640bda12ab2483b9cbb489835b44cdaddb817",
         "affectsGlobalScope": false
       },
@@ -5777,7 +5777,7 @@
         "affectsGlobalScope": false
       },
       "../src/utils/utils.ts": {
-        "version": "5e49d08d77f27b7b200c71a6a4393d66ff101ba0300b8110916ead9219c221e4",
+        "version": "150f4e4621761287ab9688bda593110a120f5247e06f39bb31b0525f510a40bc",
         "signature": "6705dcf5b700e1fc016aa1f50cd07cd46c2ed1ef6118c03907dc0c8839f5e4f4",
         "affectsGlobalScope": false
       },
@@ -5792,7 +5792,7 @@
         "affectsGlobalScope": false
       },
       "../src/authorization/services/oauth/serialize-client.service.ts": {
-        "version": "1ea65e6cd80a5d458c107fa5c8ea08c1e933da4d7f0ae43ae176ac83e843e608",
+        "version": "518bd0457e753bddbe0988d67897ae4b1867132cf23eba29eb2dde9c9d8bf81c",
         "signature": "d4d5d7c87953e856d5d9b0e60488526bb9e5cf29cc46bdbf17545e1b69f23e84",
         "affectsGlobalScope": false
       },
@@ -5842,7 +5842,7 @@
         "affectsGlobalScope": false
       },
       "../src/authorization/controllers/oauth.controller.ts": {
-        "version": "6ae2606858f838265489a717b3f8d0f052ab39f1750b2a7005b4c5f4fa6dbb6a",
+        "version": "557e5807af5d90cf1cf20a922224de03c5b6a2ea4858d5bed741968dd850733c",
         "signature": "db5bb73c27923b6e1579fb08c5d1f1d2048f36d880b59031e5278ef16d2d4b59",
         "affectsGlobalScope": false
       },
@@ -5872,7 +5872,7 @@
         "affectsGlobalScope": false
       },
       "../src/authentication/services/user.login.service.ts": {
-        "version": "57989c58870fe32c2aea0885bcb778edf0234c945e76d23f0a2347be27739d42",
+        "version": "8d3299d9be6a9d317f85bb3e7f1f4294cab26909135db6893d4c6ab562f10e1d",
         "signature": "bb6ed5525aeced33c8a43606aee6c85164e28cebe2209a24ba20877dd8d78c62",
         "affectsGlobalScope": false
       },
@@ -5887,7 +5887,7 @@
         "affectsGlobalScope": false
       },
       "../src/authentication/controllers/authentication.controller.ts": {
-        "version": "e81052738b1e67bc3fb1768d54515cf45def38c748a257651cae7d88a29752f9",
+        "version": "3adb3390911d035dd576904c2adbb9628ad363c04a0b05b4462099659422fef3",
         "signature": "9308c4c1098847bc8ff4c50002afe787aefce0eb02369fd6001bf1176fb2648a",
         "affectsGlobalScope": false
       },
@@ -5927,12 +5927,12 @@
         "affectsGlobalScope": false
       },
       "../src/authentication/services/user.verify-action.service.ts": {
-        "version": "14e8fca7bc6067cfa349cf1651b315e389ca69369c184486f4334863776947d5",
+        "version": "6ac2f7ae34c309715cb8a316151103f5c7cbe1a09ae2f3993e846bf41bddadf3",
         "signature": "782846dc07e649db52939b4df1df89e318ffd10228f653d520b4be055f83e04e",
         "affectsGlobalScope": false
       },
       "../src/authentication/services/user.validation.service.ts": {
-        "version": "3b990e922ffdce3948c9f290eb8f9ed36b5ffd5278cc960815dec31da4484985",
+        "version": "20231884a0cb793c5d1514ad2fc04f1f5624ce22e9c8d38e0186206b4009ff61",
         "signature": "0d524e2e7a7413c982253c4e4c0fea83ed2727e75eafe71957ef39642672ecb3",
         "affectsGlobalScope": false
       },
@@ -5982,7 +5982,7 @@
         "affectsGlobalScope": false
       },
       "../src/otp/controller/otp.controller.ts": {
-        "version": "a6140c92830a8a78ab8cf516a6270a18d7d3ce83b7dff45e9fc1cc1922ac84d1",
+        "version": "5c8b0d72383bf39d6f3c7e74bc5cb538580fe4cf5be6dc0f66b627c30669b005",
         "signature": "516d8dafe9f750a1f16ef6d60981fd8e6ff9c300daf75b34de3a212bc774a68f",
         "affectsGlobalScope": false
       },
@@ -6022,7 +6022,7 @@
         "affectsGlobalScope": false
       },
       "../src/address/controllers/address.controller.ts": {
-        "version": "d8da8f8074671130cf9730e4024f143b81cf03b4b713b04ec874bf8b5eaa2eb5",
+        "version": "0262b8f7d69b0fe82db9836254a4698cce475edd0f799c682a047671f4ec19e7",
         "signature": "b82d1827de69dd0c0ec03cd862a1d87a2ebfa3bdbf26127535e15333fb534e3b",
         "affectsGlobalScope": false
       },
@@ -6057,7 +6057,7 @@
         "affectsGlobalScope": false
       },
       "../src/password/services/reset-password.service.ts": {
-        "version": "4df3703d980aaac60e3d9344fe7f0b61742616e9f9034c67584948e9fc23fc30",
+        "version": "789cbbcb95ccccf26636264fce43b1ae73a115324fe22245ea63e9fde8ec81cc",
         "signature": "b1fba1f067ebf37909b22495cd6da302dd71454d3343b284ebd32f7fe99cc2cd",
         "affectsGlobalScope": false
       },
@@ -6067,12 +6067,12 @@
         "affectsGlobalScope": false
       },
       "../src/password/services/create-password.servic e.ts": {
-        "version": "6fe009750d78df98e0545eba80ab727ac0ca972ea8dcf443a01ebed31377b55e",
+        "version": "a569e38318625abac11646f31a3cf169cf418d04dcb485290b093c34c7737705",
         "signature": "607fae2e852bb7b8d68712f87a35b8d6052f565905e4083ee71feb204a6c6cad",
         "affectsGlobalScope": false
       },
       "../src/password/services/reset-password-auto-generate.service.ts": {
-        "version": "cd890a20b00c736cbf1518b0838681d0e4ff574d5bd9c3bff88f99077b050f7e",
+        "version": "0cb06e9cc117342e4bb01d78b50066af685a6cedc4f2716a59bc18ddcd1c2f7e",
         "signature": "5e29dcfc25d1f8ebd0d0a6fa136caa7131d3a0ba2985a4d3a30ba63285beb265",
         "affectsGlobalScope": false
       },
@@ -6082,7 +6082,7 @@
         "affectsGlobalScope": false
       },
       "../src/password/controllers/password-management.controller.ts": {
-        "version": "d31f4f5f04d9929df03613f8afecac7c2d84fa6b23a9692179c9bf3c2009814d",
+        "version": "3bbb7c97d88ff9fbe9d4f191bb46aef85ff88dc73932bfa5d260482861d35f16",
         "signature": "b6e1029f5eade3bfc209e68a01dcc5becb8f83db80640704daf826fba01eee86",
         "affectsGlobalScope": false
       },
@@ -6106,8 +6106,378 @@
         "signature": "b8fb733486e57073c12d46383f60163f1e182f498c86fe8e293fbf8e9f4d91c3",
         "affectsGlobalScope": false
       },
+      "../node_modules/@nestjs/microservices/interfaces/client-grpc.interface.d.ts": {
+        "version": "192735b3685518f37991fd140b0f13f5f2e2d3ad1c0f618689f5437f8328ec1c",
+        "signature": "192735b3685518f37991fd140b0f13f5f2e2d3ad1c0f618689f5437f8328ec1c",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/enums/transport.enum.d.ts": {
+        "version": "adc6974bb6588dfecba07e0384031c4b6569871db22597e3bd2e2caf8c0501db",
+        "signature": "adc6974bb6588dfecba07e0384031c4b6569871db22597e3bd2e2caf8c0501db",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/interfaces/packet.interface.d.ts": {
+        "version": "48ff71d446bf1dae7789ea12d54a6bdfc97d71174f63e3283f3ee7ebe4aa7027",
+        "signature": "48ff71d446bf1dae7789ea12d54a6bdfc97d71174f63e3283f3ee7ebe4aa7027",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/interfaces/deserializer.interface.d.ts": {
+        "version": "d3fa1e7726e01bb23c297d4ed21778f40fea1d53ffda75f735b2d5e4213cc280",
+        "signature": "d3fa1e7726e01bb23c297d4ed21778f40fea1d53ffda75f735b2d5e4213cc280",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/external/grpc-options.interface.d.ts": {
+        "version": "12fc2902f4d1bbebf055850f5d721023e3b213abf2539fbc6738bbfb2b3bf4b1",
+        "signature": "12fc2902f4d1bbebf055850f5d721023e3b213abf2539fbc6738bbfb2b3bf4b1",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/external/kafka.interface.d.ts": {
+        "version": "9bbf5c143814e80545e3c5442961b341c071f8d0304d38ac9a9855251c5f2c78",
+        "signature": "9bbf5c143814e80545e3c5442961b341c071f8d0304d38ac9a9855251c5f2c78",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/external/mqtt-options.interface.d.ts": {
+        "version": "a1d4d489ed90bbcda3a27b509fcbeaa0d96b2b117fc9ff7e65d5c931a7567ddb",
+        "signature": "a1d4d489ed90bbcda3a27b509fcbeaa0d96b2b117fc9ff7e65d5c931a7567ddb",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/external/redis.interface.d.ts": {
+        "version": "2d549db6ec0e4ce64a408ce60be3198e0df77012a23ed3b884737050a31a67e0",
+        "signature": "2d549db6ec0e4ce64a408ce60be3198e0df77012a23ed3b884737050a31a67e0",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/external/rmq-url.interface.d.ts": {
+        "version": "30a5c7540a9f63f19afc0838382eb99c19d4f9e2acc922e946bf679122e4e758",
+        "signature": "30a5c7540a9f63f19afc0838382eb99c19d4f9e2acc922e946bf679122e4e758",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/enums/kafka-headers.enum.d.ts": {
+        "version": "84f3da364eba3cb088bcd626ce5d97973736aa153a0e79d5db3d4cff5471a035",
+        "signature": "84f3da364eba3cb088bcd626ce5d97973736aa153a0e79d5db3d4cff5471a035",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/enums/index.d.ts": {
+        "version": "fd68ec89794433cb0171e5c6474654dc291789a3e3257c78bedd4e5836f59278",
+        "signature": "fd68ec89794433cb0171e5c6474654dc291789a3e3257c78bedd4e5836f59278",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/interfaces/custom-transport-strategy.interface.d.ts": {
+        "version": "544d6eb3f6b2cb46fb707d341689c45811c860fdb630584fdc8cc8d327b67e49",
+        "signature": "544d6eb3f6b2cb46fb707d341689c45811c860fdb630584fdc8cc8d327b67e49",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/interfaces/serializer.interface.d.ts": {
+        "version": "1924c7a0cec4f315131a8653c9a01db84cbba796a9494612932ad9b893139c4e",
+        "signature": "1924c7a0cec4f315131a8653c9a01db84cbba796a9494612932ad9b893139c4e",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/interfaces/microservice-configuration.interface.d.ts": {
+        "version": "b0ea0aa46caa9cf1512cbb974dcb29cd05666b2cfba0b85951199fe2e4a44cee",
+        "signature": "b0ea0aa46caa9cf1512cbb974dcb29cd05666b2cfba0b85951199fe2e4a44cee",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/interfaces/client-metadata.interface.d.ts": {
+        "version": "0c114596becc7a46c940315da11b8e2e991d9bccfda454695eea6c64306ca8cb",
+        "signature": "0c114596becc7a46c940315da11b8e2e991d9bccfda454695eea6c64306ca8cb",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/interfaces/closeable.interface.d.ts": {
+        "version": "17cba22c12cb6929e4645922b79683d5f842479d2952380a656f3d5bf56f5ee6",
+        "signature": "17cba22c12cb6929e4645922b79683d5f842479d2952380a656f3d5bf56f5ee6",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/interfaces/message-handler.interface.d.ts": {
+        "version": "acb665e6dec6d0342d5f2955fa06ae08885cef3f7c10340ba6a25b3649135bae",
+        "signature": "acb665e6dec6d0342d5f2955fa06ae08885cef3f7c10340ba6a25b3649135bae",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/interfaces/pattern-metadata.interface.d.ts": {
+        "version": "2f495ab951bbaba3c2d8d07906cdacb8afc2f3de33d05feff66974302b561ba9",
+        "signature": "2f495ab951bbaba3c2d8d07906cdacb8afc2f3de33d05feff66974302b561ba9",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/interfaces/pattern.interface.d.ts": {
+        "version": "dd4fd9749249de26ecf5dd9f146237961e18d3004c2083973df44d4398a9174d",
+        "signature": "dd4fd9749249de26ecf5dd9f146237961e18d3004c2083973df44d4398a9174d",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/ctx-host/base-rpc.context.d.ts": {
+        "version": "4901dccb0f6bd199e820104322c4015f187d14bce3a3d42f073ac7b97baf883a",
+        "signature": "4901dccb0f6bd199e820104322c4015f187d14bce3a3d42f073ac7b97baf883a",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/interfaces/request-context.interface.d.ts": {
+        "version": "877fb70d6d0d1482a15ce5f9daf6bf8751c6cb27719674f25ab8e5f383806531",
+        "signature": "877fb70d6d0d1482a15ce5f9daf6bf8751c6cb27719674f25ab8e5f383806531",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/interfaces/index.d.ts": {
+        "version": "57c4e669a81405bfdb1df871a5b1879446483fcd9540862c0e42b90e99e632a8",
+        "signature": "57c4e669a81405bfdb1df871a5b1879446483fcd9540862c0e42b90e99e632a8",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/client/client-proxy.d.ts": {
+        "version": "3e98328be5290d75679dd2fc570c10c8ea9aac80a617b4340cfd022ffa198e0d",
+        "signature": "3e98328be5290d75679dd2fc570c10c8ea9aac80a617b4340cfd022ffa198e0d",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/client/client-grpc.d.ts": {
+        "version": "3371d8750c550ea835fe140c60c7cdd535d5e23b680df4fd37ea40cf3c770795",
+        "signature": "3371d8750c550ea835fe140c60c7cdd535d5e23b680df4fd37ea40cf3c770795",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/client/client-kafka.d.ts": {
+        "version": "db17b50d29221ffa8b374b1c3018c4c9f30493d39c547564509a95ae25e0307c",
+        "signature": "db17b50d29221ffa8b374b1c3018c4c9f30493d39c547564509a95ae25e0307c",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/external/mqtt-client.interface.d.ts": {
+        "version": "b8135f95598e0fa607287bf7d4f95ba6a188d27495d139714cfef33c4fd3ee3a",
+        "signature": "b8135f95598e0fa607287bf7d4f95ba6a188d27495d139714cfef33c4fd3ee3a",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/client/client-mqtt.d.ts": {
+        "version": "adafd32ae395cf41d78abbeda5270f3eec98a3f4947b29654fde640004baab6c",
+        "signature": "adafd32ae395cf41d78abbeda5270f3eec98a3f4947b29654fde640004baab6c",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/external/nats-client.interface.d.ts": {
+        "version": "344ab14e2ea91bf9c3a78c009d2d722c564a71433f1c215ba841fc6af3aa2b70",
+        "signature": "344ab14e2ea91bf9c3a78c009d2d722c564a71433f1c215ba841fc6af3aa2b70",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/client/client-nats.d.ts": {
+        "version": "394b1e563c5b8d8c6a7c25746b4a8126540f23ad3e1ab209734cbaca3a1155d4",
+        "signature": "394b1e563c5b8d8c6a7c25746b4a8126540f23ad3e1ab209734cbaca3a1155d4",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/client/client-proxy-factory.d.ts": {
+        "version": "90e1f0b8bb8c45376518d63c1281f133fac760d9c531495094f232bb6b103d90",
+        "signature": "90e1f0b8bb8c45376518d63c1281f133fac760d9c531495094f232bb6b103d90",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/client/client-redis.d.ts": {
+        "version": "65b4b60f2cf703e0a137f8799021d7bc1bed25c14190d0485d0a959a3ac03457",
+        "signature": "65b4b60f2cf703e0a137f8799021d7bc1bed25c14190d0485d0a959a3ac03457",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/client/client-rmq.d.ts": {
+        "version": "de91b42a64af26f1e6062998a2844352087276a62048ff2b9cae35968bd4aa67",
+        "signature": "de91b42a64af26f1e6062998a2844352087276a62048ff2b9cae35968bd4aa67",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/helpers/json-socket.d.ts": {
+        "version": "86f77c64a2ecad45b1c10fb5ebb60cc02c9b6caefd094a7c429a12504c83f23b",
+        "signature": "86f77c64a2ecad45b1c10fb5ebb60cc02c9b6caefd094a7c429a12504c83f23b",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/client/client-tcp.d.ts": {
+        "version": "8bb32e4af5b5c16ea5c1216ea2eb5abcc3a20e4d9c44c8d9febec39b7b26ae45",
+        "signature": "8bb32e4af5b5c16ea5c1216ea2eb5abcc3a20e4d9c44c8d9febec39b7b26ae45",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/client/index.d.ts": {
+        "version": "6ac5233c95cb514dd7bf4797260e1f221ed0ddfe4153f9b0267cc28d9af7d9b2",
+        "signature": "6ac5233c95cb514dd7bf4797260e1f221ed0ddfe4153f9b0267cc28d9af7d9b2",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/ctx-host/kafka.context.d.ts": {
+        "version": "5ef743a3bf3bfcb51126d396c027afcac5103e85a912b087244e4ff44713225e",
+        "signature": "5ef743a3bf3bfcb51126d396c027afcac5103e85a912b087244e4ff44713225e",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/ctx-host/mqtt.context.d.ts": {
+        "version": "1a3346d2f203c66029b4f4030d2c666ebfacf86273eec62bc879db66b65513c3",
+        "signature": "1a3346d2f203c66029b4f4030d2c666ebfacf86273eec62bc879db66b65513c3",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/ctx-host/nats.context.d.ts": {
+        "version": "5686163ea258f2e34e44f883bbaa62eaa30fa791a7884f63c3e514a206e01696",
+        "signature": "5686163ea258f2e34e44f883bbaa62eaa30fa791a7884f63c3e514a206e01696",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/ctx-host/redis.context.d.ts": {
+        "version": "a8ccac804a4f2a501c4fa74bd73589bf80c2a08236ee8046bf5861df020913a9",
+        "signature": "a8ccac804a4f2a501c4fa74bd73589bf80c2a08236ee8046bf5861df020913a9",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/ctx-host/rmq.context.d.ts": {
+        "version": "9b4c1375bd94463952668e9db64cd1d8099d9b9314e6f91b3cf53fd192e1f0d8",
+        "signature": "9b4c1375bd94463952668e9db64cd1d8099d9b9314e6f91b3cf53fd192e1f0d8",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/helpers/kafka-logger.d.ts": {
+        "version": "c9da5a85a7d48a41761cea8c273d7e4ca513f4c866c9628b79116d15b22c683e",
+        "signature": "c9da5a85a7d48a41761cea8c273d7e4ca513f4c866c9628b79116d15b22c683e",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/helpers/kafka-parser.d.ts": {
+        "version": "2379ee35b764ea995bf83d984fc9180504d274d8fff8cee9de935a84f517430a",
+        "signature": "2379ee35b764ea995bf83d984fc9180504d274d8fff8cee9de935a84f517430a",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/helpers/kafka-reply-partition-assigner.d.ts": {
+        "version": "969f4c6717a50bbf2a88b88196529e9ddc13f7d0285eb6c0c31984e1bdae5c02",
+        "signature": "969f4c6717a50bbf2a88b88196529e9ddc13f7d0285eb6c0c31984e1bdae5c02",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/helpers/index.d.ts": {
+        "version": "cfc4f60d91dca991e1e13e68e119c845ce93bb75f86025df8c0afdbc42a49a12",
+        "signature": "cfc4f60d91dca991e1e13e68e119c845ce93bb75f86025df8c0afdbc42a49a12",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/ctx-host/tcp.context.d.ts": {
+        "version": "42d7affde928ff191c3d2a7964fb2aa9ee854e7f66ecacb71814c189c1294d38",
+        "signature": "42d7affde928ff191c3d2a7964fb2aa9ee854e7f66ecacb71814c189c1294d38",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/ctx-host/index.d.ts": {
+        "version": "eaa64273c594a21a337797753b7f23e35419a03216276509039b87478b28d791",
+        "signature": "eaa64273c594a21a337797753b7f23e35419a03216276509039b87478b28d791",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/decorators/client.decorator.d.ts": {
+        "version": "61b6b68c40a965417dae505c748cf849dee8e1e1e11261e28b4cb80b060ca31c",
+        "signature": "61b6b68c40a965417dae505c748cf849dee8e1e1e11261e28b4cb80b060ca31c",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/decorators/ctx.decorator.d.ts": {
+        "version": "8c47c4dc236954c94f90c021e692f943e923e286043d1f1d0103943bac422f50",
+        "signature": "8c47c4dc236954c94f90c021e692f943e923e286043d1f1d0103943bac422f50",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/decorators/event-pattern.decorator.d.ts": {
+        "version": "7b2bf8829e96633d3f5d77ae601d06414a6b8a456f5111a29dfda3adea476fd0",
+        "signature": "7b2bf8829e96633d3f5d77ae601d06414a6b8a456f5111a29dfda3adea476fd0",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/decorators/grpc-service.decorator.d.ts": {
+        "version": "e0b2609c423883d2eccb3ee87034755351f20b3d1a1dc51f117cbeff4d3c0cc2",
+        "signature": "e0b2609c423883d2eccb3ee87034755351f20b3d1a1dc51f117cbeff4d3c0cc2",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/decorators/message-pattern.decorator.d.ts": {
+        "version": "1eb629270acab43339d1e7b8d0591b615c1acd977952756148f443391ca9d5f8",
+        "signature": "1eb629270acab43339d1e7b8d0591b615c1acd977952756148f443391ca9d5f8",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/decorators/payload.decorator.d.ts": {
+        "version": "b9b761b3881cbf41b8be18c841a7615ba8ca8ac5527333b1e3053636e5107b8a",
+        "signature": "b9b761b3881cbf41b8be18c841a7615ba8ca8ac5527333b1e3053636e5107b8a",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/decorators/index.d.ts": {
+        "version": "f23a3f3cd403758f611beb621b2560d1a3472725038473a820010487e5c23c02",
+        "signature": "f23a3f3cd403758f611beb621b2560d1a3472725038473a820010487e5c23c02",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/exceptions/base-rpc-exception-filter.d.ts": {
+        "version": "6d2ef29a34b05f90401594e50ceeb0e9d75493d7bb9a27b9d7121a01b0f5b444",
+        "signature": "6d2ef29a34b05f90401594e50ceeb0e9d75493d7bb9a27b9d7121a01b0f5b444",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/exceptions/rpc-exception.d.ts": {
+        "version": "19e81623b3f5289aaab3ef7a7190efd2281c29efd2d3958ddca7456eb6d258f9",
+        "signature": "19e81623b3f5289aaab3ef7a7190efd2281c29efd2d3958ddca7456eb6d258f9",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/exceptions/index.d.ts": {
+        "version": "2759a5845718663d1950629a1794f2fd991fd6e1e17df50bacca917f111b7267",
+        "signature": "2759a5845718663d1950629a1794f2fd991fd6e1e17df50bacca917f111b7267",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/module/interfaces/clients-module.interface.d.ts": {
+        "version": "cd43d8c78a20bc1581312bc0eaa3734661c11c7deb406a5a1644fdde30e22579",
+        "signature": "cd43d8c78a20bc1581312bc0eaa3734661c11c7deb406a5a1644fdde30e22579",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/module/interfaces/index.d.ts": {
+        "version": "0232ccf6acd7eedd387374b78026cf210c2fc8f84ba859d88abb7cfe99e4d6ba",
+        "signature": "0232ccf6acd7eedd387374b78026cf210c2fc8f84ba859d88abb7cfe99e4d6ba",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/module/clients.module.d.ts": {
+        "version": "d0d2cfabc04d096c0dd9e5f7514f9add50765c09ee14875565f275f9e2227434",
+        "signature": "d0d2cfabc04d096c0dd9e5f7514f9add50765c09ee14875565f275f9e2227434",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/module/index.d.ts": {
+        "version": "dc58cf370cd637b7bfa342c946a40e3c461bba12093c5019fec7a79ee2c41caa",
+        "signature": "dc58cf370cd637b7bfa342c946a40e3c461bba12093c5019fec7a79ee2c41caa",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/nest-microservice.d.ts": {
+        "version": "c78946faf058f45ef0caa646647bc09854b28f8f72d4a6dc0e3eeca53263b8ad",
+        "signature": "c78946faf058f45ef0caa646647bc09854b28f8f72d4a6dc0e3eeca53263b8ad",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/server/server.d.ts": {
+        "version": "bcdcd2770590e9a8993c9c196de7736b6ffaa0d162a574cbc0e05b9f1aa633bf",
+        "signature": "bcdcd2770590e9a8993c9c196de7736b6ffaa0d162a574cbc0e05b9f1aa633bf",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/server/server-grpc.d.ts": {
+        "version": "9e4c18a5aa851a1a83733400d24af6c0189c5e6712ddb4b4ec3115eccc7d25d5",
+        "signature": "9e4c18a5aa851a1a83733400d24af6c0189c5e6712ddb4b4ec3115eccc7d25d5",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/server/server-kafka.d.ts": {
+        "version": "9a3ea23462ccf89d65515fa2d0e1655364ee5e67132a94e84380a690b44f5b5e",
+        "signature": "9a3ea23462ccf89d65515fa2d0e1655364ee5e67132a94e84380a690b44f5b5e",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/server/server-mqtt.d.ts": {
+        "version": "34f89333ae6868590826a471614fc552759d170c6f466c673d8051841a2d4da9",
+        "signature": "34f89333ae6868590826a471614fc552759d170c6f466c673d8051841a2d4da9",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/server/server-nats.d.ts": {
+        "version": "16ab0de4def0c967b1ce4c03759f60f10037aeefe7823e7bf067291d4684c762",
+        "signature": "16ab0de4def0c967b1ce4c03759f60f10037aeefe7823e7bf067291d4684c762",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/server/server-redis.d.ts": {
+        "version": "c08a007a99e992191ada6376b4dbeff57dab4e122cf27784a6e2f397b9ac42ae",
+        "signature": "c08a007a99e992191ada6376b4dbeff57dab4e122cf27784a6e2f397b9ac42ae",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/server/server-rmq.d.ts": {
+        "version": "c1e656cecf8474c499e1ae33bdb41755d36a1ef8edd043a2f73160396fd12dcf",
+        "signature": "c1e656cecf8474c499e1ae33bdb41755d36a1ef8edd043a2f73160396fd12dcf",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/server/server-tcp.d.ts": {
+        "version": "be7f3b50214c49c919a69b239298e953bb2f27df7c5ae1668b83eb9c183b33f9",
+        "signature": "be7f3b50214c49c919a69b239298e953bb2f27df7c5ae1668b83eb9c183b33f9",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/server/index.d.ts": {
+        "version": "233f8ec3666bd34686634570c86df0fe6128dd2ec8f682e0f46bddc982cdfd57",
+        "signature": "233f8ec3666bd34686634570c86df0fe6128dd2ec8f682e0f46bddc982cdfd57",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/tokens.d.ts": {
+        "version": "67ae5eaf9ef6ed32a30aced05943e9f83df215d62f80076f7cce3a55d08c8722",
+        "signature": "67ae5eaf9ef6ed32a30aced05943e9f83df215d62f80076f7cce3a55d08c8722",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/microservices/index.d.ts": {
+        "version": "ff3a45e62d966d8cd7735588a451801ff62aa34060e5124457c99e2220f9d1d3",
+        "signature": "ff3a45e62d966d8cd7735588a451801ff62aa34060e5124457c99e2220f9d1d3",
+        "affectsGlobalScope": false
+      },
+      "../src/event-servcie/controllers/auth.event.controller.ts": {
+        "version": "05e9188572471825dfc1230b6892c3e2d26c7af3a6f55ae7c8790fbe4d6c4cb6",
+        "signature": "bcaa9ec3f427b46673223a97fe24d4bab635952c5a307f928b738d4775929e51",
+        "affectsGlobalScope": false
+      },
+      "../src/event-servcie/auth.event.module.ts": {
+        "version": "dbf606cbeed09d90cf7cb59c53091474e489a662a6cec5311408f00ab9aae9af",
+        "signature": "da7072c08f34db1c1420aaa414b2113a2fafa23777040700d26c3c4144c0bec9",
+        "affectsGlobalScope": false
+      },
       "../src/app.module.ts": {
-        "version": "5301d8e7689659917bc5d969cc396c152850f9f082af9cc1e2729cda9e720a1c",
+        "version": "55836281968b3bd2f411e46d26be7f27fc7118290ed8a551fd2afd5f37682d42",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
         "affectsGlobalScope": false
       },
@@ -6122,12 +6492,12 @@
         "affectsGlobalScope": true
       },
       "../src/filters/error.filter.ts": {
-        "version": "1bd7b88fc349d1c13903da41a88c14aa0181aea7afa58e1f15fdc2fe8ca25f14",
+        "version": "127d7099bce2b3ecf50583cfe6058410e5c6271864c47a72d8e6439d23c9eafe",
         "signature": "8dfd9d18225dbd91f39c34a19f6c28694b04bcac861ba5d547875cdab2ca9f07",
         "affectsGlobalScope": false
       },
       "../src/main.ts": {
-        "version": "1b047b5b3fb4ccc09ec51198e3454bb71e9c01f1e71bc266330fc840e6941329",
+        "version": "199a29b3d5ec3a7efc5699fd12b2ff4e388e6084e03a9eb974e32cfd5868f7b8",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
         "affectsGlobalScope": false
       },
@@ -6177,17 +6547,17 @@
         "affectsGlobalScope": false
       },
       "../src/authorization/validators/permission-exist.validator.ts": {
-        "version": "13e005a393ff16fd856e4fb50dffee1b8c76f65db2e93639fbd31211a59ed0ff",
+        "version": "308a41f4ba222c4a102c0977c6e25e732d3fedf6726458f7c938cf1101b88985",
         "signature": "63ba5edf2854f2b063798d83581d6928008a7c81ed971f58af6def69c4b54fc3",
         "affectsGlobalScope": false
       },
       "../src/authorization/validators/role-exist.validator.ts": {
-        "version": "612636319eea171fdf160e10f75b5ee2ea7f31e1e73d232f2e21e0eeb0b44b14",
+        "version": "5d802f117b3fae8203bbc7c16f923b7f4bfa097838efa895888e917d0bf086d8",
         "signature": "d22e0ce139887b85b3c9444060db3266bd59c675240ad9a17f702ce6cf1062e0",
         "affectsGlobalScope": false
       },
       "../src/authorization/validators/user-exist.validator.ts": {
-        "version": "932f3ea2ecb0e887318be27e0a84fc0316f6f597bc025d3d3fae751fc8581a1f",
+        "version": "b3c61fffc4665c79286f0cfe8a3b2052c132695b9918dfcdf09f92b01095fdcf",
         "signature": "9724679b11918b633ac817ebb2c66b211bbaf41db6d7438a18e6269a330d292a",
         "affectsGlobalScope": false
       },
@@ -6222,7 +6592,7 @@
         "affectsGlobalScope": false
       },
       "../src/database/seeds/permission.seed.ts": {
-        "version": "ce656932a90c7021e12d2fa4e08ae432c2458b5855a91cce2cb8633489a98700",
+        "version": "73841d62d769ab451dd34a20e506cfec51a42758e8d3aa45aa56b4b3d382ff60",
         "signature": "73d3bbed38bfe362cd0497ba623bd3d9ca0be5948f4455c7768cdac6e01c2c3c",
         "affectsGlobalScope": false
       },
@@ -6237,7 +6607,7 @@
         "affectsGlobalScope": false
       },
       "../src/user/requests/user.request.ts": {
-        "version": "528eba9489fcf5cb38b56c0ed8e5a62f0876005b529bf73f066bf3fdad2bb769",
+        "version": "1d377a20ad3c28ca6188777f70bd3325dee04bc4499d955479e29baeee772078",
         "signature": "5d7abc5f26ee3148354cc61b5b441afa09f7351ecbc700f5d688740e51fe4a5d",
         "affectsGlobalScope": false
       },
@@ -7239,6 +7609,329 @@
       ],
       "../node_modules/@nestjs/jwt/index.d.ts": [
         "../node_modules/@nestjs/jwt/dist/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/client/client-grpc.d.ts": [
+        "../node_modules/@nestjs/common/services/logger.service.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-proxy.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/rxjs/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/client/client-kafka.d.ts": [
+        "../node_modules/@nestjs/common/services/logger.service.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-proxy.d.ts",
+        "../node_modules/@nestjs/microservices/external/kafka.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/client/client-mqtt.d.ts": [
+        "../node_modules/@nestjs/common/services/logger.service.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-proxy.d.ts",
+        "../node_modules/@nestjs/microservices/external/mqtt-client.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/rxjs/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/client/client-nats.d.ts": [
+        "../node_modules/@nestjs/common/services/logger.service.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-proxy.d.ts",
+        "../node_modules/@nestjs/microservices/external/nats-client.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/client/client-proxy-factory.d.ts": [
+        "../node_modules/@nestjs/microservices/client/client-grpc.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-proxy.d.ts",
+        "../node_modules/@nestjs/microservices/enums/transport.enum.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/client-metadata.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/closeable.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/client/client-proxy.d.ts": [
+        "../node_modules/@nestjs/microservices/interfaces/deserializer.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/serializer.interface.d.ts",
+        "../node_modules/rxjs/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/client/client-redis.d.ts": [
+        "../node_modules/@nestjs/common/services/logger.service.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-proxy.d.ts",
+        "../node_modules/@nestjs/microservices/external/redis.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/rxjs/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/client/client-rmq.d.ts": [
+        "../node_modules/@nestjs/common/services/logger.service.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-proxy.d.ts",
+        "../node_modules/@nestjs/microservices/external/rmq-url.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/rxjs/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/client/client-tcp.d.ts": [
+        "../node_modules/@nestjs/microservices/client/client-proxy.d.ts",
+        "../node_modules/@nestjs/microservices/helpers/json-socket.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/client-metadata.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/client/index.d.ts": [
+        "../node_modules/@nestjs/microservices/client/client-grpc.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-kafka.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-mqtt.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-nats.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-proxy-factory.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-proxy.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-redis.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-rmq.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-tcp.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/ctx-host/index.d.ts": [
+        "../node_modules/@nestjs/microservices/ctx-host/kafka.context.d.ts",
+        "../node_modules/@nestjs/microservices/ctx-host/mqtt.context.d.ts",
+        "../node_modules/@nestjs/microservices/ctx-host/nats.context.d.ts",
+        "../node_modules/@nestjs/microservices/ctx-host/redis.context.d.ts",
+        "../node_modules/@nestjs/microservices/ctx-host/rmq.context.d.ts",
+        "../node_modules/@nestjs/microservices/ctx-host/tcp.context.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/ctx-host/kafka.context.d.ts": [
+        "../node_modules/@nestjs/microservices/ctx-host/base-rpc.context.d.ts",
+        "../node_modules/@nestjs/microservices/external/kafka.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/ctx-host/mqtt.context.d.ts": [
+        "../node_modules/@nestjs/microservices/ctx-host/base-rpc.context.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/ctx-host/nats.context.d.ts": [
+        "../node_modules/@nestjs/microservices/ctx-host/base-rpc.context.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/ctx-host/redis.context.d.ts": [
+        "../node_modules/@nestjs/microservices/ctx-host/base-rpc.context.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/ctx-host/rmq.context.d.ts": [
+        "../node_modules/@nestjs/microservices/ctx-host/base-rpc.context.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/ctx-host/tcp.context.d.ts": [
+        "../node_modules/@nestjs/microservices/ctx-host/base-rpc.context.d.ts",
+        "../node_modules/@nestjs/microservices/helpers/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/decorators/client.decorator.d.ts": [
+        "../node_modules/@nestjs/microservices/interfaces/client-metadata.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/decorators/event-pattern.decorator.d.ts": [
+        "../node_modules/@nestjs/microservices/enums/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/decorators/grpc-service.decorator.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/decorators/index.d.ts": [
+        "../node_modules/@nestjs/microservices/decorators/client.decorator.d.ts",
+        "../node_modules/@nestjs/microservices/decorators/ctx.decorator.d.ts",
+        "../node_modules/@nestjs/microservices/decorators/event-pattern.decorator.d.ts",
+        "../node_modules/@nestjs/microservices/decorators/grpc-service.decorator.d.ts",
+        "../node_modules/@nestjs/microservices/decorators/message-pattern.decorator.d.ts",
+        "../node_modules/@nestjs/microservices/decorators/payload.decorator.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/decorators/message-pattern.decorator.d.ts": [
+        "../node_modules/@nestjs/microservices/enums/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/pattern-metadata.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/decorators/payload.decorator.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/enums/index.d.ts": [
+        "../node_modules/@nestjs/microservices/enums/kafka-headers.enum.d.ts",
+        "../node_modules/@nestjs/microservices/enums/transport.enum.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/exceptions/base-rpc-exception-filter.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/rxjs/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/exceptions/index.d.ts": [
+        "../node_modules/@nestjs/microservices/exceptions/base-rpc-exception-filter.d.ts",
+        "../node_modules/@nestjs/microservices/exceptions/rpc-exception.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/external/kafka.interface.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/net.d.ts",
+        "../node_modules/@types/node/tls.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/external/mqtt-client.interface.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/external/mqtt-options.interface.d.ts": [
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/external/nats-client.interface.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/helpers/index.d.ts": [
+        "../node_modules/@nestjs/microservices/helpers/json-socket.d.ts",
+        "../node_modules/@nestjs/microservices/helpers/kafka-logger.d.ts",
+        "../node_modules/@nestjs/microservices/helpers/kafka-parser.d.ts",
+        "../node_modules/@nestjs/microservices/helpers/kafka-reply-partition-assigner.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/helpers/json-socket.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/net.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/helpers/kafka-parser.d.ts": [
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/helpers/kafka-reply-partition-assigner.d.ts": [
+        "../node_modules/@nestjs/microservices/client/client-kafka.d.ts",
+        "../node_modules/@nestjs/microservices/external/kafka.interface.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/index.d.ts": [
+        "../node_modules/@nestjs/microservices/client/index.d.ts",
+        "../node_modules/@nestjs/microservices/ctx-host/index.d.ts",
+        "../node_modules/@nestjs/microservices/decorators/index.d.ts",
+        "../node_modules/@nestjs/microservices/enums/index.d.ts",
+        "../node_modules/@nestjs/microservices/exceptions/index.d.ts",
+        "../node_modules/@nestjs/microservices/helpers/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/module/index.d.ts",
+        "../node_modules/@nestjs/microservices/nest-microservice.d.ts",
+        "../node_modules/@nestjs/microservices/server/index.d.ts",
+        "../node_modules/@nestjs/microservices/tokens.d.ts",
+        "../node_modules/reflect-metadata/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/interfaces/client-metadata.interface.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/microservices/client/index.d.ts",
+        "../node_modules/@nestjs/microservices/enums/transport.enum.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/deserializer.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/microservice-configuration.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/serializer.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/interfaces/custom-transport-strategy.interface.d.ts": [
+        "../node_modules/@nestjs/microservices/enums/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/interfaces/deserializer.interface.d.ts": [
+        "../node_modules/@nestjs/microservices/interfaces/packet.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/interfaces/index.d.ts": [
+        "../node_modules/@nestjs/microservices/interfaces/client-grpc.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/client-metadata.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/closeable.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/custom-transport-strategy.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/deserializer.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/message-handler.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/microservice-configuration.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/packet.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/pattern-metadata.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/pattern.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/request-context.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/serializer.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/interfaces/message-handler.interface.d.ts": [
+        "../node_modules/rxjs/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/interfaces/microservice-configuration.interface.d.ts": [
+        "../node_modules/@nestjs/microservices/enums/transport.enum.d.ts",
+        "../node_modules/@nestjs/microservices/external/grpc-options.interface.d.ts",
+        "../node_modules/@nestjs/microservices/external/kafka.interface.d.ts",
+        "../node_modules/@nestjs/microservices/external/mqtt-options.interface.d.ts",
+        "../node_modules/@nestjs/microservices/external/redis.interface.d.ts",
+        "../node_modules/@nestjs/microservices/external/rmq-url.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/custom-transport-strategy.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/deserializer.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/serializer.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/interfaces/request-context.interface.d.ts": [
+        "../node_modules/@nestjs/microservices/ctx-host/base-rpc.context.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/interfaces/serializer.interface.d.ts": [
+        "../node_modules/@nestjs/microservices/interfaces/packet.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/module/clients.module.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/microservices/module/interfaces/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/module/index.d.ts": [
+        "../node_modules/@nestjs/microservices/module/clients.module.d.ts",
+        "../node_modules/@nestjs/microservices/module/interfaces/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/module/interfaces/clients-module.interface.d.ts": [
+        "../node_modules/@nestjs/common/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/module/interfaces/index.d.ts": [
+        "../node_modules/@nestjs/microservices/module/interfaces/clients-module.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/nest-microservice.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/core/application-config.d.ts",
+        "../node_modules/@nestjs/core/injector/container.d.ts",
+        "../node_modules/@nestjs/core/nest-application-context.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/microservice-configuration.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/server/index.d.ts": [
+        "../node_modules/@nestjs/microservices/server/server-grpc.d.ts",
+        "../node_modules/@nestjs/microservices/server/server-kafka.d.ts",
+        "../node_modules/@nestjs/microservices/server/server-mqtt.d.ts",
+        "../node_modules/@nestjs/microservices/server/server-nats.d.ts",
+        "../node_modules/@nestjs/microservices/server/server-redis.d.ts",
+        "../node_modules/@nestjs/microservices/server/server-rmq.d.ts",
+        "../node_modules/@nestjs/microservices/server/server-tcp.d.ts",
+        "../node_modules/@nestjs/microservices/server/server.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/server/server-grpc.d.ts": [
+        "../node_modules/@nestjs/microservices/decorators/index.d.ts",
+        "../node_modules/@nestjs/microservices/enums/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/microservice-configuration.interface.d.ts",
+        "../node_modules/@nestjs/microservices/server/server.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/server/server-kafka.d.ts": [
+        "../node_modules/@nestjs/common/services/logger.service.d.ts",
+        "../node_modules/@nestjs/microservices/enums/index.d.ts",
+        "../node_modules/@nestjs/microservices/external/kafka.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/server/server.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/server/server-mqtt.d.ts": [
+        "../node_modules/@nestjs/microservices/enums/index.d.ts",
+        "../node_modules/@nestjs/microservices/external/mqtt-client.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/microservice-configuration.interface.d.ts",
+        "../node_modules/@nestjs/microservices/server/server.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/server/server-nats.d.ts": [
+        "../node_modules/@nestjs/microservices/enums/index.d.ts",
+        "../node_modules/@nestjs/microservices/external/nats-client.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/microservice-configuration.interface.d.ts",
+        "../node_modules/@nestjs/microservices/server/server.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/server/server-redis.d.ts": [
+        "../node_modules/@nestjs/microservices/enums/index.d.ts",
+        "../node_modules/@nestjs/microservices/external/redis.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/microservice-configuration.interface.d.ts",
+        "../node_modules/@nestjs/microservices/server/server.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/server/server-rmq.d.ts": [
+        "../node_modules/@nestjs/microservices/enums/index.d.ts",
+        "../node_modules/@nestjs/microservices/external/rmq-url.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/server/server.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/server/server-tcp.d.ts": [
+        "../node_modules/@nestjs/microservices/enums/index.d.ts",
+        "../node_modules/@nestjs/microservices/helpers/json-socket.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/microservice-configuration.interface.d.ts",
+        "../node_modules/@nestjs/microservices/server/server.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/net.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/server/server.d.ts": [
+        "../node_modules/@nestjs/common/services/logger.service.d.ts",
+        "../node_modules/@nestjs/microservices/ctx-host/base-rpc.context.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/deserializer.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/serializer.interface.d.ts",
+        "../node_modules/rxjs/index.d.ts"
       ],
       "../node_modules/@nestjs/passport/dist/auth.guard.d.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -12094,6 +12787,7 @@
         "../src/authorization/authorization.module.ts",
         "../src/config/configuration.ts",
         "../src/config/login-config.ts",
+        "../src/event-servcie/auth.event.module.ts",
         "../src/otp/otp.module.ts",
         "../src/password/password.module.ts",
         "../src/route.ts",
@@ -12573,6 +13267,15 @@
         "../node_modules/@types/bcryptjs/index.d.ts",
         "../node_modules/typeorm-seeding/dist/typeorm-seeding.d.ts",
         "../node_modules/typeorm/index.d.ts"
+      ],
+      "../src/event-servcie/auth.event.module.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/event-servcie/controllers/auth.event.controller.ts"
+      ],
+      "../src/event-servcie/controllers/auth.event.controller.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/microservices/index.d.ts",
+        "../node_modules/@types/express/index.d.ts"
       ],
       "../src/filters/error.filter.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -13619,6 +14322,329 @@
       ],
       "../node_modules/@nestjs/jwt/index.d.ts": [
         "../node_modules/@nestjs/jwt/dist/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/client/client-grpc.d.ts": [
+        "../node_modules/@nestjs/common/services/logger.service.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-proxy.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/rxjs/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/client/client-kafka.d.ts": [
+        "../node_modules/@nestjs/common/services/logger.service.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-proxy.d.ts",
+        "../node_modules/@nestjs/microservices/external/kafka.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/client/client-mqtt.d.ts": [
+        "../node_modules/@nestjs/common/services/logger.service.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-proxy.d.ts",
+        "../node_modules/@nestjs/microservices/external/mqtt-client.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/rxjs/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/client/client-nats.d.ts": [
+        "../node_modules/@nestjs/common/services/logger.service.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-proxy.d.ts",
+        "../node_modules/@nestjs/microservices/external/nats-client.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/client/client-proxy-factory.d.ts": [
+        "../node_modules/@nestjs/microservices/client/client-grpc.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-proxy.d.ts",
+        "../node_modules/@nestjs/microservices/enums/transport.enum.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/client-metadata.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/closeable.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/client/client-proxy.d.ts": [
+        "../node_modules/@nestjs/microservices/interfaces/deserializer.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/serializer.interface.d.ts",
+        "../node_modules/rxjs/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/client/client-redis.d.ts": [
+        "../node_modules/@nestjs/common/services/logger.service.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-proxy.d.ts",
+        "../node_modules/@nestjs/microservices/external/redis.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/rxjs/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/client/client-rmq.d.ts": [
+        "../node_modules/@nestjs/common/services/logger.service.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-proxy.d.ts",
+        "../node_modules/@nestjs/microservices/external/rmq-url.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/rxjs/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/client/client-tcp.d.ts": [
+        "../node_modules/@nestjs/microservices/client/client-proxy.d.ts",
+        "../node_modules/@nestjs/microservices/helpers/json-socket.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/client-metadata.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/client/index.d.ts": [
+        "../node_modules/@nestjs/microservices/client/client-grpc.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-kafka.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-mqtt.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-nats.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-proxy-factory.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-proxy.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-redis.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-rmq.d.ts",
+        "../node_modules/@nestjs/microservices/client/client-tcp.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/ctx-host/index.d.ts": [
+        "../node_modules/@nestjs/microservices/ctx-host/kafka.context.d.ts",
+        "../node_modules/@nestjs/microservices/ctx-host/mqtt.context.d.ts",
+        "../node_modules/@nestjs/microservices/ctx-host/nats.context.d.ts",
+        "../node_modules/@nestjs/microservices/ctx-host/redis.context.d.ts",
+        "../node_modules/@nestjs/microservices/ctx-host/rmq.context.d.ts",
+        "../node_modules/@nestjs/microservices/ctx-host/tcp.context.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/ctx-host/kafka.context.d.ts": [
+        "../node_modules/@nestjs/microservices/ctx-host/base-rpc.context.d.ts",
+        "../node_modules/@nestjs/microservices/external/kafka.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/ctx-host/mqtt.context.d.ts": [
+        "../node_modules/@nestjs/microservices/ctx-host/base-rpc.context.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/ctx-host/nats.context.d.ts": [
+        "../node_modules/@nestjs/microservices/ctx-host/base-rpc.context.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/ctx-host/redis.context.d.ts": [
+        "../node_modules/@nestjs/microservices/ctx-host/base-rpc.context.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/ctx-host/rmq.context.d.ts": [
+        "../node_modules/@nestjs/microservices/ctx-host/base-rpc.context.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/ctx-host/tcp.context.d.ts": [
+        "../node_modules/@nestjs/microservices/ctx-host/base-rpc.context.d.ts",
+        "../node_modules/@nestjs/microservices/helpers/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/decorators/client.decorator.d.ts": [
+        "../node_modules/@nestjs/microservices/interfaces/client-metadata.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/decorators/event-pattern.decorator.d.ts": [
+        "../node_modules/@nestjs/microservices/enums/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/decorators/grpc-service.decorator.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/decorators/index.d.ts": [
+        "../node_modules/@nestjs/microservices/decorators/client.decorator.d.ts",
+        "../node_modules/@nestjs/microservices/decorators/ctx.decorator.d.ts",
+        "../node_modules/@nestjs/microservices/decorators/event-pattern.decorator.d.ts",
+        "../node_modules/@nestjs/microservices/decorators/grpc-service.decorator.d.ts",
+        "../node_modules/@nestjs/microservices/decorators/message-pattern.decorator.d.ts",
+        "../node_modules/@nestjs/microservices/decorators/payload.decorator.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/decorators/message-pattern.decorator.d.ts": [
+        "../node_modules/@nestjs/microservices/enums/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/pattern-metadata.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/decorators/payload.decorator.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/enums/index.d.ts": [
+        "../node_modules/@nestjs/microservices/enums/kafka-headers.enum.d.ts",
+        "../node_modules/@nestjs/microservices/enums/transport.enum.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/exceptions/base-rpc-exception-filter.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/rxjs/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/exceptions/index.d.ts": [
+        "../node_modules/@nestjs/microservices/exceptions/base-rpc-exception-filter.d.ts",
+        "../node_modules/@nestjs/microservices/exceptions/rpc-exception.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/external/kafka.interface.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/net.d.ts",
+        "../node_modules/@types/node/tls.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/external/mqtt-client.interface.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/external/mqtt-options.interface.d.ts": [
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/external/nats-client.interface.d.ts": [
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/helpers/index.d.ts": [
+        "../node_modules/@nestjs/microservices/helpers/json-socket.d.ts",
+        "../node_modules/@nestjs/microservices/helpers/kafka-logger.d.ts",
+        "../node_modules/@nestjs/microservices/helpers/kafka-parser.d.ts",
+        "../node_modules/@nestjs/microservices/helpers/kafka-reply-partition-assigner.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/helpers/json-socket.d.ts": [
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/net.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/helpers/kafka-parser.d.ts": [
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/helpers/kafka-reply-partition-assigner.d.ts": [
+        "../node_modules/@nestjs/microservices/client/client-kafka.d.ts",
+        "../node_modules/@nestjs/microservices/external/kafka.interface.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/index.d.ts": [
+        "../node_modules/@nestjs/microservices/client/index.d.ts",
+        "../node_modules/@nestjs/microservices/ctx-host/index.d.ts",
+        "../node_modules/@nestjs/microservices/decorators/index.d.ts",
+        "../node_modules/@nestjs/microservices/enums/index.d.ts",
+        "../node_modules/@nestjs/microservices/exceptions/index.d.ts",
+        "../node_modules/@nestjs/microservices/helpers/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/module/index.d.ts",
+        "../node_modules/@nestjs/microservices/nest-microservice.d.ts",
+        "../node_modules/@nestjs/microservices/server/index.d.ts",
+        "../node_modules/@nestjs/microservices/tokens.d.ts",
+        "../node_modules/reflect-metadata/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/interfaces/client-metadata.interface.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/microservices/client/index.d.ts",
+        "../node_modules/@nestjs/microservices/enums/transport.enum.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/deserializer.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/microservice-configuration.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/serializer.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/interfaces/custom-transport-strategy.interface.d.ts": [
+        "../node_modules/@nestjs/microservices/enums/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/interfaces/deserializer.interface.d.ts": [
+        "../node_modules/@nestjs/microservices/interfaces/packet.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/interfaces/index.d.ts": [
+        "../node_modules/@nestjs/microservices/interfaces/client-grpc.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/client-metadata.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/closeable.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/custom-transport-strategy.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/deserializer.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/message-handler.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/microservice-configuration.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/packet.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/pattern-metadata.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/pattern.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/request-context.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/serializer.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/interfaces/message-handler.interface.d.ts": [
+        "../node_modules/rxjs/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/interfaces/microservice-configuration.interface.d.ts": [
+        "../node_modules/@nestjs/microservices/enums/transport.enum.d.ts",
+        "../node_modules/@nestjs/microservices/external/grpc-options.interface.d.ts",
+        "../node_modules/@nestjs/microservices/external/kafka.interface.d.ts",
+        "../node_modules/@nestjs/microservices/external/mqtt-options.interface.d.ts",
+        "../node_modules/@nestjs/microservices/external/redis.interface.d.ts",
+        "../node_modules/@nestjs/microservices/external/rmq-url.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/custom-transport-strategy.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/deserializer.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/serializer.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/interfaces/request-context.interface.d.ts": [
+        "../node_modules/@nestjs/microservices/ctx-host/base-rpc.context.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/interfaces/serializer.interface.d.ts": [
+        "../node_modules/@nestjs/microservices/interfaces/packet.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/module/clients.module.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/microservices/module/interfaces/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/module/index.d.ts": [
+        "../node_modules/@nestjs/microservices/module/clients.module.d.ts",
+        "../node_modules/@nestjs/microservices/module/interfaces/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/module/interfaces/clients-module.interface.d.ts": [
+        "../node_modules/@nestjs/common/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/module/interfaces/index.d.ts": [
+        "../node_modules/@nestjs/microservices/module/interfaces/clients-module.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/nest-microservice.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/core/application-config.d.ts",
+        "../node_modules/@nestjs/core/injector/container.d.ts",
+        "../node_modules/@nestjs/core/nest-application-context.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/microservice-configuration.interface.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/server/index.d.ts": [
+        "../node_modules/@nestjs/microservices/server/server-grpc.d.ts",
+        "../node_modules/@nestjs/microservices/server/server-kafka.d.ts",
+        "../node_modules/@nestjs/microservices/server/server-mqtt.d.ts",
+        "../node_modules/@nestjs/microservices/server/server-nats.d.ts",
+        "../node_modules/@nestjs/microservices/server/server-redis.d.ts",
+        "../node_modules/@nestjs/microservices/server/server-rmq.d.ts",
+        "../node_modules/@nestjs/microservices/server/server-tcp.d.ts",
+        "../node_modules/@nestjs/microservices/server/server.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/server/server-grpc.d.ts": [
+        "../node_modules/@nestjs/microservices/decorators/index.d.ts",
+        "../node_modules/@nestjs/microservices/enums/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/microservice-configuration.interface.d.ts",
+        "../node_modules/@nestjs/microservices/server/server.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/server/server-kafka.d.ts": [
+        "../node_modules/@nestjs/common/services/logger.service.d.ts",
+        "../node_modules/@nestjs/microservices/enums/index.d.ts",
+        "../node_modules/@nestjs/microservices/external/kafka.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/server/server.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/server/server-mqtt.d.ts": [
+        "../node_modules/@nestjs/microservices/enums/index.d.ts",
+        "../node_modules/@nestjs/microservices/external/mqtt-client.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/microservice-configuration.interface.d.ts",
+        "../node_modules/@nestjs/microservices/server/server.d.ts",
+        "../node_modules/@types/node/index.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/server/server-nats.d.ts": [
+        "../node_modules/@nestjs/microservices/enums/index.d.ts",
+        "../node_modules/@nestjs/microservices/external/nats-client.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/microservice-configuration.interface.d.ts",
+        "../node_modules/@nestjs/microservices/server/server.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/server/server-redis.d.ts": [
+        "../node_modules/@nestjs/microservices/enums/index.d.ts",
+        "../node_modules/@nestjs/microservices/external/redis.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/microservice-configuration.interface.d.ts",
+        "../node_modules/@nestjs/microservices/server/server.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/server/server-rmq.d.ts": [
+        "../node_modules/@nestjs/microservices/enums/index.d.ts",
+        "../node_modules/@nestjs/microservices/external/rmq-url.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/server/server.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/server/server-tcp.d.ts": [
+        "../node_modules/@nestjs/microservices/enums/index.d.ts",
+        "../node_modules/@nestjs/microservices/helpers/json-socket.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/microservice-configuration.interface.d.ts",
+        "../node_modules/@nestjs/microservices/server/server.d.ts",
+        "../node_modules/@types/node/index.d.ts",
+        "../node_modules/@types/node/net.d.ts"
+      ],
+      "../node_modules/@nestjs/microservices/server/server.d.ts": [
+        "../node_modules/@nestjs/common/services/logger.service.d.ts",
+        "../node_modules/@nestjs/microservices/ctx-host/base-rpc.context.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/deserializer.interface.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+        "../node_modules/@nestjs/microservices/interfaces/serializer.interface.d.ts",
+        "../node_modules/rxjs/index.d.ts"
       ],
       "../node_modules/@nestjs/passport/dist/auth.guard.d.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -19081,6 +20107,78 @@
       "../node_modules/@nestjs/jwt/dist/jwt.module.d.ts",
       "../node_modules/@nestjs/jwt/dist/jwt.service.d.ts",
       "../node_modules/@nestjs/jwt/index.d.ts",
+      "../node_modules/@nestjs/microservices/client/client-grpc.d.ts",
+      "../node_modules/@nestjs/microservices/client/client-kafka.d.ts",
+      "../node_modules/@nestjs/microservices/client/client-mqtt.d.ts",
+      "../node_modules/@nestjs/microservices/client/client-nats.d.ts",
+      "../node_modules/@nestjs/microservices/client/client-proxy-factory.d.ts",
+      "../node_modules/@nestjs/microservices/client/client-proxy.d.ts",
+      "../node_modules/@nestjs/microservices/client/client-redis.d.ts",
+      "../node_modules/@nestjs/microservices/client/client-rmq.d.ts",
+      "../node_modules/@nestjs/microservices/client/client-tcp.d.ts",
+      "../node_modules/@nestjs/microservices/client/index.d.ts",
+      "../node_modules/@nestjs/microservices/ctx-host/base-rpc.context.d.ts",
+      "../node_modules/@nestjs/microservices/ctx-host/index.d.ts",
+      "../node_modules/@nestjs/microservices/ctx-host/kafka.context.d.ts",
+      "../node_modules/@nestjs/microservices/ctx-host/mqtt.context.d.ts",
+      "../node_modules/@nestjs/microservices/ctx-host/nats.context.d.ts",
+      "../node_modules/@nestjs/microservices/ctx-host/redis.context.d.ts",
+      "../node_modules/@nestjs/microservices/ctx-host/rmq.context.d.ts",
+      "../node_modules/@nestjs/microservices/ctx-host/tcp.context.d.ts",
+      "../node_modules/@nestjs/microservices/decorators/client.decorator.d.ts",
+      "../node_modules/@nestjs/microservices/decorators/ctx.decorator.d.ts",
+      "../node_modules/@nestjs/microservices/decorators/event-pattern.decorator.d.ts",
+      "../node_modules/@nestjs/microservices/decorators/grpc-service.decorator.d.ts",
+      "../node_modules/@nestjs/microservices/decorators/index.d.ts",
+      "../node_modules/@nestjs/microservices/decorators/message-pattern.decorator.d.ts",
+      "../node_modules/@nestjs/microservices/decorators/payload.decorator.d.ts",
+      "../node_modules/@nestjs/microservices/enums/index.d.ts",
+      "../node_modules/@nestjs/microservices/enums/kafka-headers.enum.d.ts",
+      "../node_modules/@nestjs/microservices/enums/transport.enum.d.ts",
+      "../node_modules/@nestjs/microservices/exceptions/base-rpc-exception-filter.d.ts",
+      "../node_modules/@nestjs/microservices/exceptions/index.d.ts",
+      "../node_modules/@nestjs/microservices/exceptions/rpc-exception.d.ts",
+      "../node_modules/@nestjs/microservices/external/grpc-options.interface.d.ts",
+      "../node_modules/@nestjs/microservices/external/kafka.interface.d.ts",
+      "../node_modules/@nestjs/microservices/external/mqtt-client.interface.d.ts",
+      "../node_modules/@nestjs/microservices/external/mqtt-options.interface.d.ts",
+      "../node_modules/@nestjs/microservices/external/nats-client.interface.d.ts",
+      "../node_modules/@nestjs/microservices/external/redis.interface.d.ts",
+      "../node_modules/@nestjs/microservices/external/rmq-url.interface.d.ts",
+      "../node_modules/@nestjs/microservices/helpers/index.d.ts",
+      "../node_modules/@nestjs/microservices/helpers/json-socket.d.ts",
+      "../node_modules/@nestjs/microservices/helpers/kafka-logger.d.ts",
+      "../node_modules/@nestjs/microservices/helpers/kafka-parser.d.ts",
+      "../node_modules/@nestjs/microservices/helpers/kafka-reply-partition-assigner.d.ts",
+      "../node_modules/@nestjs/microservices/index.d.ts",
+      "../node_modules/@nestjs/microservices/interfaces/client-grpc.interface.d.ts",
+      "../node_modules/@nestjs/microservices/interfaces/client-metadata.interface.d.ts",
+      "../node_modules/@nestjs/microservices/interfaces/closeable.interface.d.ts",
+      "../node_modules/@nestjs/microservices/interfaces/custom-transport-strategy.interface.d.ts",
+      "../node_modules/@nestjs/microservices/interfaces/deserializer.interface.d.ts",
+      "../node_modules/@nestjs/microservices/interfaces/index.d.ts",
+      "../node_modules/@nestjs/microservices/interfaces/message-handler.interface.d.ts",
+      "../node_modules/@nestjs/microservices/interfaces/microservice-configuration.interface.d.ts",
+      "../node_modules/@nestjs/microservices/interfaces/packet.interface.d.ts",
+      "../node_modules/@nestjs/microservices/interfaces/pattern-metadata.interface.d.ts",
+      "../node_modules/@nestjs/microservices/interfaces/pattern.interface.d.ts",
+      "../node_modules/@nestjs/microservices/interfaces/request-context.interface.d.ts",
+      "../node_modules/@nestjs/microservices/interfaces/serializer.interface.d.ts",
+      "../node_modules/@nestjs/microservices/module/clients.module.d.ts",
+      "../node_modules/@nestjs/microservices/module/index.d.ts",
+      "../node_modules/@nestjs/microservices/module/interfaces/clients-module.interface.d.ts",
+      "../node_modules/@nestjs/microservices/module/interfaces/index.d.ts",
+      "../node_modules/@nestjs/microservices/nest-microservice.d.ts",
+      "../node_modules/@nestjs/microservices/server/index.d.ts",
+      "../node_modules/@nestjs/microservices/server/server-grpc.d.ts",
+      "../node_modules/@nestjs/microservices/server/server-kafka.d.ts",
+      "../node_modules/@nestjs/microservices/server/server-mqtt.d.ts",
+      "../node_modules/@nestjs/microservices/server/server-nats.d.ts",
+      "../node_modules/@nestjs/microservices/server/server-redis.d.ts",
+      "../node_modules/@nestjs/microservices/server/server-rmq.d.ts",
+      "../node_modules/@nestjs/microservices/server/server-tcp.d.ts",
+      "../node_modules/@nestjs/microservices/server/server.d.ts",
+      "../node_modules/@nestjs/microservices/tokens.d.ts",
       "../node_modules/@nestjs/passport/dist/abstract.strategy.d.ts",
       "../node_modules/@nestjs/passport/dist/auth.guard.d.ts",
       "../node_modules/@nestjs/passport/dist/index.d.ts",
@@ -20137,12 +21235,93 @@
       "../src/database.ts",
       "../src/database/seeds/permission.seed.ts",
       "../src/database/seeds/super-admin.seed.ts",
+      "../src/event-servcie/auth.event.module.ts",
+      [
+        "../src/event-servcie/controllers/auth.event.controller.ts",
+        [
+          {
+            "file": "../src/event-servcie/controllers/auth.event.controller.ts",
+            "start": 11,
+            "length": 4,
+            "messageText": "'Body' is declared but its value is never read.",
+            "category": 1,
+            "code": 6133,
+            "reportsUnnecessary": true
+          },
+          {
+            "file": "../src/event-servcie/controllers/auth.event.controller.ts",
+            "start": 29,
+            "length": 3,
+            "messageText": "'Get' is declared but its value is never read.",
+            "category": 1,
+            "code": 6133,
+            "reportsUnnecessary": true
+          },
+          {
+            "file": "../src/event-servcie/controllers/auth.event.controller.ts",
+            "start": 34,
+            "length": 4,
+            "messageText": "'Post' is declared but its value is never read.",
+            "category": 1,
+            "code": 6133,
+            "reportsUnnecessary": true
+          },
+          {
+            "file": "../src/event-servcie/controllers/auth.event.controller.ts",
+            "start": 76,
+            "length": 6,
+            "messageText": "'Client' is declared but its value is never read.",
+            "category": 1,
+            "code": 6133,
+            "reportsUnnecessary": true
+          },
+          {
+            "file": "../src/event-servcie/controllers/auth.event.controller.ts",
+            "start": 84,
+            "length": 11,
+            "messageText": "'ClientKafka' is declared but its value is never read.",
+            "category": 1,
+            "code": 6133,
+            "reportsUnnecessary": true
+          },
+          {
+            "file": "../src/event-servcie/controllers/auth.event.controller.ts",
+            "start": 122,
+            "length": 9,
+            "messageText": "'Transport' is declared but its value is never read.",
+            "category": 1,
+            "code": 6133,
+            "reportsUnnecessary": true
+          },
+          {
+            "file": "../src/event-servcie/controllers/auth.event.controller.ts",
+            "start": 165,
+            "length": 31,
+            "messageText": "'json' is declared but its value is never read.",
+            "category": 1,
+            "code": 6133,
+            "reportsUnnecessary": true
+          }
+        ]
+      ],
       "../src/filters/error.filter.ts",
       "../src/login-history/entities/login-history.entity.ts",
       "../src/login-history/login-history.module.ts",
       "../src/login-history/requests/login-history.request.ts",
       "../src/login-history/services/insert-login-history.service.ts",
-      "../src/main.ts",
+      [
+        "../src/main.ts",
+        [
+          {
+            "file": "../src/main.ts",
+            "start": 582,
+            "length": 9,
+            "messageText": "'Transport' only refers to a type, but is being used as a value here.",
+            "category": 1,
+            "code": 2693
+          }
+        ]
+      ],
       "../src/migrations/1610442728726-address_colum_add.ts",
       "../src/otp/controller/otp.controller.ts",
       "../src/otp/entities/otp.entity.ts",

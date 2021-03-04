@@ -9,7 +9,17 @@ const app_module_1 = require("./app.module");
 const error_filter_1 = require("./filters/error.filter");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
-    await common_services_1.setBootstrap(app);
+    await common_services_1.setBootstrap(app, {
+        transport: Transport.KAFKA,
+        options: {
+            client: {
+                brokers: ['localhost:9092'],
+            },
+            consumer: {
+                groupId: 'kfc-stream',
+            },
+        },
+    });
     app.use(session({
         secret: 'nest cats',
         resave: false,

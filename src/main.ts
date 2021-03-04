@@ -12,7 +12,19 @@ import { ErrorFilter } from './filters/error.filter';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  await setBootstrap(app);
+
+  await setBootstrap(app, {
+    transport: Transport.KAFKA,
+    options: {
+      client: {
+        brokers: ['localhost:9092'],
+      },
+      consumer: {
+        groupId: 'kfc-stream',
+      },
+    },
+  });
+
   app.use(
     session({
       secret: 'nest cats',

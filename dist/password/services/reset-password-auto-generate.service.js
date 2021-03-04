@@ -29,8 +29,8 @@ let ResetPasswordAutoGenerateService = class ResetPasswordAutoGenerateService {
         const user = (await this.userRepository.findOne(user_id));
         const { email = null, first_name: firstName } = user;
         if (!email) {
-            throw new common_1.BadRequestException('This is user is not associated with an email, ' +
-                'cannot reset password');
+            throw new common_1.BadRequestException('This is user is not associated with an email, '
+                + 'cannot reset password');
         }
         const newGeneratedPassword = utils_1.uid(10);
         const updatedUser = {
