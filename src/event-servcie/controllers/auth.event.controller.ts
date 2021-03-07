@@ -1,12 +1,5 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
-import {
-  Client,
-  ClientKafka,
-  MessagePattern,
-  Payload,
-  Transport,
-} from '@nestjs/microservices';
-import { json } from 'express';
+import { Controller } from '@nestjs/common';
+import { MessagePattern, Payload } from '@nestjs/microservices';
 
 interface IKafkaMessage<T> {
   topic: string;
