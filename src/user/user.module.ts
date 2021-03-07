@@ -1,11 +1,13 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-// @ts-ignore
 import {
   ApiResponseService,
   CacheModule,
   UploadService,
 } from '@the-tech-nerds/common-services';
+import { SaveFileService } from '@the-tech-nerds/common-services/dist/upload/save-file.service';
+import { FileStorage } from './entities/storage.entity';
+// @ts-ignore
 import { User } from './entities/user.entity';
 
 import { UserController } from './controllers/user.controller';
@@ -26,7 +28,7 @@ import { FetchUserInfoByEmailService } from './services/fetch-user-by-email.serv
 import { UpdateUserFreezeStatusService } from './services/update-user-freeze-status.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User, Roles]), CacheModule],
+  imports: [TypeOrmModule.forFeature([User, Roles, FileStorage]), CacheModule],
   providers: [
     ApiResponseService,
     ListUsersService,
@@ -40,6 +42,7 @@ import { UpdateUserFreezeStatusService } from './services/update-user-freeze-sta
     UpdatePhoneVerifiedService,
     UpdatePhoneService,
     UploadService,
+    SaveFileService,
     UpdateEmailService,
     FetchUserInfoByPhoneService,
     FetchUserInfoByEmailService,
