@@ -282,6 +282,7 @@ export class UserController {
     @UploadedFile() file: any,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
+    console.log(file);
     return this.uploadService
       .upload(file, undefined, 'user', 'user')
       .then((response: any) =>
