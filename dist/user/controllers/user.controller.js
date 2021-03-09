@@ -103,9 +103,10 @@ let UserController = class UserController {
         const data = await this.assignRolesInUserService.assign(id, userAssignRolesRequest.roles);
         return this.apiResponseService.successResponse(['Role Assign successfully'], data, res);
     }
-    async upload(file, res) {
+    async upload(file, content, res) {
+        const model = JSON.parse(content.fileStoreInfo);
         return this.uploadService
-            .upload(file, null, 'user', 'user')
+            .upload(file, undefined, model.folder, model.entity)
             .then((response) => this.apiResponseService.successResponse(['Image Uploaded successfully'], response, res))
             .catch((error) => this.apiResponseService.internalServerError(['Something went wrong! please try again later'], res));
     }
@@ -240,9 +241,10 @@ __decorate([
     common_1.Post('upload'),
     common_1.UseInterceptors(platform_express_1.FileInterceptor('image')),
     __param(0, common_1.UploadedFile()),
-    __param(1, common_1.Res()),
+    __param(1, common_1.Body()),
+    __param(2, common_1.Res()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:paramtypes", [Object, Object, Object]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "upload", null);
 __decorate([
