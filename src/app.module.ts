@@ -19,6 +19,7 @@ import { OtpModule } from './otp/otp.module';
 import configuration from './config/configuration';
 import loginConfig from './config/login-config';
 import { PasswordModule } from './password/password.module';
+import { AuthEventModule } from './event-servcie/auth.event.module';
 
 // @ts-ignore
 @Module({
@@ -45,6 +46,7 @@ import { PasswordModule } from './password/password.module';
     }),
     CacheModule,
     ApiResponseModule,
+    AuthEventModule,
   ],
   controllers: [AppController],
   providers: [AppService],
