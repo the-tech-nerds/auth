@@ -8,26 +8,23 @@ import {
 } from '@the-tech-nerds/common-services';
 import { join } from 'path';
 import { Transport } from '@nestjs/microservices';
+import * as bodyParser from 'body-parser';
 import { AppModule } from './app.module';
 import { ErrorFilter } from './filters/error.filter';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
-  await setBootstrap(app);
-
-  await app.connectMicroservice({
-    transport: Transport.KAFKA,
+  await setBootstrap(app, {
+    transport: Transport.RMQ,
     options: {
-      client: {
-        brokers: ['localhost:9093'],
-      },
-      consumer: {
-        groupId: 'kfc-stream',
+      urls: ['amqp://user:pass@rabbitmq:5672/grocery'],
+      queue: 'cats_queue',
+      queueOptions: {
+        durable: false,
       },
     },
   });
-  await app.startAllMicroservicesAsync();
 
   app.use(
     session({
@@ -46,6 +43,9 @@ async function bootstrap(): Promise<void> {
   app.useGlobalFilters(new ErrorFilter(new ApiResponseService()));
   app.useGlobalPipes(new ValidationPipe());
   app.setGlobalPrefix('api/v1');
+
+  app.use(bodyParser.json({ limit: '50mb' }));
+  app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
   await app.listen(3000);
 }
 
