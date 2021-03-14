@@ -7,7 +7,6 @@ import {
   ApiResponseService,
 } from '@the-tech-nerds/common-services';
 import { join } from 'path';
-// import { Transport } from '@nestjs/microservices';
 import * as bodyParser from 'body-parser';
 import { AppModule } from './app.module';
 import { ErrorFilter } from './filters/error.filter';
@@ -16,19 +15,6 @@ async function bootstrap(): Promise<void> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
   await setBootstrap(app);
-
-  // await app.connectMicroservice({
-  //   transport: Transport.KAFKA,
-  //   options: {
-  //     client: {
-  //       brokers: ['localhost:9092'],
-  //     },
-  //     consumer: {
-  //       groupId: 'kfc-stream',
-  //     },
-  //   },
-  // });
-  // await app.startAllMicroservicesAsync();
 
   app.use(
     session({

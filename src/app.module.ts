@@ -45,7 +45,6 @@ import { PasswordModule } from './password/password.module';
     }),
     CacheModule,
     ApiResponseModule,
-    // AuthEventModule,
   ],
   controllers: [AppController],
   providers: [AppService],
