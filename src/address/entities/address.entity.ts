@@ -18,9 +18,9 @@ export class Address extends BaseEntity {
   @JoinColumn({ name: 'user_id' })
   @ManyToOne(
     () => User,
-    user => user.id,
+    user => user.addresses,
   )
-  user_id: number;
+  user: User;
 
   @Column()
   name: string;

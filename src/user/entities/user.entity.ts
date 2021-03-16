@@ -94,7 +94,7 @@ export class User extends BaseEntity {
 
   @OneToMany(
     () => Address,
-    address => address.user_id,
+    address => address.user,
   )
   addresses!: Address[];
 
