@@ -35,6 +35,7 @@ const update_email_request_1 = require("../requests/update-email.request");
 const fetch_user_by_email_service_1 = require("../services/fetch-user-by-email.service");
 const fetch_user_by_phone_service_1 = require("../services/fetch-user-by-phone.service");
 const update_user_freeze_status_service_1 = require("../services/update-user-freeze-status.service");
+const pagination_1 = require("../../utils/pagination");
 let UserController = class UserController {
     constructor(listUsersService, updateUsersService, fetchUserByIdService, getAddressesByUserService, assignRolesInUserService, deleteUserService, apiResponseService, fetchUserInfoByIdService, updateUserInfoService, updatePhoneVerifiedService, updatePhoneService, uploadService, updateEmailService, fetchUserInfoByEmailService, fetchUserInfoByPhoneService, updateUserFreezeStatusService) {
         this.listUsersService = listUsersService;
@@ -54,8 +55,8 @@ let UserController = class UserController {
         this.fetchUserInfoByPhoneService = fetchUserInfoByPhoneService;
         this.updateUserFreezeStatusService = updateUserFreezeStatusService;
     }
-    async getUsers(userType, res) {
-        const data = await this.listUsersService.execute(userType);
+    async getUsers(query, userType, res) {
+        const data = this.listUsersService.execute(userType, query);
         return this.apiResponseService.successResponse(['User list fetched successfully'], data, res);
     }
     async updateUser(id, userUpdateRequest, res) {
@@ -120,13 +121,12 @@ let UserController = class UserController {
     }
 };
 __decorate([
-    common_1.UseGuards(common_services_1.UserGuard),
-    common_services_1.HasPermissions([common_services_1.PermissionTypes.USER.GET], common_services_1.PermissionTypeEnum.hasPermission),
     common_1.Get('/all'),
-    __param(0, common_1.Query('userType')),
-    __param(1, common_1.Res()),
+    __param(0, pagination_1.Paginate()),
+    __param(1, common_1.Query('userType')),
+    __param(2, common_1.Res()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:paramtypes", [Object, String, Object]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "getUsers", null);
 __decorate([

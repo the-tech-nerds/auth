@@ -50,6 +50,7 @@ import { UpdateEmailRequest } from '../requests/update-email.request';
 import { FetchUserInfoByEmailService } from '../services/fetch-user-by-email.service';
 import { FetchUserInfoByPhoneService } from '../services/fetch-user-by-phone.service';
 import { UpdateUserFreezeStatusService } from '../services/update-user-freeze-status.service';
+import { Paginate, PaginateQuery } from '../../utils/pagination';
 @Controller()
 export class UserController {
   constructor(
@@ -73,14 +74,16 @@ export class UserController {
     private readonly updateUserFreezeStatusService: UpdateUserFreezeStatusService,
   ) {}
 
-  @UseGuards(UserGuard)
-  @HasPermissions([PermissionTypes.USER.GET], PermissionTypeEnum.hasPermission)
+  // @UseGuards(UserGuard)
+  // @HasPermissions([PermissionTypes.USER.GET], PermissionTypeEnum.hasPermission)
   @Get('/all')
   async getUsers(
+    @Paginate() query: PaginateQuery,
     @Query('userType') userType: string,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    const data = await this.listUsersService.execute(userType);
+    const data = this.listUsersService.execute(userType, query);
+    // const data = await this.listUsersService.execute(userType);
     return this.apiResponseService.successResponse(
       ['User list fetched successfully'],
       data,
