@@ -7,12 +7,15 @@ import {
   ApiResponseService,
 } from '@the-tech-nerds/common-services';
 import { join } from 'path';
+import * as bodyParser from 'body-parser';
 import { AppModule } from './app.module';
 import { ErrorFilter } from './filters/error.filter';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+
   await setBootstrap(app);
+
   app.use(
     session({
       secret: 'nest cats',
@@ -30,6 +33,9 @@ async function bootstrap(): Promise<void> {
   app.useGlobalFilters(new ErrorFilter(new ApiResponseService()));
   app.useGlobalPipes(new ValidationPipe());
   app.setGlobalPrefix('api/v1');
+
+  app.use(bodyParser.json({ limit: '50mb' }));
+  app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
   await app.listen(3000);
 }
 

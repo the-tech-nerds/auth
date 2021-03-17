@@ -280,10 +280,12 @@ export class UserController {
   @UseInterceptors(FileInterceptor('image'))
   async upload(
     @UploadedFile() file: any,
+    @Body() content: any,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
+    const model = JSON.parse(content.fileStoreInfo);
     return this.uploadService
-      .upload(file, null, 'user', 'user')
+      .upload(file, undefined, model.folder, model.entity)
       .then((response: any) =>
         this.apiResponseService.successResponse(
           ['Image Uploaded successfully'],
