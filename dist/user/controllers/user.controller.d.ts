@@ -49,7 +49,7 @@ export declare class UserController {
     getAddressByUser(id: number, res: Response): Promise<Response<ResponseModel>>;
     DeleteUser(id: number, res: Response): Promise<Response<ResponseModel>>;
     AssignPermission(id: number, userAssignRolesRequest: UserAssignRolesRequest, res: Response): Promise<Response<ResponseModel>>;
-    upload(file: any, res: Response): Promise<Response<ResponseModel>>;
+    upload(file: any, content: any, res: Response): Promise<Response<ResponseModel>>;
     getUserByEmail(userType: string, email: string, res: Response): Promise<Response<ResponseModel>>;
     getUserByPhone(userType: string, phone: string, res: Response): Promise<Response<ResponseModel>>;
 }
