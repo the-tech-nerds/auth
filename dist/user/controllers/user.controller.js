@@ -166,7 +166,6 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "getUserById", null);
 __decorate([
-    common_1.UseGuards(common_services_1.UserGuard),
     common_1.Get('/profile/info'),
     __param(0, common_services_1.CurrentUser('id')),
     __param(1, common_1.Res()),
@@ -274,7 +273,7 @@ __decorate([
 __decorate([
     common_1.UseGuards(common_services_1.UserGuard),
     common_1.Put('/update/shop'),
-    __param(0, common_services_1.CurrentUser('id')),
+    __param(0, common_1.Query('id')),
     __param(1, common_1.Body()),
     __param(2, common_1.Res()),
     __metadata("design:type", Function),

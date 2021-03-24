@@ -61,7 +61,7 @@ UserModule = __decorate([
             update_user_freeze_status_service_1.UpdateUserFreezeStatusService,
             create_user_shop_service_1.CreateUserShopService,
             list_by_user_id_service_1.UserShopsService,
-            update_user_shop_service_1.UpdateUserShopsService
+            update_user_shop_service_1.UpdateUserShopsService,
         ],
         exports: [update_user_service_1.UpdateUsersService, create_user_shop_service_1.CreateUserShopService, list_by_user_id_service_1.UserShopsService],
         controllers: [user_controller_1.UserController],

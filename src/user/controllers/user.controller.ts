@@ -144,7 +144,7 @@ export class UserController {
     );
   }
 
-  @UseGuards(UserGuard)
+  // @UseGuards(UserGuard)
   @Get('/profile/info')
   async getUserInfoById(
     @CurrentUser('id') userId: any,
@@ -341,7 +341,7 @@ export class UserController {
   @UseGuards(UserGuard)
   @Put('/update/shop')
   async UpdateUserShop(
-    @CurrentUser('id') userId: any,
+    @Query('id') userId: any,
     @Body() shopIds: any,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
