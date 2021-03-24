@@ -28,6 +28,8 @@ import { FetchUserInfoByEmailService } from './services/fetch-user-by-email.serv
 import { UpdateUserFreezeStatusService } from './services/update-user-freeze-status.service';
 import { UserShopMapping } from './entities/user-shop.entity';
 import { CreateUserShopService } from './services/user-shop/create-user-shop.service';
+import { UserShopsService } from './services/user-shop/list-by-user-id.service';
+import { UpdateUserShopsService } from './services/user-shop/update.user-shop.service';
 
 @Module({
   imports: [
@@ -53,8 +55,10 @@ import { CreateUserShopService } from './services/user-shop/create-user-shop.ser
     FetchUserInfoByEmailService,
     UpdateUserFreezeStatusService,
     CreateUserShopService,
+    UserShopsService,
+    UpdateUserShopsService,
   ],
-  exports: [UpdateUsersService, CreateUserShopService],
+  exports: [UpdateUsersService, CreateUserShopService, UserShopsService],
   controllers: [UserController],
 })
 export class UserModule {}

@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { User } from './user.entity';
 
 @Entity()
 export class UserShopMapping {
@@ -10,4 +17,11 @@ export class UserShopMapping {
 
   @Column({ nullable: false })
   shop_id: number;
+
+  @ManyToOne(
+    () => User,
+    user => user.userShop,
+  )
+  @JoinColumn({ name: 'user_id' })
+  user: User;
 }

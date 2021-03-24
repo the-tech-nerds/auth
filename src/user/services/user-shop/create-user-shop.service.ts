@@ -10,9 +10,9 @@ export class CreateUserShopService {
     private userShopRepository: Repository<UserShopMapping>,
   ) {}
 
-  async execute(userId: number, shop_id?: number[]): Promise<Boolean> {
+  async execute(userId: number, shopIds?: number[]): Promise<Boolean> {
     const userShops: any = [];
-    shop_id?.forEach(element => {
+    shopIds?.forEach(element => {
       userShops.push({
         user_id: userId,
         shop_id: Number(element),

@@ -50,6 +50,7 @@ import { UpdateEmailRequest } from '../requests/update-email.request';
 import { FetchUserInfoByEmailService } from '../services/fetch-user-by-email.service';
 import { FetchUserInfoByPhoneService } from '../services/fetch-user-by-phone.service';
 import { UpdateUserFreezeStatusService } from '../services/update-user-freeze-status.service';
+import { UpdateUserShopsService } from '../services/user-shop/update.user-shop.service';
 @Controller()
 export class UserController {
   constructor(
@@ -71,6 +72,7 @@ export class UserController {
     private readonly fetchUserInfoByPhoneService: FetchUserInfoByPhoneService,
 
     private readonly updateUserFreezeStatusService: UpdateUserFreezeStatusService,
+    private readonly updateUserShopService: UpdateUserShopsService,
   ) {}
 
   @UseGuards(UserGuard)
@@ -332,6 +334,21 @@ export class UserController {
     return this.apiResponseService.successResponse(
       ['User  fetched successfully'],
       data,
+      res,
+    );
+  }
+
+  @UseGuards(UserGuard)
+  @Put('/update/shop')
+  async UpdateUserShop(
+    @CurrentUser('id') userId: any,
+    @Body() shopIds: any,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    const data = await this.updateUserShopService.execute(userId, shopIds);
+    return this.apiResponseService.successResponse(
+      ['User shop updated successfully'],
+      data as Boolean,
       res,
     );
   }

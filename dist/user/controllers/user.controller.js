@@ -35,8 +35,9 @@ const update_email_request_1 = require("../requests/update-email.request");
 const fetch_user_by_email_service_1 = require("../services/fetch-user-by-email.service");
 const fetch_user_by_phone_service_1 = require("../services/fetch-user-by-phone.service");
 const update_user_freeze_status_service_1 = require("../services/update-user-freeze-status.service");
+const update_user_shop_service_1 = require("../services/user-shop/update.user-shop.service");
 let UserController = class UserController {
-    constructor(listUsersService, updateUsersService, fetchUserByIdService, getAddressesByUserService, assignRolesInUserService, deleteUserService, apiResponseService, fetchUserInfoByIdService, updateUserInfoService, updatePhoneVerifiedService, updatePhoneService, uploadService, updateEmailService, fetchUserInfoByEmailService, fetchUserInfoByPhoneService, updateUserFreezeStatusService) {
+    constructor(listUsersService, updateUsersService, fetchUserByIdService, getAddressesByUserService, assignRolesInUserService, deleteUserService, apiResponseService, fetchUserInfoByIdService, updateUserInfoService, updatePhoneVerifiedService, updatePhoneService, uploadService, updateEmailService, fetchUserInfoByEmailService, fetchUserInfoByPhoneService, updateUserFreezeStatusService, updateUserShopService) {
         this.listUsersService = listUsersService;
         this.updateUsersService = updateUsersService;
         this.fetchUserByIdService = fetchUserByIdService;
@@ -53,6 +54,7 @@ let UserController = class UserController {
         this.fetchUserInfoByEmailService = fetchUserInfoByEmailService;
         this.fetchUserInfoByPhoneService = fetchUserInfoByPhoneService;
         this.updateUserFreezeStatusService = updateUserFreezeStatusService;
+        this.updateUserShopService = updateUserShopService;
     }
     async getUsers(userType, res) {
         const data = await this.listUsersService.execute(userType);
@@ -117,6 +119,10 @@ let UserController = class UserController {
     async getUserByPhone(userType, phone, res) {
         const data = await this.fetchUserInfoByPhoneService.execute(phone, Number(userType));
         return this.apiResponseService.successResponse(['User  fetched successfully'], data, res);
+    }
+    async UpdateUserShop(userId, shopIds, res) {
+        const data = await this.updateUserShopService.execute(userId, shopIds);
+        return this.apiResponseService.successResponse(['User shop updated successfully'], data, res);
     }
 };
 __decorate([
@@ -265,6 +271,16 @@ __decorate([
     __metadata("design:paramtypes", [String, String, Object]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "getUserByPhone", null);
+__decorate([
+    common_1.UseGuards(common_services_1.UserGuard),
+    common_1.Put('/update/shop'),
+    __param(0, common_services_1.CurrentUser('id')),
+    __param(1, common_1.Body()),
+    __param(2, common_1.Res()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object, Object]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "UpdateUserShop", null);
 UserController = __decorate([
     common_1.Controller(),
     __metadata("design:paramtypes", [list_users_service_1.ListUsersService,
@@ -282,7 +298,8 @@ UserController = __decorate([
         update_email_service_1.UpdateEmailService,
         fetch_user_by_email_service_1.FetchUserInfoByEmailService,
         fetch_user_by_phone_service_1.FetchUserInfoByPhoneService,
-        update_user_freeze_status_service_1.UpdateUserFreezeStatusService])
+        update_user_freeze_status_service_1.UpdateUserFreezeStatusService,
+        update_user_shop_service_1.UpdateUserShopsService])
 ], UserController);
 exports.UserController = UserController;
 //# sourceMappingURL=user.controller.js.map

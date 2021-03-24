@@ -21,7 +21,7 @@ export class UserRegistrationService {
       password = '',
       type = UserType.USER,
       email = undefined,
-      shopId = undefined,
+      shopIds = undefined,
       phone = undefined,
     } = userData;
 
@@ -69,8 +69,8 @@ export class UserRegistrationService {
               : passwordToSave,
           created_by: 1,
         });
-        if (shopId) {
-          await this.userShopMapping.execute(id, shopId);
+        if (shopIds) {
+          await this.userShopMapping.execute(id, shopIds);
         }
 
         return {

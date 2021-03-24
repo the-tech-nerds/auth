@@ -19,6 +19,7 @@ import { UpdateEmailRequest } from '../requests/update-email.request';
 import { FetchUserInfoByEmailService } from '../services/fetch-user-by-email.service';
 import { FetchUserInfoByPhoneService } from '../services/fetch-user-by-phone.service';
 import { UpdateUserFreezeStatusService } from '../services/update-user-freeze-status.service';
+import { UpdateUserShopsService } from '../services/user-shop/update.user-shop.service';
 export declare class UserController {
     private readonly listUsersService;
     private readonly updateUsersService;
@@ -36,7 +37,8 @@ export declare class UserController {
     private readonly fetchUserInfoByEmailService;
     private readonly fetchUserInfoByPhoneService;
     private readonly updateUserFreezeStatusService;
-    constructor(listUsersService: ListUsersService, updateUsersService: UpdateUsersService, fetchUserByIdService: FetchUserByIdService, getAddressesByUserService: GetAddressesByUserService, assignRolesInUserService: AssignRolesInUserService, deleteUserService: DeleteUserService, apiResponseService: ApiResponseService, fetchUserInfoByIdService: FetchUserInfoByIdService, updateUserInfoService: UpdateUserInfoesService, updatePhoneVerifiedService: UpdatePhoneVerifiedService, updatePhoneService: UpdatePhoneService, uploadService: UploadService, updateEmailService: UpdateEmailService, fetchUserInfoByEmailService: FetchUserInfoByEmailService, fetchUserInfoByPhoneService: FetchUserInfoByPhoneService, updateUserFreezeStatusService: UpdateUserFreezeStatusService);
+    private readonly updateUserShopService;
+    constructor(listUsersService: ListUsersService, updateUsersService: UpdateUsersService, fetchUserByIdService: FetchUserByIdService, getAddressesByUserService: GetAddressesByUserService, assignRolesInUserService: AssignRolesInUserService, deleteUserService: DeleteUserService, apiResponseService: ApiResponseService, fetchUserInfoByIdService: FetchUserInfoByIdService, updateUserInfoService: UpdateUserInfoesService, updatePhoneVerifiedService: UpdatePhoneVerifiedService, updatePhoneService: UpdatePhoneService, uploadService: UploadService, updateEmailService: UpdateEmailService, fetchUserInfoByEmailService: FetchUserInfoByEmailService, fetchUserInfoByPhoneService: FetchUserInfoByPhoneService, updateUserFreezeStatusService: UpdateUserFreezeStatusService, updateUserShopService: UpdateUserShopsService);
     getUsers(userType: string, res: Response): Promise<Response<ResponseModel>>;
     updateUser(id: number, userUpdateRequest: UserUpdateRequest, res: Response): Promise<Response<ResponseModel>>;
     unfreezeUser(id: number, res: Response): Promise<Response<ResponseModel>>;
@@ -52,4 +54,5 @@ export declare class UserController {
     upload(file: any, content: any, res: Response): Promise<Response<ResponseModel>>;
     getUserByEmail(userType: string, email: string, res: Response): Promise<Response<ResponseModel>>;
     getUserByPhone(userType: string, phone: string, res: Response): Promise<Response<ResponseModel>>;
+    UpdateUserShop(userId: any, shopIds: any, res: Response): Promise<Response<ResponseModel>>;
 }

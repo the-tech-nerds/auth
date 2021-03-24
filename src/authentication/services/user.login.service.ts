@@ -23,9 +23,11 @@ export class UserLoginService {
 
   async login(user: Partial<User>, userType: number) {
     const { email, id, phone } = user;
-    const { roles = [], type } = (await this.fetchUserByIdService.execute(
-      Number(id),
-    )) as User;
+    const {
+      roles = [],
+      type,
+      userShop = [],
+    } = (await this.fetchUserByIdService.execute(Number(id))) as User;
 
     if (userType !== type) {
       throw new BadRequestException(`User with ${email || phone} not found.`);
@@ -41,12 +43,14 @@ export class UserLoginService {
       name,
     }));
 
+    const shopIds = userShop.map(m => m.shop_id);
     const accessToken = this.jwtService.sign({
       email,
       phone,
       id,
       roles: allRoles,
       permissions: allPermissions,
+      shops: shopIds,
     });
 
     await this.cacheService.set(`user-token-${id}`, accessToken);
