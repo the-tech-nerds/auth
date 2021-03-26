@@ -13,6 +13,8 @@ export class UserRegistrationRequest {
 
   password: string;
 
+  shopIds?: number[];
+
   google_auth?: string;
 
   image_url?: string;

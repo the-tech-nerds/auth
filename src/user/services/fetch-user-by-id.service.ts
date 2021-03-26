@@ -12,7 +12,7 @@ export class FetchUserByIdService {
 
   async execute(userId: number): Promise<User | undefined> {
     return this.usersRepository.findOne(userId, {
-      relations: ['roles', 'roles.permissions'],
+      relations: ['roles', 'roles.permissions', 'userShop'],
     });
   }
 }

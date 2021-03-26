@@ -29,11 +29,18 @@ const update_email_service_1 = require("./services/update-email.service");
 const fetch_user_by_phone_service_1 = require("./services/fetch-user-by-phone.service");
 const fetch_user_by_email_service_1 = require("./services/fetch-user-by-email.service");
 const update_user_freeze_status_service_1 = require("./services/update-user-freeze-status.service");
+const user_shop_entity_1 = require("./entities/user-shop.entity");
+const create_user_shop_service_1 = require("./services/user-shop/create-user-shop.service");
+const list_by_user_id_service_1 = require("./services/user-shop/list-by-user-id.service");
+const update_user_shop_service_1 = require("./services/user-shop/update.user-shop.service");
 let UserModule = class UserModule {
 };
 UserModule = __decorate([
     common_1.Module({
-        imports: [typeorm_1.TypeOrmModule.forFeature([user_entity_1.User, role_entity_1.Roles, storage_entity_1.FileStorage]), common_services_1.CacheModule],
+        imports: [
+            typeorm_1.TypeOrmModule.forFeature([user_entity_1.User, role_entity_1.Roles, storage_entity_1.FileStorage, user_shop_entity_1.UserShopMapping]),
+            common_services_1.CacheModule,
+        ],
         providers: [
             common_services_1.ApiResponseService,
             list_users_service_1.ListUsersService,
@@ -52,8 +59,11 @@ UserModule = __decorate([
             fetch_user_by_phone_service_1.FetchUserInfoByPhoneService,
             fetch_user_by_email_service_1.FetchUserInfoByEmailService,
             update_user_freeze_status_service_1.UpdateUserFreezeStatusService,
+            create_user_shop_service_1.CreateUserShopService,
+            list_by_user_id_service_1.UserShopsService,
+            update_user_shop_service_1.UpdateUserShopsService,
         ],
-        exports: [update_user_service_1.UpdateUsersService],
+        exports: [update_user_service_1.UpdateUsersService, create_user_shop_service_1.CreateUserShopService, list_by_user_id_service_1.UserShopsService],
         controllers: [user_controller_1.UserController],
     })
 ], UserModule);

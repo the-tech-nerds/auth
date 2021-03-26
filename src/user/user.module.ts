@@ -26,9 +26,16 @@ import { UpdateEmailService } from './services/update-email.service';
 import { FetchUserInfoByPhoneService } from './services/fetch-user-by-phone.service';
 import { FetchUserInfoByEmailService } from './services/fetch-user-by-email.service';
 import { UpdateUserFreezeStatusService } from './services/update-user-freeze-status.service';
+import { UserShopMapping } from './entities/user-shop.entity';
+import { CreateUserShopService } from './services/user-shop/create-user-shop.service';
+import { UserShopsService } from './services/user-shop/list-by-user-id.service';
+import { UpdateUserShopsService } from './services/user-shop/update.user-shop.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User, Roles, FileStorage]), CacheModule],
+  imports: [
+    TypeOrmModule.forFeature([User, Roles, FileStorage, UserShopMapping]),
+    CacheModule,
+  ],
   providers: [
     ApiResponseService,
     ListUsersService,
@@ -47,8 +54,11 @@ import { UpdateUserFreezeStatusService } from './services/update-user-freeze-sta
     FetchUserInfoByPhoneService,
     FetchUserInfoByEmailService,
     UpdateUserFreezeStatusService,
+    CreateUserShopService,
+    UserShopsService,
+    UpdateUserShopsService,
   ],
-  exports: [UpdateUsersService],
+  exports: [UpdateUsersService, CreateUserShopService, UserShopsService],
   controllers: [UserController],
 })
 export class UserModule {}

@@ -13,7 +13,7 @@ export class FetchUserInfoByIdService {
 
   async execute(userId: number): Promise<UserResponse | undefined> {
     const userInfo = await this.usersRepository.findOne(userId, {
-      relations: ['roles'],
+      relations: ['roles', 'userShop'],
     });
     if (userInfo) {
       return {
@@ -31,6 +31,7 @@ export class FetchUserInfoByIdService {
         is_gmail_login: !!userInfo.google_auth,
         gender_type: userInfo.gender_type,
         roles: userInfo.roles,
+        shops: userInfo.userShop,
       };
     }
     return undefined;
