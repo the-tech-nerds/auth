@@ -4,10 +4,10 @@ import {
   ApiResponseService,
   CacheModule,
   UploadService,
+  FileService,
 } from '@the-tech-nerds/common-services';
-import { SaveFileService } from '@the-tech-nerds/common-services/dist/upload/save-file.service';
+
 import { FileStorage } from './entities/storage.entity';
-// @ts-ignore
 import { User } from './entities/user.entity';
 
 import { UserController } from './controllers/user.controller';
@@ -26,6 +26,8 @@ import { UpdateEmailService } from './services/update-email.service';
 import { FetchUserInfoByPhoneService } from './services/fetch-user-by-phone.service';
 import { FetchUserInfoByEmailService } from './services/fetch-user-by-email.service';
 import { UpdateUserFreezeStatusService } from './services/update-user-freeze-status.service';
+
+import { UserMockCreateService } from './services/user-mock-create.service';
 import { UserShopMapping } from './entities/user-shop.entity';
 import { CreateUserShopService } from './services/user-shop/create-user-shop.service';
 import { UserShopsService } from './services/user-shop/list-by-user-id.service';
@@ -49,14 +51,15 @@ import { UpdateUserShopsService } from './services/user-shop/update.user-shop.se
     UpdatePhoneVerifiedService,
     UpdatePhoneService,
     UploadService,
-    SaveFileService,
     UpdateEmailService,
     FetchUserInfoByPhoneService,
     FetchUserInfoByEmailService,
     UpdateUserFreezeStatusService,
+    UserMockCreateService,
     CreateUserShopService,
     UserShopsService,
     UpdateUserShopsService,
+    FileService,
   ],
   exports: [UpdateUsersService, CreateUserShopService, UserShopsService],
   controllers: [UserController],

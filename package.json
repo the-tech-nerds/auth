@@ -36,7 +36,7 @@
     "@nestjs/passport": "^7.1.2",
     "@nestjs/platform-express": "^7.0.0",
     "@nestjs/typeorm": "^7.1.4",
-    "@the-tech-nerds/common-services": "^0.4.1",
+    "@the-tech-nerds/common-services": "^0.5.1",
     "@types/bcryptjs": "^2.4.2",
     "@types/passport-jwt": "^3.0.3",
     "aws-sdk": "^2.817.0",
