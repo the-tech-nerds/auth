@@ -1,8 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { paginate, PaginateQuery, Paginated } from 'src/utils/pagination';
+import {
+  paginate,
+  PaginateQuery,
+  Paginated,
+} from '@the-tech-nerds/common-services';
 import { Repository } from 'typeorm';
-import { User } from '../entities/user.entity';
+import { User, UserType } from '../entities/user.entity';
 
 @Injectable()
 export class ListUsersService {
@@ -18,7 +22,9 @@ export class ListUsersService {
     const queryBuilder = this.usersRepository
       .createQueryBuilder('user')
       .leftJoinAndSelect('user.roles', 'roles')
-      .where('user.type = :user_type', { user_type: userType })
+      .where('user.type = :user_type', {
+        user_type: userType ? Number(userType) : UserType.USER,
+      })
       .andWhere('email <> :email', { email: 'admin@khanfcbd.com' });
 
     return paginate(query, queryBuilder, User, {
@@ -26,14 +32,5 @@ export class ListUsersService {
       searchableColumns: ['first_name', 'last_name', 'email'],
       defaultSortBy: [['id', 'ASC']],
     });
-
-    // find({
-    //   where: {
-    //     type: Number(userType),
-    //     email: Not(Equal('admin@khanfcbd.com')),
-    //   },
-    //   relations: ['roles'],
-    // });
-    // return
   }
 }

@@ -35,9 +35,9 @@ const update_email_request_1 = require("../requests/update-email.request");
 const fetch_user_by_email_service_1 = require("../services/fetch-user-by-email.service");
 const fetch_user_by_phone_service_1 = require("../services/fetch-user-by-phone.service");
 const update_user_freeze_status_service_1 = require("../services/update-user-freeze-status.service");
-const pagination_1 = require("../../utils/pagination");
+const user_mock_create_service_1 = require("../services/user-mock-create.service");
 let UserController = class UserController {
-    constructor(listUsersService, updateUsersService, fetchUserByIdService, getAddressesByUserService, assignRolesInUserService, deleteUserService, apiResponseService, fetchUserInfoByIdService, updateUserInfoService, updatePhoneVerifiedService, updatePhoneService, uploadService, updateEmailService, fetchUserInfoByEmailService, fetchUserInfoByPhoneService, updateUserFreezeStatusService) {
+    constructor(listUsersService, updateUsersService, fetchUserByIdService, getAddressesByUserService, assignRolesInUserService, deleteUserService, apiResponseService, fetchUserInfoByIdService, updateUserInfoService, updatePhoneVerifiedService, updatePhoneService, uploadService, updateEmailService, fetchUserInfoByEmailService, fetchUserInfoByPhoneService, updateUserFreezeStatusService, userMockCreateService) {
         this.listUsersService = listUsersService;
         this.updateUsersService = updateUsersService;
         this.fetchUserByIdService = fetchUserByIdService;
@@ -54,10 +54,15 @@ let UserController = class UserController {
         this.fetchUserInfoByEmailService = fetchUserInfoByEmailService;
         this.fetchUserInfoByPhoneService = fetchUserInfoByPhoneService;
         this.updateUserFreezeStatusService = updateUserFreezeStatusService;
+        this.userMockCreateService = userMockCreateService;
     }
     async getUsers(query, userType, res) {
-        const data = this.listUsersService.execute(userType, query);
+        const data = await this.listUsersService.execute(userType, query);
         return this.apiResponseService.successResponse(['User list fetched successfully'], data, res);
+    }
+    async createMockUsers(res) {
+        await this.userMockCreateService.execute(10000);
+        return this.apiResponseService.successResponse(['User list fetched successfully'], 'User created successfully', res);
     }
     async updateUser(id, userUpdateRequest, res) {
         const data = await this.updateUsersService.execute(id, userUpdateRequest);
@@ -122,13 +127,20 @@ let UserController = class UserController {
 };
 __decorate([
     common_1.Get('/all'),
-    __param(0, pagination_1.Paginate()),
+    __param(0, common_services_1.Paginate()),
     __param(1, common_1.Query('userType')),
     __param(2, common_1.Res()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, String, Object]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "getUsers", null);
+__decorate([
+    common_1.Post('/register/mock'),
+    __param(0, common_1.Res()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "createMockUsers", null);
 __decorate([
     common_1.UseGuards(common_services_1.UserGuard),
     common_services_1.HasPermissions([common_services_1.PermissionTypes.USER.UPDATE], common_services_1.PermissionTypeEnum.hasPermission),
@@ -282,7 +294,8 @@ UserController = __decorate([
         update_email_service_1.UpdateEmailService,
         fetch_user_by_email_service_1.FetchUserInfoByEmailService,
         fetch_user_by_phone_service_1.FetchUserInfoByPhoneService,
-        update_user_freeze_status_service_1.UpdateUserFreezeStatusService])
+        update_user_freeze_status_service_1.UpdateUserFreezeStatusService,
+        user_mock_create_service_1.UserMockCreateService])
 ], UserController);
 exports.UserController = UserController;
 //# sourceMappingURL=user.controller.js.map

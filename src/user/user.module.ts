@@ -26,6 +26,7 @@ import { UpdateEmailService } from './services/update-email.service';
 import { FetchUserInfoByPhoneService } from './services/fetch-user-by-phone.service';
 import { FetchUserInfoByEmailService } from './services/fetch-user-by-email.service';
 import { UpdateUserFreezeStatusService } from './services/update-user-freeze-status.service';
+import { UserMockCreateService } from './services/user-mock-create.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User, Roles, FileStorage]), CacheModule],
@@ -47,6 +48,7 @@ import { UpdateUserFreezeStatusService } from './services/update-user-freeze-sta
     FetchUserInfoByPhoneService,
     FetchUserInfoByEmailService,
     UpdateUserFreezeStatusService,
+    UserMockCreateService,
   ],
   exports: [UpdateUsersService],
   controllers: [UserController],

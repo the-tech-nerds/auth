@@ -17,14 +17,15 @@ import { Response } from 'express';
 import {
   CurrentUser,
   UserGuard,
-  // @ts-ignore
   ApiResponseService,
   HasPermissions,
   PermissionTypes,
   PermissionTypeEnum,
-  // @ts-ignore
   UploadService,
+  Paginate,
+  PaginateQuery,
 } from '@the-tech-nerds/common-services';
+// import { Paginate, PaginateQuery } from '../../utils/pagination';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { User } from '../entities/user.entity';
 import { UserUpdateRequest } from '../requests/user-update.request';
@@ -50,7 +51,7 @@ import { UpdateEmailRequest } from '../requests/update-email.request';
 import { FetchUserInfoByEmailService } from '../services/fetch-user-by-email.service';
 import { FetchUserInfoByPhoneService } from '../services/fetch-user-by-phone.service';
 import { UpdateUserFreezeStatusService } from '../services/update-user-freeze-status.service';
-import { Paginate, PaginateQuery } from '../../utils/pagination';
+import { UserMockCreateService } from '../services/user-mock-create.service';
 @Controller()
 export class UserController {
   constructor(
@@ -72,6 +73,7 @@ export class UserController {
     private readonly fetchUserInfoByPhoneService: FetchUserInfoByPhoneService,
 
     private readonly updateUserFreezeStatusService: UpdateUserFreezeStatusService,
+    private readonly userMockCreateService: UserMockCreateService,
   ) {}
 
   // @UseGuards(UserGuard)
@@ -82,11 +84,23 @@ export class UserController {
     @Query('userType') userType: string,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    const data = this.listUsersService.execute(userType, query);
+    const data = await this.listUsersService.execute(userType, query);
     // const data = await this.listUsersService.execute(userType);
     return this.apiResponseService.successResponse(
       ['User list fetched successfully'],
       data,
+      res,
+    );
+  }
+
+  @Post('/register/mock')
+  async createMockUsers(
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    await this.userMockCreateService.execute(10000);
+    return this.apiResponseService.successResponse(
+      ['User list fetched successfully'],
+      'User created successfully',
       res,
     );
   }

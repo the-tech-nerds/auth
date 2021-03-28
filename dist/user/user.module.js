@@ -29,6 +29,7 @@ const update_email_service_1 = require("./services/update-email.service");
 const fetch_user_by_phone_service_1 = require("./services/fetch-user-by-phone.service");
 const fetch_user_by_email_service_1 = require("./services/fetch-user-by-email.service");
 const update_user_freeze_status_service_1 = require("./services/update-user-freeze-status.service");
+const user_mock_create_service_1 = require("./services/user-mock-create.service");
 let UserModule = class UserModule {
 };
 UserModule = __decorate([
@@ -52,6 +53,7 @@ UserModule = __decorate([
             fetch_user_by_phone_service_1.FetchUserInfoByPhoneService,
             fetch_user_by_email_service_1.FetchUserInfoByEmailService,
             update_user_freeze_status_service_1.UpdateUserFreezeStatusService,
+            user_mock_create_service_1.UserMockCreateService,
         ],
         exports: [update_user_service_1.UpdateUsersService],
         controllers: [user_controller_1.UserController],
