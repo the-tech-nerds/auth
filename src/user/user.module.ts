@@ -4,11 +4,10 @@ import {
   ApiResponseService,
   CacheModule,
   UploadService,
-  SaveFileService,
+  FileService,
 } from '@the-tech-nerds/common-services';
 
 import { FileStorage } from './entities/storage.entity';
-// @ts-ignore
 import { User } from './entities/user.entity';
 
 import { UserController } from './controllers/user.controller';
@@ -52,7 +51,6 @@ import { UpdateUserShopsService } from './services/user-shop/update.user-shop.se
     UpdatePhoneVerifiedService,
     UpdatePhoneService,
     UploadService,
-    SaveFileService,
     UpdateEmailService,
     FetchUserInfoByPhoneService,
     FetchUserInfoByEmailService,
@@ -61,6 +59,7 @@ import { UpdateUserShopsService } from './services/user-shop/update.user-shop.se
     CreateUserShopService,
     UserShopsService,
     UpdateUserShopsService,
+    FileService,
   ],
   exports: [UpdateUsersService, CreateUserShopService, UserShopsService],
   controllers: [UserController],
