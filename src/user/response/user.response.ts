@@ -26,4 +26,6 @@ export class UserResponse {
   birthday?: Date;
 
   roles?: any[];
+
+  shops?: any[];
 }

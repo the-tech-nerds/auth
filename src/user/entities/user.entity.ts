@@ -6,6 +6,7 @@ import {
   ManyToMany,
   Unique,
 } from 'typeorm';
+import { UserShopMapping } from './user-shop.entity';
 import BaseEntity from '../../utils/entities/base-entity';
 import { Address } from '../../address/entities/address.entity';
 import { Roles } from '../../authorization/entities/role.entity';
@@ -103,4 +104,10 @@ export class User extends BaseEntity {
     roles => roles.users,
   )
   roles!: Roles[];
+
+  @OneToMany(
+    () => UserShopMapping,
+    shop => shop.user,
+  )
+  userShop: UserShopMapping[];
 }

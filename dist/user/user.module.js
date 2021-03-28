@@ -10,7 +10,7 @@ exports.UserModule = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const common_services_1 = require("@the-tech-nerds/common-services");
-const save_file_service_1 = require("@the-tech-nerds/common-services/dist/upload/save-file.service");
+const common_services_2 = require("@the-tech-nerds/common-services");
 const storage_entity_1 = require("./entities/storage.entity");
 const user_entity_1 = require("./entities/user.entity");
 const user_controller_1 = require("./controllers/user.controller");
@@ -30,11 +30,18 @@ const fetch_user_by_phone_service_1 = require("./services/fetch-user-by-phone.se
 const fetch_user_by_email_service_1 = require("./services/fetch-user-by-email.service");
 const update_user_freeze_status_service_1 = require("./services/update-user-freeze-status.service");
 const user_mock_create_service_1 = require("./services/user-mock-create.service");
+const user_shop_entity_1 = require("./entities/user-shop.entity");
+const create_user_shop_service_1 = require("./services/user-shop/create-user-shop.service");
+const list_by_user_id_service_1 = require("./services/user-shop/list-by-user-id.service");
+const update_user_shop_service_1 = require("./services/user-shop/update.user-shop.service");
 let UserModule = class UserModule {
 };
 UserModule = __decorate([
     common_1.Module({
-        imports: [typeorm_1.TypeOrmModule.forFeature([user_entity_1.User, role_entity_1.Roles, storage_entity_1.FileStorage]), common_services_1.CacheModule],
+        imports: [
+            typeorm_1.TypeOrmModule.forFeature([user_entity_1.User, role_entity_1.Roles, storage_entity_1.FileStorage, user_shop_entity_1.UserShopMapping]),
+            common_services_1.CacheModule,
+        ],
         providers: [
             common_services_1.ApiResponseService,
             list_users_service_1.ListUsersService,
@@ -48,14 +55,17 @@ UserModule = __decorate([
             verified_phone_service_1.UpdatePhoneVerifiedService,
             update_phone_service_1.UpdatePhoneService,
             common_services_1.UploadService,
-            save_file_service_1.SaveFileService,
+            common_services_2.SaveFileService,
             update_email_service_1.UpdateEmailService,
             fetch_user_by_phone_service_1.FetchUserInfoByPhoneService,
             fetch_user_by_email_service_1.FetchUserInfoByEmailService,
             update_user_freeze_status_service_1.UpdateUserFreezeStatusService,
             user_mock_create_service_1.UserMockCreateService,
+            create_user_shop_service_1.CreateUserShopService,
+            list_by_user_id_service_1.UserShopsService,
+            update_user_shop_service_1.UpdateUserShopsService,
         ],
-        exports: [update_user_service_1.UpdateUsersService],
+        exports: [update_user_service_1.UpdateUsersService, create_user_shop_service_1.CreateUserShopService, list_by_user_id_service_1.UserShopsService],
         controllers: [user_controller_1.UserController],
     })
 ], UserModule);

@@ -52,6 +52,8 @@ import { FetchUserInfoByEmailService } from '../services/fetch-user-by-email.ser
 import { FetchUserInfoByPhoneService } from '../services/fetch-user-by-phone.service';
 import { UpdateUserFreezeStatusService } from '../services/update-user-freeze-status.service';
 import { UserMockCreateService } from '../services/user-mock-create.service';
+import { UpdateUserShopsService } from '../services/user-shop/update.user-shop.service';
+
 @Controller()
 export class UserController {
   constructor(
@@ -74,10 +76,11 @@ export class UserController {
 
     private readonly updateUserFreezeStatusService: UpdateUserFreezeStatusService,
     private readonly userMockCreateService: UserMockCreateService,
+    private readonly updateUserShopService: UpdateUserShopsService,
   ) {}
 
-  // @UseGuards(UserGuard)
-  // @HasPermissions([PermissionTypes.USER.GET], PermissionTypeEnum.hasPermission)
+  @UseGuards(UserGuard)
+  @HasPermissions([PermissionTypes.USER.GET], PermissionTypeEnum.hasPermission)
   @Get('/all')
   async getUsers(
     @Paginate() query: PaginateQuery,
@@ -159,7 +162,7 @@ export class UserController {
     );
   }
 
-  @UseGuards(UserGuard)
+  // @UseGuards(UserGuard)
   @Get('/profile/info')
   async getUserInfoById(
     @CurrentUser('id') userId: any,
@@ -349,6 +352,21 @@ export class UserController {
     return this.apiResponseService.successResponse(
       ['User  fetched successfully'],
       data,
+      res,
+    );
+  }
+
+  @UseGuards(UserGuard)
+  @Put('/update/shop')
+  async UpdateUserShop(
+    @Query('id') userId: any,
+    @Body() shopIds: any,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    const data = await this.updateUserShopService.execute(userId, shopIds);
+    return this.apiResponseService.successResponse(
+      ['User shop updated successfully'],
+      data as Boolean,
       res,
     );
   }

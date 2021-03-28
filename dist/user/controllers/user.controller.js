@@ -36,8 +36,9 @@ const fetch_user_by_email_service_1 = require("../services/fetch-user-by-email.s
 const fetch_user_by_phone_service_1 = require("../services/fetch-user-by-phone.service");
 const update_user_freeze_status_service_1 = require("../services/update-user-freeze-status.service");
 const user_mock_create_service_1 = require("../services/user-mock-create.service");
+const update_user_shop_service_1 = require("../services/user-shop/update.user-shop.service");
 let UserController = class UserController {
-    constructor(listUsersService, updateUsersService, fetchUserByIdService, getAddressesByUserService, assignRolesInUserService, deleteUserService, apiResponseService, fetchUserInfoByIdService, updateUserInfoService, updatePhoneVerifiedService, updatePhoneService, uploadService, updateEmailService, fetchUserInfoByEmailService, fetchUserInfoByPhoneService, updateUserFreezeStatusService, userMockCreateService) {
+    constructor(listUsersService, updateUsersService, fetchUserByIdService, getAddressesByUserService, assignRolesInUserService, deleteUserService, apiResponseService, fetchUserInfoByIdService, updateUserInfoService, updatePhoneVerifiedService, updatePhoneService, uploadService, updateEmailService, fetchUserInfoByEmailService, fetchUserInfoByPhoneService, updateUserFreezeStatusService, userMockCreateService, updateUserShopService) {
         this.listUsersService = listUsersService;
         this.updateUsersService = updateUsersService;
         this.fetchUserByIdService = fetchUserByIdService;
@@ -55,6 +56,7 @@ let UserController = class UserController {
         this.fetchUserInfoByPhoneService = fetchUserInfoByPhoneService;
         this.updateUserFreezeStatusService = updateUserFreezeStatusService;
         this.userMockCreateService = userMockCreateService;
+        this.updateUserShopService = updateUserShopService;
     }
     async getUsers(query, userType, res) {
         const data = await this.listUsersService.execute(userType, query);
@@ -124,8 +126,14 @@ let UserController = class UserController {
         const data = await this.fetchUserInfoByPhoneService.execute(phone, Number(userType));
         return this.apiResponseService.successResponse(['User  fetched successfully'], data, res);
     }
+    async UpdateUserShop(userId, shopIds, res) {
+        const data = await this.updateUserShopService.execute(userId, shopIds);
+        return this.apiResponseService.successResponse(['User shop updated successfully'], data, res);
+    }
 };
 __decorate([
+    common_1.UseGuards(common_services_1.UserGuard),
+    common_services_1.HasPermissions([common_services_1.PermissionTypes.USER.GET], common_services_1.PermissionTypeEnum.hasPermission),
     common_1.Get('/all'),
     __param(0, common_services_1.Paginate()),
     __param(1, common_1.Query('userType')),
@@ -172,7 +180,6 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "getUserById", null);
 __decorate([
-    common_1.UseGuards(common_services_1.UserGuard),
     common_1.Get('/profile/info'),
     __param(0, common_services_1.CurrentUser('id')),
     __param(1, common_1.Res()),
@@ -277,6 +284,16 @@ __decorate([
     __metadata("design:paramtypes", [String, String, Object]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "getUserByPhone", null);
+__decorate([
+    common_1.UseGuards(common_services_1.UserGuard),
+    common_1.Put('/update/shop'),
+    __param(0, common_1.Query('id')),
+    __param(1, common_1.Body()),
+    __param(2, common_1.Res()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object, Object]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "UpdateUserShop", null);
 UserController = __decorate([
     common_1.Controller(),
     __metadata("design:paramtypes", [list_users_service_1.ListUsersService,
@@ -295,7 +312,8 @@ UserController = __decorate([
         fetch_user_by_email_service_1.FetchUserInfoByEmailService,
         fetch_user_by_phone_service_1.FetchUserInfoByPhoneService,
         update_user_freeze_status_service_1.UpdateUserFreezeStatusService,
-        user_mock_create_service_1.UserMockCreateService])
+        user_mock_create_service_1.UserMockCreateService,
+        update_user_shop_service_1.UpdateUserShopsService])
 ], UserController);
 exports.UserController = UserController;
 //# sourceMappingURL=user.controller.js.map
