@@ -162,7 +162,7 @@ export class UserController {
     );
   }
 
-  // @UseGuards(UserGuard)
+  @UseGuards(UserGuard)
   @Get('/profile/info')
   async getUserInfoById(
     @CurrentUser('id') userId: any,
