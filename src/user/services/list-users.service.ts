@@ -22,22 +22,24 @@ export class ListUsersService {
     const queryBuilder = this.usersRepository
       .createQueryBuilder('user')
       .leftJoinAndSelect('user.roles', 'roles')
-      .select([
-        'user.first_name',
-        'user.last_name',
-        'user.email',
-        'user.phone',
-        'user.gender_type',
-        'user.birthday',
-        'user.image_url',
-        'user.type',
-        'user.is_active',
-        'user.is_frozen',
-        'user.is_mobile_verified',
-        'user.is_email_verified',
-        'roles.name',
-        'roles.is_active',
-      ])
+      // .select([
+      //   'user.id',
+      //   'user.first_name',
+      //   'user.last_name',
+      //   'user.email',
+      //   'user.phone',
+      //   'user.gender_type',
+      //   'user.birthday',
+      //   'user.image_url',
+      //   'user.type',
+      //   'user.is_active',
+      //   'user.is_frozen',
+      //   'user.is_mobile_verified',
+      //   'user.is_email_verified',
+      //   'roles.id',
+      //   'roles.name',
+      //   'roles.is_active',
+      // ])
       .where('user.type = :user_type', {
         user_type: userType ? Number(userType) : UserType.USER,
       })
