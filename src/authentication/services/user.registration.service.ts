@@ -20,18 +20,20 @@ export class UserRegistrationService {
     const {
       password = '',
       type = UserType.USER,
-      email = undefined,
+      email = null,
       shopIds = undefined,
-      phone = undefined,
+      phone = null,
     } = userData;
-
-    const user = await this.userRepository.findOne({
-      where: [
-        { email, type },
-        { phone, type },
-      ],
-    });
-
+    let user = null;
+    if (phone) {
+      user = await this.userRepository.findOne({
+        where: [{ phone, type }],
+      });
+    } else {
+      user = await this.userRepository.findOne({
+        where: [{ email, type }],
+      });
+    }
     if (user) {
       throw new BadRequestException(
         'Account already exist for this email or phone number.',
