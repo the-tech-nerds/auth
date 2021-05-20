@@ -1,5 +1,5 @@
 import { InjectRepository } from '@nestjs/typeorm';
-import { getManager, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { hash } from 'bcryptjs';
 import { BadRequestException } from '@nestjs/common';
 import { EmailNotification } from '@the-tech-nerds/common-services';
@@ -52,38 +52,33 @@ export class UserRegistrationService {
         },
       });
     }
-    await getManager().transaction(
-      'SERIALIZABLE',
-      async transactionalEntityManager => {
-        const {
-          first_name: firstName,
-          last_name: lastName,
-          email: savedEmail,
-          phone: savedPhone,
-          image_url: imageUrl,
-          id,
-        } = await this.userRepository.save({
-          ...userData,
-          type,
-          password:
-            passwordToSave.length > 4
-              ? await hash(passwordToSave, 10)
-              : passwordToSave,
-          created_by: 1,
-        });
-        if (shopIds) {
-          await this.userShopMapping.execute(id, shopIds);
-        }
+    const {
+      first_name: firstName,
+      last_name: lastName,
+      email: savedEmail,
+      phone: savedPhone,
+      image_url: imageUrl,
+      id,
+    } = await this.userRepository.save({
+      ...userData,
+      type,
+      password:
+        passwordToSave.length > 4
+          ? await hash(passwordToSave, 10)
+          : passwordToSave,
+      created_by: 1,
+    });
+    if (shopIds) {
+      await this.userShopMapping.execute(id, shopIds);
+    }
 
-        return {
-          first_name: firstName,
-          last_name: lastName,
-          email: savedEmail,
-          image_url: imageUrl,
-          id,
-          phone: savedPhone,
-        };
-      },
-    );
+    return {
+      first_name: firstName,
+      last_name: lastName,
+      email: savedEmail,
+      image_url: imageUrl,
+      id,
+      phone: savedPhone,
+    };
   }
 }
