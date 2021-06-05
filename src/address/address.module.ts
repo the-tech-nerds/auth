@@ -9,9 +9,12 @@ import { ListAddressesService } from './services/list-addresses.service';
 import { UpdateAddressService } from './services/update-address.service';
 import { FetchAddressByIdService } from './services/fetch-address-by-id.service';
 import { DeleteAddressService } from './services/delete-address.service';
+import { Division } from './entities/division.entity';
+import { City } from './entities/city.entity';
+import { Area } from './entities/area.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Address])],
+  imports: [TypeOrmModule.forFeature([Address, Division, City, Area])],
   providers: [
     ListAddressesService,
     CreateAddressService,
