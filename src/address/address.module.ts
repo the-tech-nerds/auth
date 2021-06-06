@@ -12,6 +12,12 @@ import { DeleteAddressService } from './services/delete-address.service';
 import { Division } from './entities/division.entity';
 import { City } from './entities/city.entity';
 import { Area } from './entities/area.entity';
+import { ListCityService } from './services/city/fetch-cities.service';
+import { ListDivisionService } from './services/division/fetch-division.service';
+import { ListAreaService } from './services/area/area.service';
+import { CityController } from './controllers/city.controller';
+import { AreaController } from './controllers/area.controller';
+import { DivisionController } from './controllers/division.controller';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Address, Division, City, Area])],
@@ -22,7 +28,15 @@ import { Area } from './entities/area.entity';
     FetchAddressByIdService,
     DeleteAddressService,
     ApiResponseService,
+    ListCityService,
+    ListDivisionService,
+    ListAreaService,
   ],
-  controllers: [AddressController],
+  controllers: [
+    AddressController,
+    DivisionController,
+    CityController,
+    AreaController,
+  ],
 })
 export class AddressModule {}
