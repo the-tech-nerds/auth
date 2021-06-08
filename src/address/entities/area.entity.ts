@@ -15,10 +15,13 @@ export class Area {
   @Column()
   name: string;
 
+  @Column()
+  city_id: number;
+
   @JoinColumn({ name: 'city_id' })
   @ManyToOne(
     () => City,
     city => city.id,
   )
-  city_id: number;
+  city: City;
 }

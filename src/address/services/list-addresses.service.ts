@@ -11,6 +11,11 @@ export class ListAddressesService {
   ) {}
 
   async execute(): Promise<Address[]> {
-    return this.addressRepository.find();
+    return this.addressRepository.find({
+      where: {
+        deleted_at: null,
+      },
+      relations: ['city', 'area', 'division'],
+    });
   }
 }

@@ -43,8 +43,7 @@ export class AddressController {
     @Body() addressRequest: AddressRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    addressRequest.user_id = userId;
-    const data = await this.createAddressService.create(addressRequest);
+    const data = await this.createAddressService.create(userId, addressRequest);
     return this.apiResponseService.successResponse(
       ['Address stored successfully'],
       data as Address,
@@ -71,8 +70,11 @@ export class AddressController {
     @Body() addressRequest: AddressRequest,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    addressRequest.user_id = userId;
-    const data = await this.updateAddressService.execute(id, addressRequest);
+    const data = await this.updateAddressService.execute(
+      id,
+      userId,
+      addressRequest,
+    );
     return this.apiResponseService.successResponse(
       ['Address has been updated successfully'],
       data as Address,

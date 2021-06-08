@@ -1,12 +1,8 @@
 import { IsNotEmpty, IsBoolean, IsNumber } from 'class-validator';
 
 export class AddressRequest {
-  @IsNotEmpty({ message: 'User is required.' })
-  @IsNumber()
-  user_id: number;
-
   @IsNotEmpty({ message: 'Address title is required.' })
-  title: string;
+  name: string;
 
   details: string;
 

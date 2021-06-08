@@ -15,11 +15,12 @@ export class UpdateAddressService {
 
   async execute(
     id: number,
+    userId: number,
     addressRequest: AddressRequest,
   ): Promise<Address | undefined> {
     await this.addressRepository.update(id, {
       ...addressRequest,
-      updated_by: 1,
+      updated_by: userId,
       updated_at: LocalDateToUtc(new Date()),
     });
     return this.addressRepository.findOne(id);

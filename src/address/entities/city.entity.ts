@@ -17,12 +17,15 @@ export class City {
   @Column()
   name: string;
 
+  @Column()
+  division_id: number;
+
   @JoinColumn({ name: 'division_id' })
   @ManyToOne(
     () => Division,
     division => division.id,
   )
-  division_id: number;
+  division: Division;
 
   @OneToMany(
     () => Area,
