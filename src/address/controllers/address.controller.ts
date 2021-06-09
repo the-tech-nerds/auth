@@ -24,6 +24,9 @@ import { ListAddressesService } from '../services/list-addresses.service';
 import { UpdateAddressService } from '../services/update-address.service';
 import { FetchAddressByIdService } from '../services/fetch-address-by-id.service';
 import { DeleteAddressService } from '../services/delete-address.service';
+import { ListAddressesByUserIdService } from '../services/fetch-address-by-userId.service';
+import { MakeDefaultAddressService } from '../services/make-default.service';
+import { DefaultAddressByUserIdService } from '../services/default-address.service';
 
 @Controller()
 export class AddressController {
@@ -34,6 +37,9 @@ export class AddressController {
     private readonly fetchAddressByIdService: FetchAddressByIdService,
     private readonly deleteAddressService: DeleteAddressService,
     private readonly apiResponseService: ApiResponseService,
+    private readonly fetchUserAddress: ListAddressesByUserIdService,
+    private readonly makeDefaultAddress: MakeDefaultAddressService,
+    private readonly defaultAddressByUser: DefaultAddressByUserIdService,
   ) {}
 
   @UseGuards(UserGuard)
@@ -82,6 +88,7 @@ export class AddressController {
     );
   }
 
+  @UseGuards(UserGuard)
   @Get('/:id')
   async getAddressById(
     @Param('id') id: number,
@@ -95,6 +102,50 @@ export class AddressController {
     );
   }
 
+  @UseGuards(UserGuard)
+  @Get('/user/all')
+  async getAddressByUserId(
+    @CurrentUser('id') userId: number,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    const data = await this.fetchUserAddress.execute(userId);
+    return this.apiResponseService.successResponse(
+      ['Address fetched successfully'],
+      data as Address[],
+      res,
+    );
+  }
+
+  @UseGuards(UserGuard)
+  @Put('/default/:id')
+  async udateDefaultAddress(
+    @Param('id') id: number,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    const data = await this.makeDefaultAddress.execute(id);
+    return this.apiResponseService.successResponse(
+      ['Update default address'],
+      data as Address,
+      res,
+    );
+  }
+
+  @UseGuards(UserGuard)
+  @Get('/user/default')
+  async getDefaultAddress(
+    @CurrentUser('id') userId: number,
+    @Res() res: Response,
+  ): Promise<Response<ResponseModel>> {
+    console.log(userId);
+    const data = await this.defaultAddressByUser.execute(userId);
+    return this.apiResponseService.successResponse(
+      ['fetch default address'],
+      data as Address,
+      res,
+    );
+  }
+
+  @UseGuards(UserGuard)
   @Delete('/:id')
   async DeleteAddress(
     @Param('id') id: number,

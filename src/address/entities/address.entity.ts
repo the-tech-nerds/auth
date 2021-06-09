@@ -18,12 +18,15 @@ export class Address extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Column()
+  user_id: number;
+
   @JoinColumn({ name: 'user_id' })
   @ManyToOne(
     () => User,
     user => user.id,
   )
-  user_id: number;
+  user: User;
 
   @Column()
   name: string;

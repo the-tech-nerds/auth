@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsBoolean, IsNumber } from 'class-validator';
+import { IsNotEmpty, IsNumber } from 'class-validator';
 
 export class AddressRequest {
   @IsNotEmpty({ message: 'Address title is required.' })
@@ -29,6 +29,5 @@ export class AddressRequest {
   @IsNumber()
   long: number;
 
-  @IsBoolean({ message: 'Is default should be boolean' })
-  is_default: boolean;
+  is_default?: boolean;
 }

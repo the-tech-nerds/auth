@@ -7,7 +7,6 @@ import { AddressController } from './controllers/address.controller';
 import { CreateAddressService } from './services/create-address.service';
 import { ListAddressesService } from './services/list-addresses.service';
 import { UpdateAddressService } from './services/update-address.service';
-import { FetchAddressByIdService } from './services/fetch-address-by-id.service';
 import { DeleteAddressService } from './services/delete-address.service';
 import { Division } from './entities/division.entity';
 import { City } from './entities/city.entity';
@@ -18,6 +17,10 @@ import { ListAreaService } from './services/area/area.service';
 import { CityController } from './controllers/city.controller';
 import { AreaController } from './controllers/area.controller';
 import { DivisionController } from './controllers/division.controller';
+import { MakeDefaultAddressService } from './services/make-default.service';
+import { FetchAddressByIdService } from './services/fetch-address-by-id.service';
+import { ListAddressesByUserIdService } from './services/fetch-address-by-userId.service';
+import { DefaultAddressByUserIdService } from './services/default-address.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Address, Division, City, Area])],
@@ -31,6 +34,9 @@ import { DivisionController } from './controllers/division.controller';
     ListCityService,
     ListDivisionService,
     ListAreaService,
+    MakeDefaultAddressService,
+    ListAddressesByUserIdService,
+    DefaultAddressByUserIdService,
   ],
   controllers: [
     AddressController,
