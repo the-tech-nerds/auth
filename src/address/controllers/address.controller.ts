@@ -136,7 +136,6 @@ export class AddressController {
     @CurrentUser('id') userId: number,
     @Res() res: Response,
   ): Promise<Response<ResponseModel>> {
-    console.log(userId);
     const data = await this.defaultAddressByUser.execute(userId);
     return this.apiResponseService.successResponse(
       ['fetch default address'],

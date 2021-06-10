@@ -44,7 +44,7 @@ export class Address extends BaseEntity {
   division_id: number;
 
   @Column({ nullable: true })
-  postcode: number;
+  postcode: string;
 
   @Column()
   contact_no: string;

@@ -18,7 +18,7 @@ export class AddressRequest {
   @IsNumber()
   division_id: number;
 
-  postcode: number;
+  postcode?: string;
 
   @IsNotEmpty({ message: 'Contact Number is required.' })
   contact_no: string;
