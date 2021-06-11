@@ -7,6 +7,9 @@ import {
 } from 'typeorm';
 import BaseEntity from '../../utils/entities/base-entity';
 import { User } from '../../user/entities/user.entity';
+import { City } from './city.entity';
+import { Area } from './area.entity';
+import { Division } from './division.entity';
 
 export type UserType = 'admin' | 'user';
 
@@ -15,12 +18,15 @@ export class Address extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Column()
+  user_id: number;
+
   @JoinColumn({ name: 'user_id' })
   @ManyToOne(
     () => User,
     user => user.id,
   )
-  user_id: number;
+  user: User;
 
   @Column()
   name: string;
@@ -38,7 +44,7 @@ export class Address extends BaseEntity {
   division_id: number;
 
   @Column({ nullable: true })
-  postcode: number;
+  postcode: string;
 
   @Column()
   contact_no: string;
@@ -54,4 +60,25 @@ export class Address extends BaseEntity {
 
   @Column({ default: false })
   is_active: boolean;
+
+  @JoinColumn({ name: 'city_id' })
+  @ManyToOne(
+    () => City,
+    city => city.id,
+  )
+  city: City;
+
+  @JoinColumn({ name: 'area_id' })
+  @ManyToOne(
+    () => Area,
+    area => area.id,
+  )
+  area: City;
+
+  @JoinColumn({ name: 'division_id' })
+  @ManyToOne(
+    () => Division,
+    division => division.id,
+  )
+  division: Division;
 }

@@ -1,26 +1,30 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { IsNull, Repository } from 'typeorm';
 import { LocalDateToUtc } from 'src/utils/date-time-conversion/date-time-conversion';
-// eslint-disable-next-line import/extensions
-import { AddressRequest } from '../requests/address.request';
 import { Address } from '../entities/address.entity';
 
 @Injectable()
-export class UpdateAddressService {
+export class MakeDefaultAddressService {
   constructor(
     @InjectRepository(Address)
     private addressRepository: Repository<Address>,
   ) {}
 
-  async execute(
-    id: number,
-    userId: number,
-    addressRequest: AddressRequest,
-  ): Promise<Address | undefined> {
+  async execute(id: number): Promise<Address | undefined> {
+    const address = await this.addressRepository.findOne({
+      is_default: true,
+      deleted_at: IsNull(),
+    });
+    if (address) {
+      await this.addressRepository.save({
+        ...address,
+        is_default: false,
+        updated_at: LocalDateToUtc(new Date()),
+      });
+    }
     await this.addressRepository.update(id, {
-      ...addressRequest,
-      updated_by: userId,
+      is_default: true,
       updated_at: LocalDateToUtc(new Date()),
     });
     return this.addressRepository.findOne(id);

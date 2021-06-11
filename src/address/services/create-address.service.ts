@@ -11,10 +11,18 @@ export class CreateAddressService {
     private addressRepository: Repository<Address>,
   ) {}
 
-  async create(addressRequest: AddressRequest): Promise<Address> {
+  async create(
+    userId: number,
+    addressRequest: AddressRequest,
+  ): Promise<Address> {
+    const address = await this.addressRepository.findOne({
+      user_id: userId,
+    });
     return this.addressRepository.save({
       ...addressRequest,
-      created_by: 1,
+      user_id: userId,
+      is_default: !address,
+      created_by: userId,
     });
   }
 }

@@ -1,8 +1,12 @@
-import { IsNotEmpty, IsNumber } from 'class-validator';
+import { IsNotEmpty, IsBoolean, IsNumber } from 'class-validator';
 
-export class AddressRequest {
+export class CityRequest {
+  @IsNotEmpty({ message: 'User is required.' })
+  @IsNumber()
+  user_id: number;
+
   @IsNotEmpty({ message: 'Address title is required.' })
-  name: string;
+  title: string;
 
   details: string;
 
@@ -18,7 +22,7 @@ export class AddressRequest {
   @IsNumber()
   division_id: number;
 
-  postcode?: string;
+  postcode: number;
 
   @IsNotEmpty({ message: 'Contact Number is required.' })
   contact_no: string;
@@ -29,5 +33,6 @@ export class AddressRequest {
   @IsNumber()
   long: number;
 
-  is_default?: boolean;
+  @IsBoolean({ message: 'Is default should be boolean' })
+  is_default: boolean;
 }
